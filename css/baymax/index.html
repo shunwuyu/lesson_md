@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>大白</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    height: 100vh;
+    /* width: 50vw; */
+    /* 环形渐变 */
+    background: radial-gradient(circle at center, #fff, #fff 50%, #aaa);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .baymax {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    /* height: 1.5em; */
+    border-bottom: 1.5em solid #000;
+    background-color: black;
+    transform: translate(-50%, -40%);
+  }
+  .baymax:before {
+    content: "";
+    width: 12em;
+    height: 12em;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    top: -6em;
+    left: -9em;
+    background: linear-gradient(to bottom, #efefef, #efefef 50%, #000 50%,
+     #000);
+    background-size: 200% 200%;
+    background-position: 0 -100%;
+    animation: blink 6s infinite;
+  }
+  @keyframes blink {
+    0%, 50% {
+      background-position: 0 100%;
+    }
+    85%, 95% {
+      background-position: 0 75%;
+    }
+    100% {
+      background-position: 0 100%;
+    }
+  }
+
+  .baymax:after {
+    content: "";
+    width: 12em;
+    height: 12em;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    top: -6em;
+    right: -9em;
+  }
+  </style>
+</head>
+<body>
+<div class="baymax">
+  dfsadsfdsadfdasfadsf
+</div>
+<script>
+const name = "朱泉春";
+console.log(name);
+// name = "大富大贵朱";
+const zqc = {
+  name: "朱泉春",
+  single: true
+};
+zqc.sex = "男"; //js 动态性 修改了对象 
+zqc = "朱泉春";
+</script>
+</body>
+</html>
