@@ -42,5 +42,12 @@
   })   
   触发   
   ev.dispatch(eve);   
-- 事件移除   
+- 事件移除 
+- 事件类型
+  - ui
+    load error resize scroll
+  - 焦点事件
+    blur focus  
+  - 鼠标 滚轮事件
+    click dbclick mousedown mouseenter mouseleave mousemove mouseover 
   
