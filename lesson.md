@@ -1,6 +1,6 @@
 [qq]() /algorithm/qq
 
-
+8. ~~[算法](qq)  线性表 /algorithm/qq
 7. ~~[git 基本操作](https://v.youku.com/v_show/id_XNDA4NjExMDk0NA==.html?spm=a2hzp.8244740.0.0)~~
 6. ~~[美团登陆]~~  css/
 5. ~~[starwars]~~  css/starwars
