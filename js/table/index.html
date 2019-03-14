@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>table</title>
+</head>
+<body>
+  <table>
+      <!-- <thead>
+      <tr>
+          <th>name</th>
+          <th>height</th>
+          <th>place</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td>Monte Falco</td>
+          <td>1658</td>
+          <td>Parco Foreste Casentinesi</td>
+      </tr>
+      <tr>
+          <td>Monte Falterona</td>
+          <td>1654</td>
+          <td>Parco Foreste Casentinesi</td>
+      </tr>
+      </tbody> -->
+  </table>    
+<script>
+let mountains = [
+  { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
+  { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
+  { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
+  { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
+  { name: "Monte Amiata", height: 1738, place: "Siena" }
+];
+
+function generateTableHead(table, data) {
+  let thead = table.createTHead();
+  let row = thead.insertRow();
+  for (let key of data) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
+}
+
+function generateTable(table, data) {
+  for (let element of data) {
+    let row = table.insertRow();
+    for (key in element) {
+      let cell = row.insertCell();
+      let text = document.createTextNode(element[key]);
+      cell.appendChild(text);
+    }
+  }
+}
+let table = document.querySelector("table");
+let data = Object.keys(mountains[0]);
+generateTable(table, mountains);
+generateTableHead(table, data);
+
+</script>
+</body>
+</html>
