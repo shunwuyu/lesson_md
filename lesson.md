@@ -1,4 +1,5 @@
-[qq]() /algorithm/qq
+[prototype]
+[hongbao]
 
 
 8. ~~new 的过程及Function 类~~
