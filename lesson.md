@@ -1,5 +1,6 @@
 [prototype]
 [hongbao]
+[table]
 
 
 8. ~~new 的过程及Function 类~~
