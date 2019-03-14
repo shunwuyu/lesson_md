@@ -1,6 +1,9 @@
-[qq]() /algorithm/qq
+[prototype]
+[hongbao]
+[table]
 
-8. ~~[算法](qq)  线性表 /algorithm/qq
+9. ~~[算法](qq)  线性表 /algorithm/qq
+8. ~~new 的过程及Function 类~~
 7. ~~[git 基本操作](https://v.youku.com/v_show/id_XNDA4NjExMDk0NA==.html?spm=a2hzp.8244740.0.0)~~
 6. ~~[美团登陆]~~  css/
 5. ~~[starwars]~~  css/starwars

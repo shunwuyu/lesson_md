@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>img lazy load</title>
+  <style>
+    .lazy-container {}
+
+    .lazy-container img {
+      width: 750px;
+      height: 384px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lazy-container">
+    <img class="lazy-image" src="http://p0.meituan.net/codeman/ae846a35c5f42565206c3c7b47be3a5310601.png"
+      data-src="http://p0.meituan.net/msmerchant/c9a9788dbadf12d5cb08106fff5fd542328833.png@736w_416h_1e_1c" alt="">
+    <img class="lazy-image" src="http://p0.meituan.net/codeman/ae846a35c5f42565206c3c7b47be3a5310601.png"
+      data-src="http://p0.meituan.net/msmerchant/1a8aaac8cfcf76fae83c2ecd6405bd4c1457315.jpg@736w_416h_1e_1c" alt="">
+    <img class="lazy-image" src="http://p0.meituan.net/codeman/ae846a35c5f42565206c3c7b47be3a5310601.png"
+      data-src="http://p1.meituan.net/codeman/826a5ed09dab49af658c34624d75491861404.jpg" alt="">
+    <img class="lazy-image" src="http://p0.meituan.net/codeman/ae846a35c5f42565206c3c7b47be3a5310601.png"
+      data-src="http://p0.meituan.net/codeman/daa73310c9e57454dc97f0146640fd9f69772.jpg" alt="">
+    <img class="lazy-image" src="http://p0.meituan.net/codeman/ae846a35c5f42565206c3c7b47be3a5310601.png"
+      data-src="http://p0.meituan.net/codeman/a97baf515235f4c5a2b1323a741e577185048.jpg" alt="">
+    <img class="lazy-image" src="http://p0.meituan.net/codeman/ae846a35c5f42565206c3c7b47be3a5310601.png"
+      data-src="https://p1.meituan.net/1440.590/codeman/d2ab674fa0e4c875865e524d82fe15a34372569.png" alt="">
+    <img class="lazy-image" src="http://p0.meituan.net/codeman/ae846a35c5f42565206c3c7b47be3a5310601.png"
+      data-src="http://p0.meituan.net/codeman/33ff80dc00f832d697f3e20fc030799560495.jpg" alt="">
+    <img class="lazy-image" src="http://p0.meituan.net/codeman/ae846a35c5f42565206c3c7b47be3a5310601.png"
+      data-src="https://p1.meituan.net/travelcube/01d2ab1efac6e2b7adcfcdf57b8cb5481085686.png" alt="">
+  </div>
+  <script>
+    // 时间间隔
+    const wait = 200;
+    let now = new Date().getTime();
+
+    function traversingImg() {
+      const imageElements =
+      document.querySelectorAll('.lazy-image');
+      let len = imageElements.length;
+      for (let i = 0; i < len; i++) {
+        let imageElement = imageElements[i];
+        const rect = imageElement.getBoundingClientRect() // 出现在视野的时候加载图片  
+        console.log('-----', rect.bottom, rect.top);      
+        if (rect.bottom >= 0 && rect.top < document.documentElement.clientHeight) {
+          let img = new Image();
+          img.src = imageElement.dataset.src;
+          img.onload = function () {
+            console.log(rect.top, document.documentElement.clientHeight, '加载了第', i, '张图片', len);
+            imageElement.src = imageElement.dataset.src;
+          }
+          img.onerror = function() {
+            console.log('图片加载出错');
+          }
+          // 移除掉已经显示的
+          imageElement.classList.remove('lazy-image');
+        }
+      }
+    }
+    function inViewShow() {
+      let scrollTimeStamp = new Date().getTime();
+      if (scrollTimeStamp - now > wait) {
+        console.log('页面正在滚动');
+        traversingImg();
+        now = scrollTimeStamp;
+      }
+    }
+    // inViewShow();
+    traversingImg();
+    document.addEventListener('scroll', inViewShow)
+  </script>
+</body>
+
+</html>
