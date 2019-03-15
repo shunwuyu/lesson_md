@@ -1,0 +1,374 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: microsoft yahei;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-size: .75rem;
+}
+.view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.view.scenarios {
+  background-color: #bf8553;
+}
+/* 页面 顶部 title 容器 */
+.view-title-c {
+  position: relative;
+  padding-left: .625rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+/* title 左边白色竖线 */
+.view-title-pre {
+  position: absolute;
+  width: .15625rem;
+  height: 100%;
+  left: 0rem;
+  top: 0;
+  background-color: #fff;
+  animation: vbarin .5s 0s linear forwards;
+}
+@keyframes vbarin{
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+      transform: scaleY(1);
+  }
+}
+.view-title-i {
+  opacity: 0;
+  animation: titlein .25s 0s linear forwards;
+}
+@keyframes titlein {
+  /* 往右 */
+  0% {
+    transform: translate(6rem,0rem);
+    opacity: 0;
+  }
+  /* 右往左的一个动画 */
+  100% {
+    transform: translate(0rem,0rem);
+    opacity: 1;
+  }
+}
+.view-title {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 700;
+}
+.view-title-desc {
+  color: #fbf7f4;
+}
+/* 动画 part1 */
+/* part1 背后的背景 */
+.scenario-bg {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.scenario.work .scenario-bg {
+  width: 18rem;
+  height: 17.90625rem;
+  left: 1.375rem;
+  bottom: 7.875rem;
+  transform: rotateZ(90deg);
+  transform-origin: 8.625rem 38.71875rem;
+   background-size: 100% 100%;
+   background-repeat: no-repeat;
+   background-image: url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/bg1_af877d1.png);
+   animation: roatein-s 3s 0s ease-in-out forwards;
+}
+.work-man-c {
+  position: absolute;
+  left: 3.140625rem;
+  bottom: 9.0625rem;
+  width: 13.71875rem;
+  height: 10.90625rem;
+  transform: rotateZ(90deg);
+  transform-origin: 6.859375rem 32.90625rem;
+  animation: roatein-s 3s .2s ease-in-out forwards;
+}
+.work-man {
+  background-image:
+  url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/front1_d69ae31.png);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+@keyframes roatein-s {
+  0% {
+    transform: rotateZ(90deg);
+    opacity: 0;
+}
+19.2% {
+    transform: rotateZ(-4deg);
+    opacity: 1;
+}
+25.6% {
+    transform: rotateZ(2deg);
+    opacity: 1;
+}
+32% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+}
+68% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+}
+74.4% {
+    transform: rotateZ(2deg);
+    opacity: 1;
+}
+100% {
+    transform: rotateZ(-90deg);
+    opacity: 0;
+}
+}
+.paper {
+  position: absolute;
+  background-size: 3.59375rem 3.5625rem;
+  background-image: url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/papers_a85878e.png);
+  background-repeat: no-repeat;
+}
+.paper.paper0 {
+  width: 3.2rem;
+  height: 2rem;
+  background-position: -1rem -2rem;
+  left: .625rem;
+  top: 6rem;
+}
+.paper.paper1 {
+  width: 3.2rem;
+  height: 1rem;
+  background-position: 0rem -.9rem;
+  left: -.75rem;
+  top: -1.25rem;
+  animation: paper1wander 1.5s 1s ease-in-out 4 alternate forwards;
+}
+@keyframes paper1wander {
+  0% {
+    left: -.75rem;
+}
+50% {
+    left: -2rem;
+}
+100% {
+    left: 0rem;
+}
+}
+.paper.paper2 {
+  width: 3.2rem;
+  height: 1rem;
+  background-position: -1rem 0rem;
+  left: .125rem;
+  top: -2rem;
+  animation: paper2wander 1s 1s ease-in-out 4 alternate forwards;
+}
+@keyframes paper2wander{
+  0% {
+    left: .125rem;
+}
+50% {
+    left: 2rem;
+}
+100% {
+    left: 0rem;
+}
+}
+/* part 2 */
+/* 背景 */
+.scenario.relax .scenario-bg {
+  width: 18.1875rem;
+  height: 16.25rem;
+  left: 1.125rem;
+  bottom: 9.75rem;
+  background-image: url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/bg2_ce56c6e.png);
+  animation: roatein-s 3s 2.8s ease-in-out forwards;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform: rotateZ(90deg);
+  transform-origin: 8.875rem 38.9375rem;
+}
+/* 沙发上的人 容器 */
+.relax-man-c {
+  position: absolute;
+  left: 3.375rem;
+  bottom: 8.5rem;
+  width: 13.625rem;
+  height: 10.375rem;
+  animation: roatein-s 3s 3.1s ease-in-out forwards;
+  transform: rotateZ(90deg);
+  transform-origin: 6.625rem 31.8125rem; 
+}
+/* 人 但是 只有身子 */
+.relax-man {
+  background-image: url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/relax-man_208d774.png);
+  width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+/* 腿 */
+.leg {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+/* 腿 */
+.leg.leg1 {
+  background-image: url(
+    data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHEAAAAYCAMAAAD6W+JwAAAAk1BMVEUAAACKVk+JVk+JVk+JVk+JVk+JVk+JVk+JVk+JVk+JVk+JVk+JVk+JVk+JVk+LWFFLYk//7eKJVk9uW0+8mI90Wk9eXk/55ttPYU9WYE9nXE97WU+DV0+GVk+pgXh+WE/039Ti0cbIp52xioGJkIDw2s/bvrSZn4+gdGyTYluMWlLCvrC4tqi5lItufWxfcmBRZlSKIe2nAAAAEHRSTlMAzIjuqjN3Zt2ZIkRVEbvugruMMgAAAVZJREFUSMe90wtygjAQgOEkBkIAMSwi74egVunz/qframWmtjBDa+Q7AH+SZcmZhAGLMwtRSj2Pcy4lY8wUwnUcw7aX5B5eHvwW9rIsq6o8L4rix5EsyiUewTXsPxdppiaKkyTZoDRNAzxLlfd1ypkwphetUP1bjCfAelUAotKd9toQqvvFGK6wyidcdQmB0gOzYQHi66u24QrTZMgUzu2obUiVPnEGTHK6glsr+e3uDmyUzmQOcDq26+Zw2O7rCNXbQ1N2wEhPQKK0Jnf+gLoE2RcZxEqrj8gf0oK4FnmuNHseLEZHuM7SypRmT/6gfUd1L0dv5w9rwO1/1ZmK0YkSZEIyTxE1l0nyQqEZ5oj2l6VchEq3F3/MEZ/VgFTpth0ttquHjPHdH7UGQmiu0CxjRO2C2BDM+KjRyXvEo76NBusSHEIh0K1cD3stOzBxN2A+Fsf9/wSl8p3xIJEAtQAAAABJRU5ErkJggg==
+  );
+  width: 3.53125rem;
+  height: .75rem;
+  top: 6.1rem;
+  left: 6.02rem;
+}
+/* 会点一下 */
+.leg.leg2-1 {
+  background-image: url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/leg2-1_beedaf8.png);
+  width: 2.65625rem;
+  height: 2.21875rem;
+  top: 4.5rem;
+  left: 6rem;
+  animation: legrise2 .5s 4s ease-in-out 1 forwards;
+}
+@keyframes  legrise2 {
+  0% {
+    transform: rotateZ(15deg) translateX(0.1rem);
+  }
+  100% {
+    transform: rotateZ(4deg) translateX(0rem);
+  }
+}
+.scenario.restaurant .scenario-bg {
+  width: 17.53125rem;
+  height: 16.125rem;
+  left: .625rem;
+  bottom: 9.25rem;
+  background-image: url(http://s0.map.bdimg.com/zt/y2015/waimaibear/mobile/images/bg3_afa3f85.png);
+  transform: rotateZ(90deg);
+  transform-origin: 9.375rem 38.3125rem;
+  animation: roatein-s-2 3s 5.8s ease-in-out forwards;
+}
+/* 一群人的 容器 */
+.scenario.restaurant .people-c {
+  transform: rotateZ(90deg);
+  transform-origin: 7.5rem 29.46875rem;
+  animation: roatein-s-2 3s 6.1s ease-in-out forwards;
+  position: absolute;
+    width: 15.71875rem;
+    height: 7.15625rem;
+    left: 2.5rem;
+    bottom: 9.375rem;
+}
+@keyframes roatein-s-2{
+  0% {
+    transform: rotateZ(90deg);
+    opacity: 0;
+}
+19.2% {
+    transform: rotateZ(-4deg);
+    opacity: 1;
+}
+25.6% {
+    transform: rotateZ(2deg);
+    opacity: 1;
+}
+32% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+}
+100% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+}
+}
+/* 人 图片 */
+.people {
+  background-image: url(http://s0.map.bdimg.com/zt/y2015/waimaibear/mobile/images/guys_8077b6d.png);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+/* 第一个人 */
+.people .word.word1 {
+  animation: shuffle 1s 6.2s linear infinite;
+}
+.word {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.word.word1 {
+  width: 2.46875rem;
+  height: 2.28125rem;
+  top: -1rem;
+  left: -.25rem;
+  animation: shuffle 1s 6.2s linear infinite;
+  background-image: url(http://s0.map.bdimg.com/zt/y2015/waimaibear/mobile/images/word-bubble4_285f05d.png);
+}
+.word.word2 {
+  animation: shuffle 1s 6.3s linear infinite alternate;
+  background-image: url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/word-bubble3_87b9a21.png);
+  width: 3.59375rem;
+  height: 3.25rem;
+  top: -3.5rem;
+  left: 3.5rem;
+}
+.word.word3 {
+  animation: shuffle 1s 6.3s linear infinite alternate;
+  background-image: url(http://s0.map.bdimg.com/zt/y2015/waimaibear/mobile/images/word-bubble2_f2a9db8.png);
+  width: 2.40625rem;
+  height: 2.1875rem;
+  left: 9.125rem;
+  top: -1.8rem;
+}
+.word.word4 {
+  animation: shuffle 1s 6.3s linear infinite alternate;
+  width: 2.875rem;
+  height: 2.59375rem;
+  left: 12.5rem;
+  top: -2.5rem;
+}
+@keyframes shuffle{
+  0% {
+    transform: translate3d(0rem,0rem,0rem);
+}
+25% {
+    transform: translate3d(0.1rem,-.1rem,0rem);
+}
+50% {
+    transform: translate3d(-.1rem,-.1rem,0rem);
+}
+100% {
+    transform: translate3d(0rem,0rem,0rem);
+}
+}
+/* 底部半圆背景 */
+.sphere {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 11.125rem;
+  background-image: url(http://s0.map.bdimg.com/zt/y2015/waimaibear/mobile/images/sphere1_9828ebb.png);
+  background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
