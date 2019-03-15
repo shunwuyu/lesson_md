@@ -38,7 +38,7 @@ linkedList.append(1);
 linkedList.append(7);
 linkedList.append(5);
 linkedList.append(8);
-linkedList.append(9);
+linkedList.append(9); 
 linkedList.append(2);
 linkedList.append(4);
 console.log(linkedList.toString().join(''));
