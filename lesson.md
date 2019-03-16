@@ -1,6 +1,9 @@
 [prototype]
 [table]
 [camer]
+
+12. ~~camer  html5/camera~~
+11. ~~table MDN  /js/table~~
 10. ~~[算法](红包)~~
 9. ~~[算法](qq)  线性表 /algorithm/qq
 8. ~~new 的过程及Function 类~~
