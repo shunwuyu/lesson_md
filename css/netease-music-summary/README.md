@@ -15,5 +15,5 @@
   往右上角方向 缩小 一半
   transform: scale(.5);
   transform-origin: top right;  
-- letter-spacing
+- letter-spacing  文字间的间距
 - linear-gradient(0deg,#f8d7cf,#fff 50%,#fff)
