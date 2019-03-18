@@ -263,3 +263,329 @@ em, i {
 .view.slide-3 {
   background-image: linear-gradient(0deg,#f8d7cf,#fff 50%,#fff);
 }
+/* 最喜欢的歌手 */
+.id18_juian {
+  background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/juan3.1c58874dbcd7f233bf027e9332ea6d96.png) no-repeat;
+  right: 0;
+  top: 0;
+  width: 483px;
+  height: 159px;
+  display: block;
+  position: absolute;
+  transform: scale(.5);
+  transform-origin: top right;
+  visibility: hidden;
+}
+.view.favourite .z-juanAni2 {
+  visibility: visible;
+  animation: juanAnimation .5s steps(1) reverse,
+  juanAnimation 1s steps(1) 1s forwards;
+}
+
+@keyframes juanAnimation {
+	0% {
+		background-position: 0 0
+	}
+
+	3.70% {
+		background-position: -483px 0
+	}
+
+	7.41% {
+		background-position: -966px 0
+	}
+
+	11.11% {
+		background-position: -1449px 0
+	}
+
+	14.81% {
+		background-position: 0 -159px
+	}
+
+	18.52% {
+		background-position: -483px -159px
+	}
+
+	22.22% {
+		background-position: -966px -159px
+	}
+
+	25.93% {
+		background-position: -1449px -159px
+	}
+
+	29.63% {
+		background-position: 0 -318px
+	}
+
+	33.33% {
+		background-position: -483px -318px
+	}
+
+	37.04% {
+		background-position: -966px -318px
+	}
+
+	40.74% {
+		background-position: -1449px -318px
+	}
+
+	44.44% {
+		background-position: 0 -477px
+	}
+
+	48.15% {
+		background-position: -483px -477px
+	}
+
+	51.85% {
+		background-position: -966px -477px
+	}
+
+	55.56% {
+		background-position: -1449px -477px
+	}
+
+	59.26% {
+		background-position: 0 -636px
+	}
+
+	62.96% {
+		background-position: -483px -636px
+	}
+
+	66.67% {
+		background-position: -966px -636px
+	}
+
+	70.37% {
+		background-position: -1449px -636px
+	}
+
+	74.07% {
+		background-position: 0 -795px
+	}
+
+	77.78% {
+		background-position: -483px -795px
+	}
+
+	81.48% {
+		background-position: -966px -795px
+	}
+
+	85.19% {
+		background-position: -1449px -795px
+	}
+
+	88.89% {
+		background-position: 0 -954px
+	}
+
+	92.59% {
+		background-position: -483px -954px
+	}
+
+	96.30% {
+		background-position: -966px -954px
+	}
+
+	100.00% {
+		background-position: -1449px -954px
+	}
+}
+@keyframes juanAnimation2 {
+	0% {
+		background-position: 0 0
+	}
+
+	3.70% {
+		background-position: -483px 0
+	}
+
+	7.41% {
+		background-position: -966px 0
+	}
+
+	11.11% {
+		background-position: -1449px 0
+	}
+
+	14.81% {
+		background-position: 0 -159px
+	}
+
+	18.52% {
+		background-position: -483px -159px
+	}
+
+	22.22% {
+		background-position: -966px -159px
+	}
+
+	25.93% {
+		background-position: -1449px -159px
+	}
+
+	29.63% {
+		background-position: 0 -318px
+	}
+
+	33.33% {
+		background-position: -483px -318px
+	}
+
+	37.04% {
+		background-position: -966px -318px
+	}
+
+	40.74% {
+		background-position: -1449px -318px
+	}
+
+	44.44% {
+		background-position: 0 -477px
+	}
+
+	48.15% {
+		background-position: -483px -477px
+	}
+
+	51.85% {
+		background-position: -966px -477px
+	}
+
+	55.56% {
+		background-position: -1449px -477px
+	}
+
+	59.26% {
+		background-position: 0 -636px
+	}
+
+	62.96% {
+		background-position: -483px -636px
+	}
+
+	66.67% {
+		background-position: -966px -636px
+	}
+
+	70.37% {
+		background-position: -1449px -636px
+	}
+
+	74.07% {
+		background-position: 0 -795px
+	}
+
+	77.78% {
+		background-position: -483px -795px
+	}
+
+	81.48% {
+		background-position: -966px -795px
+	}
+
+	85.19% {
+		background-position: -1449px -795px
+	}
+
+	88.89% {
+		background-position: 0 -954px
+	}
+
+	92.59% {
+		background-position: -483px -954px
+	}
+
+	96.30% {
+		background-position: -966px -954px
+	}
+
+	100.00% {
+		background-position: -1449px -954px
+	}
+}
+
+/*  */
+.favourite-songs {
+  position: relative;
+}
+.manwrap {
+  position: absolute;
+  width: 486px;
+  height: 494px;
+  right: 0;
+  bottom: 0;
+  transform: scale(0.5);
+}
+.man {
+  position: absolute;
+  width: 486px;
+  height: 494px;
+  top: 0;
+  left: 0;
+  background:  url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/man.fafe9d20caf92e672faf6cac0506c94b.png) no-repeat;
+}
+.shoubi {
+  position: absolute;
+    left: 70px;
+    top: -115px;
+    background-image: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/shoubi.dfdeb7747a98b98266ff5b0713024c87.png);
+    width: 246px;
+    height: 270px;
+    animation: p14-shoubi 1.3s steps(12) infinite;
+}
+@keyframes p14-shoubi{
+  0% {
+    background-position: 0 0;
+}
+/* 8.33% {
+    background-position: -246px 0;
+}
+16.67% {
+    background-position: -492px 0;
+}
+25% {
+    background-position: -738px 0;
+}
+33.33% {
+    background-position: -984px 0;
+}
+41.67% {
+    background-position: -1230px 0;
+}
+50% {
+    background-position: -1476px 0;
+}
+58.33% {
+    background-position: -1722px 0;
+}
+66.67% {
+    background-position: -1968px 0;
+}
+75% {
+    background-position: -2214px 0;
+}
+83.33% {
+    background-position: -2460px 0;
+}
+91.67% {
+    background-position: -2706px 0;
+} */
+100% {
+    background-position: -2952px 0;
+}
+}
+.tou {
+  position: absolute;
+  left: 220px;
+  top: -5px;
+  width: 94px;
+  height: 101px;
+  background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/tou.763e9f0545a28bfbc642f5d8db77c9d5.png) no-repeat;
+  -webkit-animation: p14-tou 1.3s steps(1) infinite;
+  animation: p14-tou 1.3s steps(1) infinite;
+}

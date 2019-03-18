@@ -1,3 +1,4 @@
+[source](http://m2.link/c/year2018/bVGb4/?uid=F841CF506866B7C3977528147BF59ED3&full_screen=true&keep_status_bar=true&status_bar_type=dark&userid=66919655)
 ## css
 - background-size :  
   设置背景图像的高度和宽度。  
@@ -17,3 +18,6 @@
   transform-origin: top right;  
 - letter-spacing  文字间的间距
 - linear-gradient(0deg,#f8d7cf,#fff 50%,#fff)
+
+- animation-timing-function: steps
+  但有的时候某些效果不需要补间，只需要在关键帧之间进行跳跃，这时就用到了 steps 过渡方式。
