@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>douban</title>
+    <style>
+    body {
+        margin: 0;
+        color: #111;
+        font-size: 12px;
+        font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+        position: relative;
+        background: #f6f6f6;
+    }
+    a {
+        color: #42bd56;
+        text-decoration: none;
+    }
+    .feed-item {
+        display: block;
+        padding: 25px 18px 25px 0;
+        margin-left: 18px;
+        position: relative;
+        color: #494949;
+    }
+    .feed-content {
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+    .feed-item .author {
+        font-size: 12px;
+        color: #ccc;
+    }
+    .feed-content .photos {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 10px;
+    }
+    .feed-content .photos .main {
+        -webkit-box-flex: 3.2;
+        -webkit-flex: 3.2;
+        -ms-flex:3.2;
+        flex: 3.2;
+        margin-right: 4px;
+    }
+    .feed-content .photos .aside {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .feed-content .photos .aside  .aside-pic {
+        position: relative;
+    }
+
+    .feed-content .photos .more-pic {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.4);
+        color: #fff;
+        text-align: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .feed-content .photos .more-pic .count {
+        width: 100%;
+    }
+    
+    </style>
+</head>
+<body>
+    <a href="#" class="feed-item">
+        <div class="feed-content">
+            <div class="photos">
+                <div class="main" style="position: relative;background:url(https://img3.doubanio.com/view/photo/l/public/p2549262051.jpg) center center / cover no-repeat rgb(250,250,250)"></div>
+                <div class="aside">
+                    <div class="aside-pic">
+                        <div style="position:relative;background:url(https://img3.doubanio.com/view/photo/l/public/p2243791375.jpg) center center / cover no-repeat rgb(250, 250, 250);">
+                            <div style="padding-top:100%"></div>
+                        </div>
+                    </div>
+                    <div class="aside-pic"><div style="position: relative; background: url(&quot;https://img3.doubanio.com/view/photo/l/public/p2548633773.jpg&quot;) center center / cover no-repeat rgb(250, 250, 250);"><div style="padding-top: 100%;"></div></div><div class="more-pic"><span class="count"><!-- react-text: 152 -->234<!-- /react-text --><!-- react-text: 153 -->+<!-- /react-text --></span></div></div>
+                </div>
+            </div>
+            <h3>弥风摄影工作室</h3>
+            <p>天津 北京 南京 苏州 厦门 三亚 大理 丽江 宁波 湖州 济南 太原 沈阳 呼和浩特 哈尔滨 合肥 南昌 武汉 ...</p>
+        </div>
+        <div class="author">
+            by&nbps;<span class="name">弥风摄影工作室</span>
+        </div>
+    </a>
+</body>
+</html>

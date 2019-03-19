@@ -1,7 +1,8 @@
+[git rebase]
+[svg loading]
 [prototype]
-[table]
 [camer]
-
+13. ~~douban 一~~
 12. ~~camer  html5/camera~~
 11. ~~table MDN  /js/table~~
 10. ~~[算法](红包)~~
