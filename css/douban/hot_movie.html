@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>最近热门电影</title>
+  <style>
+  html {
+    color: #111;
+    background: #fff;
+  }
+  body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
+    margin: 0;
+    padding: 0;
+  }
+  a:link {
+    color: #37a;
+    text-decoration: none;
+  }
+  a:visited {
+    color: #666699;
+    text-decoration: none;
+  }
+  a img {
+    border-width: 0;
+    vertical-align: middle;
+  }
+  img {
+    max-width: 100%;
+  }
+  body {
+    color: #111;
+    background: #fff;
+    font: 12px Helvetica,Arial,sans-serif;
+    line-height: 1.62;
+    margin: 0;
+  }
+  .hot-movie {
+    /* margin-bottom: 40px; */
+    width: 675px;
+    margin: 0 auto 40px;
+  }
+  .hot-movie .fliter-wp {
+    overflow: hidden;
+    zoom: 1;
+  }
+  .hot-movie h2 {
+    color: #111; 
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 18px;
+    overflow: hidden;
+    line-height: normal;
+  }
+  .fliter-wp h2>[data-type], .fliter-wp .filter{
+    float: left;
+    font-size: 16px;
+  }
+  .fliter-wp h2>[data-type] {
+    font-size: 16px;
+  }
+  .fliter-wp h2 .activate {
+    color: #111;
+    background: none;
+    cursor: default;
+  }
+  .fliter-wp .filter {
+    width: 450px;
+    margin-right: -50px;
+    margin-left: 14px;
+  }
+  .hot-movie .tags, .hot-movie .sub-tags {
+    overflow: hidden;
+    zoom: 1;
+  }
+  .hot-movie .tags {
+    position: relative;
+    top: 1px;
+  }
+  .move-list .tags .tag-list{
+    display: inline;
+    width: auto;
+    padding-right: 5px;
+  }
+  .tags label {
+    margin: 0;
+    margin-right: 12px;
+    padding: 0;
+    color: #9B9B9B;
+    vertical-align: inherit;
+    font-size: 13px;
+    border-radius: 0;
+  }
+  .fliter-wp h2 .activate {
+    color: #111;
+    background: none;
+  }
+  .hot-movie .fliter-wp .more-link {
+    font-size: 13px;
+    float: right;
+    position: relative;
+    top: 2px;
+  }
+  .hot-movie .list-wp {
+    width: 675px;
+    overflow: hidden;
+    margin-right: -10px;
+  }
+  .hot-movie .slider .slide-container {
+    overflow: hidden;
+    position: relative;
+  }
+  .slider .slide-container .slide-wrapper .slide-page {
+    float: left;
+  }
+  .hot-movie .item {
+    display: block;
+    float: left;
+    color: #37a;
+    font-size: 13px;
+    text-align: center;
+    margin: 0 25px 10px 0;
+    width: 115px;
+    height: 210px;
+  }
+  .hot-movie .item .cover-wp {
+    background-size: 100%;
+    height: 161px;
+    overflow: hidden;
+  }
+  .hot-movie .item p {
+    margin: 5px 0 0;
+    height: 44px;
+    overflow: hidden;
+  }
+  .hot-movie .item strong {
+    color: #e09015;
+  }
+  .hot-movie .slider .slide-ctrl {
+    text-align: center;
+    float: none;
+    text-align: center;
+    margin: 0 0 13px;
+    position: reabsolute;
+    top: -7px;
+  }
+  .gaia .slider .slide-ctrl .btn-prev {
+    margin-right: 10px;
+}
+
+  .slider .slide-ctrl a, .slider .slide-ctrl .dot {
+    display: inline-block;
+    float: none;
+    margin: 0;
+    cursor: pointer;
+  }
+  .slider .btn-prev {
+    background-position: 0 0;
+  }
+  .slider a {
+      display: block;
+      float: left;
+      width: 18px;
+      height: 18px;
+      margin-right: 5px;
+      cursor: pointer;
+      background: url(https://img3.doubanio.com/f/movie/708be21a7bb2d0f21419dc4e2e2fde8b21ad661a/pics/movie/slide_swithc_2.png) no-repeat;
+  }
+  .slider .btn-next {
+    background-position: -18px 0;
+  }
+  .slider .slide-ctrl .btn-next {
+    margin-left: 5px;
+  }
+
+
+.slider .slide-ctrl .dot {
+  width: 6px;
+  height: 6px;
+  background-color: #D8D8D8;
+  border-radius: 50%;
+  position: relative;
+  top: -5px;
+  margin-right: 5px;
+}
+
+.slider .slide-ctrl a,.slider .slide-ctrl .dot {
+  display: inline-block;
+  float: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.slider .slide-ctrl .dot.activate {
+  background-color: #6198D7;
+}
+
+  
+  </style>
+</head>
+<body>
+  <div class="hot-movie">
+    <div class="fliter-wp">
+      <h2>
+        <div class="activate" data-type="movie">最近热门电影</div>
+        <div class="filter">
+          <div class="tags">
+            <div class="tag-list">
+              <label for="" class="activate">
+                热门
+              </label>
+              <label for="">
+                最新
+              </label>
+              <label for="">
+                豆瓣高分
+              </label>
+              <label for="">
+                冷门佳片
+              </label>
+              <label for="">
+                华语
+              </label>
+              <label for="">
+                欧美
+              </label>
+              <label for="">
+                韩国
+              </label>
+              <label for="">
+                日本
+              </label>
+            </div>
+
+          </div>
+        </div>
+        <a href="#" class="more-link">更多»</a>
+      </h2>
+    </div>
+    <div class="list-wp">
+      <div class="slider">
+        <div class="slide-container" style="height:426px;">
+          <div class="slide-wrapper" style="width:4900;left:-700px">
+            <div class="slide-page" style="width:700px;">
+              <a href="#" class="item" >
+                <div class="cover-wp">
+                  <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                </div>
+                <p>
+                  复仇者联盟3：无限战争
+                  <strong>8.1</strong>
+                </p>
+              </a>
+              <a href="#" class="item" >
+                <div class="cover-wp">
+                  <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                </div>
+                <p>
+                  复仇者联盟3：无限战争
+                  <strong>8.1</strong>
+                </p>
+              </a>
+              <a href="#" class="item" >
+                  <div class="cover-wp">
+                    <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                  </div>
+                  <p>
+                    复仇者联盟3：无限战争
+                    <strong>8.1</strong>
+                  </p>
+              </a>
+              <a href="#" class="item" >
+                <div class="cover-wp">
+                  <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                </div>
+                <p>
+                  复仇者联盟3：无限战争
+                  <strong>8.1</strong>
+                </p>
+              </a>
+              <a href="#" class="item" >
+                <div class="cover-wp">
+                  <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                </div>
+                <p>
+                  复仇者联盟3：无限战争
+                  <strong>8.1</strong>
+                </p>
+              </a> 
+              <a href="#" class="item" >
+                <div class="cover-wp">
+                  <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                </div>
+                <p>
+                  复仇者联盟3：无限战争
+                  <strong>8.1</strong>
+                </p>
+              </a>
+              <a href="#" class="item" >
+                  <div class="cover-wp">
+                    <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                  </div>
+                  <p>
+                    复仇者联盟3：无限战争
+                    <strong>8.1</strong>
+                  </p>
+                </a>
+                <a href="#" class="item" >
+                  <div class="cover-wp">
+                    <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                  </div>
+                  <p>
+                    复仇者联盟3：无限战争
+                    <strong>8.1</strong>
+                  </p>
+                </a>
+                <a href="#" class="item" >
+                    <div class="cover-wp">
+                      <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                    </div>
+                    <p>
+                      复仇者联盟3：无限战争
+                      <strong>8.1</strong>
+                    </p>
+                </a>
+                <a href="#" class="item" >
+                  <div class="cover-wp">
+                    <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                  </div>
+                  <p>
+                    复仇者联盟3：无限战争
+                    <strong>8.1</strong>
+                  </p>
+                </a>
+                <a href="#" class="item" >
+                  <div class="cover-wp">
+                    <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                  </div>
+                  <p>
+                    复仇者联盟3：无限战争
+                    <strong>8.1</strong>
+                  </p>
+                </a> 
+                <a href="#" class="item" >
+                  <div class="cover-wp">
+                    <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517753454.jpg" alt="复仇者联盟3：无限战争">
+                  </div>
+                  <p>
+                    复仇者联盟3：无限战争
+                    <strong>8.1</strong>
+                  </p>
+                </a> 
+            </div>
+          </div>
+        </div>
+        <div class="slide-ctrl">
+          <a href="javascript:void(0)" class="btn-prev"></a>
+          <i class="dot activate"></i>
+          <i class="dot"></i>
+          <i class="dot"></i>
+          <i class="dot"></i>
+          <i class="dot"></i>
+          <a href="javascript:void(0)" class="btn-next"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
