@@ -87,6 +87,19 @@ html, body {
   background-size: 100% auto;
   animation: p1-light-anim .8s .6s both;
 }
+.p1.swiper-slide-active .slogon {
+  animation: fadeInUp .5s .3s both;
+}
+@keyframes fadeInUp{
+  0% {
+    opacity: 0;
+    transform: translate3d(0,100%,0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
 .p1 .slogon {
   width: 2.74667rem;
   height: 2.44rem;
