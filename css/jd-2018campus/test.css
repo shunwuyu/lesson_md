@@ -4662,7 +4662,6 @@ button.swiper-pagination-bullet {
 	left: 50%;
 	margin-top: -2.13333rem;
 	margin-left: -.4rem;
-	-webkit-animation: cube-up-down-1 .8s ease-in-out infinite alternate;
 	animation: cube-up-down-1 .8s ease-in-out infinite alternate
 }
 
