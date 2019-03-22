@@ -1,0 +1,105 @@
+.transition_all_03s {
+  transition:all .3s ease;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.swiper-container {
+  width: 100%;
+  height: 28vw;
+  transition:opacity .6s ease;
+}
+/* coverflow 之后加的类名 */
+.swiper-container.swiper-container-coverflow {
+  padding-top: 2%;
+}
+.swiper-container.loading{
+  opacity: 0;
+  visibility: hidden;
+}
+.swiper-container:hover .swiper-button-prev,
+.swiper-container:hover .swiper-button-next {
+  transform:translateX(0);
+  opacity:1;
+  visibility:visible;
+}
+
+.swiper-slide{
+  background-position:center;
+  background-size:cover;
+}
+.swiper-slide .entity-img{
+  display:none;
+}
+.swiper-slide .content{
+  position:absolute;
+  top:40%;
+  left:0;
+  width:50%;
+  padding-left:5%;
+  color:#fff;
+}
+.swiper-slide .content .title{
+  font-size:2.6em;
+  font-weight:bold;
+  margin-bottom:30px;
+}
+.swiper-slide .content .caption{
+  display:block;
+  font-size:13px;
+  line-height:1.4;
+}
+[class^="swiper-button-"]{
+  width:44px;
+  opacity:0;
+  visibility:hidden;
+  transition:all .3s ease;
+}
+/* 鼠标移上去的时候 显示出来 */
+.swiper-button-prev{
+  transform:translateX(50px);
+}
+.swiper-button-next{
+  transform:translateX(-50px);
+}
+.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin:0 9px; 
+      position:relative;
+      width:12px;
+      height:12px;
+      background-color:#fff;
+      opacity:.4;
+      transition:all .3s ease;
+}
+.swiper-pagination-bullet {
+  margin:0 9px;
+  position:relative;
+  width:12px;
+  height:12px;
+  background-color:#fff;
+  opacity:.4;
+  transition:all .3s ease;
+}
+/* 外面一个圆圈 */
+.swiper-pagination-bullet::before{
+  content:'';
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:18px;
+  height:18px;
+  transform:translate(-50%, -50%);
+  border:0px solid #fff;
+  border-radius:50%;
+  transition:all .3s ease;
+}
+/* 原来的 opacity 为 .4*/
+.swiper-pagination-bullet:hover,
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  opacity:1;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active::before{
+  border-width:1px;
+}

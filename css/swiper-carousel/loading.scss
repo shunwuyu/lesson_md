@@ -1,0 +1,111 @@
+.transition_all_03s {
+  transition:all .3s ease;
+}
+// .backface_visibility_hidden{
+//   backface-visibility:hidden;
+//   -webkit-backface-visibility:hidden;
+// }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 28vw;
+  transition:opacity .6s ease;
+  &.swiper-container-coverflow{
+    padding-top:2%;
+  }
+  &.loading{
+    opacity:0;
+    visibility:hidden;
+  }
+  &:hover{
+    .swiper-button-prev,
+    .swiper-button-next{
+      transform:translateX(0);
+      opacity:1;
+      visibility:visible;
+    }
+  }
+}
+.swiper-wrapper{
+
+}
+.swiper-slide{
+  background-position:center;
+  background-size:cover;
+  .slide-inner{
+    
+  }
+  .entity-img{
+    display:none;
+  }
+  .content{
+    position:absolute;
+    top:40%;
+    left:0;
+    width:50%;
+    padding-left:5%;
+    color:#fff;
+    .title{
+      font-size:2.6em;
+      font-weight:bold;
+      margin-bottom:30px;
+    }
+    .caption{
+      display:block;
+      font-size:13px;
+      line-height:1.4;
+    }
+  }
+}
+[class^="swiper-button-"]{
+  width:44px;
+  opacity:0;
+  visibility:hidden;
+  @extend %transition_all_03s;
+}
+.swiper-button-prev{
+  transform:translateX(50px);
+}
+.swiper-button-next{
+  transform:translateX(-50px);
+}
+.swiper-container-horizontal{
+  >.swiper-pagination-bullets{
+    .swiper-pagination-bullet{
+      margin:0 9px; 
+      position:relative;
+      width:12px;
+      height:12px;
+      background-color:#fff;
+      opacity:.4;
+      @extend %transition_all_03s;
+      &::before{
+        content:'';
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:18px;
+        height:18px;
+        transform:translate(-50%, -50%);
+        border:0px solid #fff;
+        border-radius:50%;
+        @extend %transition_all_03s;
+      }
+      &:hover,
+      &.swiper-pagination-bullet-active{
+        opacity:1;
+      }
+      &.swiper-pagination-bullet-active{
+        &::before{
+          border-width:1px;
+        }
+      }
+    }
+  }
+}
