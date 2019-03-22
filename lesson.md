@@ -1,7 +1,8 @@
-[git rebase]
+[SVG animate]
 [svg loading]
 [prototype]
 [camer]
+14. ~~SVG path~~
 13. ~~douban 一~~
 12. ~~camer  html5/camera~~
 11. ~~table MDN  /js/table~~
