@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>D3 study</title>
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<style>
+		.axis path, .axis line{
+			fill: none;
+			stroke: black;
+		}
+		.axis text {
+			font-family: sans-serif;
+			font-size: 11px;
+		}
+	</style>
+</head>
+<body>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script>
+		var width = 300;
+		var height = 300;
+		var svg = d3.select('body') //选择body标签
+					.append('svg') //向body标签中append一个svg
+					.attr('width', width) //给svg设置宽度
+					.attr('height', height) //给svg设置高度
+					.attr('style', 'background-color: #fafafa'); //给svg设置背景色为#2c2c2c
+		var dataset = [25, 21, 17, 13, 29]; //数据（表示矩形的宽度）
+		var rectHeight = 45; //每个矩形所占的像素高度（包括空白）
+		var linear = d3.scale.linear()
+				.domain([0, 30])
+				.range([0, 250]);
+		console.log('dataset:', dataset)
+		console.log('max:', d3.max(dataset))
+		svg.selectAll('rect')
+		   .data(dataset)
+		   .enter()
+		   .append('rect')
+		   .attr('x', 20)
+		   .attr('y', function(d, i){
+				return i*rectHeight+20;
+		   })
+		   .attr('width', function(d, i){
+				return linear(d);
+		   })
+		   .attr('height', rectHeight-10)
+		   .attr('fill', 'steelblue')
+		   
+		var axis = d3.svg.axis()
+					.scale(linear) //指定比例尺
+					.orient('bottom') //指定刻度的方向
+					.ticks(6); //指定刻度的数量
+		svg.append('g')
+			.attr('class', 'axis')
+			.attr('transform', 'translate(20, 260)')
+			.call(axis);
+	</script>
+</body>
+</html>

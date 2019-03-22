@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p id="myid"></p>
+  <p></p>
+  <p></p>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script>
+  var dataset = ["I like dogs", "I like cats", "I like snakes"];  
+  var str ="China";
+  var body = d3.select("body");
+  var p = body.selectAll("p");
+  console.log(body);
+  // body.datum(str);
+  // p.datum(str);
+  // p.text(function(d, i) {
+  //   return "第 "+ i + " 个元素绑定的数据是 " + d;
+  // })
+  p.data(dataset)
+  .text(function(d, i){
+      return d;
+  });
+
+  var p1 = body.selectAll('p');
+  p1.style("color", "red");
+
+  body.append("p")
+    .text("append p element");
+  body.insert("p", "#myid")
+    .text("insert p element");
+  body.select('#myid').remove();
+  </script>
+</body>
+</html>
