@@ -1,3 +1,6 @@
+[stylus]
+[ife ]
+[d3.js]
 [svg loading]
 [prototype]
 [camer]
