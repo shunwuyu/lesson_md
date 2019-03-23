@@ -1,0 +1,475 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('./img/iconfont/iconfont.eot?t=1535380572173'); /* IE9*/
+  src: url('./img/iconfont/iconfont.eot?t=1535380572173#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+  url('./img/iconfont/iconfont.ttf?t=1535380572173') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./img/iconfont/iconfont.svg?t=1535380572173#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border: none;
+  border-top: 1px solid #e7e7e7;
+}
+/*第一页样式，透明度*/
+
+#page1 {
+  background: url('img/background_1.jpg') center;
+  width: 100%;
+  height: 990px;
+  z-index: -10;
+  padding: 0;
+  color: #fff;
+}
+
+.shadow {
+  background-color: rgba(0,0,0,.5);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  width: 970px;
+  height: 580px;
+  margin: 270px auto;
+}
+
+h1 {
+  font-size: 62px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 auto 62px auto;
+}
+
+#intro{
+  margin: 20px 100px 100px 100px;
+  text-align: center;
+  font-size: 20px;
+}
+
+form {
+  width: 970px;
+  height: 250px;
+  border: 1px solid #7e7c79;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  word-spacing: 0.2em;
+}
+
+#account {
+  letter-spacing: 0.2em;
+  margin-top: 58px;
+  font-size: 16px;
+}
+
+#tip {
+  color: #82817d;
+  margin-bottom: 37px;
+}
+
+input {
+  width: 290px;
+  height: 50px;
+  border-radius: 5px;
+  background: none;
+  border: 1px solid #80796d;
+  margin: 0 32px 52px 0;
+  padding-left: 20px;
+}
+input:focus {
+  color: #fff;
+  font-size: 16px;
+}
+
+form > button {
+  width: 125px;
+  height: 50px;
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  border: 1px solid #fff;
+  border-radius: 5px
+}
+
+/*第二页样式，flex布局*/
+
+#page {
+  height: 711px;
+  width: 100%;
+}
+
+.tip {
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin-top: 85px;
+}
+
+.title {
+  font-size: 40px;
+  text-align: center;
+  width: 680px;
+  line-height: 55px;
+  font-family: STXihei;
+  margin: auto auto;
+}
+.list {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+#page2 > div.list {
+  justify-content: center;
+}
+
+.info {
+  width: 445px;
+  height: 105px;
+  margin: 60px 89px 70px 60px;
+}
+
+.info img{
+  float: left;
+  margin-top: -7px;
+}
+
+div.info > h3 , div.info > p {
+  width:378px;
+  margin: 0;
+  margin-left: 80px;
+  font-size: 16px;
+  color: #bbbbbb;
+}
+
+div.info > h3 {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/*第三页,两列布局的实现*/
+#page3 {
+  background: url("img/background_2.jpg") center;
+  height: 800px;
+  color: #fff;
+  position: relative;
+}
+
+#left {
+  float:left;
+  width: 507px;
+  height: 440px;
+  margin-top: 177px;
+  margin-left: 315px;
+}
+
+#left h2 {
+  font-size: 42px;
+  font-weight: normal;
+  width: 390px;
+  margin-bottom: 42px;
+}
+
+#left p {
+  font-size: 18px;
+  color: #b4b6b3;
+  width: 390px;
+  line-height: 25px;
+}
+
+#left button {
+  width: 235px;
+  height: 60px;
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+}
+#right {
+  position: absolute;
+  right: 0;
+  top: 135px;
+  width: 585px;
+  height: 543px;
+  background: #fff;
+  color: #000;
+  text-align: right;
+  padding-left: 28px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#ipad {
+  position: relative;
+  width: 677px;
+  height: 623px;
+  top: 105px;
+  left: 98px;
+}
+
+#right h2 {
+  font-size: 20px;
+  margin-top: 70px;
+  padding-right: 150px;
+}
+
+#right p {
+  color: #83786e;
+}
+.doc {
+  float: left;
+  width: 177px;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  vertical-align: top;
+  margin: 54px 0 90px 28px;
+}
+
+#eg {
+  width: 119px;
+  float: right;
+}
+
+.doc > p {
+  font-size: 12px;
+  color: #a6b6c7;
+}
+
+/*第四页*/
+
+#page4 {
+  width: 975px;
+  margin:0 auto 71px auto;
+}
+#page4 h2{
+  font-size: 42px;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 95px;
+}
+
+.main {
+  width: 257px;
+  height: 283px;
+  margin-top: 81px;
+  margin-bottom: 60px;
+  font-size: 16px;
+  color: #a0a0a0;
+  padding: 0 10px;
+}
+
+.main img {
+  margin-left: 58px;
+  margin-bottom: 34px;
+}
+
+.article {
+  margin-top: 117px;
+  margin-bottom: 105px;
+}
+
+.desc {
+  margin-top: 62px;
+  width: 315px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.desc > p {
+  font-size: 16px;
+  color: #a0a0a0;
+}
+
+#listPic {
+  margin-bottom: 81px;
+}
+
+#awesome {
+  margin-top: 105px;
+  padding-top: 96px;
+}
+
+#awesome h2 {
+  margin: 0;
+}
+
+#awesome p {
+  width: 687px;
+  font-size: 18px;
+  color: #a0a0a0;
+  margin: 28px auto;
+  text-align: center;
+}
+.person {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.person img{
+  width: 469px;
+  height: 339px;
+}
+
+.introDesc {
+  opacity: 0;
+  background: rgba(0,0,0,.65);
+  position: absolute;
+  top: 0;
+  width: 469px;
+  height: 339px;
+  color: #fff;
+  text-align: center;
+}
+
+.introDesc h3 {
+  font-size: 20px;
+  margin-top: 20%;
+}
+
+.introDesc p {
+  font-size: 12px;
+  color: #98918e;
+  letter-spacing: 0.1em;
+  margin-bottom: 37px;
+}
+
+.introDesc i {
+  font-size: 22px;
+  padding: 15px 15px;
+  border: 1px solid #767776;
+  border-radius: 50%;
+  margin: 0 15px;
+}
+
+.introDesc:hover {
+  opacity: 1;
+}
+
+.message {
+  width: 476px;
+  padding: auto 52px;
+  border: 1px solid #d4d3d3;
+  text-align: center;
+  font-size: 16px;
+}
+
+.message p {
+  margin-top: 50px;
+  letter-spacing: 0.1em;
+}
+
+.message > input, .message > button {
+  width: 345px;
+  height: 46px;
+  padding-left: 25px;
+  color: #d4d3d3;
+  border: 1px solid #d4d3d3;
+  border-radius: 5px;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.message > textarea {
+  width: 345px;
+  padding-left: 25px;
+  border: 1px solid #d4d3d3;
+  border-radius: 5px;
+  color: #d4d3d3;
+  margin-top: 30px;
+}
+
+.message > button {
+  background: #000;
+  color: #fff;
+  width: 374px;
+  letter-spacing: 0.1em;
+  padding: 0;
+  margin-bottom: 66px;
+}
+
+.contact {
+  width: 380px;
+}
+
+.contact > h3{
+  font-size: 42px;
+  font-weight: normal;
+  text-align: left;
+  margin-top: 85px;
+}
+
+.contact p {
+  color: #a0a0a0;
+  margin-bottom: 69px;
+}
+
+#method {
+  list-style: none;
+  padding: 0;
+}
+
+#method li {
+  margin-bottom: 35px;
+}
+#method i {
+  float: left;
+  font-size: 28px;
+}
+
+#method p {
+  margin-left: 48px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 18px;
+  color: #000;
+}
+
+footer {
+  width: 100%;
+  height: 410px;
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.ft-list {
+  margin-top: 88px;
+}
+.link , .link a{
+  color: #525252;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.list-1 {
+  margin-left: 214px;
+}
+
+.list-4 {
+  margin-right: 228px;
+}

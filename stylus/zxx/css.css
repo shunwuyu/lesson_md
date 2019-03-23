@@ -1,0 +1,101 @@
+html {
+  font-size: 12px;
+  font-family: -apple-system, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  color: #333;
+  background-color: #f4f5f5;
+}
+img {
+  width: auto;
+  height: auto;
+  border-style: none;
+}
+body {
+  font-size: 12px;
+  line-height: normal;
+  margin: 0;
+  overflow-y: scroll;
+}
+.book-card {
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+  position: relative;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
+  background-color: #fff;
+}
+.book-bought {
+  display: flex;
+  align-items: center;
+  padding: 8px 22px 8px 15px;
+  border-top: 1px solid #ecf0f3;
+  cursor: pointer;
+}
+.book-bought .label {
+  display: inline-flex;
+  align-items: center;
+  color: #666;
+  font-weight: 400;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+.book-bought .users {
+  flex-grow: 1;
+  margin-left: 24px;
+  display: inline-flex;
+  height: 24px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+.book-bought .users .user {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  margin-left: 10px;
+}
+.book-bought .users .user:first-child {
+  margin-left: 0;
+}
+.book-menu-wrap {
+  width: 100%;
+  background: #fff;
+}
+.book-menu-wrap .book-menu {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  border-bottom: 1px solid #ecf0f3;
+}
+.book-menu-wrap .book-menu .item {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.book-menu-wrap .book-menu .item.active {
+  color: #007fff;
+  border-bottom: 2px solid #007fff;
+}
+.book-menu-wrap .book-menu .item .badge {
+  height: 16px;
+  color: #007fff;
+  padding: 0 6px;
+  background-color: #eaf4ff;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 8px;
+  margin-left: 6px;
+}
