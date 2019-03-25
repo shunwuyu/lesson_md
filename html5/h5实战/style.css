@@ -1,0 +1,97 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+}
+ul li{
+  list-style: none;
+}
+.page{
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.page-header{
+  width: 100%;
+}
+.page-header__pic{
+  width: 100%;
+  height: 200px;
+  background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1552918429703&di=ace1f9485d2506eaef668b93411dd5e5&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F21%2F94e0282b11296048b3736484b221a88b.jpg') no-repeat;
+  background-size: cover;
+}
+.page-header__userinfo{
+  padding: 10px 10px 13px 10px;
+  position: relative;
+}
+.name{
+  line-height: 1;
+}
+.labels{
+  margin-top: 10px;
+}
+.label{
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 5px;
+}
+.blue{
+  background-color: #48A6FD;
+}
+.green{
+  background-color: #1DCA42;
+}
+.orange{
+  background-color: #FB8800;
+}
+.page-header__msg{
+  margin-top: 10px;
+}
+.items{
+
+}
+.item{
+  width: 95px;
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+}
+.city::before{
+  content: '';
+  width: 22px;
+  height: 25px;
+  background: url(./images/weixin.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ewm{
+  width: 34px;
+  height: 33px;
+  position: absolute;
+  top: 32px;
+  right: 11px;
+}
+.ewm img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.envelope{
+  position: absolute;
+  width: 55px;
+  height: 50px;
+  right: 4px;
+  bottom: 0;
+}
+.envelope img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}

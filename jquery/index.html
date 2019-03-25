@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul,li{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .home_banner{
+      width: 774px;
+      height: 160px;
+      position: relative;
+      margin: 0 0 18px;
+      overflow: hidden;
+    }
+    .home_banner .banner_bg{
+      float: left;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 612px;
+      height: 160px;
+      overflow: hidden;
+      position: relative;
+      left: 0;
+    }
+    .home_banner .banner_bg li{
+      display: block;
+      width: 612px;
+      height: 160px;
+    }
+    img{
+      border: 0;
+      vertical-align: top;
+      display: inline-block;
+    }
+    .home_banner .banner_control{
+      float: right;
+      width: 121px;
+      height: 160px;
+      position: relative;
+      right: 0;
+      top: 0;
+    }
+    .home_banner .banner_control em{
+      width: 127px;
+      height: 50px;
+      background: url(http://www.lgstatic.com/www/static/index/modules/banner/img/control_current_2d877b3.png) 0 0 no-repeat;
+      position: absolute;
+      z-index: 21;
+      left: -6px;
+    }
+    .home_banner .thumbs{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .home_banner .thumbs li {
+      width: 113px;
+      height: 42px;
+      border: 4px solid #d3d3d3;
+      position: relative;
+    }
+    .home_banner .thumbs li.thumbs_1{
+      margin-bottom: 5px;
+    }
+    .home_banner .thumbs li.thumbs_2{
+      margin-bottom: 5px;
+    }
+    .home_banner .thumbs li.thumbs_3{
+      margin-bottom: 5px;
+    }
+    .home_banner .thumbs li i{
+      background:url(http://www.lgstatic.com/www/static/index/modules/banner/img/thumb_cover_224abb6.png) no-repeat;
+      width: 113px;
+      height: 42px;
+      position: absolute;
+    }
+    .home_banner .thumbs li.current i{
+      background: 0;
+    }
+    .home_banner .thumbs li img{
+      border: 0;
+      vertical-align: top;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="mp-userinfo">
+      <!-- bgi bg-size cover  -->
+      <div class="mp-userinfo__pic"></div>
+      <div class="mp-userinfo__meta">
+          <!-- icon after pos:relative absolute
+             padding-right -->
+          <div class="mp-userinfo__name"></div>
+          <div class="mp-userinfo__detail">
+            <div class="mp-userinfo__story">
+              <div class="mp-userinfo__labels">
+                <div class="mp-userinfo__label mp-userinfo__label-blue mr5">
+                </div>
+                <div class="mp-userinfo__items">
+                  <!--  float left  
+                    item负责共有 city before position -->
+                  <div class="mp-userinfo__item 
+                  mp-userinfo__city"></div>
+                </div>
+                <!-- float: left -->
+              </div>
+            </div>
+            <div class="mp-userinfo__ewm">
+              <img src="" alt="" class="ewm">
+            </div>
+            <!-- pos:absolute + r0 b0; -->
+            <div class="mp-userinfo__coin"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div id="home_banner" class="home_banner">
+    <ul class="banner_bg" style="height: 480px;margin-top: 0px;">
+      <li class="banner_bg_1 current">
+        <a href="#" class rel="nofollow">
+          <img src="http://www.lgstatic.com/i/image/M00/53/4A/CgqKkVe-ZoeAZ-5jAADDqpZxEus283.JPG" alt="">
+        </a>
+      </li>
+      <li class="banner_bg_2 current">
+        <a href="#" class rel="nofollow">
+          <img src="http://www.lgstatic.com/i/image/M00/54/BD/CgqKkVfE9weAKplCAANCvps5bqw759.PNG" alt="">
+        </a>
+      </li>
+      <li class="banner_bg_3 current">
+        <a href="#" class rel="nofollow">
+          <img src="http://www.lgstatic.com/i/image/M00/53/4C/Cgp3O1e-af2AFSo8AACEpFCV0_c453.JPG" alt="">
+        </a>
+      </li>
+    </ul>
+    <div class="banner_control">
+      <em style="top:0px;"></em>
+      <ul class="thumbs">
+        <li class="thumbs_1">
+          <i></i>
+          <img src="http://www.lgstatic.com/i/image/M00/53/4A/Cgp3O1e-ZomADgkrAAAW31-85qg564.JPG" alt="">
+        </li>
+        <li class="thumbs_2">
+          <i></i>
+          <img src="http://www.lgstatic.com/i/image/M00/53/D2/CgqKkVfALMCAMx2LAAAjgD48FRE147.JPG" alt="">
+        </li>
+        <li class="thumbs_3">
+          <i></i>
+          <img src="http://www.lgstatic.com/i/image/M00/53/4C/CgqKkVe-af-AIg29AAANpC-jYOM757.JPG" alt="">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    var index = 0;
+    var interval;
+    function setBannerInterval(){
+      interval = setInterval(function(){
+        index++;
+        if (index>2) {
+          index = 0;
+        }
+        console.log(index);
+        // var oBannerBg = document.querySelector('.banner_bg');
+        // oBannerBg.style.marginTop = (-index*160) + "px";
+        addBannerAnimation();
+      },3000);
+    }
+    function addBannerAnimation(){
+      $('.banner_bg').animate({marginTop:(-index*160) + "px"},200);//jQuery实现动画
+      $('.banner_control em').animate({top:(index*55) + "px"},200);
+      $('.banner_control .current').removeClass("current");
+      $('.thumbs li').eq(index).addClass("current");
+    }
+    $('.thumbs li').mouseover(function(){
+      var n = $(this).index();
+      index = n;
+      addBannerAnimation();
+      clearInterval(interval);
+    }).mouseout(function(){
+      setBannerInterval();
+    })
+    setBannerInterval();
+  </script>
+</body>
+</html>
