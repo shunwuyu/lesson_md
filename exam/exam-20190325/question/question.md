@@ -87,3 +87,7 @@
 
 </html>
 ```
+
+4. 使用weui组件+js，将form表单数据添加至表格中(见images中  weui+js.png)
+
+5. 按照设计稿，实现效果（images中 mine.png）
