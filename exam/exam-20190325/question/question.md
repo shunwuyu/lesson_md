@@ -18,7 +18,7 @@
 </body>
 ```
 
-1. assert/cat 目录下面，有一只猫的所有元素，请实现如 assert/cat/cat-animation.mp4 的动画.
+2. assert/cat 目录下面，有一只猫的所有元素，请实现如 assert/cat/cat-animation.mp4 的动画.
   要求：
 
 - 猫身体需要在屏幕 `水平垂直居中` 的位置；
