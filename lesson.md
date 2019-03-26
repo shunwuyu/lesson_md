@@ -1,11 +1,15 @@
+[阮一峰extend5](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
+[douban首页]
 [douban photos]
-[git rebase]
-[stylus]
 [ife ]
 [d3.js]
 [svg loading]
 [prototype]
 [camer]
+
+18. ~~ife~~
+17. ~~stylus~~ 
+16. ~~git rebase~~
 15. ~~[SVG animate]~~  /svg/animate  拖动音乐
 14. ~~SVG path~~
 13. ~~douban 一~~

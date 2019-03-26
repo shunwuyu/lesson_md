@@ -13,6 +13,7 @@ Person.prototype = new Animal('earth');
 Person.prototype.getName = function() {
   return this.name;
 }
-
+console.log(Person.prototype.constructor, '-----');
 var person = new Person('sunyuhui');
+console.log(person, '++++++');
 console.log(person);
