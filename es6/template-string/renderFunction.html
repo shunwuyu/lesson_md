@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings!</title>
+</head>
+<body>
+<script>
+  // 0 false 1 true 2 保密
+  const beer = {
+    name: 'XXXXXX',
+    single: 2,
+    school: 'ECUT',
+    keywords: ['sing', 'game']
+  };
+  function renderKeywords(keywords) {
+    return `
+      <ul>
+        ${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
+      </ul>
+    `;
+  }
+  const markup = `
+    <div class="beer">
+      <h2>${beer.name}</h2>
+      <p class="brewery">${beer.single}</p>
+      ${renderKeywords(beer.keywords)}
+    </div>
+  `;
+  document.body.innerHTML = markup;
+</script>
+</body>
+</html>

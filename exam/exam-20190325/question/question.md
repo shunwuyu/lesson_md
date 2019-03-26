@@ -1,4 +1,6 @@
 1. 计算如下 box1，box2 两个盒子模型的宽高，并简要列出计算过程
+content>padding>border>margin>position
+<!-- 100x100>20-0-0-0> -->
 ```css
 .box {
   width: 100px;
@@ -18,7 +20,7 @@
 </body>
 ```
 
-2. assert/cat 目录下面，有一只猫的所有元素，请实现如 assert/cat/cat-animation.mp4 的动画.
+1. assert/cat 目录下面，有一只猫的所有元素，请实现如 assert/cat/cat-animation.mp4 的动画.
   要求：
 
 - 猫身体需要在屏幕 `水平垂直居中` 的位置；

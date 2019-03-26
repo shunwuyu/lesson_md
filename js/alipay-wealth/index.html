@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>支付宝-财富直通车</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
   <link rel="stylesheet" href="./index.css">
 </head>
 
@@ -85,8 +85,12 @@
             </p>
           </div>
           <div class="slide-mainBtnGroup">
-            <div class="slide-btnGroup__item slide-btnGroup__yes">会</div>
-            <div class="slide-btnGroup__item slide-btnGroup__no">不会</div>
+            <div class="slide-btnGroup__item slide-btnGroup__yes">
+              会
+            </div>
+            <div class="slide-btnGroup__item slide-btnGroup__no">
+              不会
+            </div>
           </div>
         </div>
         <div class="swiper-slide wealth-king">
@@ -134,7 +138,7 @@
       </div>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
   <script>
     // no operation
     // const NOOP = () => {};
@@ -187,8 +191,6 @@
       spaceBetween: 12,
       on: {
         slideChangeTransitionEnd: function () {
-          // console.log(this.activeIndex);
-          //切换结束时，告诉我现在是第几个slide
           console.log(this);
           const slide_operation = slide_operation_map[this.activeIndex];
           if (slide_operation

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tbody id="tbody">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+    </tbody>
+  </table>
+  <button id="add">add</button>
+  <script>
+  const tbody = document.getElementById('tbody');
+  const add = document.getElementById('add');
+  add.addEventListener('click', () => {
+    const tr = document.createElement('tr');
+    for (let i = 0 ;i < 4; i ++) {
+      const td = document.createElement('td');
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  });
+  
+  </script>
+</body>
+</html>
