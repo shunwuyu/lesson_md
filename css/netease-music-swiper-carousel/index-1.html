@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+  <link rel="stylesheet" href="./loading.css">
+</head>
+
+<body>
+  <section class="swiper-container loading">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"
+        style="background-image:url(http://por49vy6d.bkt.clouddn.com/f37rwpdmon4-patrick-tomasso.jpg)">
+        <img src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img" />
+        <div class="content">
+          <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Shaun Matthews</p>
+          <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+            book.</span>
+        </div>
+      </div>
+      <div class="swiper-slide"
+        style="background-image:url(http://por49vy6d.bkt.clouddn.com/if_ybk5ubp0-yury-orlov.jpg)">
+        <img src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLWTdaX3J5b1VueDg" class="entity-img" />
+        <div class="content">
+          <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Alexis Berry</p>
+          <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+            book.</span>
+        </div>
+      </div>
+      <div class="swiper-slide"
+        style="background-image:url(http://por49vy6d.bkt.clouddn.com/jose-alfredo-lerma-contreras-256940.jpg)">
+        <img src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLRml1b3B6eXVqQ2s" class="entity-img" />
+        <div class="content">
+          <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Billie Pierce</p>
+          <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+            book.</span>
+        </div>
+      </div>
+      <div class="swiper-slide"
+        style="background-image:url(http://por49vy6d.bkt.clouddn.com/jy992j_7gus-clem-onojeghuo.jpg)">
+        <img src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLVUpEems2ZXpHYVk" class="entity-img" />
+        <div class="content">
+          <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Trevor Copeland</p>
+          <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+            book.</span>
+        </div>
+      </div>
+      <div class="swiper-slide"
+        style="background-image:url(http://por49vy6d.bkt.clouddn.com/keleigko7pu-brooke-cagle.jpg)">
+        <img src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLNXBIcEdOUFVIWmM" class="entity-img" />
+        <div class="content">
+          <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Bernadette Newman</p>
+          <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+            book.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+  <script>
+    // Params
+    var sliderSelector = '.swiper-container',
+      options = {
+        init: false,
+        loop: true,
+        speed: 800,
+        slidesPerView: 2, // or 'auto'
+        // spaceBetween: 10,
+        centeredSlides: true,
+        effect: 'coverflow', // 'cube', 'fade', 'coverflow',
+        // coverflowEffect: {
+        //   rotate: 50, // Slide rotate in degrees
+        //   stretch: 0, // Stretch space between slides (in px)
+        //   depth: 100, // Depth offset in px (slides translate in Z axis)
+        //   modifier: 1, // Effect multipler
+        //   slideShadows: true, // Enables slides shadows
+        // },
+        grabCursor: true,
+        parallax: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          1023: {
+            slidesPerView: 1,
+            spaceBetween: 0
+          }
+        },
+        // Events
+        on: {
+          imagesReady: function () {
+            this.el.classList.remove('loading');
+          }
+        }
+      };
+    var mySwiper = new Swiper(sliderSelector, options);
+
+    // Initialize slider
+    mySwiper.init();
+  </script>
+</body>
+
+</html>

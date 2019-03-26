@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>支付宝-财富直通车</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      财富直通车
+    </header>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide balance-plan">
+          <header class="slide-header">
+            <span class="iconfont slide-header__icon">&#xe624;</span>
+            <span class="slide-header__title">
+              余额宝
+            </span>
+            <span class="iconfont slide-header__arrowRight">&#xe62b;</span>
+          </header>
+          <h4 class="slide-main__title">余额宝收益攻略</h4>
+          <div class="slide-mainWrapper">
+            <p class="slide-main__subTitle">
+              一分钟看懂余额宝收益哦
+            </p>
+          </div>
+          <div class="slide-main__btn slide-main__see">
+            马上查看
+          </div>
+        </div>
+        <div class="swiper-slide investment-choice">
+          <header class="slide-header">
+            <span class="iconfont slide-header__icon">&#xe602;</span>
+            <span class="slide-header__title">
+              投资精选
+            </span>
+            <span class="iconfont slide-header__arrowRight">&#xe62b;</span>
+          </header>
+          <h4 class="slide-main__title">一元就能买黄金</h4>
+          <div class="slide-mainWrapper">
+            <div class="slide-price">
+              <p class="slide-price__number" data-increment="true" data-target="2805843">
+                2805843
+              </p>
+              <p class="slide-price__unit">
+                元/克-华安黄金金价
+              </p>
+            </div>
+            <ul class="slide-benefits">
+              <li class="slide-benefit__item">
+                <span class="iconfont">&#xe60e;</span>
+                能保值
+              </li>
+              <li class="slide-benefit__item">
+                <span class="iconfont">&#xe60e;</span>
+                抗通胀
+              </li>
+            </ul>
+          </div>
+          <div class="slide-main__btn">
+            领财运红包
+          </div>
+        </div>
+        <div class="swiper-slide hot-topic">
+          <header class="slide-header">
+            <span class="iconfont slide-header__icon">&#xe659;</span>
+            <span class="slide-header__title">
+              热议话题
+            </span>
+            <span class="iconfont slide-header__arrowRight">&#xe62b;</span>
+          </header>
+          <h4 class="slide-main__title">你一个月的收入能买当地一平房子吗？</h4>
+          <div class="slide-mainWrapper">
+            <!-- &#xe622; -->
+            <p>
+              <span class="iconfont">&#xe622;</span>
+              10000人参与热议
+            </p>
+          </div>
+          <div class="slide-mainBtnGroup">
+            <div class="slide-btnGroup__item slide-btnGroup__yes">会</div>
+            <div class="slide-btnGroup__item slide-btnGroup__no">不会</div>
+          </div>
+        </div>
+        <div class="swiper-slide wealth-king">
+          <header class="slide-header">
+            <span class="iconfont slide-header__icon">&#xe619;</span>
+            <span class="slide-header__title">
+              财富王者
+            </span>
+            <span class="iconfont slide-header__arrowRight">&#xe62b;</span>
+          </header>
+          <h4 class="slide-main__title">瓜分
+            <span>
+              88888
+            </span>
+            元现金大奖</h4>
+          <div class="slide-mainWrapper">
+            <p class="slide-main__subTitle">
+              财富王者喊你来答题涨知识
+            </p>
+          </div>
+          <div class="slide-main__btn">
+            领财运红包
+          </div>
+        </div>
+        <div class="swiper-slide stock-guess">
+          <header class="slide-header">
+            <span class="iconfont slide-header__icon">&#xe652;</span>
+            <span class="slide-header__title">
+              大盘晴雨表
+            </span>
+            <span class="iconfont slide-header__arrowRight">&#xe62b;</span>
+          </header>
+          <h4 class="slide-main__title">上证指数</h4>
+          <div class="slide-mainWrapper">
+            <!-- &#xe622; -->
+            <p>
+              <span class="iconfont">&#xe622;</span>
+              10000人参与热议
+            </p>
+          </div>
+          <div class="slide-main__btn">
+              签到领红包
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+  <script>
+    // no operation
+    // const NOOP = () => {};
+    function onTopicEnter() {
+      const btnGroupYes = document
+        .querySelector('.slide-btnGroup__yes');
+      const btnGroupNo = document
+        .querySelector('.slide-btnGroup__no');
+      const btnGroups = document.querySelectorAll('.slide-btnGroup__item');
+      for (let i = 0, len = btnGroups.length; i < len; i++) {
+        btnGroups[i].classList.add('topic-enter');
+        btnGroups[i].addEventListener('transitionend', () => {
+          btnGroups[i].classList.remove('topic-enter');
+        })
+      }
+    }
+    /**
+     * node 节点
+     * */
+    function countIncrement(that) {
+      if (!that) return false
+      const activeIndex = that.activeIndex;
+      const node = that.slides[activeIndex];
+      const countWrap = node.querySelector('p[data-increment="true"]');
+      const target = countWrap.dataset.target;
+      const targetNum = parseInt(target);
+      if (!Number.isNaN(targetNum)) {
+        const baseNumber = 199999;
+        let startNumber = Math.floor(targetNum / 2);
+        var timer = setInterval(() => {
+          let nextNumber = startNumber + baseNumber
+          if (nextNumber >= targetNum) {
+            nextNumber = targetNum;
+            countWrap.innerHTML = nextNumber;
+            clearInterval(timer);
+          } else {
+            startNumber = nextNumber;
+            countWrap.innerHTML = nextNumber;
+          }
+        }, 100);
+      }
+    }
+    const slide_operation_map = {
+      '1': countIncrement,
+      '2': onTopicEnter
+    }
+    var mySwiper = new Swiper('.swiper-container', {
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 12,
+      on: {
+        slideChangeTransitionEnd: function () {
+          // console.log(this.activeIndex);
+          //切换结束时，告诉我现在是第几个slide
+          console.log(this);
+          const slide_operation = slide_operation_map[this.activeIndex];
+          if (slide_operation
+            && typeof slide_operation === 'function') {
+            slide_operation(this);
+          }
+        },
+      },
+    })
+  </script>
+</body>
+
+</html>

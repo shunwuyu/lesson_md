@@ -1,8 +1,13 @@
 [douban photos]
 [git rebase]
+[stylus]
+[ife ]
+[d3.js]
 [svg loading]
 [prototype]
 [camer]
+15. ~~[SVG animate]~~  /svg/animate  拖动音乐
+14. ~~SVG path~~
 13. ~~douban 一~~
 12. ~~camer  html5/camera~~
 11. ~~table MDN  /js/table~~

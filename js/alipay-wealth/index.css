@@ -1,0 +1,165 @@
+* {
+  margin: 0;padding: 0;
+}
+ul li {
+  list-style: none;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 1094760 */
+  src: url('//at.alicdn.com/t/font_1094760_sc87r1w74nn.eot');
+  src: url('//at.alicdn.com/t/font_1094760_sc87r1w74nn.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1094760_sc87r1w74nn.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1094760_sc87r1w74nn.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1094760_sc87r1w74nn.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1094760_sc87r1w74nn.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.swiper-slide {
+  box-sizing: border-box;
+  width: 300px;
+  height: 178px;
+  /* border: 1px solid #000; */
+  border-radius: 5px;
+  padding: 12px 16px;
+}
+.swiper-slide.balance-plan {
+  background: linear-gradient(90deg, #ec6534, #f19e44);
+  color: #ffffff;
+}
+.slide-header__icon, .slide-header__arrowRight, .slide-header__title {
+  display: block;
+}
+.slide-header {
+  display: flex;
+  align-items: center;
+}
+.slide-header__title {
+  flex: 1;
+  padding-left: 2px;
+}
+/* common */
+.slide-main__title {
+  margin-top: 15px;
+  font-size: 20px;
+}
+/* common */
+.slide-mainWrapper {
+  height: 45px;
+  width: 100%;
+  /* border: 1px solid #000; */
+}
+.slide-main__subTitle {
+  color: #ffc88c;
+}
+/* common */
+.slide-main__btn {
+  border-radius: 20px;
+  height: 34px;
+  width: 139px;
+  text-align: center;
+  line-height: 34px;
+  margin-top: 10px;
+}
+.slide-main__btn.slide-main__see {
+  background-color: #fcf3cf;
+  color: #b3633d;
+}
+/* common */
+.slide-mainBtnGroup {
+  display: flex;
+}
+/* 第二个 */
+.swiper-slide.investment-choice {
+  color: #6b624e;
+  background-color: #eccf8e;
+}
+.swiper-slide.investment-choice .slide-main__title {
+  color: #795721;
+}
+.swiper-slide.investment-choice .slide-main__btn {
+  background-color: #fcefc4;
+  color: #b78233;
+}
+.swiper-slide.investment-choice .slide-mainWrapper {
+  display: flex;
+}
+.swiper-slide.investment-choice .slide-price__number{
+  color: #795721;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.swiper-slide.investment-choice .slide-price__unit {
+  font-size: 12px;
+}
+.swiper-slide.investment-choice .slide-benefits {
+  margin-left: 20px;
+  border-left-style: solid;
+  border-left-color: #e0c380;
+  border-left-width: 1px;
+  padding-left: 16px;
+}
+/*  */
+.swiper-slide.hot-topic {
+  background-color: #ecf5fe;
+  color: #333;
+}
+.swiper-slide.hot-topic .slide-mainWrapper {
+  color: #9da5ac;
+  height: auto;
+  padding-top: 4px;
+}
+.swiper-slide.hot-topic .slide-mainBtnGroup {
+
+}
+.swiper-slide.hot-topic .slide-btnGroup__item {
+  width: 94px;
+  height: 34px;
+  text-align:  center;
+  line-height: 34px;
+  color: #ffffff;
+  margin-top: 4px;
+  transition: all .3s;
+}
+.swiper-slide.hot-topic .slide-btnGroup__item.topic-enter {
+  transform: scale(1.1);
+}
+.swiper-slide.hot-topic .slide-btnGroup__item:first-child {
+  background-color: #ed703c;
+  border-radius: 20px 0 0 20px;
+  clip-path: polygon(0% 0%, 98% 0, 99% 1%, 94% 99%, 93% 100%, 0 100%);
+}
+.swiper-slide.hot-topic .slide-btnGroup__item:last-child {
+  background-color: #4898f7;
+  border-radius: 0 20px 20px 0;
+  clip-path: polygon(6% 1%, 7% 0, 100% 0, 100% 100%, 1% 99%, 0% 98%);
+  transition-delay: .3s;
+}
+/* 财富王者 */
+.swiper-slide.wealth-king {
+  color: #ffffff;
+  background-image: 
+  linear-gradient(to right top, #9f55f3 10%, #e078e3);
+}
+.swiper-slide.wealth-king .slide-main__subTitle {
+  color: #e4c1f6;
+}
+.swiper-slide.wealth-king .slide-main__btn {
+  background-color: #fdf2d0;
+  color: #9738d7;
+}
+.swiper-slide.wealth-king .slide-main__title span {
+  color: #fae187;
+}
+/*  */
+.swiper-slide.stock-guess {
+  background-image: 
+  linear-gradient(to right top, #2a58eb, #57b9f5);
+}
+

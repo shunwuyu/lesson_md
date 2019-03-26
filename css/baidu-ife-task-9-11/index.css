@@ -1,0 +1,408 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #f2f2f2;
+}
+header {
+  background: url(./images/mount.png) 0 0 no-repeat;
+}
+header .mask {
+  width: 100%;
+  height: 100%;
+  background:rgba(20,20,20,1);
+  opacity:0.65;
+  overflow: hidden;
+}
+header .content {
+  width: 970px;
+  margin: 208px auto 0;
+  color: rgba(255,255,255,0.7);
+}
+/* hello world 容器 */
+.hello .title {
+  font-size:62px;
+  font-weight:200;
+  line-height:72px;
+  color:rgba(255,255,255,1);
+  text-align: center;
+}
+.hello .text {
+  width:766px;
+  font-size:20px;
+  font-weight:200;
+  margin: 86px auto 0;
+  color:rgba(255,255,255,.7);
+  line-height:32px;
+}
+/* 容器 */
+.create{
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  padding: 61px 100px 52px;
+  margin-top: 104px;
+}
+/* create 里面的两行字 */
+.create .title{
+  text-align: center;
+  font-size:16px;
+  line-height:28px;
+}
+.create .profile {
+  text-align: center;
+  font-size:12px;
+  color:rgba(255,255,255,.3);
+  margin: 19px auto 45px;
+}
+.create .input {
+  display: flex;
+  justify-content: space-between;
+}
+/* 直接子元素 */
+.create .input > input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  border-radius: 2px;
+  width: 292px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0);
+  text-indent: 22px;
+  color: #fff;
+}
+.create .input input[type=button]{
+  width: 125px;
+  background: white;
+  text-indent: 0;
+  color: #000;
+  cursor: pointer;
+}
+/*  */
+.introduce {
+  width: 100%;
+  box-sizing: border-box;
+  background: white; 
+}
+.introduce-content {
+  text-align: center;
+  padding-top: 79px;
+}
+.introduce-content .title {
+  color:rgba(20,20,20,1);
+  font-size:14px;
+}
+.introduce-content .text {
+  font-size:42px;
+  font-weight:200;
+  color:rgba(20,20,20,1);
+  line-height:52px;
+  margin: 39px auto 0;
+  width:657px;
+}
+.introduce .section {
+  width: 986px;
+  margin: 85px auto 0;
+  padding-bottom: 102px;
+}
+/* 第一行 */
+.introduce .section-line {
+  display: flex;
+  justify-content: space-between;
+}
+/* 第二行 */
+.introduce .section-line:not(:first-child) {
+  margin-top: 82px;
+}
+/* 每一个块级 */
+.section .option{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+/* 每一块icon */
+.section .option .icon {
+  margin-right: 31px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.section .option .icon.iphoneIcon {
+  width: 30px;height: 49px;
+  background-image: url(./images/Iphone-Icon.png);
+}
+.section .option .icon.checkIcon {
+  width: 40px;height: 37px;
+  background-image: url(./images/Check-Icon.png);
+}
+.section .option .icon.pencilIcon {
+  width: 50px;height: 49px;
+  background-image: url(./images/Pencil-Icon.png);
+}
+.section .option .icon.settingIcon {
+  width: 50px;height: 42px;
+  background-image: url(./images/Settings-Icon.png);
+}
+/* title */
+.option .name {
+  font-size:20px;
+  font-weight:300;
+color:rgba(20,20,20,1);
+line-height:32px;
+}
+/* desc */
+.option .des {
+  font-size:16px;
+  font-weight:200;
+  color:rgba(20,20,20,.7);
+  line-height:26px;
+  padding-top: 25px;
+  width: 351px;
+}
+
+.smart-car{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: url(./images/forest.png) 0 0 no-repeat;
+}
+.smart-car .mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+}
+.smart-car .content {
+  box-sizing: border-box;
+  width: 986px;
+  margin: 0 auto 93px;
+  color: rgba(255,255,255,0.5);
+}
+/* 文字容器 */
+.smart-car .content .project {
+  width: 367px;
+  padding-top: 182px;
+}
+.project .title {
+  font-size:42px;
+  font-weight:200;
+  color:rgba(255,255,255,1);
+  line-height:52px;
+}
+.project .text {
+  padding-top: 47px;
+  font-size:18px;
+  font-weight:200;
+  color:rgba(255,255,255,.7);
+  line-height:28px;
+  opacity:0.7;
+}
+.checked button {
+  margin-top: 58px;
+  width: 240px;
+  height: 60px;
+  outline: none;
+  border-radius: 2px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+.checked .check-out {
+  background: white;
+  border: 1px solid white;
+}
+.checked .try-free {
+  margin-left: 30px;
+  background: rgba(0,0,0,0);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255,255,255,0.5);
+}
+.smart-car .learning-means {
+  position: absolute;
+  top: 103px;right: 0;
+  width: 45%;
+  height: 600px;
+  border: 1px solid rgba(255,255, 255, 0.5);
+  border-radius: 8px 0 0 8px;
+}
+/* 平板背景 */
+.learning-means .bg {
+  position: absolute;
+  top:24px;
+  left: 45px;
+  background: url(./images/ipad.png) no-repeat;
+  width: 100%;height: 93%;
+  background-size: cover;
+}
+/* 按钮圆圈 */
+.learning-means .cicle {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(255,255, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  /* 300 - 5 */
+  top: 295px;
+  /* 22 - 5 */
+  left: 17px;
+}
+
+.about-our {
+  background: white;
+}
+/* 上下两根线 刚好做容器 */
+.about-our .through-line {
+  padding-bottom: 80px;
+  margin-bottom: 114px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.about-our .option {
+  width: 265px;
+}
+.product .title {
+  font-size:42px;
+  font-weight:200;
+  color:rgba(20,20,20,1);
+  line-height:52px;
+  text-align: center;
+  padding: 99px 0 85px 0;
+}
+.product .content .option .icon{
+  margin: 0 auto 39px;
+  /* background-repeat: no-repeat; */
+}
+.icon.singleton {
+  width: 120px;height: 35px;
+  background-image: url(./images/Singleton.png);
+}
+.icon.hero {
+  width: 76px;height: 34px;
+  background-image: url(./images/Hero.png);
+}
+.icon.portland {
+  width: 117px;height: 31px;
+  background-image: url(./images/Portland.png);
+}
+.product .content {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size:16px;
+  font-weight:200;
+  color:rgba(20,20,20,.7);
+  line-height:26px;
+}
+/* Try Our Awesome Products
+下面还有一段
+*/
+.product-des {
+  overflow: hidden;
+  width: 975px;
+  margin: 0 auto;
+}
+.product-des .product-image {
+  width: 570px;
+  height: 350px;
+}
+.product-des .product-item img,
+.product-des .product-item .product-info {
+  vertical-align: middle;
+}
+.product-des .product-item:last-child {
+  margin: 80px 0 106px 0;
+}
+.product-des .product-item:last-child .product-info{
+  padding-right: 100px;
+}
+.product-des .product-item:first-child .product-info{
+  padding-left: 100px;
+}
+.product-des .product-info{
+  display: inline-block;
+  width: 305px;
+  box-sizing: border-box;
+}
+.product-des .product-info .title {
+  font-size:20px;
+  font-weight:300;
+  color:rgba(20,20,20,1);
+  line-height:32px;
+  margin-bottom: 35px;
+}
+.product-des .product-info .text {
+  font-size:16px;
+  font-weight:200;
+  color:rgba(20,20,20,.7);
+  line-height:28px;
+}
+/* 团队介绍 */
+.team {
+  background-color: #fff;
+  margin-top: 7px;
+}
+.team .team-introduce {
+  text-align: center;
+}
+.team-introduce .title {
+  font-size:42px;
+  font-weight:200;
+  color:rgba(20,20,20,1);
+  line-height:52px;
+  padding-top: 92px;
+}
+.team-introduce .text {
+  width: 695px;
+  margin: 0 auto;
+  font-size:18px;
+  font-weight:200;
+  color:rgba(20,20,20,.7);
+  line-height:28px;
+}
+.team-members {
+  overflow: hidden;
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.team-members .person {
+  width: 475px;
+  height: 300px;
+}
+.team-members .person:hover .mask {
+  opacity: 1;
+  visibility: visible;
+}
+
+.team-members .person:nth-child(1) {
+  background-image: url(./images/person01.png);
+}
+.team-members .person:nth-child(2) {
+  background-image: url(./images/person02.png);
+}
+.team-members .person:nth-child(3) {
+  background-image: url(./images/person03.png);
+}
+.team-members .person:nth-child(4) {
+  background-image: url(./images/person04.png);
+}
+.team-members .person {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.person .mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+}
+.person .mask .content {
+  padding: 50px;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+}
