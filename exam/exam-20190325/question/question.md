@@ -1,6 +1,10 @@
 1. 计算如下 box1，box2 两个盒子模型的宽高，并简要列出计算过程
 content>padding>border>margin>position
+<<<<<<< HEAD
 100x100>20-0-0-0>20
+=======
+<!-- 100x100>20-0-0-0> -->
+>>>>>>> 9db1485de7898db423861e62116f0f5849028bf4
 ```css
 .box {
   width: 100px;

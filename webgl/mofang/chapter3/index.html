@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebGL</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="retina" style="width:100%;"></canvas>
+    <script>
+    var width = window.innerWidth * window.devicePixelRatio;
+    var height = window.innerHeight * window.devicePixelRatio;
+    window.onload = function() {
+        createWorld();
+    }
+    function createWorld() {
+        var gl = initRender();
+        // var shaderProgram = initShaders(gl);
+        // var cameraMatrix = initCamera();
+        // initLight(gl, shaderProgram);
+        // var num = initObject(gl, shaderProgram);
+        // render(gl, num, shaderProgram, cameraMatrix);
+    }
+    function initRender() {
+        var canvas = document.querySelector('#retina');
+        canvas.width = width;
+        canvas.height = height;
+        var gl = canvas.getContext('webgl');
+        gl.clearColor(1.0,1.0,1.0,1.0);
+        gl.enable(gl.DEPTH_TEST); //消除那些被遮挡的物体表面
+        return gl;
+    }
+
+    function initShaders() {
+
+    }
+    function initCamera() {
+        var 
+    }
+    // initRender();
+    </script>
+</body>
+</html>

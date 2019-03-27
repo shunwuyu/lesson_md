@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 由于"直接继承prototype"存在上述的缺点，所以就有第四种方法，利用一个空对象作为中介。
+function Animal(){
+    this.species = "动物";
+}
+Animal.prototype.move = function() {
+    console.log("能动");
+}
+function Cat(name,color){
+    this.name = name;
+　　 this.color = color;
+}
+Cat.prototype.sing = function() {
+    console.log('喵');
+}
+
+function extend(Child, Parent) {
+    var F = function() {}
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.uber = Parent.prototype; //父亲
+}
+extend(Cat, Animal);
+var erha = new Cat("二哈", '黑');
+console.log(erha.move());
+
+</script>
+</body>
+</html>
