@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>arrow this</title>
+</head>
+<body>
+  <script>
+    var msg = 'global this'
+    const lilei = {
+      msg: 'this is 李雷'
+    }
+    const hanmeimei = {
+      msg: 'this is 韩梅梅'
+    }
+    function lileiFunc() {
+      // this
+      var a = () => {
+        console.log(this.msg);
+      }
+      a();
+    }
+    var b = () => {
+      console.log(this.msg)
+    }
+    b();
+    lileiFunc.call(lilei);
+
+    const c = () => {
+      console.log('c', this.msg)
+    }
+    c.call(lilei);
+  </script>
+</body>
+</html>

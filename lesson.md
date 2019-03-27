@@ -7,7 +7,16 @@
 [prototype]
 [camer]
 
-18. ~~ife~~
+27. ~~es6 箭头函数~~ es6/arrow-function
+26. ~~es6 模版字符串~~ es6/template-string
+25. ~~editInplace 面向对象~~ js/EditInPlaceField
+24. ~~alipay 财富tab~~ js/alipay-wealth
+23. ~~bootStrap 表单提交表格展示~~ css/bootstrap
+22. ~~swiper demo~~ css/swiper-carousel
+21. ~~京东2018校招宣传h5滑屏~~ css/jd-2018campus
+20. ~~网易云音乐年度总结h5滑屏~~ css/netease-music-*
+19. ~~百度外卖h5滑屏~~ css/baiduWaimai-*
+18. ~~ife 蓝湖切图~~  css/baidu-ife-task-9-11 做一个漂亮的网站
 17. ~~stylus~~ 
 16. ~~git rebase~~
 15. ~~[SVG animate]~~  /svg/animate  拖动音乐
