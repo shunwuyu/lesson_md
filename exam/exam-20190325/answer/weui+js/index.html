@@ -8,33 +8,43 @@
   <link href="https://cdn.bootcss.com/weui/1.1.3/style/weui.css" rel="stylesheet">
   <title>Document</title>
   <style>
-    *{
-      margin: 0;padding: 0;
+    * {
+      margin: 0;
+      padding: 0;
     }
-    html,body{
+
+    html,
+    body {
       width: 100%;
       font-size: 14px;
     }
-    .page{
+
+    .page {
       width: 100%;
     }
-    .p20{
+
+    .p20 {
       padding: 20px;
     }
-    .user-info{
+
+    .user-info {
       width: 100%;
       border-collapse: collapse;
       box-sizing: border-box;
     }
-    .user-info tr th{
+
+    .user-info tr th {
       border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
     }
-    .user-info tr td{
+
+    .user-info tr td {
       text-align: center;
       border-right: 1px solid #000;
       border-bottom: 1px solid #000;
     }
-    .user-info tr{
+
+    .user-info tr {
       border-top: 1px solid #000;
       border-left: 1px solid #000;
     }
@@ -49,7 +59,7 @@
           <label class="weui-label">姓名</label>
         </div>
         <div class="weui-cell__bd">
-          <input class="weui-input name" type="text" placeholder="请输入姓名" value="123">
+          <input class="weui-input name" type="text" placeholder="请输入姓名">
         </div>
       </div>
       <div class="weui-cell">
@@ -69,7 +79,7 @@
       <div class="weui-cell">
         <div class="weui-cell__hd"><label for="" class="weui-label">日期</label></div>
         <div class="weui-cell__bd">
-          <input class="weui-input date" type="date" value="">
+          <input class="weui-input date" type="date">
         </div>
       </div>
     </div>
@@ -78,44 +88,47 @@
     </div>
     <!--  -->
     <table class="user-info">
-      <tr>
-        <th>姓名</th>
-        <th>qq</th>
-        <th>手机号</th>
-        <th>生日</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-      </tr>
+      <tbody id="info">
+        <tr>
+          <th>姓名</th>
+          <th>qq</th>
+          <th>手机号</th>
+          <th>生日</th>
+        </tr>
+        <!-- <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr> -->
+      </tbody>
     </table>
   </div>
   <script>
-    const name = document.querySelector('.name').value;
-    const qq = document.querySelector('.qq').value;
-    const phone = document.querySelector('.phone').value;
-    const date = document.querySelector('.date').value;
     const oSbumit = document.getElementById('submit')
-    const Info = document.querySelector('.user-info')
+    const Info = document.getElementById('info')
+    
+    oSbumit.addEventListener('click', function () {
+      const name = document.querySelector('.name').value;
+      const qq = document.querySelector('.qq').value;
+      const phone = document.querySelector('.phone').value;
+      const date = document.querySelector('.date').value;
 
+      let msg = {
+        'name': name,
+        'qq': qq,
+        'phone': phone,
+        'date': date
+      }
 
-    oSbumit.addEventListener('click', function(){
-      let html = '<tr>'+
-                    '<td>'+name+'</td>'+
-                    '<td>'+qq+'</td>'+
-                    '<td>'+phone+'</td>'+
-                    '<td>'+date+'</td>'+
-                  '</tr>'
-      console.log(html)
       let oTr = document.createElement('tr')
-      let oTd = document.createElement('td')
-      // Info.innerHTML = html
-      for (let i = 0; i < 4; i++) {
+      Info.appendChild(oTr)
+
+      for (let i in msg) {
+        let oTd = document.createElement('td')
+        oTd.innerHTML = msg[i]
         oTr.appendChild(oTd)
       }
-      Info.appendChild(oTr)
     })
   </script>
 </body>
