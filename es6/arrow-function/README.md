@@ -51,7 +51,7 @@ var func2 = (a,a) => {
 };
 func1(1, 2); func2(1, 2);
 ```
-- 箭头函数 没有自己的this 他的 this 指向在定义的时候所处上下文this
+- 箭头函数 没有自己的this 他的 this 指向在定义的时候所处上下文(外部函数)this
 - 箭头函数没有prototype(原型) a.prototype
 - 箭头函数不能作为构造函数
 - 不能直接修改箭头函数的this指向

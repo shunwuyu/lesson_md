@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>array spread</title>
+</head>
+<body>
+  <script>
+  var a = [1, 2, 3]
+  // 以前 烦不烦
+  var c = a[0], d = a[1], e = a[2];
+  // 一一匹配
+  const [c, d, e] = [1, 2, 3];
+  // 嵌套
+  // [1, [[2]], 3];
+  // 解构最后一个值
+  // [, , c]
+  // 解构不成功 undefined
+  // 解构的不是数组（不可以遍历的结构）
+  // 赋值 默认值 只有 === undefined  默认值才会生效
+  </script>
+</body>
+</html>
