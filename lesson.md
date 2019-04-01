@@ -1,3 +1,4 @@
+[yuya type](https://juejin.im/post/5951ba9f6fb9a06bbd6f5a12)
 [阮一峰extend5](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
 [event loop](https://juejin.im/post/5c947bca5188257de704121d)
 [douban首页]
@@ -7,7 +8,9 @@
 [svg loading]
 [prototype]
 [camer]
-
+30. ~~原型链~~
+29. ~~fire~~  css/fire    [fire](https://juejin.im/post/5c9ae2d3e51d4566661127eb)
+28. ~~Type判断~~
 27. ~~es6 箭头函数~~ es6/arrow-function
 26. ~~es6 模版字符串~~ es6/template-string
 25. ~~editInplace 面向对象~~ js/EditInPlaceField
