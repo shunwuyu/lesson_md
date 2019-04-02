@@ -1,13 +1,34 @@
 @import './reset';
 @import './common';
 
-
-
 $cols = 12      // 自定义栅格数
-$bgc = 'background-color'
-.bgc-red
-  {$bgc} red
+$queryObj = {
+  normal: '',
+  // xs: {
+  //   query: 'max-width: 576px',
+  // },
+  sm: {
+    query: 'min-width: 576px',
+    containerWidth: 540
+  },
+  md: {
+    query: 'min-width: 768px',
+    containerWidth: 720
+  },
+  lg: {
+    query: 'min-width: 992px',
+    containerWidth: 960
+  },
+  xl: {
+    query: 'min-width: 1200px',
+    containerWidth: 1140
+  }
+}
+
+$bgc = 'background'
 // 插值演示
+.bgc-red
+  {$bgc}-color red
 
 // 栅格系统，移动设备优先
 .container 
@@ -16,131 +37,181 @@ $bgc = 'background-color'
 .container-fluid
   margin-left auto 
   margin-right auto
+  width 100%
 // 往外 拉出去 全部占满 container
 .row
-.row:before, .row:after 
-  content "" 
-  display table 
-  clear both
-.col-xs-1,
-.col-sm-1,
-.col-md-1,
-.col-lg-1,
-.col-xs-2,
-.col-sm-2,
-.col-md-2,
-.col-lg-2,
-.col-xs-3,
-.col-sm-3,
-.col-md-3,
-.col-lg-3,
-.col-xs-4,
-.col-sm-4,
-.col-md-4,
-.col-lg-4,
-.col-xs-5,
-.col-sm-5,
-.col-md-5,
-.col-lg-5,
-.col-xs-6,
-.col-sm-6,
-.col-md-6,
-.col-lg-6,
-.col-xs-7,
-.col-sm-7,
-.col-md-7,
-.col-lg-7,
-.col-xs-8,
-.col-sm-8,
-.col-md-8,
-.col-lg-8,
-.col-xs-9,
-.col-sm-9,
-.col-md-9,
-.col-lg-9,
-.col-xs-10,
-.col-sm-10,
-.col-md-10,
-.col-lg-10,
-.col-xs-11,
-.col-sm-11,
-.col-md-11,
-.col-lg-11,
-.col-xs-12,
-.col-sm-12,
-.col-md-12,
-.col-lg-12
-  position: relative
-  min-height: 1px
-  padding-right: 15px
-  padding-left: 15px
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
-.col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12
-  float left
-// width
-.col-xs-1  
-  width 8.33333333%
-.col-xs-2  
-  width 16.66666667%
-.col-xs-3  
-  width 25%
-.col-xs-4  
-  width 33.33333333%
-.col-xs-5  
-  width 41.66666667%
-.col-xs-6  
-  width 50%
-.col-xs-7  
-  width 58.33333333%
-.col-xs-8  
-  width 66.66666667%
-.col-xs-9  
-  width 75%
-.col-xs-10  
-  width 83.33333333%
-.col-xs-11  
-  width 91.66666667%
-.col-xs-12  
-  width 100%
+  display flex
+  flex-wrap wrap
+// .col-xs-1,
+// .col-sm-1,
+// .col-md-1,
+// .col-lg-1,
+// .col-xs-2,
+// .col-sm-2,
+// .col-md-2,
+// .col-lg-2,
+// .col-xs-3,
+// .col-sm-3,
+// .col-md-3,
+// .col-lg-3,
+// .col-xs-4,
+// .col-sm-4,
+// .col-md-4,
+// .col-lg-4,
+// .col-xs-5,
+// .col-sm-5,
+// .col-md-5,
+// .col-lg-5,
+// .col-xs-6,
+// .col-sm-6,
+// .col-md-6,
+// .col-lg-6,
+// .col-xs-7,
+// .col-sm-7,
+// .col-md-7,
+// .col-lg-7,
+// .col-xs-8,
+// .col-sm-8,
+// .col-md-8,
+// .col-lg-8,
+// .col-xs-9,
+// .col-sm-9,
+// .col-md-9,
+// .col-lg-9,
+// .col-xs-10,
+// .col-sm-10,
+// .col-md-10,
+// .col-lg-10,
+// .col-xs-11,
+// .col-sm-11,
+// .col-md-11,
+// .col-lg-11,
+// .col-xs-12,
+// .col-sm-12,
+// .col-md-12,
+// .col-lg-12
+//   position: relative
+//   min-height: 1px
+//   padding-right: 15px
+//   padding-left: 15px
+// .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
+// .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12
+//   float left
+// // width
+// .col-xs-1  
+//   width 8.33333333%
+// .col-xs-2  
+//   width 16.66666667%
+// .col-xs-3  
+//   width 25%
+// .col-xs-4  
+//   width 33.33333333%
+// .col-xs-5  
+//   width 41.66666667%
+// .col-xs-6  
+//   width 50%
+// .col-xs-7  
+//   width 58.33333333%
+// .col-xs-8  
+//   width 66.66666667%
+// .col-xs-9  
+//   width 75%
+// .col-xs-10  
+//   width 83.33333333%
+// .col-xs-11  
+//   width 91.66666667%
+// .col-xs-12  
+//   width 100%
 
-// offset 
-.col-xs-offset-1  
-  margin-left 8.33333333%
-.col-xs-offset-2  
-  margin-left 16.66666667%
-.col-xs-offset-3  
-  margin-left 25%
-.col-xs-offset-4  
-  margin-left 33.33333333%
-.col-xs-offset-5  
-  margin-left 41.66666667%
-.col-xs-offset-6  
-  margin-left 50%
-.col-xs-offset-7  
-  margin-left 58.33333333%
-.col-xs-offset-8  
-  margin-left 66.66666667%
-.col-xs-offset-9  
-  margin-left 75%
-.col-xs-offset-10  
-  margin-left 83.33333333%
-.col-xs-offset-11  
-  margin-left 91.66666667%
-.col-xs-offset-12  
-  margin-left 100%
+// // offset 
+// .col-xs-offset-1  
+//   margin-left 8.33333333%
+// .col-xs-offset-2  
+//   margin-left 16.66666667%
+// .col-xs-offset-3  
+//   margin-left 25%
+// .col-xs-offset-4  
+//   margin-left 33.33333333%
+// .col-xs-offset-5  
+//   margin-left 41.66666667%
+// .col-xs-offset-6  
+//   margin-left 50%
+// .col-xs-offset-7  
+//   margin-left 58.33333333%
+// .col-xs-offset-8  
+//   margin-left 66.66666667%
+// .col-xs-offset-9  
+//   margin-left 75%
+// .col-xs-offset-10  
+//   margin-left 83.33333333%
+// .col-xs-offset-11  
+//   margin-left 91.66666667%
+// .col-xs-offset-12  
+//   margin-left 100%
 
-@media screen and (min-width: 768px)
-  .container
-    width: 750px
+// @media screen and (min-width: 768px)
+//   .container
+//     width: 750px
+//   for $c in 1..$cols
+//     // 100 平分为12份 1占1份 2占2份
+//     $percent = (100 / $cols * $c)%
+
+//     .col-sm-{$c}
+//       @extend .fl
+//       width $percent
+//     .col-sm-offset-{$c}
+//       margin-left $percent
+
+// @media screen and (min-width: 992px)
+//   .container 
+//     width: 970px
+  
+//   for $c in 1..$cols
+//     // 100 平分为12份 1占1份 2占2份
+//     $percent = (100 / $cols * $c)%
+
+//     .col-md-{$c}
+//       width $percent
+//     .col-md-offset-{$c}
+//       margin-left $percent
+// @media screen and (min-width: 1200px) {
+//   .container 
+//     width: 1170px
+//   for $c in 1..$cols
+//     // 100 平分为12份 1占1份 2占2份
+//     $percent = (100 / $cols * $c)%
+
+//     .col-lg-{$c}
+//       width $percent
+//     .col-lg-offset-{$c}
+//       margin-left $percent
+
+media($k, $v = {})
+  // for $key, $value in $v
+  //   if $key == 'containerWidth'
+  //     .container
+  //       width $value
+  $class = ''
+  if $k != 'normal'
+    $class = $k + '-'
+  if $k != 'normal' && $v['containerWidth']
+    .container
+      width unit($v['containerWidth'], px)
+
   for $c in 1..$cols
-    // 100 平分为12份 1占1份 2占2份
     $percent = (100 / $cols * $c)%
 
-    .col-sm-{$c}
-      width $percent
-    .col-sm-offset-{$c}
+    .col-{$class}{$c}
+      flex 0 0 $percent
+      max-width $percent
+    .offset-{$class}{$c}
       margin-left $percent
 
-
+for $k, $v in $queryObj
+  if $k == 'normal'
+    media($k)
+  else
+    @media only screen and ({$v.query})
+      media($k, $v)
 
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+  box-sizing: border-box;
+  }
+  .wrap {
+    width: 300px;
+    display: flex;
+  }
+  .box {
+    border: 1px solid #000;
+  }
+  /* .box1 {
+    width: 100px;
+    flex-grow: 0;
+  } */
+  .box2 {
+    width: 330px;
+    /* flex-shrink: 1; */
+    /* flex-grow: 2; */
+  }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- <div class="box1 box">1</div> -->
+    <div class="box2 box">2</div>
+  </div>
+  <ul id="lists">
+
+  </ul>
+  <script>
+    const lists = document.getElementById('lists');
+  const lis = new Array(20).fill().map((_, i) => {
+    var liNode = document.createElement('li');
+    liNode.innerHTML = i;
+    return liNode;
+  })
+  console.log(lis);
+  for (var i = 0; i < lis.length; i ++) {
+    lists.appendChild(lis[i]);
+  }
+  </script>
+</body>
+</html>
