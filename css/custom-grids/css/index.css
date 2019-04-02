@@ -33,15 +33,21 @@ a:hover {
 .container {
   margin-left: auto;
   margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 .container-fluid {
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .row {
   display: flex;
   flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 .col-1 {
   flex: 0 0 8.333333333333334%;
@@ -482,4 +488,34 @@ a:hover {
   .offset-xl-12 {
     margin-left: 100%;
   }
+}
+.foo-1 {
+  width: 1px;
+}
+.foo-2 {
+  width: 2px;
+}
+.foo-3 {
+  width: 3px;
+}
+.foo-4 {
+  width: 4px;
+}
+.foo-5 {
+  width: 5px;
+}
+.foo-6 {
+  width: 6px;
+}
+.foo-7 {
+  width: 7px;
+}
+.foo-8 {
+  width: 8px;
+}
+.foo-9 {
+  width: 9px;
+}
+.foo-10 {
+  width: 10px;
 }

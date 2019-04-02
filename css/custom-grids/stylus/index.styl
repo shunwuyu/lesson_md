@@ -34,14 +34,20 @@ $bgc = 'background'
 .container 
   margin-left auto 
   margin-right auto
+  padding-right 15px
+  padding-left 15px
 .container-fluid
-  margin-left auto 
-  margin-right auto
   width 100%
+  padding-right 15px
+  padding-left 15px
+  margin-right auto
+  margin-left auto
 // 往外 拉出去 全部占满 container
 .row
   display flex
   flex-wrap wrap
+  margin-right -15px
+  margin-left -15px
 // .col-xs-1,
 // .col-sm-1,
 // .col-md-1,
@@ -213,5 +219,11 @@ for $k, $v in $queryObj
   else
     @media only screen and ({$v.query})
       media($k, $v)
+
+// 迭代
+for $val in 1..10
+  $base = unit($val, px)
+  .foo-{$base}
+    width $base
 
 

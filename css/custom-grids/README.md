@@ -1,3 +1,6 @@
+## 符合 bootStrap 标准的栅格系统
+[移动设备优先](https://getbootstrap.com/docs/4.3/layout/overview/)
+[grid option](https://getbootstrap.com/docs/4.3/layout/grid/)
 ## 栅格系统
 - why 12
   12是1，2，3，4，6的最小公倍数，所以12列栅格系统相对较灵活，
