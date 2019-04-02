@@ -1,3 +1,4 @@
+[dynamic](https://juejin.im/post/5c5ba697f265da2d8b6319f6) 动态规划 
 [codewars]()
 [git refloat](https://juejin.im/post/5ca1cddcf265da30b160d7bb)
 [yuya type](https://juejin.im/post/5951ba9f6fb9a06bbd6f5a12)
