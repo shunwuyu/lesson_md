@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  .wrap {
+    width: 250px;
+    display: flex;
+    background-color: #888;
+  }
+  .box {
+    border: 1px solid #000;
+  }
+  /* 父容器撑开 
+  flex-shrink default 1
+  */
+  .box1 {
+    width: 100px;
+    flex-shrink: 0;
+  }
+  .box2 {
+    width: 200px;
+    flex-shrink: 0;
+  }
+
+  /* flex-grow box2 占据剩余的空间
+  flex-grow default 0
+  */
+  /* .box1 {
+    width: 100px;
+  }
+  .box2 {
+    width: 100px;
+    flex-grow: 1;
+  } */
+
+  /* flex-basis */
+  /* .box1 {
+    background-color: red;
+    flex-basis: 100px;
+  }
+  .box2 {
+    background-color: green;
+    flex-basis: 50px;
+  } */
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box1 box">1</div>
+    <div class="box2 box">2</div>
+  </div>
+</body>
+</html>
