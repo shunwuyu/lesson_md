@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>local1</title>
+</head>
+<body>
+  <div class="demo">
+    <div class="rtcBox">
+      <div>
+        <div class="video-box">
+          <video src="" id="rtcA" controls autoplay></video>
+          <h5>A</h5>
+        </div>
+        <div class="chat-box">
+          <h5>收信息</h5>
+          <p class="rec_p"></p>
+        </div>
+      </div>
+      <div>
+          <div class="video-box">
+              <video src="" id="rtcB" controls autoplay></video>
+              <h5>B</h5>
+              <button class="callBtn">call</button>
+              <button class="hangupBtn">hangup</button>
+          </div>
+          <div class="chat-box">
+              <h5>发消息</h5>
+              <textarea class="send_ta"></textarea>
+              <br>
+              <button class="send_btn">发送</button>
+          </div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+  var localstream, peerA, peerB,
+   callBtn, hangupBtn, channelA, 
+   channelB, messageOpen = false, 
+   allowCall = true;
+  var send_btn, send_ta, rec_p, hangupBtn;
+
+  window.onload = function() {
+    callBtn = document.querySelector('.callBtn');
+    send_btn = document.querySelector('.send_btn');
+    send_ta = document.querySelector('.send_ta');
+    rec_p = document.querySelector('.rec_p');
+    hangupBtn = document.querySelector('.hangupBtn');
+    hangupBtn.addEventListener('click', function() {
+      peerA.close();
+      peerB.close();
+      channelA.close();
+      channelB.close();
+      peerA = null;
+      peerB = null;
+      channelA = null;
+      channelB = null;
+      sendText = '';
+      receiveText = '';
+      allowCall = false;
+      allowHangup = true
+    })
+    send_btn.addEventListener('click', function() {
+      var text = send_ta.value;
+      console.log(text);
+      channelB.send(JSON.stringify({name: text}))
+    });
+    function onCreateAnswer(desc) {
+      console.log(desc, 'zzzzzz');
+      peerA.setLocalDescription(desc)
+        .then(() => {
+          peerB.setRemoteDescription(desc);
+        })
+    }
+    function onCreateOffer(desc) {
+      console.log(desc, '------');
+      peerB.setLocalDescription(desc)
+        .then(() => {
+          peerA.setRemoteDescription(desc)
+            .then(() => {
+              peerA
+                .createAnswer()
+                .then(answer => {
+                  onCreateAnswer(answer);
+                })
+            })
+        })
+    }
+    callBtn.addEventListener('click', function() {
+      //console.log(peerA , peerB);
+      if (!peerA || !peerB) {
+        initPeer();
+      }
+      try {
+        peerB.createOffer({
+          offerToReceiveAudio: 1,
+          offerToReceiveVideo: 1
+        })
+        .then(offer => {
+          // console.log(offer);
+          onCreateOffer(offer);
+        })
+      } catch (e) {
+        console.log('createOffer: ', e);
+      }
+      allowCall = true
+      allowHangup = false
+    });
+    function initPeer() {
+      let PeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+      peerA = new PeerConnection();
+      // console.log(localstream);
+      peerA.addStream(localstream);
+      peerA.onicecandidate = (event) => {
+        if (event.candidate) {
+          peerB.addIceCandidate(event.candidate);
+        }
+      }
+      peerA.ondatachannel = (event) => {
+        channelA = event.channel;
+        channelA.binaryType = 'arraybuffer';
+        channelA.onopen = (e) => {
+          //console.log('channelA onopen', e);
+        }
+        channelA.onclose = (e) => {
+          //console.log('channelA onclose', e);
+        }
+        channelA.onmessage = (e) => {
+          console.log(e.data);
+          let receiveText = JSON.parse(e.data).name;
+          rec_p.innerHTML = receiveText;
+        }
+      }
+      peerB = new PeerConnection();
+      peerB.onaddstream = (event) => {
+        let video = document.querySelector('#rtcB');
+        video.srcObject = event.stream;
+      }
+      channelB = peerB.createDataChannel('messagechannel');
+      channelB.binaryType = 'arraybuffer';
+      channelB.onopen = (event) => {
+        messageOpen = true;
+      }
+      channelB.onclose = function(event) {
+        //console.log(event);
+      }
+      peerB.onicecandidate = (event) => {
+        // console.log(event.candidate);
+        if (event.candidate) {
+          console.log(peerA.addIceCandidate);
+          peerA.addIceCandidate(event.candidate)
+        }
+      }
+      
+      allowCall = false
+    }
+    navigator.mediaDevices.getUserMedia({
+      audio: true, video: true
+    }).then(stream => {
+      localstream = stream
+      let video = document.querySelector('#rtcA');
+      video.srcObject = stream;
+      initPeer();
+    })
+    .catch(err => {
+      //console.log(err);
+    })
+  }  
+  </script>
+</body>
+</html>
