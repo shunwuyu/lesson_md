@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .u-word {
+      filter: blur(10px);
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+      background-size: 120px;
+      background-repeat: no-repeat;
+      animation: blurAppear 2s linear forwards;
+    }
+
+    @keyframes blurAppear {
+      0% {
+        filter: blur(10px);
+        transform: scale(.8);
+        opacity: 0;
+      }
+
+      100% {
+        filter: blur(0);
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .u-word.u-word-005 {
+      background-image: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/word-005.fb23ac077f192198be71db00c07ea3a1.png);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="u-word u-word-005">
+
+  </div>
+</body>
+
+</html>

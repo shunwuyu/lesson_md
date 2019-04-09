@@ -88,9 +88,11 @@
     </div>
   </div>
   <!-- water p2 -->
-  <audio src="http://wqs.jd.com/promote/201707/2018campus/plugin/water_f86aa4.mp3" data-slide="true" id="audio_water"></audio>
+  <audio src="http://wqs.jd.com/promote/201707/2018campus/plugin/water_f86aa4.mp3" data-slide="true"
+    id="audio_water"></audio>
   <!-- run p3 -->
-  <audio src="http://wqs.jd.com/promote/201707/2018campus/plugin/run_5f27f8.mp3" data-slide="true" id="audio_run"></audio>
+  <audio src="http://wqs.jd.com/promote/201707/2018campus/plugin/run_5f27f8.mp3" data-slide="true"
+    id="audio_run"></audio>
   <script src="./lib/odometer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js">
   </script>
@@ -110,16 +112,16 @@
     };
     function slidesBgmPause() {
       const audios = document
-      .querySelectorAll('audio[data-slide="true"]');
+        .querySelectorAll('audio[data-slide="true"]');
       audios.forEach(audio => audio.pause());
     }
-    function p2Function () {
+    function p2Function() {
       p2Num.innerHTML = 0.004;
       const audio_water = document.getElementById('audio_water');
       slidesBgmPause();
       audio_water.play();
     }
-    function p3Function () {
+    function p3Function() {
       const audio_run = document.getElementById('audio_run');
       slidesBgmPause();
       audio_run.play();
@@ -149,7 +151,7 @@
           if (slide_operation) {
             if (typeof slide_operation === 'function') {
               slide_operation(this);
-            } else if(Array.isArray(slide_operation)) {
+            } else if (Array.isArray(slide_operation)) {
               slide_operation.forEach(opt => {
                 opt(this);
               })

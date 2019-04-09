@@ -7,69 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <!-- <link rel="stylesheet" href="./test.css"> -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
+  <link rel="stylesheet" href="./loading.css">
 
-    html,
-    body {
-      width: 100%;
-      height: 100%
-    }
-
-    .loading {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: #fff;
-      z-index: 110
-    }
-
-    .loading .c-cube-1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -2.13333rem;
-      margin-left: -.4rem;
-      animation: cube-up-down-1 .8s ease-in-out infinite alternate
-    }
-
-    .loading .c-cube {
-      font-size: .8rem;
-      transform: rotateX(-33.5deg) rotateY(45deg);
-      transform-origin: .5em .5em;
-      transform-style: preserve-3d;
-      animation: spin-cube-right 1.2s linear infinite
-    }
-
-    .loading .c-cube__side {
-      height: 1em;
-      position: absolute;
-      width: 1em
-    }
-
-    .loading .c-cube__side--left
-    /* ,.loading .c-cube__side--right  */
-      {
-      backface-visibility: hidden;
-      border: 1px solid;
-      border-image: linear-gradient(#ff1224, rgba(255, 18, 36, 0)) 2 100%;
-      border-top: none;
-      border-bottom: none;
-      height: 5em
-    }
-  </style>
 </head>
 
 <body>
-  <div class="loading" id="J-loading" data-lock="1">
+  <div class="loading" id="J-loading">
     <div class="c-cube-1">
       <div class="c-cube">
         <div class="c-cube__side c-cube__side--front"></div>

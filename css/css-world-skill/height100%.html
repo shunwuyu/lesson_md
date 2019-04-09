@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- html -->
+  <div></div>
+
+  <!-- CSS方法一 -->
+  <!-- <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    div {
+      height: 100%
+    }
+  </style> -->
+  <!-- CSS方法二 -->
+  <style>
+    div {
+      /* 包含块来自于 父级别 第一个 非 static 定位的元素 
+      当这样的祖先元素不存在时，则相对于ICB（inital container block, 初始包含块）,
+      尺寸等同于 浏览器可视窗口的大小
+      */
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+</body>
+
+</html>

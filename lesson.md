@@ -10,6 +10,8 @@
 [d3.js]
 [prototype]
 [camer]
+
+36. ~~[es6 rest spread]~~ es6/Array-spread-rest
 35. ~~[svg loading]~~
 34. ~~codewars~~
 33. ~~[dynamic](https://juejin.im/post/5c5ba697f265da2d8b6319f6) 动态规划~~
