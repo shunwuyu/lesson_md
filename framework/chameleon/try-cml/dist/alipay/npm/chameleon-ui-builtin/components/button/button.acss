@@ -1,0 +1,40 @@
+.cml-c97128d6.cml-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 702rpx;
+  height: 88rpx;
+  background: #4a4c5b;
+  border: none;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  border-radius: 4rpx;
+  -webkit-align-self: center;
+          align-self: center;
+}
+.cml-c97128d6.cml-btn:after {
+  border: none;
+}
+.cml-c97128d6.cml-btn:active {
+  opacity: 0.9;
+}
+.cml-c97128d6.btn-text {
+  text-align: center;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  outline: none;
+  lines: 1;
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

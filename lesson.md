@@ -1,13 +1,23 @@
+[30 seconds](https://juejin.im/post/5c91579b6fb9a0710f47e06c)
+
+[git refloat](https://juejin.im/post/5ca1cddcf265da30b160d7bb)
+[yuya type](https://juejin.im/post/5951ba9f6fb9a06bbd6f5a12)
 [阮一峰extend5](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
 [event loop](https://juejin.im/post/5c947bca5188257de704121d)
 [douban首页]
 [douban photos]
 [ife ]
 [d3.js]
-[svg loading]
 [prototype]
 [camer]
-
+35. ~~[svg loading]~~
+34. ~~codewars~~
+33. ~~[dynamic](https://juejin.im/post/5c5ba697f265da2d8b6319f6) 动态规划~~
+32. ~~SVG LOADING~~
+31. ~~WEUI 原码一~~
+30. ~~原型链~~
+29. ~~fire~~  css/fire    [fire](https://juejin.im/post/5c9ae2d3e51d4566661127eb)
+28. ~~Type判断~~
 27. ~~es6 箭头函数~~ es6/arrow-function
 26. ~~es6 模版字符串~~ es6/template-string
 25. ~~editInplace 面向对象~~ js/EditInPlaceField

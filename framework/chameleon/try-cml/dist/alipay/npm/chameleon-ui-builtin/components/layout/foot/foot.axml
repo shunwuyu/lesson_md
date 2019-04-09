@@ -1,0 +1,3 @@
+<view class="c-foot  cml-base cml-view cml-d8a70114" style="{{mergeFootStyle}}">
+  <slot class=" cml-base cml-slot cml-d8a70114"></slot>
+</view>

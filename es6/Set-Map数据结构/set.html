@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var s = new Set();
+    var a = [23, 78, 90, 99, 90];
+    a.forEach(ele => {
+      s.add(ele);
+    })
+    for (let item of s.keys()) {
+      console.log('keys', item);
+    }
+    for (let item of s.values()) {
+      console.log('values', item);
+    }
+    for (let item of s) {
+      console.log('s', item);
+    }
+    // 键名 键值 相等
+    for (let item of s.entries()) {
+      console.log('entries', item);
+    }
+    // 扩展运算符内部使用 for of 循环 所以也能用于 set结构
+    let arr = [...s];
+    // 数组去重
+
+    const unique_arr = [...new Set([5,5,5])]
+  </script>
+</body>
+
+</html>

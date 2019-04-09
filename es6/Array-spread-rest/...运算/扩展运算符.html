@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    // ...
+    // 三个点 好比是 rest 参数的逆运算
+    // 将一个数组 打散 
+    // 在加一个括号在外面 [] 就是数组了
+    var arr = [1, 2, 3];
+    console.log([...arr]);
+
+    function add(...values) {
+      let sum = 0;
+      for (let val of values) {
+        sum += val;
+      }
+      return sum;
+    }
+    add(...arr);
+    // 用处 最大值
+    Math.max(...[89, 99, 100])
+    // push()
+    var arr1 = [0, 1, 2]
+    var arr2 = [3, 4, 5]
+    // arr1.push(...arr2);
+
+    // 合并 数组
+    var newArr = arr1.concat(arr2);
+    var es6newArr = [...arr1, ...arr2];
+
+    // 与解构赋值结合
+    var a = arr[0], rest = arr.slice(1);
+    // 将多余参数生成一个数组
+    const [es6a, ...es6Rest] = arr;
+    // 扩展运算符只能放在参数最后一位
+    // 类似数组对象 转为真数组
+    // 类数组
+    // 可以通过索引访问元素，并且拥有 length 属性；
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    box
+
+  </div>
+  <script>
+    const box = document.getElementById('box');
+    var map = new Map([
+      ['name', '张三'],
+      ['age', 19]
+    ])
+    map.set(box, box);
+    // name age
+    console.log(...map.keys())
+    // 张三 19-
+    console.log(...map.values());
+    //  ["name", "张三"]  ["age", 19]
+    console.log(...map.entries());
+
+    for (let [k, v] of map.entries()) {
+      console.log(k, '=>',  v);
+    }
+  </script>
+</body>
+</html>

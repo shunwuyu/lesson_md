@@ -32,6 +32,20 @@
       console.log('c', this.msg)
     }
     c.call(lilei);
+
+    const obj = {
+      name: 'name',
+      getname: function () {
+        var a = () => {
+          console.log(this.name);
+        }
+        a();
+      },
+      a: () => {
+        console.log(this.name);
+      }
+    }
+    obj.getname();
   </script>
 </body>
 </html>
