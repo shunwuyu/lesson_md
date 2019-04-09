@@ -1,0 +1,345 @@
+$hdbg_color = #e54847
+$font_color_white = #fff
+
+html,body
+  width 100%
+.movie-celebrities::-webkit-scrollbar, .movie-stages::-webkit-scrollbar
+  height 0!important
+.clearfix:after
+  content ''
+  display block
+  clear both
+.text-ellipsis
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
+.flex
+  display flex
+.flex1
+  flex 1
+.section-til
+  font-size 17px
+  color #000
+.action-list.section-til
+  padding-left 0.4rem
+.nav
+  height 1.067rem
+  font-size 18px
+  text-align center
+  background-color $hdbg_color
+  padding 6px
+  box-sizing border-box
+  .arrow-left
+    float left
+    height 100%
+    position relative
+    &:after
+      content ''
+      width 12px
+      height 12px
+      position absolute
+      top 50%
+      left 16px
+      border 2px solid #FFF
+      border-width 0 0 2px 2px
+      box-sizing border-box
+      transform rotate(45deg) translateY(-50%)
+  span
+    color $font_color_white
+    display inline-block
+
+.page
+  background #f4f4f4
+  position relative
+  z-index 1
+  margin 0
+  color #555
+  min-width 3.1rem
+  -webkit-user-select none
+  -webkit-tap-highlight-color rgba(255,255,255,0)
+  font 14px/1.5 Arial,Helvetica,sans-serif
+  section
+    background #fff
+    border-bottom 1px solid #e5e5e5
+  .movie-header
+    padding 0
+    background #f8f8f8
+    border-bottom none
+    .movie
+      color #fff
+      padding .4rem
+      line-height 1
+      overflow hidden
+      position relative
+      box-sizing border-box
+      filter blur(0)
+      .movie-background,
+      .movie-filter
+        top 0
+        right 0
+        width 100%
+        position absolute
+        left 0
+        bottom 0
+      .movie-background
+        z-index 0
+        filter blur(.6rem)
+        -webkit-filter blur(.6rem)
+        background-size cover
+        background-repeat no-repeat
+        background-position-y 40%
+        background-image url(./images/header-bg.jpg)
+      .movie-filter
+        background-color #40454d
+        opacity .55
+      .movie-container
+        z-index 1
+        position relative
+        .movie-cover
+          float left
+          width 2.854rem
+          height 4rem
+          border: 1px solid #f0f2f3;
+          position relative
+          .link
+            cursor pointer
+            display block
+            width 100%
+            height 100%
+            .img
+              width 100%
+          &:after
+            content ''
+            right .1rem
+            bottom .1rem
+            background-image url(./images/bofang.png)
+            background-size 100% auto
+            position absolute
+            width .667rem
+            height .667rem
+            border-radius 100%
+            opacity .7
+        .movie-content
+          overflow hidden
+          padding-left .4rem
+          .movie-name
+            font-size 17px
+            margin 0.08rem 0
+          .movie-ename
+            font-size 12px
+            margin-bottom .2rem
+          .movie-score
+            font-size 12px
+            margin-bottom 0.3rem
+            .rating
+              .img
+                width 0.48rem
+                height 0.48rem
+                margin-right 2px
+              .rating-score
+                font-size .48rem
+                color #ffc600
+          .movie-detail
+            font-size 12px
+            margin-bottom .16rem
+            opacity .7
+            p
+              margin-bottom 0.14rem
+
+      .operating
+        margin-top .5rem
+        div
+          border 1px solid rgba(255,255,255,0.4)
+          background-color rgba(255,255,255,0.4)
+          font-size 14px
+          color #fff
+          position relative
+          z-index 2
+          text-align center
+          padding: .25rem 0
+          border-radius 4px
+          img
+            vertical-align middle
+          span
+            vertical-align middle
+        .movie-watch
+          margin-right .3rem
+          img
+            width 14px
+            height 14px
+        .movie-mark
+          img
+            width 18px
+            height 18px
+  .section-seperate
+    padding-top .4rem
+    margin-bottom .3rem
+    border-top 1px solid #e5e5e5
+  .section-expander
+    padding-left 0.4rem
+    padding-right 0.4rem
+    .text-expander
+      .text-expander__content.close
+        min-height 65px
+        display -webkit-box
+        overflow hidden
+        text-overflow ellipsis
+        word-break break-all
+        -webkit-box-orient vertical
+        -webkit-line-clamp 3
+      .text-expander__button
+        height 0.7rem
+        text-align center
+        .icon-chevron__down
+          width 10px
+          height 10px
+          border 1px solid #aaa
+          display inline-block
+          transform rotateZ(45deg)
+          border-width 0 1px 1px 0
+          box-sizing border-box
+          transition transform .5s
+        .icon-chevron__down.up
+          transform rotateZ(-135deg)
+  .section-seperate
+    .movie-celebrities
+      width 100%
+      padding .3rem .3rem .1rem .3rem
+      overflow-x scroll
+      white-space nowrap
+      box-sizing border-box
+      li
+        text-align center
+        display inline-block
+        padding 0.04rem
+        .link
+          color #000000
+          .movie-celebrities__pic
+            width 1.7334rem
+            height 2.4rem
+            margin 0.05rem
+            img
+              width 100%
+      span
+        display block
+        font-size 0.2rem
+        text-overflow ellipsis
+        overflow hidden
+        white-space nowrap
+      .movie-celebrities-roles
+        color #999
+  .movie-booking
+    padding-bottom 0.2rem
+    .weui-flex
+      text-align center
+      .placeholder
+        span
+          font-size 24px
+          color #d96a3d
+        p
+          color #bababa
+          margin-top 0.1rem
+
+  .movie-photo
+    .movie-photo__lists
+      font-size 0
+      width 100%
+      padding 0.3rem 0.3rem 0.2rem 0.3rem
+      overflow-x scroll
+      white-space nowrap
+      box-sizing border-box
+      .stage-img-container
+        margin-right .13333rem
+        display inline-block
+        width 2.4rem
+        height 1.867rem
+        .movie-celebrities__pic
+          width 100%
+          height 100%
+          img
+            width 100%
+            height 100%
+        &:first-child
+          width 3.3334rem
+          height 1.867rem
+        &:last-child
+          margin-right 0
+  .pos_r
+    position relative
+  .join-comment
+    position absolute
+    font-size 14px
+    background-color #e54847
+    color $font_color_white
+    padding 0.1rem 0.3rem
+    border-radius 20px
+    top 50%
+    right 0
+    transform translateY(-50%)
+  .movie-comment
+    overflow hidden
+    padding 0.2rem 0 .4rem 0
+    .comment-item
+      float left
+      border 1px solid #aaaaaa
+      border-radius 20px
+      padding .1rem .25rem
+      margin-top .2rem
+      margin-right .3rem
+      .commit-item__sort
+        font-size 0
+        span
+          font-size 14px
+  .chosen-comment
+    .chosen-comment__item
+      .item-avatal
+        float left
+        width 1rem
+        height 1rem
+        border-radius 50%
+        overflow hidden
+        img
+          width 100%
+      .item-detail
+        overflow hidden
+        padding-left .3rem
+        padding-bottom 0.4rem
+        border-bottom 1px solid #eee
+        margin-bottom 0.4rem
+        .item-detail__hd
+          div
+            span
+              vertical-align middle
+          .lever
+            display inline-block
+            width .9735rem
+            height 0.4534rem
+            img
+              width 100%
+          .item-score__desc
+            color #9b9b9b
+            font-size 12px
+        .item-detail__content
+          margin .15rem 0
+        .item-detail__footer
+          margin-top .4rem
+          .item-detail__time
+            color #9b9b9b
+          .pull-right
+            float right
+            .link
+              color #757575
+              border 1px solid #eee
+              margin-left 0.3rem
+              padding .12rem 0.3rem .16rem
+              box-sizing border-box
+              border-radius 20px
+              .icon
+                display inline-block
+                width 15px
+                height 15px
+                vertical-align middle
+              span
+                vertical-align middle
+#toast
+  display none
