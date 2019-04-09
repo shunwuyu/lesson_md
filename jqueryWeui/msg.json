@@ -1,0 +1,31 @@
+{
+  "data": {
+    "bussData": {
+      "age": "18",
+      "avatarUrl": "http://img5.duitang.com/uploads/item/201409/23/20140923094045_BNYji.thumb.700_0.png",
+      "cityCode": "1210",
+      "cityName": "南昌",
+      "creator": "string",
+      "currentUserId": 0,
+      "extInfos": "string",
+      "gmtCreated": "2019-04-01T10:17:05.473Z",
+      "gmtModified": "2019-04-01T10:17:05.473Z",
+      "id": 0,
+      "industry": "1",
+      "industryDesc": "IT",
+      "interest": "2",
+      "interestDesc": "小姐姐",
+      "introduce": "聪明且帅，人畜无害",
+      "latitude": 0,
+      "longitude": 0,
+      "mobile": "17826864512",
+      "modifier": "string",
+      "need": "爱",
+      "nickname": "风一样的男子",
+      "userId": 0
+    }
+  },
+  "msg": "成功",
+  "status": 200
+}
+

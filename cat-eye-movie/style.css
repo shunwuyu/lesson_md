@@ -1,0 +1,414 @@
+html,
+body {
+  width: 100%;
+}
+.movie-celebrities::-webkit-scrollbar,
+.movie-stages::-webkit-scrollbar {
+  height: 0 !important;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+.flex1 {
+  flex: 1;
+}
+.section-til {
+  font-size: 17px;
+  color: #000;
+}
+.action-list.section-til {
+  padding-left: 0.4rem;
+}
+.nav {
+  height: 1.067rem;
+  font-size: 18px;
+  text-align: center;
+  background-color: #e54847;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.nav .arrow-left {
+  float: left;
+  height: 100%;
+  position: relative;
+}
+.nav .arrow-left:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  border: 2px solid #fff;
+  border-width: 0 0 2px 2px;
+  box-sizing: border-box;
+  transform: rotate(45deg) translateY(-50%);
+}
+.nav span {
+  color: #fff;
+  display: inline-block;
+}
+.page {
+  background: #f4f4f4;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #555;
+  min-width: 3.1rem;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  font: 14px/1.5 Arial, Helvetica, sans-serif;
+}
+.page section {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page .movie-header {
+  padding: 0;
+  background: #f8f8f8;
+  border-bottom: none;
+}
+.page .movie-header .movie {
+  color: #fff;
+  padding: 0.4rem;
+  line-height: 1;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  filter: blur(0);
+}
+.page .movie-header .movie .movie-background,
+.page .movie-header .movie .movie-filter {
+  top: 0;
+  right: 0;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page .movie-header .movie .movie-background {
+  z-index: 0;
+  filter: blur(0.6rem);
+  -webkit-filter: blur(0.6rem);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 40%;
+  background-image: url("./images/header-bg.jpg");
+}
+.page .movie-header .movie .movie-filter {
+  background-color: #40454d;
+  opacity: 0.55;
+}
+.page .movie-header .movie .movie-container {
+  z-index: 1;
+  position: relative;
+}
+.page .movie-header .movie .movie-container .movie-cover {
+  float: left;
+  width: 2.854rem;
+  height: 4rem;
+  border: 1px solid #f0f2f3;
+  position: relative;
+}
+.page .movie-header .movie .movie-container .movie-cover .link {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.page .movie-header .movie .movie-container .movie-cover .link .img {
+  width: 100%;
+}
+.page .movie-header .movie .movie-container .movie-cover:after {
+  content: '';
+  right: 0.1rem;
+  bottom: 0.1rem;
+  background-image: url("./images/bofang.png");
+  background-size: 100% auto;
+  position: absolute;
+  width: 0.667rem;
+  height: 0.667rem;
+  border-radius: 100%;
+  opacity: 0.7;
+}
+.page .movie-header .movie .movie-container .movie-content {
+  overflow: hidden;
+  padding-left: 0.4rem;
+}
+.page .movie-header .movie .movie-container .movie-content .movie-name {
+  font-size: 17px;
+  margin: 0.08rem 0;
+}
+.page .movie-header .movie .movie-container .movie-content .movie-ename {
+  font-size: 12px;
+  margin-bottom: 0.2rem;
+}
+.page .movie-header .movie .movie-container .movie-content .movie-score {
+  font-size: 12px;
+  margin-bottom: 0.3rem;
+}
+.page .movie-header .movie .movie-container .movie-content .movie-score .rating .img {
+  width: 0.48rem;
+  height: 0.48rem;
+  margin-right: 2px;
+}
+.page .movie-header .movie .movie-container .movie-content .movie-score .rating .rating-score {
+  font-size: 0.48rem;
+  color: #ffc600;
+}
+.page .movie-header .movie .movie-container .movie-content .movie-detail {
+  font-size: 12px;
+  margin-bottom: 0.16rem;
+  opacity: 0.7;
+}
+.page .movie-header .movie .movie-container .movie-content .movie-detail p {
+  margin-bottom: 0.14rem;
+}
+.page .movie-header .movie .operating {
+  margin-top: 0.5rem;
+}
+.page .movie-header .movie .operating div {
+  border: 1px solid rgba(255,255,255,0.4);
+  background-color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0.25rem 0;
+  border-radius: 4px;
+}
+.page .movie-header .movie .operating div img {
+  vertical-align: middle;
+}
+.page .movie-header .movie .operating div span {
+  vertical-align: middle;
+}
+.page .movie-header .movie .operating .movie-watch {
+  margin-right: 0.3rem;
+}
+.page .movie-header .movie .operating .movie-watch img {
+  width: 14px;
+  height: 14px;
+}
+.page .movie-header .movie .operating .movie-mark img {
+  width: 18px;
+  height: 18px;
+}
+.page .section-seperate {
+  padding-top: 0.4rem;
+  margin-bottom: 0.3rem;
+  border-top: 1px solid #e5e5e5;
+}
+.page .section-expander {
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+.page .section-expander .text-expander .text-expander__content.close {
+  min-height: 65px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.page .section-expander .text-expander .text-expander__button {
+  height: 0.7rem;
+  text-align: center;
+}
+.page .section-expander .text-expander .text-expander__button .icon-chevron__down {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #aaa;
+  display: inline-block;
+  transform: rotateZ(45deg);
+  border-width: 0 1px 1px 0;
+  box-sizing: border-box;
+  transition: transform 0.5s;
+}
+.page .section-expander .text-expander .text-expander__button .icon-chevron__down.up {
+  transform: rotateZ(-135deg);
+}
+.page .section-seperate .movie-celebrities {
+  width: 100%;
+  padding: 0.3rem 0.3rem 0.1rem 0.3rem;
+  overflow-x: scroll;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.page .section-seperate .movie-celebrities li {
+  text-align: center;
+  display: inline-block;
+  padding: 0.04rem;
+}
+.page .section-seperate .movie-celebrities li .link {
+  color: #000;
+}
+.page .section-seperate .movie-celebrities li .link .movie-celebrities__pic {
+  width: 1.7334rem;
+  height: 2.4rem;
+  margin: 0.05rem;
+}
+.page .section-seperate .movie-celebrities li .link .movie-celebrities__pic img {
+  width: 100%;
+}
+.page .section-seperate .movie-celebrities span {
+  display: block;
+  font-size: 0.2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.page .section-seperate .movie-celebrities .movie-celebrities-roles {
+  color: #999;
+}
+.page .movie-booking {
+  padding-bottom: 0.2rem;
+}
+.page .movie-booking .weui-flex {
+  text-align: center;
+}
+.page .movie-booking .weui-flex .placeholder span {
+  font-size: 24px;
+  color: #d96a3d;
+}
+.page .movie-booking .weui-flex .placeholder p {
+  color: #bababa;
+  margin-top: 0.1rem;
+}
+.page .movie-photo .movie-photo__lists {
+  font-size: 0;
+  width: 100%;
+  padding: 0.3rem 0.3rem 0.2rem 0.3rem;
+  overflow-x: scroll;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.page .movie-photo .movie-photo__lists .stage-img-container {
+  margin-right: 0.13333rem;
+  display: inline-block;
+  width: 2.4rem;
+  height: 1.867rem;
+}
+.page .movie-photo .movie-photo__lists .stage-img-container .movie-celebrities__pic {
+  width: 100%;
+  height: 100%;
+}
+.page .movie-photo .movie-photo__lists .stage-img-container .movie-celebrities__pic img {
+  width: 100%;
+  height: 100%;
+}
+.page .movie-photo .movie-photo__lists .stage-img-container:first-child {
+  width: 3.3334rem;
+  height: 1.867rem;
+}
+.page .movie-photo .movie-photo__lists .stage-img-container:last-child {
+  margin-right: 0;
+}
+.page .pos_r {
+  position: relative;
+}
+.page .join-comment {
+  position: absolute;
+  font-size: 14px;
+  background-color: #e54847;
+  color: #fff;
+  padding: 0.1rem 0.3rem;
+  border-radius: 20px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.page .movie-comment {
+  overflow: hidden;
+  padding: 0.2rem 0 0.4rem 0;
+}
+.page .movie-comment .comment-item {
+  float: left;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  padding: 0.1rem 0.25rem;
+  margin-top: 0.2rem;
+  margin-right: 0.3rem;
+}
+.page .movie-comment .comment-item .commit-item__sort {
+  font-size: 0;
+}
+.page .movie-comment .comment-item .commit-item__sort span {
+  font-size: 14px;
+}
+.page .chosen-comment .chosen-comment__item .item-avatal {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.page .chosen-comment .chosen-comment__item .item-avatal img {
+  width: 100%;
+}
+.page .chosen-comment .chosen-comment__item .item-detail {
+  overflow: hidden;
+  padding-left: 0.3rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.4rem;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__hd div span {
+  vertical-align: middle;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__hd .lever {
+  display: inline-block;
+  width: 0.9735rem;
+  height: 0.4534rem;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__hd .lever img {
+  width: 100%;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__hd .item-score__desc {
+  color: #9b9b9b;
+  font-size: 12px;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__content {
+  margin: 0.15rem 0;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__footer {
+  margin-top: 0.4rem;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__footer .item-detail__time {
+  color: #9b9b9b;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__footer .pull-right {
+  float: right;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__footer .pull-right .link {
+  color: #757575;
+  border: 1px solid #eee;
+  margin-left: 0.3rem;
+  padding: 0.12rem 0.3rem 0.16rem;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__footer .pull-right .link .icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+.page .chosen-comment .chosen-comment__item .item-detail .item-detail__footer .pull-right .link span {
+  vertical-align: middle;
+}
+#toast {
+  display: none;
+}
