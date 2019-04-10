@@ -8,27 +8,23 @@
   <title>Document</title>
   <!-- CSS -->
   <style>
-    /* 换行时候：英文单词数字不换行 */
-    .ao {
-      /* display: inline-block; */
-      width: 0;
-    }
 
-    .ao::before {
-      content: "love你love";
-      outline: 2px solid #000;
-      color: #fff;
+    a {
+      text-decoration: none;
+      border-bottom: 1px solid;
+      /* 是内联元素，所以完全不用担心会影响元素高度的问题。 */
+      padding-bottom: 5px;
     }
-
   </style>
 </head>
 
 <body>
-  <!-- html -->
-  <div class='ao'></div>
-
-
-
+  <a href="">
+    按钮在这里
+  </a>
+  <div>
+    122
+  </div>
 </body>
 
 </html>
