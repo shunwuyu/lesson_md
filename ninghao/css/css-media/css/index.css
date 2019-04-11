@@ -204,3 +204,85 @@
 .ui.vertical.story .slick-dots {
   bottom: -48px;
 }
+.ui.cards {
+  margin-top: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.ui.card {
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+  box-shadow: none;
+  border-radius: 0;
+}
+.ui.card:hover {
+  box-shadow: 0 32px 48px rgba(0,0,0,0.06);
+}
+.ui.card .image > img {
+  width: 100%;
+  border-radius: 0;
+}
+.ui.card .content {
+  padding: 40px;
+  padding-bottom: 56px;
+  min-height: 252px;
+  box-sizing: border-box;
+}
+.ui.card .content > .header {
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 24px;
+}
+.ui.card .content > .header ::after {
+  content: " ";
+  display: block;
+  border-bottom: 2px solid #000;
+  width: 40px;
+  padding-bottom: 8px;
+}
+.ui.card .content .sub.header {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.ui.card .content .description {
+  margin-bottom: 8px;
+}
+@media only screen and (max-width: 767px) {
+  .ui.stackable.grid .ui.card {
+    width: auto;
+  }
+}
+.ui.sidebar {
+  background: #fff;
+}
+.ui.sidebar .menu {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.ui.sidebar .menu .item {
+  padding: 16px;
+  padding-right: 24px;
+  font-size: 18px;
+  color: #000;
+}
+.ui.sidebar .menu .item.active {
+  background: #f8f8f8;
+}
+.ui.sidebar .menu .item:hover {
+  background: #fbfbfb;
+}
+.ui.sidebar .close-icon {
+  height: 50px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+body {
+  background: #f8f8f8;
+  font-family: 'PingFangSC-Light';
+}
