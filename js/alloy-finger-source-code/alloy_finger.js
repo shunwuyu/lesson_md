@@ -71,7 +71,6 @@
 
   AlloyFinger.prototype = {
       start: function (evt) {
-          console.log('start event', evt);
           if (!evt.touches) return;
           this.now = Date.now();
           this.x1 = evt.touches[0].pageX;
@@ -106,6 +105,7 @@
               preV.y = v.y;
               // 两个手指时 得到了两个点的距离
               this.pinchStartLen = getLen(preV);
+              // 多根手指按上去的时候
               this.multipointStart(evt);
           }
           // 按了 750 ms 认为这是一个长按事件

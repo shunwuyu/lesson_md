@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>掘金 点赞 取消点赞</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="container">
+  </div>
+  <script>
+    // 生成 html css 事件
+
+    const items = document.querySelectorAll('.item');
+    const container = document.querySelector('.container');
+    const like = 'https://b-gold-cdn.xitu.io/v3/static/img/zan-active.930baa2.svg';
+    const disLike = 'https://b-gold-cdn.xitu.io/v3/static/img/zan.e9d7698.svg';
+    // 默认是未点赞时候的状态
+
+
+    const renderHTML = function ({ count, flag }, index) {
+      return `
+      <div class="item" data-flag='${flag}' data-click="${index}">
+        <img class="icon" data-click="${index}" src="${flag === '0' ? disLike : like}" alt="">
+        <span class="count ${flag === '0' ? '' : 'active'}" data-click="${index}">
+          ${count}
+        </span>
+      </div>
+      `
+    }
+
+    function initData() {
+      const getArrByLocal = localStorage.getItem('juejinLike')
+      if (getArrByLocal) {
+        try {
+          const defaultArr = JSON.parse(getArrByLocal)
+          return defaultArr;
+        } catch (error) {
+
+        }
+      } else {
+        const defaultArr = [{
+          count: 98, flag: '0'
+        }, {
+          count: 999, flag: '0'
+        }, {
+          count: 789, flag: '0'
+        }];
+        return defaultArr;
+      }
+    }
+    renderBydata();
+    function renderBydata() {
+      const initArray = initData();
+      const containerInnerHTML = initArray.map(renderHTML);
+      container.innerHTML = containerInnerHTML;
+    }
+
+    container.addEventListener('click', function (e) {
+      const initArray = initData();
+      console.log(initArray);
+      const clickAbleIndex = e.target.dataset.click;
+      if (clickAbleIndex) {
+        const itemContainerNode = e.target.dataset.flag ? e.target : e.target.parentNode;
+        let flag = itemContainerNode.dataset.flag;
+        console.log(flag);
+        const icon = itemContainerNode.querySelector('.icon');
+        const count = itemContainerNode.querySelector('.count');
+        // null.src
+        let countNum = count.innerHTML;
+        countNum = parseInt(countNum);
+        if (flag === '1') {
+          icon.src = disLike;
+          countNum -= 1;
+          flag = '0'
+          // count.classList.remove('active');
+        } else {
+          icon.src = like;
+          countNum += 1;
+          flag = '1'
+          // count.classList.add('active');
+        }
+        count.classList.toggle('active');
+        count.innerHTML = countNum;
+
+        itemContainerNode.dataset.flag = flag;
+
+        // 改变源数据
+        const arrIndex = parseInt(clickAbleIndex);
+        initArray[arrIndex] = {
+          count: countNum,
+          flag
+        }
+        console.log(arrIndex,initArray)
+        localStorage.setItem('juejinLike', JSON.stringify(initArray));
+      }
+    })
+    // for (let i = 0; i < items.length; i++) {
+    //   items[i].addEventListener('click', () => {
+    //     // document.querySelector   node.querySelector
+    //     // items[i].dataset {}
+    //     let flag = items[i].dataset.flag;
+    //     console.log(flag);
+    //     const icon = items[i].querySelector('.icon');
+    //     const count = items[i].querySelector('.count');
+    //     // null.src
+    //     let countNum = count.innerHTML;
+    //     countNum = parseInt(countNum);
+    //     if (flag === '1') {
+    //       icon.src = disLike;
+    //       countNum -= 1;
+    //       flag = '0'
+    //       // count.classList.remove('active');
+    //     } else {
+    //       icon.src = like;
+    //       countNum += 1;
+    //       flag = '1'
+    //       // count.classList.add('active');
+    //     }
+    //     count.classList.toggle('active');
+    //     count.innerHTML = countNum;
+
+    //     items[i].dataset.flag = flag;
+    //   })
+    // }
+  </script>
+</body>
+
+</html>
