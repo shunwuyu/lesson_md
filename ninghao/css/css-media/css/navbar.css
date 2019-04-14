@@ -1,0 +1,85 @@
+.ui.navbar {
+  background: #fff;
+}
+.ui.navbar .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.ui.navbar .menu-icon {
+  transition: all 0.5s;
+}
+.ui.navbar .menu-icon i {
+  cursor: pointer;
+}
+.ui.navbar .header {
+  transition: all 0.5s;
+}
+.ui.navbar .header > img {
+  padding: 8px;
+  width: 98px;
+  box-sizing: content-box;
+}
+.ui.navbar .menu {
+  margin-left: 103px;
+  transition: all 0.4s;
+}
+.ui.navbar .menu .item {
+  display: inline-block;
+  font-size: 18px;
+  color: #000;
+  padding-bottom: 35px;
+  padding-top: 26px;
+}
+.ui.navbar .menu .item:not(:first-child) {
+  margin-left: 64px;
+}
+.ui.navbar .menu .item.active {
+  border-bottom: 2px solid #000;
+}
+.ui.navbar .search-icon {
+  flex-grow: 1;
+  text-align: right;
+  cursor: pointer;
+}
+.ui.navbar .search-form {
+  position: absolute;
+  transform: translateY(-120px);
+  transition: all 0.5s;
+  opacity: 0;
+}
+.ui.navbar .searching ~ .search-form {
+  transform: translateY(-50px);
+  opacity: 1;
+}
+.ui.navbar .searching .header,
+.ui.navbar .searching .menu,
+.ui.navbar .searching .menu-icon {
+  transform: translateY(80px);
+  opacity: 0;
+}
+@media only screen and (min-width: 767px) {
+  .ui.navbar .menu-icon {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .ui.navbar .header > img {
+    width: 56px;
+  }
+  .ui.navbar .content {
+    justify-content: space-between;
+  }
+  .ui.navbar .content .menu {
+    display: none;
+  }
+  .ui.navbar .search-icon {
+    flex-grow: 0;
+  }
+  .ui.navbar .searching ~ .search-form {
+    transform: translateY(-40px);
+    opacity: 1;
+  }
+}

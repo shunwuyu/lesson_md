@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +7,16 @@
   <title>Document</title>
   <style>
   .box {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    animation: long 2s 10s;
-    /* animation-fill-mode: backwards; */
-  }
-  @keyframes long{
-    0% {
-      width: 110px;
-    }
-    50% {
-      width: 400px;
-    }
-    100% {
-      width: 800px;
-    }
+    border: 30px solid;
+    border-image: linear-gradient(#ff1224, rgba(255, 18, 36, 0)) 2 100%;
+    width: 400px;
+    height: 400px;
   }
   </style>
 </head>
-
 <body>
-  <div class="box"></div>
-</body>
+  <div class="box">
 
+  </div>
+</body>
 </html>

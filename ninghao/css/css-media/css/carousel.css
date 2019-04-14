@@ -1,0 +1,35 @@
+.ui.carousel .prev.button {
+  left: 24px;
+}
+.ui.carousel .next.button {
+  right: 24px;
+}
+.ui.carousel .prev.button,
+.ui.carousel .next.button {
+  position: absolute;
+  z-index: 3;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  background: rgba(255,255,255,0.4);
+  color: rgba(0,0,0,0.4);
+}
+.ui.carousel .prev.button.bottom,
+.ui.carousel .next.button.bottom {
+  top: auto;
+  bottom: 0;
+  margin-bottom: 24px;
+}
+.ui.carousel .prev.button:hover,
+.ui.carousel .next.button:hover {
+  background: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
+}
+.ui.carousel .slick-dots {
+  bottom: 32px;
+}
+.ui.vertical.story .slick-dots {
+  bottom: -48px;
+}

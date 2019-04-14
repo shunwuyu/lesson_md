@@ -4738,12 +4738,10 @@ button.swiper-pagination-bullet {
 
 @-webkit-keyframes spin-cube-right {
 	0% {
-		-webkit-transform: rotateX(-33.5deg) rotateY(45deg);
 		transform: rotateX(-33.5deg) rotateY(45deg)
 	}
 
 	to {
-		-webkit-transform: rotateX(-33.5deg) rotateY(225deg);
 		transform: rotateX(-33.5deg) rotateY(225deg)
 	}
 }
@@ -4774,12 +4772,10 @@ button.swiper-pagination-bullet {
 
 @keyframes cube-up-down-1 {
 	0% {
-		-webkit-transform: translateZ(0);
 		transform: translateZ(0)
 	}
 
 	to {
-		-webkit-transform: translate3d(0,-.4rem,0);
 		transform: translate3d(0,-.4rem,0)
 	}
 }

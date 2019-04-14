@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        text-align: center; 
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="javascript:;" id="btn">按钮</a>
+    </div>
+    
+    <script>
+    var box = document.querySelector('.box');
+    box.addEventListener('click', function(e) {
+        console.log('box');
+    }, true);
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click', function(e) {
+        console.log('按钮点了');
+    }, false);
+
+    function doSomeThing(thing) {
+        console.log(thing);
+    }
+    function comeTo(place, cb) {
+        const thing = '到 ' + place + ' 学习 Node'
+        cb(thing)
+    }
+    // 控制权的后移， 事件驱动   
+    comeTo('Juejin', doSomeThing);
+    </script>
+</body>
+</html>

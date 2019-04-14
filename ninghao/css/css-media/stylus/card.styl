@@ -1,0 +1,42 @@
+.ui.cards
+  margin-top 0
+  padding-top 30px
+  padding-bottom 30px
+.ui.card
+  background: #fff
+  cursor: pointer
+  transition: box-shadow .5s
+  box-shadow none
+  border-radius: 0
+  &:hover
+    box-shadow: 0 32px 48px rgba(0, 0, 0, 0.06)
+  .image > img
+    width: 100%
+    border-radius: 0
+  .content
+    padding: 40px
+    padding-bottom: 56px
+    min-height:  252px
+    box-sizing: border-box
+    > .header
+      font-size: 24px
+      margin: 0
+      margin-bottom: 24px
+      ::after
+        content: " "
+        display: block
+        border-bottom: 2px solid #000
+        width: 40px
+        padding-bottom: 8px
+    .sub.header
+      font-size: 14px
+      font-weight: 600
+      letter-spacing: 3px
+      text-transform: uppercase
+    .description
+      margin-bottom: 8px
+
+@media only screen and (max-width: 767px)
+  .ui.stackable.grid
+    .ui.card
+      width: auto

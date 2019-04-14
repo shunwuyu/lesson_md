@@ -17,11 +17,11 @@ html, body {
   z-index: 3;
   position: fixed;
   width: 40px;height: 40px;
-  background: url(https://kfc.normcore.com/bft_burger/static/images/icon-play.png)
+  background: url(./assert/close.png)
   no-repeat center / cover;
 }
 .music-btn.off {
-  background-image: url(https://kfc.normcore.com/bft_burger/static/images/icon-mute.png);
+  background-image: url(./assert/music.png);
 }
 /* 下一屏 箭头 */
 .next-view-c {
@@ -588,4 +588,87 @@ em, i {
   background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/tou.763e9f0545a28bfbc642f5d8db77c9d5.png) no-repeat;
   -webkit-animation: p14-tou 1.3s steps(1) infinite;
   animation: p14-tou 1.3s steps(1) infinite;
+}
+/* cat */
+.cat {
+  width: 117px;
+  height: 201px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.bg {
+  width: 100%;height: 100%;
+  position: absolute;
+  left: 0;top: 0;
+  background: url(../assert/cat/maoshenti.png);
+  z-index: 2;
+}
+.maoyan {
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  z-index: 3;
+}
+.maoyan1 {
+  background: url(../assert/cat/maoyan1.png);
+  right: 40px;
+  bottom: 24px;
+}
+.maoyan2 {
+  background: url(../assert/cat/maoyan2.png);
+  right: 20px;
+  bottom: 20px;
+}
+.maozui {
+  width: 4px;
+  height: 3px;
+  position: absolute;
+  bottom: 11px;
+  right: 33px;
+  background: url(../assert/cat/maozui.png);
+  z-index: 3;
+}
+.maowei {
+  width: 64px;
+  height: 194px;
+  background: url(../assert/cat/maowei.png);
+  position: absolute;
+  left: 0;
+  top: -182px;
+  transform-origin: 40% 96%;
+  animation: ani_maowei 3s ease-in-out infinite;
+}
+@keyframes ani_maowei {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+.maozhua {
+  width: 34px;
+  height: 81px;
+  background: url(../assert/cat/maozhua.png);
+  right: 13px;bottom: -63px;
+  position: absolute;
+  z-index: 1;
+  transform-origin: 60% 4%;
+  animation: ani_maozhua 3s ease-in-out infinite;
+}
+@keyframes ani_maozhua {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-11deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
