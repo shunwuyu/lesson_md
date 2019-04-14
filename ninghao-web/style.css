@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background: #000;
+  line-height: 1.5;
+  font-family: "Open Sans", "Segoe UI", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 27px;
+}
+ul li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.center {
+  text-align: center;
+}
+.very {
+  padding: 0;
+  margin: 0;
+}
+h3 {
+  font-family: inherit;
+  font-size: 24.5px;
+  font-weight: 700;
+  line-height: 40px;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+@media (min-width: 1200px) {
+  #mainbody .container {
+    width: 1170px;
+  }
+  #mainbody .container .thumbnails {
+    margin-left: -30px;
+  }
+  #mainbody .container .thumbnails li {
+    margin-left: 30px;
+  }
+}
+@media (max-width: 1200px) {
+  #mainbody .container {
+    width: 940px;
+  }
+  #mainbody .container .thumbnails {
+    margin-left: -20px;
+  }
+  #mainbody .container .thumbnails li {
+    margin-left: 20px;
+  }
+  #mainbody .container .thumbnails .span4 {
+    width: 300px !important;
+  }
+}
+@media (max-width: 980px) {
+  #mainbody .container {
+    width: 724px;
+  }
+  #mainbody .container .thumbnails {
+    margin-left: -20px;
+  }
+  #mainbody .container .thumbnails li {
+    margin-left: 20px;
+  }
+  #mainbody .container .thumbnails .span4 {
+    width: 228px !important;
+  }
+}
+@media (max-width: 768px) {
+  #mainbody .container {
+    padding: 0 30px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #mainbody .container .thumbnails {
+    margin-left: 0px;
+  }
+  #mainbody .container .thumbnails li {
+    float: none !important;
+    margin-left: 0px;
+  }
+  #mainbody .container .thumbnails .span4 {
+    width: 100% !important;
+  }
+}
+#mainbody {
+  background: #f8f8f8;
+}
+#mainbody .noise {
+  background: url("./white-noise.png");
+}
+#mainbody .tag-menu {
+  position: relative;
+}
+#mainbody .tag-menu .menu {
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  overflow: visible;
+}
+#mainbody .tag-menu .menu li {
+  width: 24.5%;
+  text-align: center;
+  margin-right: 0;
+  display: inline-block;
+  list-style: none;
+  padding-top: 5px;
+}
+#mainbody .tag-menu .menu li a {
+  display: block;
+  color: #808080;
+  margin: 0 0 -1px;
+  padding: 7px 23px;
+  line-height: 1.9;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+#mainbody .tag-menu .menu li .active {
+  color: #000;
+}
+#mainbody .very.relaxed {
+  padding: 60px 0 120px 0;
+}
+#mainbody .very.relaxed .container {
+  margin: 0 auto;
+}
+#mainbody .very.relaxed .container .maincontent {
+  padding: 20px 0;
+  position: relative;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails {
+  margin-top: 48px;
+  overflow: hidden;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails li {
+  float: left;
+  margin-bottom: 30px;
+  margin-left: $jl30;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 {
+  width: 370px;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 .thumbnail {
+  display: block;
+  background: #fff;
+  border: 1px solid #f1f1f1;
+  padding: 0;
+  border-radius: 2px;
+  line-height: 20px;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 .thumbnail a {
+  color: #333;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 .thumbnail a div {
+  text-align: center;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 .thumbnail a .p20 {
+  padding: 20px;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 .thumbnail a .p20 img {
+  width: 163px;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 .thumbnail a p {
+  font-size: 16px;
+  opacity: 0.75;
+  margin: 0 0 20px;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 .thumbnail .meta {
+  border-top: 1px solid #f1f1f1;
+  text-align: left;
+  background: #fff;
+  padding: 10px;
+  color: #838383;
+}
+#mainbody .very.relaxed .container .maincontent .thumbnails .span4 .thumbnail .meta .pull-right {
+  float: right;
+}
+#mainbody .very.relaxed .container .maincontent .load-more {
+  display: block;
+  padding: 13px;
+  background: #fff;
+  color: #8d8d8d;
+  margin-bottom: 20px;
+  font-size: 15px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  cursor: pointer;
+}
+#mainbody .very.relaxed .container .maincontent .load-more:hover {
+  color: #333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  transition: background-position 0.1s linear;
+  background-color: #e6e6e6;
+}
