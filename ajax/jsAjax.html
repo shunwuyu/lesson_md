@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var xhr = null
+    if (window.XMLHttpRequest) {
+      xhr = new XMLHttpRequest()
+    } else {
+      xhr = new ActiveXObject("Microsoft.XMLHTTP") // ie及一些浏览器的兼容 IE 的 ActiveXObject() 构造函数
+    }
+    // true和false是为了设置请求是否为异步模式，false同步
+    xhr.open('get', '/mock.json', true);
+    // xhr.open('get', '/mock.json', false);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send(); //HTTP 请求已发送到 Web 服务器。未接收到响应。
+    // console.log(xhr.responseText);
+    // console.log(xhr.readyState, xhr.status);
+    xhr.onreadystatechange = function() {
+      console.log(xhr.readyState, xhr.status);
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
+        console.log(123456);
+        
+      }
+    }
+    // console.log(123456);
+  </script>
+</body>
+</html>
