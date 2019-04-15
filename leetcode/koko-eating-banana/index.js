@@ -17,8 +17,8 @@ var minEatingSpeed = function(piles, H) {
  hi = Math.max(...piles); 
 // console.log(hi);
  while(lo <= hi) {
-    let mid = ++lo;
-    //  let mid = lo + ((hi - lo) >> 1);
+    // let mid = ++lo;
+     let mid = lo + ((hi - lo) >> 1);
     
     // let mid = ;
      console.log(mid, '---------');
