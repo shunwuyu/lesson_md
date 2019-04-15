@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>alloy_finger 练习</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .imgBox {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #333333;
+      text-align: center;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .example img {
+      width: 160px;
+    }
+    .swipeBox {
+      height: 160px;
+      width: 160px;
+      margin: 0 auto;
+      overflow: hidden;
+      font-size: 0;
+      position: relative;
+      border: 2px solid #ccc;
+      box-sizing: border-box;
+    }
+    .scroll {
+      width: 480px;
+      height: 160px;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="example">
+    <div class="title">pinch</div>
+    <div class="imgBox">
+      <img id="pinchImage" src="http://alloyteam.github.io/AlloyFinger/asset/test.png" alt="">
+    </div>
+    <div class="title">rotate</div>
+    <div class="imgBox">
+      <img id="rotateImage" src="http://alloyteam.github.io/AlloyFinger/asset/test.png" alt="">
+    </div>
+    <div class="title">pinch + rotate</div>
+    <div class="imgBox">
+      <img id="pinchRotateImg" src="http://alloyteam.github.io/AlloyFinger/asset/test.png" alt="">
+    </div>
+    <div class="title">pressmove</div>
+    <div class="imgBox">
+      <img id="pressMoveImg" src="http://alloyteam.github.io/AlloyFinger/asset/test.png" alt="">
+    </div>
+    <div class="title">swipe</div>
+    <div class="imgBox pb6">
+      <div class="swipeBox">
+        <div class="scroll" id="swipeScroll">
+          <img src="https://leancloud-gold-cdn.xitu.io/362ee93999bd1194c5f9.png?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1" />
+          <img src="http://alloyteam.github.io/AlloyFinger/asset/test2.png" /> 
+          <img src="http://alloyteam.github.io/AlloyFinger/asset/test3.png" />
+        </div>
+      </div>
+    </div>
+    <div class="title">tap</div>
+    <div class="imgBox tapBox">
+      <img src="http://alloyteam.github.io/AlloyFinger/asset/test.png" alt="">
+    </div>
+  </div>
+  <script src="./vconsole.min.js"></script>
+  <script src="http://alloyteam.github.io/AlloyFinger/alloy_finger.js"></script>
+  <script>
+    function getNumberByTransformProperty(property) {
+      let propertyArray = property.split(/[\(\)]/);
+      return parseInt(propertyArray[1]);
+    }
+    // 初始化 console
+    var vConsole = new VConsole();
+
+    const pinchImg = document.getElementById('pinchImage');
+    new AlloyFinger(
+      pinchImg,
+      {
+        pinch: function (evt) {
+          console.log('pinch event ', evt.zoom);
+          pinchImg.style.transform = `scale(${evt.zoom})`;
+        }
+      }
+    )
+    // tap
+
+    new AlloyFinger(
+      document.querySelector('.tapBox'),
+      {
+        tap: function () {
+          console.log('tap');
+        },
+        singleTap: function () {
+          console.log("singleTap")
+        },
+        doubleTap: function () {
+          console.log("doubleTap")
+        },
+      }
+    )
+
+    // rotate
+    const rotateImage = document.getElementById('rotateImage');
+    new AlloyFinger(
+      rotateImage,
+      {
+        rotate: function (evt) {
+          let rotateStr = rotateImage.style.transform || 'rotate(0)';
+          let angle = getNumberByTransformProperty(rotateStr);
+          rotateImage.style.transform = `rotate(${angle += evt.angle}deg)`
+        }
+      }
+    )
+    // pinchRotateImg pinch + rotate
+    const pinchRotateImg = document
+    .getElementById('pinchRotateImg');
+    console.log(pinchRotateImg)
+    new AlloyFinger(
+      pinchRotateImg,
+      {
+        rotate: function (evt) {
+          let initStr = pinchRotateImg.style.transform || 'rotate(0)';
+          const initArr = initStr.split(' ');
+          let angle = getNumberByTransformProperty(initArr[0]);
+          console.log(initStr);
+          // console.log('rotate----',initStr, `rotate(${angle += evt.angle}deg) ${initArr[1]}`);
+          pinchRotateImg.style.transform = `rotate(${angle += evt.angle}deg) ${initArr[1]}`
+        },
+        pinch: function (evt) {
+          let initStr = pinchRotateImg.style.transform || 'rotate(0)';
+          const initArr = initStr.split(' ');
+          
+          // console.log('pinch-----',initStr, `${initArr[0]} scale(${evt.zoom})`);
+          pinchRotateImg.style.transform = `${initArr[0]} scale(${evt.zoom})`
+        }
+      }
+    )
+
+    // pressmove
+    const pressMoveImg = document.getElementById("pressMoveImg");
+
+    new AlloyFinger(pressMoveImg, {
+      pressMove: function (evt) {
+        let initStr = pressMoveImg.style.transform || 'translateX(0px) translateY(0px)'
+        let initArray = initStr.split(' ');
+        let x = getNumberByTransformProperty(initArray[0]) + evt.deltaX;
+        let y = getNumberByTransformProperty(initArray[1]) + evt.deltaY;
+        pressMoveImg.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        evt.preventDefault();
+      }
+    });
+
+    const swipeScroll = document.getElementById("swipeScroll");
+    let currentIndex = 0;
+    new AlloyFinger(swipeScroll, {
+      // touchMove: function (evt) {
+      //   if (Math.abs(evt.deltaX) >= Math.abs(evt.deltaY)) {
+      //     evt.preventDefault();
+      //   }
+      // },
+      swipe: function (evt) {
+        console.log(evt.direction)
+        if (evt.direction === "Left") {
+          if (currentIndex < 2) {
+            currentIndex++;
+            let leftStr = swipeScroll.style.transform || 'translateX(0px)';
+            let left = getNumberByTransformProperty(leftStr);
+            swipeScroll.style.transform = `translateX(${-160 + left}px)`;
+          }
+        } else if (evt.direction === "Right") {
+          if (currentIndex > 0) {
+            currentIndex--;
+            let leftStr = swipeScroll.style.transform || 'translateX(0px)';
+            let left = getNumberByTransformProperty(leftStr);
+            swipeScroll.style.transform = `translateX(${160 + left}px)`
+          }
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>
