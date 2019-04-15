@@ -1,0 +1,3 @@
+- fs.open 拿到句柄， 可以做更多的操作   w 写操作
+- fs.close(fd, callback)
+- Buffer  缓冲 内存中开辟的一块区域， 用于存放二进制数据。

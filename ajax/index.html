@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var xhr = null 
+    if (window.XMLHttpRequest) {
+      xhr = new XMLHttpRequest()
+    } else {
+      xhr = new ActiveXObject("Microsoft.XMLHTTP")
+    }
+    xhr.open("get", "/mock.json", true)
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    xhr.send()
+    // console.log(xhr.responseText)
+    // console.log(xhr.readyState, xhr.status)
+    var p = new Promise((resolve, reject) => {
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          console.log(xhr.responseText)
+          resolve(xhr.responseText)
+        }
+      }
+    })
+    
+    function xq(){
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log("猛哥要相亲了")
+          resolve('相亲很顺利')
+        },1000)
+      })
+    }
+    // xq()
+    function marry() {
+      setTimeout(() => {
+        console.log('猛哥结婚了！')
+      },500)
+    }
+    p
+      .then(xq)
+      .then(marry)
+      .catch(() => {
+        console.log('猛哥出家了')
+      })
+  </script>
+</body>
+</html>
