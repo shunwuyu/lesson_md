@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .wrap {
+      background: rgb(40, 41, 35);
+      height: 100px;
+      display: flex;
+      align-items: center;
+    }
+
+    .slider-container {
+      width: 960px;
+      margin: 0 auto;
+
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 5px;
+      border-radius: 3px;
+      background: rgba(144, 147, 153, 1);
+      cursor: pointer;
+    }
+
+    .slider .slider-progress {
+      height: 100%;
+      width: 0%;
+      border-radius: 3px;
+      background: #B82525;
+    }
+
+    .slider .slider-runway {
+      position: absolute;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      transform: translateX(-50%);
+    }
+
+    .thumb {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      margin: -6px 0 0 -6px;
+      border: 4px solid #fff;
+      background: #B82525;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slider-progress">
+          <div class="progress-buffer"></div>
+        </div>
+        <div class="slider-runway">
+          <!-- thumb -->
+          <div class="thumb"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const thumbBox = document.querySelector('.slider-runway');
+    const sliderBox = document.querySelector('.slider');
+    const progressBox = document.querySelector('.slider-progress');
+    var isDragging = false,
+    startPosition = startX = currentPosition = 0;
+    function updateView() {
+      // this.currentValue = Math.floor(currentPosition);
+      thumbBox.style.left = currentPosition + '%';
+      progressBox.style.width = currentPosition + '%';
+    }
+    function dragEnd() {
+      // 播放音乐
+      isDragging = false;
+    }
+    function setPosition(clientX) {
+      const contentWidth = sliderBox.offsetWidth;
+      // 计算当前拖动位置与初始拖动位置的距离
+      const diff = clientX - startX;
+      // 计算差距占精度条的百分比
+      const percent = (diff / contentWidth).toFixed(6) * 100;
+      // 0 - 100 之间
+      currentPosition = Math.max(
+        0,
+        Math.min(startPosition + percent, 100)
+      );
+      updateView();
+    }
+
+    thumbBox.addEventListener('mousedown', function (event) {
+      event.stopPropagation();
+      isDragging = true;
+      // 记录开始滑动时clientX
+      startX = event.clientX;
+      startPosition = currentPosition;
+      window.addEventListener('mousemove', function (event) {
+        if (!isDragging) return;
+        setPosition(event.clientX);
+      })
+      window.addEventListener('mouseup', function() {
+        dragEnd();
+      });
+    })
+  </script>
+</body>
+
+</html>

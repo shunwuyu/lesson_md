@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  .list-group {
+    border: 1px dashed #dddddd;
+    height: 200px;
+    text-align: center;
+  }
+  input[type="file"] {
+    display: none;
+  }
+  img {
+    width: 100%;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- accept="image/*"。
+    accept="image/gif, image/jpeg" 
+    image/gif, image/jpeg -->
+  <header id="header">
+    <div class="container">
+      <h5>文件列表</h5>
+      <p>fileList</p>
+    </div>
+  </header>
+  <div class="container">
+    <ul class="list-group">
+    </ul>
+    <div class="row" id="imgContainer">
+    </div>
+    <div>
+      <form action="" name="upload">
+        <input type="file" multiple="multiple" name="fileSelect">
+        <input type="button" class="btn btn-primary" name="fileButton"
+        id="fileButton" value="上传文件">
+        <span>已经选择了
+          <span id="badge" class="badge badge-primary"></span>个文件
+        </span>
+      </form>
+    </div>
+  </div>
+  <script>
+    const imgContainer = document.getElementById('imgContainer');
+    const filesInput = document.forms['upload']['fileSelect'];
+    const listGroup = document.querySelector('.list-group');
+    const fileSelect = document.getElementById('fileButton');
+    const badge = document.getElementById('badge');
+    console.log(filesInput.files)
+    // 类型/名字/大小
+    // listGroup.addEventListener
+    function displayFileInfo(event) {
+      event.preventDefault();
+      listGroup.innerHTML = '';
+      // let reader = new FileReader();
+      const files = event.target.files || event.dataTransfer.files;
+      badge.innerHTML = files.length;
+      for (let file of files) {
+        let liNode = document.createElement('li');
+        let img = document.createElement('img');
+        
+        liNode.classList.add('list-group-item');
+        // 字节
+        let content = document.createTextNode(`
+        ${file.name}
+        ${file.type} 
+        ${(file.size / 1024 / 1024).toFixed(2)}Mb
+        ${file.lastModifiedDate.toLocaleDateString()}
+        `)
+        liNode.appendChild(content);
+        listGroup.appendChild(liNode);
+
+        // 读取文件地址
+        let div = document.createElement('div');
+        div.classList.add('col-md-3');
+        /**
+         * URL.createObjectURL(blob)可以获取当前文件的一个内存URL
+         * 通过FileReader.readAsDataURL(file)可以获取一段data:base64的字符串
+        */
+        let url = window.URL.createObjectURL(file);
+        img.src = url;
+        img.onload = function() {
+          // 这个 URL 的生命周期和创建它的窗口中的 document 绑定
+          // window.URL.revokeObjectURL(url);
+        }
+        div.appendChild(img);
+        imgContainer.appendChild(div);
+      }
+    }
+    listGroup.innerHTML = '<p class="hint">拖放文件到这里</p>';
+    filesInput.addEventListener('change', displayFileInfo, false);
+
+    listGroup.addEventListener('dragover', onDragOver);
+    listGroup.addEventListener('drop', displayFileInfo);
+    function onDragOver(event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+    fileSelect.addEventListener('click', function(event) {
+      console.log(filesInput);
+      filesInput.click();
+    })
+  </script>
+</body>
+
+</html>
