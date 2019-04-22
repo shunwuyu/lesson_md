@@ -18,7 +18,7 @@ var bird = {
 	
 	fallSpeed: 0, //小鸟下落速度
 	flyBird: function(){ //控制小鸟飞翔下落的函数
-		bird.flyTimer = setInterval(fly,40);
+		bird.flyTimer = setInterval(fly,60);
 		function fly() {
 			bird.div.style.top = bird.div.offsetTop + bird.fallSpeed++ + "px";
 			if (bird.div.offsetTop < 0) {  
@@ -29,8 +29,8 @@ var bird = {
 				clearInterval(bird.flyTimer); //一旦飞到地面，清除定时器
 				clearInterval(bird.wingTimer); //清除翅膀摆动定时器
 			}
-			if (bird.fallSpeed > 12) {
-				bird.fallSpeed = 12;  //鸟的最大下落速度控制在12
+			if (bird.fallSpeed > 5) {
+				bird.fallSpeed = 5;  //鸟的最大下落速度控制在12
 			}
 		}
 	},

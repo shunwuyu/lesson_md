@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .list-group {
+      border: 1px dashed #dddddd;
+      height: 200px;
+      text-align: center;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <div class="container">
+      <h5>文件列表</h5>
+      <p>fileList</p>
+    </div>
+  </header>
+  <div class="container">
+    <ul class="list-group">
+    </ul>
+    <div class="row" id="imgContainer">
+    </div>
+    <div>
+      <form action="" name="upload">
+        <input type="file" multiple="multiple" name="fileSelect">
+        <input type="button" class="btn btn-primary" name="fileButton" id="fileButton" value="上传文件">
+        <span>已经选择了
+          <span id="badge" class="badge badge-primary"></span>个文件
+        </span>
+      </form>
+    </div>
+    <div id="progressContainer">
+    </div>
+
+  </div>
+  <script>
+    const imgContainer = document.getElementById('imgContainer');
+    const filesInput = document.forms['upload']['fileSelect'];
+    const listGroup = document.querySelector('.list-group');
+    const fileSelect = document.getElementById('fileButton');
+    const badge = document.getElementById('badge');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressInnerHTML = `
+      正在读取文件：
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" id="progress" aria-valuenow="10"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div>`
+    console.log(filesInput.files)
+    // 类型/名字/大小
+    // listGroup.addEventListener
+    function displayFileInfo(event) {
+      event.preventDefault();
+      listGroup.innerHTML = '';
+      // let reader = new FileReader();
+      const files = event.target.files || event.dataTransfer.files;
+      badge.innerHTML = files.length;
+      let reader = new FileReader();
+      for (let file of files) {
+        let liNode = document.createElement('li');
+        liNode.classList.add('list-group-item');
+        /**
+         * readAsText() 字符串以表示所读取的文件内容。
+         * readAsDataURL() 一旦完成，result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容。
+         * readAsArrayBuffer()  result 属性中保存的将是被读取文件的 ArrayBuffer 数据对象
+         * ArrayBuffer :
+         * JavaScript操作二进制数据的一个接口
+         * 满足 js 与 显卡交换数据 通信必须是二进制的 而不是文本格式。
+         * */
+        // 字节
+        reader.readAsArrayBuffer(file);
+        // reader.onload = function(event) {
+        //   let content = document.createTextNode(`
+        //   ${event.target.result}`)
+        //   liNode.appendChild(content);
+        //   listGroup.appendChild(liNode);
+        // }
+        reader.onloadstart = function() {
+          progressContainer.innerHTML = progressInnerHTML;
+        }
+        reader.onprogress = function (event) {
+          const progress = document.getElementById('progress');
+          console.log(event)
+          let progressStatus =
+            Math.round(event.loaded / event.total * 100)
+          console.log(progressStatus);
+          progress.style.width = `${progressStatus}%`;
+          if (progressStatus === 100) {
+            progress.classList.remove('bg-info');
+          }
+        }
+        reader.onload = function(event) {
+          console.log(event.target.result);
+        }
+
+      }
+    }
+    listGroup.innerHTML = '<p class="hint">拖放文件到这里</p>';
+    filesInput.addEventListener('change', displayFileInfo, false);
+
+    listGroup.addEventListener('dragover', onDragOver);
+    listGroup.addEventListener('drop', displayFileInfo);
+    function onDragOver(event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+    fileSelect.addEventListener('click', function (event) {
+      console.log(filesInput);
+      filesInput.click();
+    })
+  </script>
+</body>
+
+</html>
