@@ -1,0 +1,4 @@
+/* pages/lesson/index/index.wxss */
+.slide-image{
+  width: 100%;
+}

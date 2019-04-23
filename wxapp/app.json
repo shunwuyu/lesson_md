@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/main/index/index",
+    "pages/lesson/index/index",
+    "pages/mine/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#48A6FD",
+    "navigationBarTitleText": "旅梦开发团",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#3F97FF",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/main/index/index",
+        "text": "首页",
+        "iconPath": "images/shouye.png",
+        "selectedIconPath": "images/hover-shouye.png"
+      },
+      {
+        "pagePath": "pages/lesson/index/index",
+        "text": "课程",
+        "iconPath": "images/class.png",
+        "selectedIconPath": "images/hover-class.png"
+      },
+      {
+        "pagePath": "pages/mine/index/index",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/hover-mine.png"
+      }
+    ]
+  }
+}

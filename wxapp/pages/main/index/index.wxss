@@ -1,0 +1,23 @@
+/* pages/main/index/index.wxss */
+.main{
+  font-size: 28rpx;
+}
+.main p{
+  display: block;
+  text-align: center;
+}
+.movie-list{
+  display: block;
+}
+.list-item{
+  padding: 10rpx 0;
+}
+.avatal{
+  width: 200rpx;
+  height: 200rpx;
+  overflow: hidden;
+}
+.avatal image{
+  width: 100%;
+  height: 100%;
+}
