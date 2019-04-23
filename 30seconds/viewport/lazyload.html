@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lazyload</title>
+  <style>
+  .img-box {
+    width: 500px;
+    min-height: 200px;
+    /* height: 200px; */
+    margin: 10px 0 10px 10px;
+    background: #eee;  
+  }
+
+  .img-box > img {
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      
+  }
+  .fadeIn img {
+    animation: fadeIn 2s forwards;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }  
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990129925&di=05f37f1879cfaf5272bfcaff900bb87c&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F8155021602%2F1000"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990129923&di=280b92d9fe943466877cf3a680ead5fa&imgtype=0&src=http%3A%2F%2Fimg10.ccnxs.cn%2Fuploadfile%2Fhbase%2F201807%2F0705%2FHBC5B3E0B21A4A33.jpeg"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990129923&di=ba0ab06ca9231d2520df001409160408&imgtype=0&src=http%3A%2F%2Fdingyue.nosdn.127.net%2FgPrSpRQQiK7BeSxPwutHAq0YlE8GnfzezW5qfnTMrPYRU1529806876177.jpg"></div>
+      <div class="img-box img-placeholder" data-src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1947820096,360271118&fm=11&gp=0.jpg"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990129922&di=090ea9276cd4ffdd8b824713613613b1&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F8285415766%2F1000"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990129921&di=221293ee2684b6996a76ff21e8d7b8fd&imgtype=0&src=http%3A%2F%2Fshp.qpic.cn%2Fqqvideo_ori%2F0%2Fn0851ixgqqh_496_280%2F0"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990170292&di=28355a4a89bef9f9d09fe7668e7b56d3&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Fff54373e20a951cdde121fb5cbf31aea8d8d28ff.jpg"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990170289&di=47f22860f3839ff49d175116158b2d31&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_ls%2F0%2F8209734772_640480%2F0"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990170289&di=d68175bc7abf0d71137906ef2359583e&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F8507522117%2F1000"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990170289&di=a1efcf5dc6bf474f224d7b05eb7e523b&imgtype=0&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2F409c76700924f7155f75e1f6f0f29bc0342bbc32.jpg"></div>
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990170285&di=03ba8d449c218de155bf096d48600376&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F8321226837%2F1000"></div>
+     
+      <div class="img-box img-placeholder" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555990254159&di=98c64710ae3a2eda823816b85f7e823e&imgtype=0&src=http%3A%2F%2Fimg1.dzwww.com%3A8080%2Ftupian_pl%2F20170109%2F50%2F527537557563549614.jpg"></div>
+  </div>
+  <script>
+
+  const inViewport = (el, partiallyVisible = false) => {
+    const { top, left, bottom, right } = el.getBoundingClientRect();
+    const { innerHeight, innerWidth } = window;
+    return partiallyVisible
+        ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
+        ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
+        : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+  };
+
+  window.onload = () => lazyLoading()
+  document.addEventListener('scroll', lazyLoading)
+
+  function lazyLoading() {
+    const boxs = document.querySelectorAll('.img-placeholder');
+    Array.from(boxs).map(box => {
+      if (!inViewport(box, true)) return;
+      const src = box.getAttribute('data-src');
+      const img = document.createElement('img');
+      img.src = src;
+      img.onload = function() {
+        console.log('onload');
+        box.removeAttribute('data-src');
+        box.classList.add('fadeIn');
+        box.innerHTML = `<img src='${src}'>`;
+        box.className = box.className.replace('img-placeholder', '')
+      }
+    })
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  html, body {
+    /* scroll-behavior: smooth; */
+  }
+  .box {
+    height: 500px;
+    margin: 20px auto;
+    background-color: pink;
+  }
+  </style>
+</head>
+<body>
+  <header id="header">我是头部</header>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <a href="#" class="backA">回到头部</a>
+  <script>
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = function(callback) {
+      return setTimeout(callback, 1000 / 60);
+    }
+  }
+  const scrollToTop = () => {
+    // window.scrollTo(0, 0);
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  };
+  document
+    .querySelector('.backA')
+    .addEventListener('click', function(event) {
+      event.preventDefault();
+      // console.log('dddd');
+      scrollToTop();
+    }, false);
+  </script>
+</body>
+</html>
