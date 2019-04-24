@@ -1,6 +1,10 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const Amap = require('../../libs/amap-wx.js');
+const myAmap = new Amap.AMapWX({
+  key: '94300080c3686f1fa70ec51a024e10e4'
+});
 
 Page({
   data: {
@@ -11,9 +15,11 @@ Page({
     // 缩放比例
     scale: 18,
     markers: [],
+    polyline: []
   },
   onReady() {
     // 创建map上下文  保存map信息的对象
+    // MapContext
     this.mapCtx = wx.createMapContext('myMap');
   },
   //事件处理函数
@@ -138,6 +144,59 @@ Page({
     this.mapCtx.moveToLocation();
     this.setData({
       scale: 18
+    })
+  },
+  // 跳转到个人中心
+  toUser() {
+    if (!app.globalData.loginStatus) {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: (res) => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+          }
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/userCenter/userCenter',
+      })
+    }
+  },
+  toVisit(e) {
+    let bic = e.markerId;
+    const { markers, longitude, latitude } = this.data;
+    const tapMarker = markers[bic];
+    console.log(tapMarker);
+    myAmap.getDrivingRoute({
+      origin: `${longitude},${latitude}`,
+      destination: `${tapMarker.longitude},${tapMarker.latitude}`,
+      success: (data) =>  {
+        console.log('getDrivingRoute', data);
+        var points = [];
+        if (data.paths && data.paths[0] && data.paths[0].steps) {
+          var steps = data.paths[0].steps;
+          for (var i = 0; i < steps.length; i++) {
+            var poLen = steps[i].polyline.split(';');
+            for (var j = 0; j < poLen.length; j++) {
+              points.push({
+                longitude: parseFloat(poLen[j].split(',')[0]),
+                latitude: parseFloat(poLen[j].split(',')[1])
+              })
+            }
+          }
+        }
+        this.setData({
+          polyline: [{
+            points: points,
+            color: "#0091ff",
+            width: 6
+          }]
+        });
+      }
     })
   }
 })

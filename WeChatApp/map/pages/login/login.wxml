@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<view class='login-phone'>
+  <view class='title'>登录</view>
+  <view class='input-wrapper'>
+    <view class='phone-input'>
+      <input class='input' placeholder='请输入手机号' maxlength="13" value='{{phoneText}}' bindinput='input' focus='true'/>
+    </view>
+  </view>
+  <view class='btn-wrapper'>
+    <button class='mf-btn {{btn_disable}}' bindgetuserinfo='{{toNext}}' open-type='getUserInfo'>下一步</button>
+  </view>
+</view>
