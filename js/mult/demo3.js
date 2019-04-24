@@ -5,7 +5,7 @@ var mult = (function() {
     if (args in cache) {
       console.log('cache');
       return cache[args];
-    }
+    } 
     var a = 1;
     for (var i = 0, l = arguments.length; i < l; i++) {
       a = a * arguments[i];
