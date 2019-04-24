@@ -1,17 +1,19 @@
-[webgl king](https://juejin.im/post/5cb5506e518825329f6cee8e)
-[node fs](https://juejin.im/book/5bc1bf3e5188255c3272e315/section/5bd1df276fb9a05ce02abdda)
-[koko banana](/letcode/koko)
-[30 seconds](https://juejin.im/post/5c91579b6fb9a0710f47e06c)
-[git refloat](https://juejin.im/post/5ca1cddcf265da30b160d7bb)
+[福利js pattern]()
+[30seconds  lazyload  加到顶部](https://juejin.im/post/5c93f9795188252d7e34de65)
+~~ [webgl king](https://juejin.im/post/5cb5506e518825329f6cee8e) ~~
+~~[node fs](https://juejin.im/book/5bc1bf3e5188255c3272e315/section/5bd1df276fb9a05ce02abdda)~~
+~~[koko banana](/letcode/koko)~~
+~~[30 seconds](https://juejin.im/post/5c91579b6fb9a0710f47e06c)~~
+~~[git refloat](https://juejin.im/post/5ca1cddcf265da30b160d7bb)~~
 [yuya type](https://juejin.im/post/5951ba9f6fb9a06bbd6f5a12)
 [阮一峰extend5](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
 [event loop](https://juejin.im/post/5c947bca5188257de704121d)
-[douban首页]
-[douban photos]
+~~[douban首页]~~
+~~[douban photos]~~
 [ife ]
 [d3.js]
-[prototype]
-[camer]
+~~[prototype]~~
+~~[camer]~~
 
 37. ~~[css 世界]~~
 36. ~~[es6 rest spread]~~ es6/Array-spread-rest

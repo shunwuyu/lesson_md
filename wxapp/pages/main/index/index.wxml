@@ -1,0 +1,17 @@
+<!--pages/main/index/index.wxml-->
+<view class='container'>
+  <!-- <view style='width:100%;height:800px'>首页</view> -->
+  <view class='main'>
+    <p class="title">{{name}}</p>
+    <view class='movie'>
+      <ul class='movie-list'>
+        <li class='list-item' wx:for='{{lists}}' wx:key='{{index}}'>
+          <view class='avatal'>
+            <image src='{{item.imgUrl}}'></image>
+          </view>
+
+        </li>
+      </ul>
+    </view>
+  </view>
+</view>

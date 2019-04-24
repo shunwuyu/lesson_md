@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <script>
+    let arr = [1,2,3,4,5]  
+    function res(num) {
+      let s = num.toString()
+      let a = []
+      for (let i = 0; i < s.length; i++) {
+        // s[i]
+        a.unshift(s[i])
+      }
+      return a.join('')
+    }
+    console.log(res('abc'))
+  </script> -->
+  <script>
+    function minNumber(numbers) {
+      numbers.sort(compare)
+      let res = '';
+      for (let i = 0; i < numbers.length; i++) {
+        res += numbers[i]
+      }
+      return res
+    }
+
+    function compare(a, b) {
+      let str1 = a + "" + b //23
+      let str2 = b + "" + a //32
+      // console.log(str1.charAt(0))
+      for (let i = 0; i < str1.length; i++) {
+        if (str1.charAt(i) > str2.charAt(i)) {
+          return 1
+        }
+        if (str1.charAt(i) < str2.charAt(i)) {
+          return -1
+        }
+      }
+      return 1
+    }
+    // console.log(minNumber([32,4,61,9,14]))
+    console.log([3,32,321].sort())
+  </script>
+</body>
+</html>

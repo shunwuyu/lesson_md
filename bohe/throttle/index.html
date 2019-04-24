@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>防抖</title>
+</head>
+<body>
+  <div class="row">
+    没有防抖的input:<input type="text" id="unDebounce" />
+  </div>
+  <div class="row">
+    防抖后的input:<input type="text" id="debounce" />
+  </div>
+  <div class="row">
+    节流后的input:<input type="text" id="throttle" />
+  </div>
+  <script>
+  let inputa = document.getElementById('unDebounce');
+  function throttle(fun, delay) {
+        let last, deferTimer
+        return function (args) {
+            let that = this
+            let _args = arguments
+            let now = +new Date()
+            if (last && now < last + delay) {
+                clearTimeout(deferTimer)
+                deferTimer = setTimeout(function () {
+                    last = now
+                    fun.apply(that, _args)
+                }, delay)
+            }else {
+                last = now
+                fun.apply(that,_args)
+            }
+        }
+    }
+
+    let throttleAjax = throttle(ajax, 1000)
+
+    let inputc = document.getElementById('throttle')
+    inputc.addEventListener('keyup', function(e) {
+        throttleAjax(e.target.value)
+    })
+
+  function ajax(content) {
+    console.log('ajax request ' + content);
+  }
+  //执行最后一次 指定时间间隔内没有输入时， 才会执行函数。 
+  function debounce(fun, delay) {
+    return function(args) {
+      let that = this;
+      let _args = args;
+      clearTimeout(fun.id)
+      fun.id = setTimeout(function() {
+        fun.call(that, _args);
+      }, delay)
+    }
+  }
+
+  inputa.addEventListener('keyup', function(e) {
+    ajax(e.target.value);
+  })
+  let inputb = document.getElementById('debounce');
+  let debounceAjax = debounce(ajax, 500);
+  inputb.addEventListener('keyup', function(e) {
+    debounceAjax(e.target.value);
+  })
+  </script>
+</body>
+</html>
