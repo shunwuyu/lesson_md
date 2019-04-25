@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"     mode="cover">
+      </image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="songList">
+        <block wx:for="{{songList}}" wx:key="index">
+            <view class="item" data-id="{{index}}" bindtap="toAudio">
+                <view class="index">{{index+1}}</view>
+                <view class="rightView">
+                    <view class="song-title">
+                    
+                    <!-- Id: {{item.id}} -->
+                    {{item.name}}
+                    </view>
+                    <view class="singer"></view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

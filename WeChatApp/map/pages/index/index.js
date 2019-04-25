@@ -77,8 +77,8 @@ Page({
       var sign_b = Math.random();
       // 单车分布密集度设置
       // 经度 纬度 也有5位小数
-      var a = (Math.ceil(Math.random() * 99)) * 0.00002;
-      var b = (Math.ceil(Math.random() * 99)) * 0.00002;
+      var a = (Math.ceil(Math.random() * 99)) * 0.00001;
+      var b = (Math.ceil(Math.random() * 99)) * 0.00001;
       t_bic.id = i;
       t_bic.longitude = (sign_a > 0.5 ? res.longitude + a : res.longitude - a);
       t_bic.latitude = (sign_b > 0.5 ? res.latitude + b : res.latitude - b);
