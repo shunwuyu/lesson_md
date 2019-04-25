@@ -1,5 +1,12 @@
 <view class='map-box'>
-  <map id='myMap' latitude='{{latitude}}' longitude='{{longitude}}' markers='{{markers}}' polyline='{{polyline}}' scale='{{scale}}' bindcontroltap='controltap' bindregionchange='regionchange' bindmarkertap='toVisit' show-location>
+  <map id='myMap' latitude='{{latitude}}' longitude='{{longitude}}'
+   markers='{{markers}}' 
+   polyline='{{polyline}}' 
+   scale='{{scale}}' 
+   bindcontroltap='controltap' 
+   bindregionchange='regionchange' 
+   bindmarkertap='toVisit' 
+   show-location>
       <!-- 地图上下阴影 -->
       <cover-image class='map-shadow-top' src='/images/map-shadow-top.png'/>
       <cover-image class='map-shadow-btm' src='/images/map-shadow-btm.png'/>
