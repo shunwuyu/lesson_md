@@ -1,0 +1,6 @@
+@import './style/reset.wxss';
+@import './style/button.wxss';
+
+.section {
+  height: 100vh;
+}
