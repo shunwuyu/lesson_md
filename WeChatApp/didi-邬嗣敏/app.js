@@ -41,7 +41,6 @@ App({
     userInfo: null,
     bluraddress: '范家新村-公交站',
     destination: '',
-    id: '快车',
     qqmapsdk,
   }
 })

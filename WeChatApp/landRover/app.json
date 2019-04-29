@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/stories/index",
-    "pages/vehicles/index"
+    "pages/vehicles/index",
+    "pages/stories/show"
   ],
   "window": {
     "backgroundTextStyle": "light",

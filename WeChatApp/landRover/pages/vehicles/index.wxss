@@ -1,68 +1,72 @@
 /* pages/vehicles/index.wxss */
 
 /* 描述部分 */
+
 .spec {
-    display: flex;
-    border-bottom: 1px solid #ededed;
-    font-size: 24rpx;
-  }
+  display: flex;
+  border-bottom: 1px solid #ededed;
+  font-size: 24rpx;
+}
 
-  .spec .item {
-      border-right: 1px solid #ededed;
-      width: 100%;
-      padding: 64rpx;
-    }
+.spec .item {
+  border-right: 1px solid #ededed;
+  width: 100%;
+  padding: 64rpx;
+}
 
-    .spec .item .value text {
-      font-size: 60rpx;
-      margin-right: 8rpx;
-    }
+.spec .item .value text {
+  font-size: 60rpx;
+  margin-right: 8rpx;
+}
+
 /* 封面 */
+
 .cover {
-    position: relative;
-  }
+  position: relative;
+}
 
-  .cover image, .cover video {
-    height: 38.2vh;
-  }
+.cover image, .cover video {
+  height: 38.2vh;
+}
 
-  .cover .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 8px 16px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    box-sizing: border-box;
-    color: rgba(255, 255, 255, 0.85);
-    text-shadow: 0 5px 19px rgba(0, 0, 0, 0.5);
-    background-image: linear-gradient(rgba(0, 0, 0, 0) 7%, rgba(0, 0, 0, 0.36) 100%);
-  }
+.cover .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 8px 16px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 5px 19px rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 7%, rgba(0, 0, 0, 0.36) 100%);
+}
 
-  .cover .header {
-    font-size: 36rpx;
-    font-weight: bold;
-    letter-spacing: 4rpx;
-  }
+.cover .header {
+  font-size: 36rpx;
+  font-weight: bold;
+  letter-spacing: 4rpx;
+}
 
-  .cover .sub-header {
-    font-size: 26rpx;
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 4rpx;
-  }
+.cover .sub-header {
+  font-size: 26rpx;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 4rpx;
+}
 
-  .cover .meta {
-    font-size: 26rpx;
-  }
+.cover .meta {
+  font-size: 26rpx;
+}
+
 /* 操作区域 */
+
 .action {
-    text-align: center;
-    padding: 48px;
-  }
+  text-align: center;
+  padding: 48px;
+}
 
-  .action .description {
-    margin-bottom: 48rpx;
-  }
-
+.action .description {
+  margin-bottom: 48rpx;
+}

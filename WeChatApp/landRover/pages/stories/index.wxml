@@ -1,5 +1,4 @@
 <view class="cards">
-<view></view>
   <view class="card" hover-class="hover" wx:for="{{ entities }}" wx:key="id">
   <!-- hidden="{{ currentVid !== item.id }}" -->
     <video
@@ -8,9 +7,6 @@
       poster="{{ item.image }}"
       src="{{ item.video }}"
       objectFit="cover"
-      bindwaiting="videoWaiting"
-      binderror="videoError"
-      bindprogress="videoProgress"
       duration="{{ item.duration_raw }}" />
     <image
       hidden="{{ currentVid == item.id }}"

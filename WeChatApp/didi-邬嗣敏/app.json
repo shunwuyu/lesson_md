@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/starting/starting",
-    "pages/destination/destination"
+    "pages/destination/destination",
+    "pages/wait/wait"
   ],
   "window": {
     "backgroundTextStyle": "light",

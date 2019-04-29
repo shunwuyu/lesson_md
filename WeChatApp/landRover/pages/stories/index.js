@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    entities: db.default.stories,
+    entities: db.stories,
     currentVid: null,
   },
   play(event) {
@@ -26,15 +26,6 @@ Page({
         currentVid: event.target.dataset.vid
       })
     }
-  },
-  videoWaiting(e) {
-    console.log('videoWaiting', e);
-  },
-  videoError(e) {
-    console.log('videoError', e);
-  },
-  videoProgress(e) {
-    console.log('videoProgress', e);
   },
 
   /**

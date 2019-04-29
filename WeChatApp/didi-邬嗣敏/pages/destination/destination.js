@@ -15,59 +15,84 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.requestHistory();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
-  requestHistory () {
+  switchCity () {
+    app.globalData.qqmapsdk.getCityList({
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  },
+  toIndex(e) {
+    // 地址简写
+    const destination = e.currentTarget.dataset.destination;
+    // 详细地址
+    const endAddress = e.currentTarget.dataset.end;
+    // 得到重点经纬度
+    app.globalData.qqmapsdk.geocoder({
+      address: endAddress,
+      success: function(res) {
+        app.globalData.endLatitude = res.result.location.lat;
+        app.globalData.endLongitude = res.result.location.lng;
+      }
+    })
+    app.globalData.destination = destination,
+    wx.redirectTo({
+      url: "/pages/index/index",
+    })
+  },
+  requestHistory() {
     util.request({
       url: 'https://www.easy-mock.com/mock/5aded45053796b38dd26e970/comments#!method=get',
       mock: false,
@@ -90,7 +115,7 @@ Page({
     app.globalData.qqmapsdk.getSuggestion({
       keyword: value,
       region: '南昌',
-      success: function (res) {
+      success: function(res) {
         let data = res.data
         that.setData({
           address: data,

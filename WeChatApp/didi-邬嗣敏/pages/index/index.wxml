@@ -27,74 +27,36 @@
       <view class="didi-input-str" style="color: #333333">{{address}}</view>
     </navigator>
     <navigator url="/pages/destination/destination" redirect>
-      <input type="text" class="didi-input-end" value="{{destination}}"
-      style="color: #333333" placeholder="你要去哪儿" 
-      placeholder-color="#ccccccc" focus="{{false}}" />
+      <input type="text" class="didi-input-end" value="{{destination}}" style="color: #333333" placeholder="你要去哪儿" placeholder-color="#ccccccc" focus="{{false}}" />
     </navigator>
     <view class="circle-end"></view>
-    <button class="didi-btn" bindtap="toCast">呼叫{{cart}}</button>
+    <button class="didi-btn" wx:if="{{!callCart}}" bindtap="toCast">呼叫{{cart}}</button>
   </view>
-   <swiper class="tab-box" current="{{currentTab}}" bindchange="switchTab">
-            <swiper-item class="tab-express">
-                <view class="express-members">
-                    <view class="members-img">
-                        <image style="width: 90rpx;height: 102rpx;" src="../../assets/images/members.png" />
-                    </view>
-                    <view class="members-desc">会员</view>
-                </view>
-                <view class="express-package">
-                    <view class="members-img">
-                        <image style="width: 90rpx;height: 102rpx;" src="../../assets/images/package.png" />
-                    </view>
-                    <view class="members-desc">套餐</view>
-                </view>
-                <view class="express-recruiting">
-                    <view class="members-img">
-                        <image style="width: 147rpx;height: 102rpx;" src="../../assets/images/recruiting.png" />
-                    </view>
-                    <view class="members-desc">招募</view>
-                </view>
-            </swiper-item>
-            <swiper-item class="tab-express">
-                <view class="express-members">
-                    <view class="members-img">
-                        <image style="width: 90rpx;height: 102rpx;" src="../../assets/images/Pickup.png" />
-                    </view>
-                    <view class="members-desc">接机</view>
-                </view>
-                <view class="express-package">
-                    <view class="members-img">
-                        <image style="width: 90rpx;height: 102rpx;" src="../../assets/images/Picksend.png" />
-                    </view>
-                    <view class="members-desc">送机</view>
-                </view>
-            </swiper-item>
-            <swiper-item class="tab-express">
-                <text>后续完善</text>
-            </swiper-item>
-            <swiper-item class="tab-express">
-                <text>后续完善</text>
-            </swiper-item>
-            <swiper-item class="tab-express">
-                <text>后续完善</text>
-            </swiper-item>
-            <swiper-item class="tab-express">
-                <text>后续完善</text>
-            </swiper-item>
-            <swiper-item class="tab-express">
-                <text>后续完善</text>
-            </swiper-item>
-            <swiper-item class="tab-express">
-                <text>后续完善</text>
-            </swiper-item>
-        </swiper>
-        <view class="swiper">
-            <swiper autoplay="{{true}}" interval="{{interval}}" circular="{{true}}" duration="{{duration}}">
-                <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-                    <swiper-item>
-                        <image src="{{item}}" class="slide-image" />
-                    </swiper-item>
-                </block>
-            </swiper>
+  <!-- 计费区域 -->
+  <view class='' wx:if="{{callCart}}">
+    <view class="cost-content">
+      <view class="cost">
+        <view class="cost-title">
+          <block wx:for="{{cost}}" wx:key="{{item.id}}">
+            <view class="cost-item">
+              <image style="width: 30rpx;height: 30rpx;  display: inline-block; " src="{{item.url}}" /> {{item.name}}
+            </view>
+          </block>
         </view>
+        <view class="cost-pic">
+          <block wx:for="{{costType}}" wx:for-index="costIndex">
+            <view class="carpooling  {{ index == costIndex?'on':''}}" data-index="{{costIndex}}" bindtap="switchCart">
+              <text class="carpooling-name">{{item.typeName}}</text>
+              <image style="width: 150rpx;height: 70rpx;  display: inline-block; " src="{{item.typeImagUrl}}" />
+              <text class="money" style="font-size: 28rpx;padding-top: 15rpx;">
+                                预计
+                                <text style="font-size: 40rpx;">{{item.pay}}</text> 元
+              </text>
+            </view>
+          </block>
+        </view>
+        <button class="cost-btn" wx:if="{{callCart}}" bindtap="toWait">呼叫{{cart}}</button>
+      </view>
+    </view>
+  </view>
 </view>

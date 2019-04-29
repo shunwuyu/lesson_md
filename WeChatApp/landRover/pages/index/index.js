@@ -7,7 +7,7 @@ const { testDrive } = module;
 
 Page({
   data: {
-    slides: db.default.slides
+    slides: db.slides
   },
   onLoad: function () {
 
