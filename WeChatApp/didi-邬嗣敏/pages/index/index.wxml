@@ -20,8 +20,8 @@
   <!-- 呼叫车 -->
   <view class="content">
     <view class="didi-time">{{waitingTimes}}</view>
-    <import src="/templates/sprinner.wxml" />
-    <template is="sprinner" data='{{isLoading}}'></template>
+    <import src="/templates/loading.wxml" />
+    <template is="loading" data='{{isLoading}}'></template>
     <view class="circle-str"></view>
     <navigator url="/pages/starting/starting" redirect>
       <view class="didi-input-str" style="color: #333333">{{address}}</view>

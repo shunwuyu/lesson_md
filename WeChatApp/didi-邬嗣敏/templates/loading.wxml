@@ -1,4 +1,4 @@
-<template name="sprinner">
+<template name="loading">
     <block wx:if="{{isLoading}}">
        <view class="spinner">
            <view class="bounce1"></view>
