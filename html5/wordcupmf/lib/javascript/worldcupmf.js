@@ -54,22 +54,20 @@ $(function(){
 
   })
 
-  var screen = document.querySelector('.screen');
-  // Transform(section1);
-  var gesture = new AlloyFinger(screen,{
+  var screen = document.querySelector('.screen'); // 获取页面上当前正前方的那个面（每个面翻转到正前方的时候作者都手动给其加了一个screen的类名）
+  var gesture = new AlloyFinger(screen,{ // 执行滑屏事件
     swipe:function(evt){
-      // console.log('swipe'+evt.direction);
       var direction = evt.direction;
       var current = getCurrentPage();
-      if (direction == "Up") {
+      if (direction == "Up") { // 监测手指上滑
         switch (current) {
-          case 0:$('.btn1').click();break;
-          case 1:$('.btn2').click();break;
-          case 2:$('.btn3').click();break;
+          case 0:$('.btn1').click();break; // 这里三个是首页的按钮点击事件
+          case 1:$('.btn2').click();break; // 点击这三个按钮也执行页面的翻转
+          case 2:$('.btn3').click();break; // 嘿嘿
           case 3:$('.screen').attr("class","screen ease");break;
           default:
         }
-      }else if (direction == "Down"){
+      }else if (direction == "Down"){ // 监测手指下滑
         switch (current) {
           case 0:return;
           case 1:$('.screen').attr("class","screen ease");break;
