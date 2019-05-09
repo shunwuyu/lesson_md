@@ -1,0 +1,3 @@
+<view class="homepage">
+  <button type="warn" bindtap="startAccounts">开始记账</button>
+</view>

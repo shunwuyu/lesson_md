@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "accountCover": "../../components/accountCover/accountCover"
+  }
+}

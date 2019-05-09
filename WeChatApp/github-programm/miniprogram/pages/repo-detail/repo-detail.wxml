@@ -1,0 +1,47 @@
+<import src="../../lib/wxParse/wxParse.wxml"/>
+
+<view class='repo'>
+  <view class='header'>
+    <image mode='aspectFit' class='avatar' src='{{repo.owner.avatar_url}}' catchtap='toUserDetail'></image>
+    <view class='name-time'>
+      <text class='name title'>{{repo.full_name || repoName}}</text>
+      <text class='time'>{{repo.pushed_at}}</text>
+    </view>
+  </view>
+  <view class='stats {{ license ? "has-license" : "" }}'>
+    <view class='watch' catchtap='toggleWatching'>
+      <image mode='aspectFit' src='/octicons/eye.png'></image>
+      <text>{{repo.subscribers_count}}</text>
+    </view>
+    <view class='star' catchtap='toggleStar'>
+      <image mode='aspectFit' src='{{isStarred ? "/md/starred.png" : "/md/unstar.png"}}'></image>
+      <text>{{repo.stargazers_count}}</text>
+    </view>
+    <view class='fork' catchtap='forkRepo'>
+      <image mode='aspectFit' src='/octicons/repo-forked.png'></image>
+      <text>{{repo.forks_count}}</text>
+    </view>
+    <view class='license' wx:if='{{license}}'>
+      <image mode='aspectFit' src='/octicons/law.png'></image>
+      <text>{{license}}</text>
+    </view>
+  </view>
+  <tabs bind:change='changeTab' wx:if='{{showTabs}}' active='{{ tab }}' sticky animated>
+    <tab title='Readme'>
+      <view class='readme'>
+        <md md='{{readme}}'></md>
+        <ad class='ad' wx:if='{{readme}}' unit-id="adunit-2953eab5250f3d65"></ad>
+      </view>
+    </tab>
+    <tab title='Issues'>
+      <issue wx:for='{{issues}}' wx:key='{{index}}' issue='{{item}}'></issue>
+    </tab>
+    <tab title='Pull Requests'>
+      <pull wx:for='{{pulls}}' wx:key='{{index}}' pull='{{item}}'></pull>
+    </tab>
+    <tab title='Contributors'>
+      <contributor wx:for='{{contributors}}' wx:key='{{index}}' contributor='{{item}}' rank='{{index}}'></contributor>
+    </tab>
+  </tabs>
+  <image wx:if='{{ true }}' class='new-issue' src='/octicons/plus-small.png' mode='aspectFit' catchtap='toCreateNewIssue'></image>
+</view>

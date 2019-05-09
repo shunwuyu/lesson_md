@@ -1,0 +1,22 @@
+<view class="container">
+  <view bindtap="switchList" class="list"></view>
+  <block wx:if="{{!isList}}">
+    <image src="https://7a68-zhh-cloud-b7a1a9-1257892988.tcb.qcloud.la/列表.svg?sign=b2bb8634bff3d0901db99aea167a73dd&t=1540886041"></image>
+    <swiper previous-margin="80rpx" next-margin="80rpx">
+      <block wx:for="{{accounts}}" wx:key="index">
+        <swiper-item>
+          <accountCover account="{{item}}">
+            <image class="updateImg" catchtap="editAccount" data-account="{{item}}" src="https://7a68-zhh-cloud-b7a1a9-1257892988.tcb.qcloud.la/修改(1).svg?sign=b7b6f21449f4d4caaaf955e0c2d86c5f&t=1541059524"></image>
+          </accountCover>
+        </swiper-item>
+      </block>
+      <swiper-item>
+        <view class="newAccount" bindtap="createNewAccount">
+          <view class="desc">旅行中的每一笔开支都有独特的意义！</view>
+          <image src="https://7a68-zhh-cloud-b7a1a9-1257892988.tcb.qcloud.la/add.png?sign=33d0e543f8f4f30dcc64d010afa99bda&t=1540813605"></image>
+          <view class="title">创建一个新账本</view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </block>
+</view>

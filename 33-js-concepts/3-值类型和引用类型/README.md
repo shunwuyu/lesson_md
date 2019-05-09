@@ -1,6 +1,7 @@
 ## js 中变量类型
+
 基本类型：
-- null  typeof 
+- null  typeof
 - undefined
 - number
 - string

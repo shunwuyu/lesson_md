@@ -1,0 +1,21 @@
+<navigator class='repo'
+           url='/pages/repo-detail/repo-detail?repo={{repo.full_name}}'>
+  <text class='name title'>
+    <text wx:if='{{repo.fork}}' class='fork-mark'>Fork</text><text wx:if='{{repo.private}}' class='private-mark'>Private</text>{{repo.full_name}}
+  </text>
+  <text class='desc'>{{repo.description}}</text>
+  <view class='bottom'>
+    <view class='stars'>
+      <image mode='aspectFit' src='/md/unstar.png'></image>
+      <text>{{repo.stargazers_count}}</text>
+    </view>
+    <view class='forks'>
+      <image mode='aspectFit' src='/octicons/repo-forked.png'></image>
+      <text>{{repo.forks}}</text>
+    </view>
+    <view class='lang' wx:if='{{repo.language}}'>
+      <image mode='aspectFit' src='/md/language.png'></image>
+      <text>{{repo.language}}</text>
+    </view>
+  </view>
+</navigator>
