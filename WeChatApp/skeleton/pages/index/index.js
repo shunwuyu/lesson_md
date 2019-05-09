@@ -13,7 +13,6 @@ Page({
     showSkeleton: true 
   },
   onLoad: function() {
-    
     setTimeout(() => {
 			this.setData({
 				showSkeleton: false
