@@ -1,4 +1,5 @@
 [source](https://segmentfault.com/a/1190000015876164)
+[source](https://juejin.im/post/5c22eed46fb9a049d05dc612)
 
 Skeleton Screen  骨架屏
 
