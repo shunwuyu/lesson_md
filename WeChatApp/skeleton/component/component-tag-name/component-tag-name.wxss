@@ -1,0 +1,7 @@
+/* component/component-tag-name/component-tag-name.wxss */
+
+.userinfo-avatar {
+    /* border-radius: 50%; */
+    width: 32px;
+    height: 32px;
+}
