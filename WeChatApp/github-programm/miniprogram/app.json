@@ -8,7 +8,8 @@
     "components/trend-item/trend-item",
     "pages/repo-detail/repo-detail",
     "components/feeds/feeds",
-    "components/feedItem/feedItem"
+    "components/feedItem/feedItem",
+    "pages/search/search"
   ],
   "window": {
     "backgroundColor": "#24292e",

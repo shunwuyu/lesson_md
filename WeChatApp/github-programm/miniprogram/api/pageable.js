@@ -1,6 +1,5 @@
-const http = require('http.js')
-
 // <https://api.github.com/events?page=2>; rel="next", <https://api.github.com/events?page=10>; rel="last"
+
 const parseLinks = header => {
   if (!header || header.length == 0) {
     return {}
@@ -32,6 +31,8 @@ const wrap = (promise, reqHeaders = {}) => new Promise((resolve, reject) => {
     const links = parseLinks(headers.link || headers.Link)
     const nextUrl = links['rel="next"']
     if (nextUrl) {
+      // 当前请求得到的数据
+      // 下一个
       return resolve({
         data,
         next: () => wrap(http.get(nextUrl, { headers: reqHeaders }), reqHeaders)
