@@ -2,12 +2,13 @@
   "pages": [
     "pages/main/index/index",
     "pages/lesson/index/index",
-    "pages/mine/index/index"
+    "pages/mine/index/index",
+    "pages/main/movieDetail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#48A6FD",
-    "navigationBarTitleText": "旅梦开发团",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "猫眼电影",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

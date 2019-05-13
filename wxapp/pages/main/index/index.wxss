@@ -1,23 +1,365 @@
 /* pages/main/index/index.wxss */
-.main{
-  font-size: 28rpx;
+.container {
+    background-color: #f1f1f1;
 }
-.main p{
-  display: block;
+
+view.text {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 10px 10px 10px 12px;
+    font-size: 15px;
+    color: #656565;
+}
+
+.flex_auto {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    background: #fff;
+}
+
+.header .header_hd {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #b9b9b9;
+    font-size: 12px;
+    padding-left: 12px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.header .header_hd text {
+    float: left;
+    font-size: 14px;
+    color: #666;
+}
+
+.downtips {
+    width: 0px;
+    height: 0px;
+    float: left;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #eaeaea;
+    margin-left: 1px;
+}
+
+.header .header_bd,
+.header .header_bd-check {
+    flex: 1;
+    position: relative;
+    text-align: center;
+}
+
+.header_bd-btn{
+  width: 70px;
+  height: 45px;
+  display: inline-block;
+  line-height: 45px;
   text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
 }
-.movie-list{
-  display: block;
+
+.bottomLine {
+    width: 56px;
+    height: 3px;
+    background: #ef4238;
+    position: absolute;
+    bottom: 0;
+    transition: left .5s;
 }
-.list-item{
-  padding: 10rpx 0;
+
+.header_bd-hot {
+    /* width: 55px;
+    height: 45px;
+    display: inline-block;
+    line-height: 45px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666; */
 }
-.avatal{
-  width: 200rpx;
-  height: 200rpx;
-  overflow: hidden;
+
+.header_bd-waiting {
+    /* width: 55px;
+    height: 45px;
+    display: inline-block;
+    line-height: 45px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666; */
 }
-.avatal image{
+
+.header .header_ft {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    color: #ef4238;
+    border-left: 1px solid #d8d8d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .header_ft image {
+    width: 23px;
+    height: 23px;
+}
+
+view.text:before {
+    position: absolute;
+    display: block;
+    content: ' ';
+    left: -5px;
+    width: 2px;
+    height: 100%;
+    background-color: #09bb07;
+}
+
+.line_flag {
+    width: 3px;
+    height: 18px;
+    display: inline-block;
+    background-color: #09bb07;
+}
+
+.slide-image{
   width: 100%;
-  height: 100%;
+}
+
+view.text text {
+    margin-left: 10px;
+    line-height: 18px;
+}
+
+.item {
+    padding: 10px;
+    background-color: #fff;
+    color: #787878;
+    border-top: 1px solid #eaeaea;
+    overflow: auto;
+    position: relative;
+}
+
+.item_left{
+  float: left;
+}
+
+.gray_hover {
+    background: #eaeaea;
+}
+
+.item image {
+    display: block;
+    width: 65px;
+    height: 95px;
+}
+
+.item_middle {
+    width: 60%;
+    padding-left: 10px;
+    padding-top: 5px;
+    overflow: hidden;
+}
+
+.item_middle .title {
+    display: inline-block;
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item_middle .action {
+    float: left;
+}
+
+.item_middle .action text {
+    padding: 2px 4px 2px 4px;
+    margin-left: -3px;
+    margin-right: 1px;
+    color: #fff;
+    background: #8bb7ce;
+}
+
+.item_middle .type {
+    font-size: 12px;
+    color: #666;
+    margin: 2px 0px;
+}
+
+.item_middle .actor {
+    font-size: 12px;
+    color: #666;
+    margin: 2px 0;
+}
+
+.item_middle .desc {
+    font-size: 12px;
+    color: gray;
+    margin: 2px 0;
+}
+
+.item_grade .score {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 16px;
+    color: #ffc63f;
+}
+
+.item_right{
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.item_right .buy {
+    display: block;
+    width: 46px;
+    height: 28px;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 28px;
+    color: #fff;
+}
+
+.banner {
+    width: 100%;
+    height: 212px;
+    background: #fff;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 11px;
+}
+
+.banner .banner_title {
+    margin-left: 15px;
+    width: 100%;
+    height: 36px;
+    font-size: 14px;
+    color: #000;
+    float: left;
+    line-height: 36px;
+    font-weight: bold;
+}
+
+.banner_contain {
+    height: 190px;
+    white-space: nowrap;
+    display: flex;
+}
+
+.banner_contain .banner_contain-cinema {
+    width: 85px;
+    height: 190px;
+    margin-left: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+#zan {
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.banner_contain .banner_contain-cinema image {
+    width: 85px;
+    height: 115px;
+    float: left;
+}
+
+.cinema-zan {
+    /*overflow: hidden;*/
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 30px;
+    background: #000;
+    opacity: .3;
+}
+
+.cinema-title {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    float: left;
+    margin-top: 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cinema-people,
+.cinema-date {
+    width: 100%;
+    height: 15px;
+    line-height: 15px;
+    font-size: 12px;
+    color: #666;
+    float: left;
+    margin-top: 2px;
+}
+
+.cinema-ways {
+    margin-top: -8px;
+    margin-left: 5px;
+}
+
+.cinema-3d {
+    border: 1px solid #8bb7ce;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    font-size: 9px;
+    line-height: 14px;
+    color: #fff;
+    background: #8bb7ce;
+    padding: 1px;
+    position: relative;
+}
+
+.cinema-imax {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    font-size: 9px;
+    line-height: 14px;
+    color: #8bb7ce;
+    position: relative;
+    border: 1px solid #8bb7ce;
+    padding: 1px 2px 1px 2px;
+    background: transparent;
+    margin-left: -1px;
+}
+
+.font-desc {
+    width: 100%;
+    display: block;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
 }
