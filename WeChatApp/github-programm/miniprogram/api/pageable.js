@@ -1,4 +1,5 @@
 // <https://api.github.com/events?page=2>; rel="next", <https://api.github.com/events?page=10>; rel="last"
+const http = require('./http.js');
 
 const parseLinks = header => {
   if (!header || header.length == 0) {
@@ -13,9 +14,10 @@ const parseLinks = header => {
       throw new Error("section could not be split on ';'")
     }
     // console.log(111, section[0].replace(/<(.*)>/, '$1'));
-    // $1 正则里面的 代表分组 
-    const url = section[0].replace(/<(.*)>/, '$1').trim()
-    const name = section[1].replace(/<(.*)>/, '$1').trim()
+    // $1 正则里面的 代表分组
+    // < 开头 > 结尾 中间是任意的字符串
+    const url = section[0].replace(/[<>]/, '').trim()
+    const name = section[1].trim()
 
     links[name] = url
   })
