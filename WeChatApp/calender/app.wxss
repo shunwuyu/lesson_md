@@ -1,0 +1,22 @@
+.calendar {
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+
+.calendar-title {
+  line-height: 70rpx;
+  font-size: 30rpx;
+  text-align: left;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.calendar-title .ctrl {
+  display: inline-block;
+  padding: 0 20rpx;
+  background: #f5f5f5;
+  border-radius: 10rpx;
+}
+
