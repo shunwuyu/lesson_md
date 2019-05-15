@@ -1,0 +1,6 @@
+.calendar {
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
