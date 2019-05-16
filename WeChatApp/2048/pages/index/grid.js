@@ -35,6 +35,9 @@ Grid.prototype = {
 
     return cells;
   },
+  removeTile: function (tile) {
+    this.cells[tile.x][tile.y] = null;
+  },
   // 获取单元格的内容
   cellContent: function(cell) {
     if (this.withinBounds(cell)) {

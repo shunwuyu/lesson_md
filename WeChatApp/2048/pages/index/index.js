@@ -73,5 +73,17 @@ Page({
         highscore: Math.max(highscore, data.score)
       });
     }
-  }
+  },
+  // 更新视图数据
+  updateView: function (data) {
+    // 游戏结束
+    if (data.over) {
+      data.overMsg = '游戏结束';
+    }
+    // 获胜
+    if (data.win) {
+      data.overMsg = '恭喜';
+    }
+    this.setData(data);
+  },
 })
