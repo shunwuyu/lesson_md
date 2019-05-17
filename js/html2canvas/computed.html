@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
+<<<<<<< HEAD
   #elem-container {
     position: absolute;
     left: 100px;
@@ -28,6 +29,25 @@
     document.getElementById('output')
       .innerHTML = theCSSCrop;
 
+=======
+    #elem-container{
+      position: absolute;
+      left:     100px;
+      top:      200px;
+      height:   100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="elem-container">dummy</div>
+  <div id="output"></div>
+  <script>
+  function getTheStyle(){
+    let elem = document.getElementById("elem-container");
+    console.log(window.getComputedStyle(elem,null));
+    let theCSSprop = window.getComputedStyle(elem,null).getPropertyValue("height");
+    document.getElementById("output").innerHTML = theCSSprop;
+>>>>>>> c9fb79dc8239fa919ae598754cae9e31f35e03cb
   }
   getTheStyle();
   </script>

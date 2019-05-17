@@ -1,17 +1,72 @@
 <!--pages/main/index/index.wxml-->
 <view class='container'>
   <!-- <view style='width:100%;height:800px'>首页</view> -->
-  <view class='main'>
-    <p class="title">{{name}}</p>
-    <view class='movie'>
-      <ul class='movie-list'>
-        <li class='list-item' wx:for='{{lists}}' wx:key='{{index}}'>
-          <view class='avatal'>
-            <image src='{{item.imgUrl}}'></image>
+  <scroll-view
+    scroll-y
+    style="height: 100%;"
+    bindscrolltoupper="upper"
+    bindscrolltolower="lower"
+    bindscroll="scroll"
+    scroll-into-view="{{toView}}"
+    scroll-top="{{scrollTop}}"
+  >
+    <view class="header">
+      <view class="header_hd" bindtap="goLocaltion">
+        <text>{{city}}</text>
+        <view class="downtips"></view>
+      </view>
+      <view class="header_bd">
+        <view class="header_bd-hot header_bd-btn" style="color:{{isleft?'#ef4238':'#666'}}" bindtap="tabChangehot">正在上映</view>
+        <view class="header_bd-waiting header_bd-btn" style="color:{{isleft?'#666':'#ef4238'}}" bindtap="tabChangewaiting">即将上映</view>
+        <view class="bottomLine" style="left:{{isleft?'73px':'143px'}}"></view>
+      </view>
+      <view class="header_ft">
+        <image src="../../../images/icon_magnifier.png"></image>
+      </view>
+    </view>
+
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-active-color="{{indicatorActiveColor}}">
+      <block wx:for="{{imgUrls}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view wx:for="{{items}}" wx:key="item" hidden="{{!isleft}}">
+      <view class="flex item" bindtap="bindViewTap" hover="true" hover-class="gray_hover" hover-stay-time="100">
+        <view class="item_left">
+          <image src="{{item.imgUrl}}" />
+        </view>
+        <view class="item_middle">
+          <view class="flex_auto">
+            <text class="title">{{item.name}}</text>
+            <view class="cinema-ways">
+              <text class="cinema-3d" wx:if="{{item['3d']}}">3D</text>
+              <text class="cinema-imax" wx:if="{{item.imax}}">IMAX</text>
+            </view>
           </view>
 
-        </li>
-      </ul>
+          <view>
+            <view class='item_grade'>
+              <text class="score" wx:if="{{item.isShow==0}}">{{item.wantSee}}<text style="font-size:12px;">人想看</text></text>
+              <text class="score" wx:if="{{item.isShow==1}}">{{item.grade}}<text style="font-size:12px;">分</text></text>
+            </view>
+          </view>
+          <view>
+            <text class="actor font-desc">主演:{{item.actor}}</text>
+          </view>
+          <view>
+            <text class="desc font-desc">今天{{item.showInfo.cinema}}家影院放映{{item.showInfo.times}}场</text>
+          </view>
+        </view>
+        <view class="item_right">
+          
+          <view>
+            <text class="buy" style="background-color:{{item.isShow==0?'#52b0eb':'#ef4238'}}">{{item.isShow==0?'预售':'购票'}}</text>
+          </view>
+        </view>
+      </view>
     </view>
-  </view>
+  </scroll-view>
 </view>

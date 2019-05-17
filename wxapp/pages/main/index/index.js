@@ -5,46 +5,70 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '电影列表',
-    lists:[
-      {
-        name: '旅梦的春天',
-        time: '2019-05-01',
-        desc: '又是一个春暖花开，万物复苏的季节，喻老师作为旅梦开发团的首领，即将带着我们来一次猿类大迁徙',
-        imgUrl: 'https://user-gold-cdn.xitu.io/2019/4/19/16a3436b93cfcc17?w=642&h=881&f=jpeg&s=59560'
-      },
-      {
-        name: '旅梦的春天',
-        time: '2019-05-01',
-        desc: '又是一个春暖花开，万物复苏的季节，喻老师作为旅梦开发团的首领，即将带着我们来一次猿类大迁徙',
-        imgUrl: 'https://user-gold-cdn.xitu.io/2019/4/19/16a3436b93cfcc17?w=642&h=881&f=jpeg&s=59560'
-      },
-      {
-        name: '旅梦的春天',
-        time: '2019-05-01',
-        desc: '又是一个春暖花开，万物复苏的季节，喻老师作为旅梦开发团的首领，即将带着我们来一次猿类大迁徙',
-        imgUrl: 'https://user-gold-cdn.xitu.io/2019/4/19/16a3436b93cfcc17?w=642&h=881&f=jpeg&s=59560'
-      },
-      {
-        name: '旅梦的春天',
-        time: '2019-05-01',
-        desc: '又是一个春暖花开，万物复苏的季节，喻老师作为旅梦开发团的首领，即将带着我们来一次猿类大迁徙',
-        imgUrl: 'https://user-gold-cdn.xitu.io/2019/4/19/16a3436b93cfcc17?w=642&h=881&f=jpeg&s=59560'
-      },
-      {
-        name: '旅梦的春天',
-        time: '2019-05-01',
-        desc: '又是一个春暖花开，万物复苏的季节，喻老师作为旅梦开发团的首领，即将带着我们来一次猿类大迁徙',
-        imgUrl: 'https://user-gold-cdn.xitu.io/2019/4/19/16a3436b93cfcc17?w=642&h=881&f=jpeg&s=59560'
-      }
+    indicatorDots: true,
+    autoplay: true,
+    interval: 3000, //自动切换时间间隔
+    duration: 500,
+    circular: true,
+    indicatorActiveColor: '#f1f1f1',
+    checked: true,
+    isleft: true,
+    city: "南昌",
+    id: '',
+    items: [],
+    items0: [],
+    imgUrls: [
+      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
     ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(1)
+  // 页面加载完成后
+  onLoad() {
+    // 发送请求获取数据
+    console.log('Onload');
+    // wx 是微信的缩写
+    var that = this;
+
+    wx.request({
+      url: "https://www.easy-mock.com/mock/5ca2c29464930718b239eb94/lm/new-movie-list",
+      data: {},
+      method: 'GET',
+      header: { 'Content-type': 'application/json' },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          items: res.data.data.movieList
+          // items0: res.data.data.movies,
+          // id: res.data.data.movies.id
+        })
+      }
+    })
+  },
+
+  scroll(e) {
+    console.log(e)
+  },
+  upper(e) {
+    console.log(e)
+  },
+  lower(e) {
+    console.log(e)
+  },
+
+  tabChangehot() {
+    this.setData({
+      isleft: true
+    })
+  },
+  tabChangewaiting() {
+    this.setData({
+      isleft: false
+    })
   },
 
   /**

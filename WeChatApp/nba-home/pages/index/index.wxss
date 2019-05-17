@@ -1,0 +1,83 @@
+page {
+  background-color:#010714;
+}
+.agenda {
+  width: 100%;
+  height: 300rpx;
+}
+.agenda .date {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+}
+swiper {
+  height: 100rpx;
+  width: 410rpx;
+  font-size:44rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+}
+.agenda .date .dateLeft,.dateRight {
+  display: inline-block;
+  width: 64rpx;
+  height: 64rpx; 
+  margin-left:50rpx;
+  margin-right:50rpx; 
+  margin-top: 20rpx;
+  text-align: center; 
+}
+.agenda .date .dateLeft image,.dateRight image {
+  width: 64rpx;
+  height: 64rpx; 
+}
+.agenda .agenda-grade {
+  display: flex;
+  width: 100%;
+  height: 200rpx;
+}
+.agenda-grade .leftteam,.rightteam,.leftgrade,.rightgrade {
+  display: inline-block;
+  width: 120rpx;
+  height: 100rpx;
+  margin-top: 20rpx;
+}
+.agenda-grade .Mid {
+  width: 100rpx;
+  height: 100rpx;
+  display: inline-block;
+}
+.agenda-grade .leftteam,.rightteam {
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+}
+.agenda-grade .Mid {
+  font-size: 120rpx;
+  line-height: 45rpx;
+  text-align: center;
+  margin-top:30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx; 
+  width: 50rpx;
+  height: 40rpx;
+  color: #5D6169;
+}
+.agenda-grade .leftgrade,.rightgrade {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-size: 60rpx;
+  color: #5d6169;
+  text-align: center;
+}
+.leftteam text,.rightteam text{
+  color: #fff;
+  font-size: 32rpx;
+  margin-left: 20rpx;
+}
+.agenda-grade .leftteam image,.rightteam image {
+  width: 100rpx;
+  height: 100rpx;
+}
+.agenda-grade .leftgrade.on,.rightgrade.on {
+  color: #DFDFE1;
+}

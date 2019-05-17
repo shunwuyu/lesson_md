@@ -1,18 +1,31 @@
+const order = ['red', 'yellow', 'blue', 'green', 'red']
 Page({
   data: {
-    x: 0,
-    y: 0
+    toView: 'red',
+    scrollTop: 100
+  },
+  upper(e) {
+    console.log(e)
+  },
+  lower(e) {
+    console.log(e)
+  },
+  scroll(e) {
+    console.log(e)
   },
   tap(e) {
+    for (let i = 0; i < order.length; ++i) {
+      if (order[i] === this.data.toView) {
+        this.setData({
+          toView: order[i + 1]
+        })
+        break
+      }
+    }
+  },
+  tapMove(e) {
     this.setData({
-      x: 30,
-      y: 30
+      scrollTop: this.data.scrollTop + 10
     })
-  },
-  onChange(e) {
-    console.log(e.detail)
-  },
-  onScale(e) {
-    console.log(e.detail)
   }
 })

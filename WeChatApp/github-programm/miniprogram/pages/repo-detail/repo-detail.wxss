@@ -1,0 +1,81 @@
+/* @import "../../lib/wxParse/wxParse.wxss"; */
+@import '../../style/base.wxss';
+
+.header {
+  padding: 48rpx;
+  display: flex;
+  color: #fff;
+}
+
+.avatar {
+  min-width: 88rpx;
+  min-height: 88rpx;
+  background-color: #eee;
+}
+
+.name-time {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.time {
+  font-size: 28rpx;
+  color: #eee;
+}
+
+.stats {
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+}
+
+.stats view {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats.has-license view {
+  width: 25%;
+}
+
+.stats view:not(:first-child) {
+  border-left: 1rpx solid #333;
+}
+
+.stats view image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.stats view text {
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+
+.readme {
+  margin: 48rpx;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.ad {
+  margin-top: 24rpx;
+}
+
+.new-issue {
+  width: 100rpx;
+  height: 100rpx;
+  max-width: 100rpx;
+  max-height: 100rpx;
+  border-radius: 50rpx;
+  position: fixed;
+  bottom: 48rpx;
+  right: 48rpx;
+  background-color: red;
+}

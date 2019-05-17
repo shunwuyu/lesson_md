@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
   <title>htmlToSVG</title>
 <style>
+=======
+  <title>html2canvas</title>
+  <style>
+>>>>>>> c9fb79dc8239fa919ae598754cae9e31f35e03cb
     .content {
       width: 200px;
       height: 200px;
@@ -48,6 +53,7 @@
   </style>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="content">
         <span class="red">这是一个红色的字</span>
         <div class="block">123</div>
@@ -93,11 +99,52 @@
     if (ele.children.length) {
       for (let el of ele.children) {
         str += renderDOM(el);
+=======
+  <div class="content">
+    <span class="red">这是一个红色的字</span>
+    <div class="block">123</div>
+    <span class="blue">这是一个蓝色的字</span>
+  </div>
+  
+  <div class="button" onclick="shotScreen()">点我截图</div>
+  <div id="app"></div>
+  <script>
+  function shotScreen() {
+    let ele = document.querySelector('.content');
+    var data = getSvgDomString(ele);
+    // document.getElementById('app').innerHTML = data;
+    var DOMURL = window.URL || window.webkitURL || window;
+    var img = new Image();
+    var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
+    var url = DOMURL.createObjectURL(svg);
+    img.src = url;
+    document.body.appendChild(img)
+  }
+  function getSvgDomString (ele) {
+    return `
+      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">\n
+        <foreignObject width="100%" height="100%">\n
+            ${renderDom(ele, 1)}
+        </foreignObject>\n
+    </svg>`
+  }
+  function renderDom (ele, isTop) {
+    let tag = ele.tagName.toLowerCase()
+    let str = `<${tag} `
+    // 最外层的节点,需要加 xmlns 命名空间
+    isTop && (str += `xmlns="http://www.w3.org/1999/xhtml" `)
+    str += ` style="${getElementStyles(ele)}">\n`
+
+    if (ele.children.length) {
+      for (let el of ele.children) {
+        str += renderDom(el)
+>>>>>>> c9fb79dc8239fa919ae598754cae9e31f35e03cb
       }
     } else {
       str += ele.innerHTML
     }
     str += `</${tag}>\n`
+<<<<<<< HEAD
     return str;
   }
 
@@ -132,6 +179,42 @@
     style += `flex: ${css.flex};`
     return style;
   }
+=======
+    return str
+  }
+  function getElementStyles (el) {
+	let css = window.getComputedStyle(el)
+	let style = ''
+	// 尺寸相关
+	style += `width:${css.width};`
+	style += `height: ${css.height};`
+	style += `line-height: ${css.lineHeight};`
+	style += `max-height: ${css.maxHeight};`
+	style += `min-height: ${css.minHeight};`
+	style += `max-width: ${css.maxWidth};`
+	style += `min-width: ${css.minWidth};`
+
+	style += `font-size: ${css.fontSize};`
+	// 颜色相关
+	style += `color: ${css.color};`
+	style += `background: ${css.background};`
+	// 边框相关
+	style += `border: ${css.border};`
+	style += `box-sizing: ${css.boxSizing};`
+	// 位置相关
+	style += `margin: ${css.margin};`
+	style += `padding: ${css.padding};`
+	style += `position: ${css.position};`
+	style += `left: ${css.left};`
+	style += `right: ${css.right};`
+	style += `top: ${css.top};`
+	style += `bottom: ${css.bottom};`
+	// 布局相关
+	style += `display: ${css.display};`
+	style += `flex: ${css.flex};`
+	return style
+}
+>>>>>>> c9fb79dc8239fa919ae598754cae9e31f35e03cb
   </script>
 </body>
 </html>
