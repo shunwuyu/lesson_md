@@ -1,6 +1,7 @@
 var _ = require('lodash')
 var request = require('request')
 var parser = require('./parser')
+// 编码转换的库
 var iconv = require('iconv-lite')
 
 function spider (opts, callback, handlerMap) {

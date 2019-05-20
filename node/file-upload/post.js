@@ -7,8 +7,9 @@ const staticDir = './static/'
 
 //用http模块创建一个http服务端
 http.createServer(function (req, res) {
+  // console.log(req);
   const reqUrl = url.parse(req.url);
-  console.log(req.url, req.method);
+  console.log(req.url, req.method, reqUrl.search);
   if (/^\/static\//.test(req.url)) {
     staticServer(req, res);
     return false;
@@ -34,8 +35,10 @@ http.createServer(function (req, res) {
     })
     req.on('end', () => {
       data = data.toString();
+      // 换行 tab
+      data.replace(/\n\t/g, '');
       console.log('before parse', data);
-      let body = querystring.parse(data);
+      let body = JSON.parse(data);
       console.log('after parse', body);
       res.writeHead(200, {
         'Content-Type': 'application/json' });

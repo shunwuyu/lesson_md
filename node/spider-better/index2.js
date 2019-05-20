@@ -5,7 +5,7 @@ spider({
   decoding: 'gb2312'
 }, {
   items: {
-    selector: '.co_area2:last-child .co_content2 ul',
+    selector: '.co_area2 .co_content2 ul',
     handler: {
       url: {
         selector: 'a!attr:href'
