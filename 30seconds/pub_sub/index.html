@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2>用户数据</h2>
+  <div id="info">
+      <h3>
+          用户名：<span id="username"></span>
+      </h3>
+      <h3>
+          密码：<span id="password"></span>
+      </h3>
+  </div>
+
+  <h2>请输入用户数据</h2>
+  <form id="form">
+      <input type="text" name="username" oninput="hub.emit('oninput', 'username')" />
+      <input type="password" name="password" oninput="hub.emit('oninput', 'password')" />
+      <button type="button" onclick="hub.emit('submit')">确定</button>
+      <button type="button" onclick="hub.emit('resetFormData')">重置</button>
+  </form>
+  <script>
+    const oForm = document.getElementById('form');
+    const createEventHub = () => ({
+      hub: Object.create(null),
+
+      emit(event, data) {
+          // console.log(this.hub[event]);
+          // if (this.hub[event])
+          (this.hub[event] || []).forEach(handler => handler(data));
+      },
+
+      on(event, handler) {
+        console.log(this.hub[event]);
+        if (!this.hub[event]) this.hub[event] = [];
+        this.hub[event].push(handler);
+      },
+
+      off(event, handler) {
+          const i = (this.hub[event] || []).findIndex(h => h === handler);
+          if (i > -1) this.hub[event].splice(i, 1);
+      }
+    });
+
+    let data = {
+      username: '',
+      password: '',
+    }
+
+    const hub = createEventHub()
+    console.log(hub);
+
+    hub.on('oninput', (name) => {
+      const dom = document.querySelector(`[name="${name}"]`)
+      hub.emit('setFormData', { name, value: dom.value })
+    })
+
+    hub.on('setFormData', ({ name, value }) => {
+      data[name] = value
+      // console.log(data);
+    })
+
+    hub.on('setFormData', ({ name, value }) => {
+      const dom = document.querySelector(`#${name}`)
+      dom.innerHTML = value
+    });
+
+    hub.on('submit', () => {
+      // ajax 发送数据请
+      // 这里用 setTimeout 来模拟 ajax 请求发送
+      setTimeout(() => {
+        alert('数据发送成功')
+        hub.emit('resetFormData')
+      }, 1000)
+    })
+
+    hub.on('resetFormData', () => {
+      hub.emit('setFormData', { name: 'username', value: '' })
+      hub.emit('setFormData', { name: 'password', value: '' })
+      oForm.reset();
+    })
+  </script>
+</body>
+</html>
