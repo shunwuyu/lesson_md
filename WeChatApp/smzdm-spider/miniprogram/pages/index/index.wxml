@@ -1,0 +1,8 @@
+<view>
+  <view wx:for="{{ youhuiLists }}" wx:key="index" class='youhui-item'>
+  <image src='{{ item.img}}' mode='aspectFit'></image>
+  <view>
+  {{ item.desc }}
+  </view>
+  </view>
+</view>
