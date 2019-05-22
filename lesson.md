@@ -1,3 +1,7 @@
+[QQ看点](https://juejin.im/post/58647083ac502e005ff351cd)
+[单利模式](https://juejin.im/post/5a7a7984f265da4e8409187a)
+[Symbol](https://github.com/wesbos/es6.io/blob/master/11%20-%20Symbols/symbols.html)
+[柯里化与反柯里化](https://juejin.im/post/5b561426518825195f499772)
 [发布与订阅](https://juejin.im/post/5c98c96ff265da610b3a1699)
 [函数参数骚操作](https://juejin.im/post/5c9a9170e51d456b6147ebb2)
 [clipboard](https://www.cnblogs.com/ziyoublog/p/9723821.html)
