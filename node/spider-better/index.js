@@ -1,6 +1,5 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const spider = require('../lib/spider');
 
 // <span>123</span> 去到内容
 cheerio.prototype.removeTagText = function () {
@@ -17,6 +16,7 @@ request('http://www.smzdm.com/youhui/', (err, res)=>{
     var $ = cheerio.load(body, {
       decodeEntities: false
     })
+    var lists = [];
     $('.list.list_preferential').each((i, item) => {
       var $title = $('.itemName a', item)
       var url = $title.attr('href')
@@ -30,9 +30,8 @@ request('http://www.smzdm.com/youhui/', (err, res)=>{
       var desc = $('.lrInfo', item).text().trim();
       // var descdiff = $('.lrInfo', item).text().trim();
       desc = desc.replace(/阅读全文/g, '');
-      var mall = $('.botPart a.mall', item).text().trim()
-
-      console.log({title, hl, url, img, desc, mall})
+      var mall = $('.botPart a.mall', item).text().trim();
+      lists.push({title, hl, url, img, desc, mall})
     })
   }
 })
