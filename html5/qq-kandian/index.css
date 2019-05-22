@@ -1,0 +1,336 @@
+body, html {
+  height: 100%;
+}
+.ui-foot, body {
+  position: relative;
+}
+  .ui-foot, .ui-foot .content {
+      vertical-align: middle;
+      text-align: center;
+  }
+html {
+  background: #fff;
+}
+a, article, body, dd, div, dl, dt, figcaption, figure, footer, form, h1, h2, h3, h4, h5, header, html, iframe, img, input, li, menu, nav, ol, p, section, table, tbody, td, textarea, tr, ul {
+  padding: 0;
+  margin: 0;
+}
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -webkit-text-size-adjust: none;
+  font: 14px "Helvetica Neue",Helvetica,STHeiTi,"\5FAE\8F6F\96C5\9ED1",sans-serif;
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  margin: auto;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+a, img {
+  -webkit-touch-callout: none;
+}
+li {
+  list-style: none;
+}
+.box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+}
+.horizontal {
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+}
+.vertical {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+}
+.flex {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+}
+.hide {
+  display: none!important;
+}
+.ui-foot {
+  overflow: hidden;
+  height: 50px;
+}
+  .ui-foot .line {
+      margin-top: 25px;
+      width: 100%;
+      border-bottom: 1px solid #dedfe0;
+      z-index: 0;
+      position: absolute;
+  }
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+  .ui-foot .line {
+      -webkit-transform: scaleY(.5);
+      -webkit-transform-origin: 0 0;
+  }
+}
+.ui-foot .content {
+  color: #b5b5b5;
+  background: #fff;
+  font-size: 12px;
+  display: inline-block;
+  padding: 0 5px;
+  z-index: 1;
+  line-height: 50px;
+  position: relative;
+  margin: 0 auto;
+}
+.error-page {
+  position: absolute;
+  width: 300px;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+}
+.empty-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.messageBox .empty-area {
+  background-color: #F7F8F9;
+}
+.empty-area .empty-wrapper {
+  position: relative;
+  text-align: center;
+  margin-top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%,0);
+}
+.homepage .empty-wrapper {
+  margin-top: 80%;
+}
+.empty-area .empty-icon {
+  width: 104px;
+  height: 99px;
+  margin: 0 auto;
+  background-size: cover;
+  background-image: url(//sqimg.qq.com/qq_product_operations/kan/images/empty.png?_bid=2378);
+}
+.empty-area .empty-message {
+  color: #777;
+  font-size: 14px;
+  margin-top: 17px;
+}
+.border-line {
+  width: 100%;
+  border-bottom: 1px solid #ededed;
+}
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+  .border-line {
+      -webkit-transform: scaleY(.5);
+      -webkit-transform-origin: 0 0;
+  }
+}
+        #scroller, #wrapper, .header, .user-logo-wrapper {
+            position: absolute;
+            width: 100%;
+        }
+        #userLogo, .user-logo {
+            -webkit-background-size: cover;
+        }
+        #wrapper, .textOverflow, body {
+            overflow: hidden;
+        }
+        #wrapper {
+            z-index: 1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+        #scroller {
+            padding-top: 202px;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            will-change: transform;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            text-size-adjust: none;
+            -webkit-perspective: 1000;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .header {
+            top: 0;
+            left: 0;
+            z-index: 90;
+            background-color: #12B7F5;
+            height: 140px;
+            /*-webkit-transform-origin: top;*/
+        }
+        .user-logo-wrapper {
+            top: 0;
+            left: 0;
+            font-size: 0;
+            z-index: 100;
+            text-align: center;
+        }
+        .user-logo {
+            display: inline-block;
+            border: 2px solid #fff;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: #ededed;
+            margin-top: 86px;
+        }
+        #userLogo {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+        .infoList {
+            list-style: none;
+            margin-top: 15px;
+        }
+            .infoList li {
+                margin: 10px 0 24px;
+            }
+            .infoList .status {
+                font-size: 14px;
+                color: #777;
+                margin: 0 0 0 11px;
+            }
+            .infoList .status-comment {
+                float: left;
+                font-size: 14px;
+                color: #777;
+                margin: 0 0 0 12px;
+            }
+            .infoList .action {
+                margin-left: 5px;
+            }
+        .textOverflow {
+            line-height: 19px;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+        }
+        .homepage .flexcontainer {
+            position: relative;
+            clear: both;
+            height: 95px;
+            display: -webkit-box;
+            display: box;
+        }
+        .homepage .left, .homepage .right, .view .view-icon {
+            display: inline-block;
+        }
+        .homepage .item-active {
+            background-color: #e5e6e7;
+        }
+        .homepage .flex-column {
+            -webkit-user-select: none;
+            -webkit-box-flex: 1;
+            box-flex: 1;
+            padding: 15px 12px 0;
+        }
+        .view {
+            position: absolute;
+            bottom: 15px;
+            right: 12px;
+            font-size: 0;
+        }
+            .view .view-icon {
+                height: 10px;
+                width: 12px;
+                margin-right: 5px;
+                background-image: url(../images/view.png);
+                background-size: cover;
+            }
+            .view .view-count {
+                font-size: 12px;
+                color: #9d9d9d;
+            }
+        .homepage .userInfo {
+            text-align: center;
+        }
+        .homepage .userName {
+            font-size: 23px;
+            line-height: 23px;
+        }
+        .homepage .userAdress {
+            font-size: 14px;
+            line-height: 14px;
+            color: #777;
+            margin-top: 10px;
+        }
+        .homepage .left {
+            float: left;
+        }
+        .homepage .right {
+            float: right;
+        }
+        .homepage .bgimg {
+            width: 124px;
+            height: 95px;
+            -webkit-background-size: cover;
+            background-color: #ededed;
+        }
+        .homepage .abstract {
+            font-size: 17px;
+            line-height: 21px;
+        }
+        .homepage .from {
+            font-size: 12px;
+            color: #9d9d9d;
+            position: absolute;
+            bottom: 12px;
+        }
+        .homepage .comment {
+            padding-top: 5px;
+            clear: both;
+            font-size: 17px;
+            margin: 0 12px;
+            word-break: break-word;
+            line-height: 21px;
+        }
+        .homepage .error-page-home {
+            margin-top: 75px;
+        }
+        .homepage .ui-foot {
+            padding-top: 15px;
+            padding-bottom: 20px;
+            margin-top: -24px;
+            height: 14px;
+        }
+            .homepage .ui-foot .content {
+                color: #777;
+                font-size: 14px;
+                line-height: 14px;
+                background: 0 0;
+            }
+            .homepage .ui-foot .line {
+                border-bottom: transparent;
+            }
+        #scroller .loading-more {
+            padding: 15px 0 20px;
+            height: 14px;
+            margin: -20px auto 0;
+            text-align: center;
+            color: #777;
+            display: none;
+        }

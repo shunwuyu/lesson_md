@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //     传统的单例模式
+    // 和new 创建对象的调用不一样
+    // 调用者要调用xxx.getInstance才能获得该单例
+
+    function Singleton(name) {
+      this.name = name;
+    }
+    Singleton.getInstance = function (name) {
+      if (this.instace) {
+        return this.instace;
+      } else {
+        this.instace = new Singleton(name);
+        return this.instace;
+      }
+    };
+    var a = Singleton.getInstance('a');
+    var b = Singleton.getInstance('b');
+    console.log(a === b); //true
+    //     "透明"的单例模式
+
+    // 透明”的单例类，用户从这个类中创建对象的时候，可以像使用其他任何普通类一样
+    // 直接 new 一个对象
+    // 不能new 多个对象，扩展性不好
+
+    var instace;
+    function Person(name) {
+      this.name = name;
+      if (!instace) {
+        instace = this;
+      }
+      return instace;
+    }
+
+    Person.prototype.getName = function () {
+      console.log(this.name);
+    };
+    var a = new Person('a');
+    var b = new Person('b');
+    console.log(a === b);
+
+    代理模式创建单例模式
+
+    // 代理模式:自己不去做，委托中间人做
+    // Person是一个普通类，通过new Person可以创建一个对象
+    // 用代理模式创建CreateSinglePerson方法，通过new CreateSinglePerson可以创建一个单例
+
+    function Person(name) {
+      this.name = name;
+    }
+    Person.prototype.getName = function () {
+      console.log(this.name);
+    };
+    var CreateSinglePerson = (function (name) {
+      var instance;
+      return function () {
+        if (!instance) {
+          instance = new Person(name);
+        }
+        return instance;
+      };
+    })();
+    var a = new CreateSinglePerson('a');
+    var b = new CreateSinglePerson('b');
+    console.log(a === b);
+    var c = new Person('c');
+    var d = new Person('d');
+    console.log(c === d);
+  </script>
+</body>
+
+</html>
