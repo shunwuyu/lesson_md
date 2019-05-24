@@ -1,0 +1,17 @@
+{
+  "name": "swap_node",
+  "version": "0.1.0",
+  "description": "[leetcode](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development"
+  },
+  "keywords": [],
+  "author": "yushunwu <shunwu2001@163.com> (https://shunwuyu.github.io)",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  }
+}
