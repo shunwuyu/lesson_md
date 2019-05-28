@@ -1,3 +1,4 @@
+[oauth](https://github.com/ruanyf/node-oauth-demo/blob/master/index.js)
 [swap leetcode](https://github.com/paopao2/leetcode-js/blob/master/Swap%20Nodes%20in%20Pairs.js)
 [webpack details](https://github.com/teabyii/webpack-examples/blob/master/details/webpack.config.js)
 [砍价](https://github.com/EastWorld/wechat-app-mall)
