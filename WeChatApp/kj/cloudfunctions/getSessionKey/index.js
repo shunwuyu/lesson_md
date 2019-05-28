@@ -53,6 +53,7 @@ exports.main = async(event, context) => {
           }
         })
     }
+    // digest(‘hex’)
     const skey = crypto.createHash('sha1')
       .update(session_key, 'utf8').digest('hex')
     return {

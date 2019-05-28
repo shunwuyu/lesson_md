@@ -56,6 +56,8 @@ function parseFile(req, res) {
   req.on('end', function () {
     // 用于在查询字符串中分隔键值对的子字符串。默认值: '&'
     // 用于在查询字符串中分隔键和值的子字符串。默认值: '='
+    // 回车 (\r) 本义是光标重新回到本行开头
+    // 换行 (\n) 本义是光标往下一行（不一定到下一行行首）
     var file = querystring.parse(body, '\r\n', ':')
     // console.log(file);
 
