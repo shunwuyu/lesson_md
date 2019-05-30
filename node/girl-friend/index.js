@@ -5,6 +5,7 @@ const moment = require('moment');
 const ejs = require("ejs"); //ejs模版引擎
 const fs = require("fs"); //文件读写
 const path = require("path"); //路径配置
+const schedule = require("node-schedule"); //定时器任务库
 
 //纪念日
 const startDay = "2019-03-03";
@@ -14,7 +15,6 @@ const local = 'jiangxi/qingshanhu-district';
 // 爬取数据的url
 const OneUrl = "http://wufazhuce.com/";
 const WeatherUrl = "https://tianqi.moji.com/weather/china/" + local;
-
 // 获取ONE内容
 function getOneData() {
   let p = new Promise(function (resolve, reject) {
@@ -26,9 +26,6 @@ function getOneData() {
       let selectItem = $("#carousel-one .carousel-inner .item");
       let todayOne = selectItem[0];
       let todayOneData = {
-        imgUrl: $(todayOne)
-          .find(".fp-one-imagen")
-          .attr("src"),
         type: $(todayOne)
           .find(".fp-one-imagen-footer")
           .text()
@@ -75,43 +72,27 @@ function getWeatherData() {
       let $ = cheerio.load(res.text);
       $(".forecast .days").each(function (i, elem) {
         const SingleDay = $(elem).find("li");
+        const Day= $(SingleDay[0]).text().replace(/\s/g, "");
+        const WeatherText = $(SingleDay[1]).text().replace(/\s/g, "");
+        const Temperature = $(SingleDay[2]).text().replace(/\s/g, "");
+        const WindDirection = $(SingleDay[3]).find("em").text().replace(/\s/g, "");
+        const WindLevel = $(SingleDay[3]).find("b").text().replace(/\s/g, "");
+        const Pollution = $(SingleDay[4]).text().replace(/\s/g, "");
+        const PollutionLevel = $(SingleDay[4]).find("strong").attr("class");
         threeDaysData.push({
-          Day: $(SingleDay[0])
-            .text()
-            .replace(/\s/g, ""),
-          WeatherImgUrl: $(SingleDay[1])
-            .find("img")
-            .attr("src"),
-          WeatherText: $(SingleDay[1])
-            .text()
-            .replace(/\s/g, ""),
-          Temperature: $(SingleDay[2])
-            .text()
-            .replace(/\s/g, ""),
-          WindDirection: $(SingleDay[3])
-            .find("em")
-            .text()
-            .replace(/\s/g, ""),
-          WindLevel: $(SingleDay[3])
-            .find("b")
-            .text()
-            .replace(/\s/g, ""),
-          Pollution: $(SingleDay[4])
-            .text()
-            .replace(/\s/g, ""),
-          PollutionLevel: $(SingleDay[4])
-            .find("strong")
-            .attr("class")
+          Day, WeatherText, Temperature, WindDirection, WindLevel,
+          Pollution, PollutionLevel
         });
+        
       });
-      resolve(threeDaysData)
+      resolve(threeDaysData);
     });
   });
   return p
 }
 
 // 聚合
-function getAllDataAndSendMail(){
+function getAllDataAndSendMail() {
   let HtmlData = {
     color: {
       "level_1": '#8fc31f',
@@ -129,18 +110,18 @@ function getAllDataAndSendMail(){
   HtmlData["lastDay"] = lastDay;
   HtmlData["todaystr"] = todaystr;
 
-  Promise.all([getOneData(),getWeatherTips(),getWeatherData()]).then(
-      function(data){
-          HtmlData["todayOneData"] = data[0];
-          HtmlData["weatherTip"] = data[1];
-          HtmlData["threeDaysData"] = data[2];
-          console.log('爬虫数据:', HtmlData);
-          sendMail(HtmlData)
+  Promise.all([getOneData(), getWeatherTips(), getWeatherData()])
+    .then(
+      function (data) {
+        HtmlData["todayOneData"] = data[0];
+        HtmlData["weatherTip"] = data[1];
+        HtmlData["threeDaysData"] = data[2];
+        sendMail(HtmlData);
       }
-  ).catch(function(err){
+    ).catch(function (err) {
       getAllDataAndSendMail() //再次获取
-      console.log('获取数据失败： ',err);
-  })
+      console.log('获取数据失败： ', err);
+    })
 }
 // 发动邮件
 function sendMail(HtmlData) {
@@ -161,18 +142,11 @@ function sendMail(HtmlData) {
   console.log('html', html);
   let mailOptions = {
     from: '"皮卡丘" <1424254461@qq.com>',
-    to: "1501995112@qq.com",
+    to: "1424254461@qq.com",
     subject: "邮件",
-    html: html,
-    attachments: [
-      {
-        filename: 'img1.png',            // 改成你的附件名
-        path: 'https://h5tq.moji.com/tianqi/assets/images/weather/w1.png',  // 改成你的附件路径
-        cid : '00000001'                 // cid可被邮件使用
-    },
-    ]
+    html: html
   };
-  transporter.sendMail(mailOptions, (error, info={}) => {
+  transporter.sendMail(mailOptions, (error, info = {}) => {
     if (error) {
       console.log(error);
       // sendMail(HtmlData); //再次发送
@@ -182,4 +156,17 @@ function sendMail(HtmlData) {
     console.log("静等下一次发送");
   });
 }
-getAllDataAndSendMail();
+//每日发送时间
+let EmailHour = 8;
+let EmialMinminute= 20;
+let rule = new schedule.RecurrenceRule();
+// 0, 1, 2, 3, 4, 5, 6
+// Sunday, mon, tue, th, f, f s
+rule.dayOfWeek = [0, new schedule.Range(1, 6)];
+rule.hour = EmailHour;
+rule.minute = EmialMinminute;
+console.log('NodeMail: 开始等待目标时刻...')
+let j = schedule.scheduleJob(rule, function() {
+  console.log("执行任务");
+  getAllDataAndSendMail();
+});

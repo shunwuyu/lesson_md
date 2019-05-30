@@ -1,0 +1,15 @@
+{
+  "name": "static-server",
+  "version": "1.0.0",
+  "description": "koa-staic 为什么要配置。 静态资源：图片 html css js 不会随着服务运行改变内容。 assets 资源",
+  "main": "fileUpload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.2.1"
+  }
+}
