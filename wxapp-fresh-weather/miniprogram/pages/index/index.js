@@ -1,120 +1,175 @@
-//index.js
+import { dateFormat } from '../../lib/utils'
+import { jscode2session, getEmotionByOpenidAndDate, addEmotion } from '../../lib/api'
 const app = getApp()
+const globalData = app.globalData
 
 Page({
   data: {
-    avatarUrl: './user-unlogin.png',
-    userInfo: {},
-    logged: false,
-    takeSession: false,
-    requestResult: ''
+    activeEmotion: 'serene',
+    todayEmotion: '',
+    avatarUrl: globalData.avatarUrl,
+    nickname: globalData.nickname,
+    emotions: ['serene', 'hehe', 'ecstatic', 'sad', 'terrified'],
+    colors: {
+      serene: '#64d9fe',
+      hehe: '#d3fc1e',
+      ecstatic: '#f7dc0e',
+      sad: '#ec238a',
+      terrified: '#ee1aea'
+    },
+    daysStyle: [],
+    auth: -1,
+
   },
-
-  onLoad: function() {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/chooseLib',
+  onLoad(options) {
+    // console.log(dateFormat(new Date(), 'yyyy-MM'));
+    this.setData({
+      curMonth: dateFormat(new Date(), 'yyyy-MM')
+    })
+    this.getScope(this.getUserInfo, () => {
+      this.setData({
+        auth: 0
       })
-      return
-    }
-
-    // 获取用户信息
+    })
+  },
+  // 封装一下获取用户授权的方法
+  getScope(success, fail, name = 'scope.userInfo') {
     wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo
-              })
-            }
-          })
+      success: (res) => {
+        console.log(res.authSetting[name])
+        if (res.authSetting[name]) {
+          typeof success === 'function' && success()
+        } else {
+          typeof fail === 'function' && fail()
         }
       }
     })
   },
-
-  onGetUserInfo: function(e) {
-    if (!this.logged && e.detail.userInfo) {
-      this.setData({
-        logged: true,
-        avatarUrl: e.detail.userInfo.avatarUrl,
-        userInfo: e.detail.userInfo
+  getUserInfo() {
+    if (!globalData.nickname || globalData.avatarUrl) {
+      this._getUserInfo((res) => {
+        this.setData({
+          nickname: res.nickName,
+          avatarUrl: res.avatarUrl
+        })
+        // console.log(res.nickName)
+        globalData.nickname = res.nickName
+        globalData.avatarUrl = res.avatarUrl
+      })
+    }
+    const that = this
+    let openid = wx.getStorageSync('openid')
+    console.log(openid, 'ddd');
+    function callback() {
+      that.setData({
+        auth: 1,
+        openid
+      })
+      if (globalData.currentMonthData && globalData.currentMonthData.length) {
+        const now = new Date()
+      } else {
+        that.setCalendarColor()
+      }
+    }
+    if (openid) {
+      callback()
+    } else {
+      this.getUserOpenId((res) => {
+        openid = res.result.openid
+        callback()
+      }, () => {
+        this.setData({
+          auth: 0
+        })
       })
     }
   },
-
-  onGetOpenid: function() {
-    // 调用云函数
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
-        wx.navigateTo({
-          url: '../userConsole/userConsole',
+  // 设置日历的颜色
+  setCalendarColor(year, month) {
+    year = year || new Date().getFullYear()
+    month = month || new Date().getMonth() + 1
+    // console.log(this.data.openid, year, month)
+    getEmotionByOpenidAndDate(this.data.openid, year, month)
+      .then((r) => {
+        // console.log(r);
+        const data = r.data || []
+        globalData.currentMonthData = data
+        this._setDayData(data, year, month)
+      })
+      .catch((e) => {
+        console.log(e);
+        wx.showToast({
+          title: '加载已签数据失败，请稍后再试',
+          icon: 'none',
+          duration: 3000
         })
-      },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
-        })
-      }
-    })
+      })
   },
-
-  // 上传图片
-  doUpload: function () {
-    // 选择图片
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-
-        wx.showLoading({
-          title: '上传中',
-        })
-
-        const filePath = res.tempFilePaths[0]
-        
-        // 上传图片
-        const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
-        wx.cloud.uploadFile({
-          cloudPath,
-          filePath,
-          success: res => {
-            console.log('[上传文件] 成功：', res)
-
-            app.globalData.fileID = res.fileID
-            app.globalData.cloudPath = cloudPath
-            app.globalData.imagePath = filePath
-            
-            wx.navigateTo({
-              url: '../storageConsole/storageConsole'
+  // 获取用户openid存入本地
+  getUserOpenId(success, fail) {
+    wx.login({
+      success: (res) => {
+        // console.log(res.code);
+        jscode2session(res.code).then((res) => {
+          console.log(res);
+          let { openid = '', session_key = '' } = res.result || {}
+          if (openid && session_key) {
+            wx.setStorage({
+              key: 'openid',
+              data: openid
             })
-          },
-          fail: e => {
-            console.error('[上传文件] 失败：', e)
-            wx.showToast({
-              icon: 'none',
-              title: '上传失败',
-            })
-          },
-          complete: () => {
-            wx.hideLoading()
+            typeof success === 'function' && success(res)
+          } else {
+            typeof fail === 'function' && fail()
           }
         })
-
-      },
-      fail: e => {
-        console.error(e)
       }
     })
   },
-
+  _setDayData(data, year, month) {
+    const colors = this.data.colors
+    // console.log(colors);
+    const styles = []
+    const now = new Date()
+    const today = dateFormat(now)
+    let todayEmotion = ''
+    data.forEach((v) => {
+      let ts = v.tsModified
+      let date = new Date(ts)
+      let day = date.getDate()
+      if (today === dateFormat(date)) {
+        todayEmotion = v.emotion || ''
+      }
+      styles.push({
+        month: 'current',
+        day,
+        color: 'black',
+        background: colors[v.emotion]
+      })
+    })
+    this.setData({
+      lastMonth: `${year}-${('00' + month).slice(-2)}`,
+      showPublish: true,
+      todayEmotion,
+      daysStyle: styles
+    })
+  },
+  _getUserInfo(cb = () => { }) {
+    wx.getUserInfo({
+      success: (res) => {
+        // console.log(res.userInfo);
+        cb(res.userInfo);
+      }
+    })
+  },
+  submitEmotion() {
+    let { openid, activeEmotion, colors } = this.data
+    addEmotion(openid, activeEmotion)
+  },
+  checkedColor(e) {
+    let activeEmotion = e.currentTarget.dataset.emotion
+    this.setData({
+      activeEmotion
+    })
+  }
 })
