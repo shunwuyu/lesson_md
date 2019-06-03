@@ -1,0 +1,10 @@
+.youhui-item {
+  display: flex;
+}
+.youhui-item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.youhui-item image {
+  flex: 0 0 30%;
+  height: 210px;
+}

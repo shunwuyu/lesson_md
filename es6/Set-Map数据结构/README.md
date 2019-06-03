@@ -52,6 +52,8 @@ for (let a of arr) {
 好处：
 - forEach 不能 break 和 return；
 - for-in 缺点更加明显，它不仅遍历数组中的元素，还会遍历自定义的属性，甚至原型链上的属性都被访问到。而且，遍历数组元素的顺序可能是随机的
+<!-- break 退出循环 -->
+<!-- 不在执行循环体里continue后面的语句而是跳到下一个循环入口处执行下一个循环。 -->
 - 跟 forEach 相比，可以正确响应 break, continue, return。
 - for-of 循环不仅支持数组，还支持大多数类数组对象，例如 DOM nodelist 对象。
 - for-of 循环也支持字符串遍历，它将字符串视为一系列 Unicode 字符来进行遍历。

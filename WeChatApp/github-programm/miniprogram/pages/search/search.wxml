@@ -1,0 +1,20 @@
+<view>
+  <search active='{{activeTab}}' placeholder="Search Users or Repos" background='#000' bind:search="onSearch" value='{{q}}' bind:change="changeTab">
+  <!-- bind:change 输入内容变化时触发 -->
+  <!-- bind:search 确定搜索时触发 -->
+  </search>
+  <!-- sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶 -->
+  <!-- 通过animated来设置是否启用切换tab时的动画 -->
+  <!-- 通过swipeable属性可以开启滑动切换标签页 -->
+  <tabs border='{{false}}' bind:change='changeTab' sticky swipeable animated>
+    <tab title='Repos'>
+      <repos repos='{{repos}}'></repos>
+    </tab>
+    <tab title='Users'>
+      <users users='{{users}}'></users>
+    </tab>
+  </tabs>
+  <view class='loading' wx:if='{{ (activeTab === "users" && hasMoreUsers) || (activeTab === "repos" && hasMoreRepos) }}'>
+    <loading type='spinner' color="#fff" />
+  </view>
+</view>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" name="form" enctype="application/x-www-form-urlencoded">
+    name:<input type="text" name="name" />
+    age: <input type="number" name="age" />
+  </form>
+  <img src="./leg-part.png" alt="">
+  <button id="btn">submit</button>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    const btn = document.getElementById('btn');
+  btn.addEventListener('click', () => {
+    const name = document.forms['form']['name'].value;
+  const age = document.forms['form']['age'].value;
+  $.ajax({
+   type: "POST",
+   url: "http://localhost:3000/post",
+   contentTypeString: 'application/json',
+  //  contentTypeString: 'application/x-www-form-urlencoded',
+   data: {
+     name,
+     age
+   },
+   success: function(msg){
+     console.log( "Data Saved: " + msg );
+   }
+});
+  })
+  </script>
+</body>
+</html>

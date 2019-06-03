@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hello</title>
+</head>
+
+<body>
+  <img id="avatar" />
+</body>
+<script>
+const query = window.location.search.substring(1) || '';
+const avatar = query.split('avatar_url=')[1];
+document
+  .getElementById('avatar')
+  .src = avatar;
+// document.body.appendChild(
+//   document.createTextNode(`Welcome, ${name}`)
+// );
+</script>
+
+</html>

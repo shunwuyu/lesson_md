@@ -1,0 +1,37 @@
+<!--index.wxml wx:if="{{ !isLogin }}"-->
+<view class="container">
+  <view class="userinfo">
+    <button class="userinfo-nickname" 
+      bindgetuserinfo="onWeixinLogin"
+      wx:if="{{ !isLogin }}
+      open-type="getUserInfo">
+        微信授权登陆
+    </button>
+    <image src='{{userInfo.avatarUrl}}'
+      class='userinfo-avatar'
+      wx:if="{{ isLogin }}">
+    </image>
+  </view>
+  <view wx:for="{{ goodLists }}" class='goodItem'>
+  <image src='{{ item.img }}' mode='aspectFit'></image>
+  <view class='goodDesc'>
+    <view class='goodInfo'>
+      {{ item.title }}
+    {{ item.price }}
+    </view>
+    <view class='goodReduce'>
+      <block wx:for="{{ item.reduce }}"
+      wx:for-item="user"
+      wx:for-index="userIndex"
+      wx:key="userIndex">
+      <image src='{{user.avatarUrl}}' class='user-avatar'></image>
+      </block>
+    </view>
+  </view>
+  <button class='btn' type='primary' size='mini'
+  data-gid='{{ item._id }}'
+  bindtap='onReducePrice'
+  >砍价</button>
+  </view>
+
+</view>

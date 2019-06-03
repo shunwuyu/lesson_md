@@ -1,6 +1,6 @@
-const http = require('http.js')
-
 // <https://api.github.com/events?page=2>; rel="next", <https://api.github.com/events?page=10>; rel="last"
+const http = require('./http.js');
+
 const parseLinks = header => {
   if (!header || header.length == 0) {
     return {}
@@ -14,9 +14,10 @@ const parseLinks = header => {
       throw new Error("section could not be split on ';'")
     }
     // console.log(111, section[0].replace(/<(.*)>/, '$1'));
-    // $1 正则里面的 代表分组 
-    const url = section[0].replace(/<(.*)>/, '$1').trim()
-    const name = section[1].replace(/<(.*)>/, '$1').trim()
+    // $1 正则里面的 代表分组
+    // < 开头 > 结尾 中间是任意的字符串
+    const url = section[0].replace(/[<>]/, '').trim()
+    const name = section[1].trim()
 
     links[name] = url
   })
@@ -32,6 +33,8 @@ const wrap = (promise, reqHeaders = {}) => new Promise((resolve, reject) => {
     const links = parseLinks(headers.link || headers.Link)
     const nextUrl = links['rel="next"']
     if (nextUrl) {
+      // 当前请求得到的数据
+      // 下一个
       return resolve({
         data,
         next: () => wrap(http.get(nextUrl, { headers: reqHeaders }), reqHeaders)

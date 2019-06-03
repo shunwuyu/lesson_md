@@ -1,0 +1,27 @@
+<view class='calendar'>
+<!--显示当前年月日-->
+  <view class='calendar-title'>
+    <view class='item ctrl' bindtap='lastMonth'>{{lastMonth}}</view>
+    <view class='item title'>{{title}}</view>
+    <view class='item ctrl' bindtap='nextMonth'>{{nextMonth}}</view>
+    <view class='item ctrl today' bindtap='today'>今天</view>
+  </view>
+
+  <!--星期-->
+  <view class='calendar-week'>
+      <view class='item'>{{item}}</view>
+  </view>
+
+  <view class='calendar-container'>
+      <!--上个月占位格子-->
+      <view class='grid gray'>{{item}}</view>
+
+      <!--当月格子-->
+      <view class='grid'>
+          <view class="wrap">{{item.date}}</view>
+      </view>
+
+      <!--下个月占位格子-->
+      <view class='grid gray'>{{item}}</view>
+  </view>
+</view>

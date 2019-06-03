@@ -1,7 +1,7 @@
 // miniprogram/pages/news/news.js
 const moment = require('../../lib/moment.js')
 const github = require('../../api/github.js')
-const utils = require('../../utils/util.js')
+const utils = require('../../utils/util.js');
 
 let scrollTop = 0
 let refreshing = false
