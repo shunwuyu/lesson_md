@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 原文地址 https://juejin.im/post/5b8350246fb9a019c372d26d#heading-3
+
+// -----------------
+    // function Product(name, price) {
+    //   this.name = name;
+    //   this.price = price;
+    // }
+    // function Food(name, price) {
+    //   Product.call(this, name, price);
+    //   console.log(this)
+    //   this.category = 'food';
+    // }
+    // console.log(new Food('cheese', 5).name);
+
+// ----------------
+    // function curry(fn) {
+    //   console.log(fn);
+    //   console.log(arguments);
+    //   var args = Array.prototype.slice.call(arguments, 1); //定义一个具有数组slice方法的参数
+    //   console.log(args);
+    //   // arguments   curry 传的multiFn
+    //   // var args = [];
+    //   return function() {
+    //     // arguments multi 传的234
+    //     var newArgs = args.concat(Array.prototype.slice.call(arguments));
+    //     //调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。
+    //     return fn.apply(this, newArgs);
+    //   }
+    // }
+    // function multiFn(a, b, c) {
+    //   return a * b * c;
+    // }
+    // var multi = curry(multiFn);
+    
+    // console.log(multi(2,3,4))
+
+// ---------------------
+    // function curry(fn, args) {
+    //   var length = fn.length;
+    //   var args = args || [];
+    //   return function(){
+    //     newArgs = args.concat(Array.prototype.slice.call(arguments));
+    //       if(newArgs.length < length){
+    //         return curry.call(this,fn,newArgs);
+    //       } else {
+    //         return fn.apply(this,newArgs);
+    //     }
+    //   }
+    // }
+    // function multiFn(a, b, c) {
+    //   return a * b * c;
+    // }
+    // var multi = curry(multiFn);
+    // console.log(multi(2)(3)(4))
+    // multi(2,3,4);
+    // multi(2)(3,4);
+    // multi(2,3)(4);
+
+    // 但是还是有点不足，就是必须事先知道求值的参数个数
+// -----------------------------
+
+    function multi() {
+      var args = Array.prototype.slice.call(arguments);
+      var fn = function() {
+        var newArgs = args.concat(Array.prototype.slice.call(arguments));
+            return multi.apply(this, newArgs);
+        }
+        //Function对象覆盖了从 Object 继承来的 Object.prototype.toString 方法。
+        // 函数的 toString 方法会返回一个表示函数源代码的字符串。具体来说，
+        // 包括 function关键字，形参列表，大括号，以及函数体中的内容
+        // 在函数需要转换为字符串时，通常会自动调用函数的 toString 方法
+        fn.toString = function() {
+          // console.log('toString');
+            return args.reduce(function(a, b) { //遍历
+                return a * b;
+            })
+        }
+        return fn;
+    }
+    console.log(multi(2)(3)(4))
+    
+  </script>
+</body>
+</html>

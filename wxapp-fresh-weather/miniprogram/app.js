@@ -9,7 +9,10 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
+  },
+  globalData: {
+    currentMonthData: [],
+    nickname: null,
+    avatarUrl: null
   }
 })
