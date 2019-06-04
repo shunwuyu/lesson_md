@@ -4,6 +4,10 @@
  */
 
 const serve = require('koa-static');
+// can handle three type requests
+// multipart/form-data
+// application/x-www-urlencoded
+// application/json
 const koaBody = require('koa-body');
 const Koa = require('koa');
 const fs = require('fs');
@@ -27,7 +31,7 @@ app.use(async function(ctx, next) {
   // ignore non-POSTs
   console.log(1);
   if ('POST' != ctx.method) return await next();
-  console.log(2);
+  console.log(ctx.request.body);
   const file = ctx.request.files.file;
   // 临时目录
   console.log('文件原地址', file.path);

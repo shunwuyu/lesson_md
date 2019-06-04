@@ -1,0 +1,7 @@
+<%- include('header'); %>
+<form action="/create" enctype="application/json" method="post">
+    <input type="text" name="title" pattern=".{10,}">
+    <textarea name="content" id="" cols="30" pattern=".{10,}" rows="10"></textarea>
+    <input type="submit" value="发表文章">
+</form>
+<%- include('footer'); %>
