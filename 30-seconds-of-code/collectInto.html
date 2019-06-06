@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Changes a function that accepts an array into a variadic function.
+    // 改变 一个接受数组作为参数的函数
+    // 改为之后 参数可以不为数组 可一一传递
+    const collectInto = fn => (...args) => fn(args);
+
+    const maxNum = (arr) => {
+      return Math.max(...arr);
+    }
+    const Pall = collectInto(Promise.all.bind(Promise));
+    let p1 = Promise.resolve(1);
+    let p2 = Promise.resolve(2);
+    let p3 = new Promise(resolve => setTimeout(resolve, 2000, 3));
+    Pall(p1, p2, p3).then(console.log);
+    // [1, 2, 3] (after about 2 seconds)
+    const collectMaxNum = collectInto(maxNum);
+    // collectMaxNum(1,2,3,4,5)
+  </script>
+</body>
+
+</html>
