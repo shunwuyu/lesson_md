@@ -1,0 +1,15 @@
+<%- include('header'); %>
+<a href="/create">去写文章+</a>
+<%if (posts.length === 0) {%>
+    <p>暂无文章</p>
+<%} else {
+  posts.forEach((item) => {%>
+    <li>
+      <a href="/post/<%= item.id %>">
+        <%= item.title %>
+        <%= item.id %>
+      </a>
+    </li>
+  <%})
+}%>
+<%- include('footer'); %>

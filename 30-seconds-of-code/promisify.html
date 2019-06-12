@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 转换异步函数以返回一个promise。 -->
+  <script>
+    // args 就是 2000 闭包
+    // cb   func 进去的
+    const promisify = func =>
+      (args) =>
+        new Promise((resolve, reject) =>
+          func(args, (err, result) =>
+            err ? reject(err) : resolve(result))
+        );
+    const delay = promisify((d, cb) => {
+      console.log(cb);
+      setTimeout(cb, d)
+    })
+    delay(2000).then(() => console.log('Hi!'))
+    // -> Promise resolves after 2s
+    // node 里面的 应用
+    // util.promisify
+    /*
+    const fs = require('fs');
+    const promisify = func =>
+      (args) =>
+        new Promise((resolve, reject) =>
+          func(args, (err, result) =>
+            err ? reject(err) : resolve(result))
+        );
+    fs.readFile('./call.html', (err, data) => {
+      console.log(data);
+    })
+    const promiseFsReadFile = promisify(fs.readFile);
+    promiseFsReadFile('./call.html')
+      .then(res => {
+        console.log('res', res);
+      })
+      */
+  </script>
+</body>
+
+</html>

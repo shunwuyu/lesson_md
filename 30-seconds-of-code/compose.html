@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // 右向左的函数组合
+  // 编程范式 面向对象编程 函数式编程
+  // compose ，Curry
+  const arr = [0, 1, 2, 3, 4]
+  const sum = arr.reduce((pre, next) => {
+    return pre + next;
+  })
+  const compose = (...fns) => 
+  fns.reduce((f, g) => (...args) => f(g(...args)));
+  const add5 = x => x + 5;
+  const multiply = (x, y) => x * y;
+  const multiplyAndAdd5 = compose(add5, add5, multiply)
+  multiplyAndAdd5(5, 2);
+  </script>
+</body>
+</html>
