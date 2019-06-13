@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="msg">${message}</div>
+    <div class="btn">
+      <button @click='add'>add</button>
+    </div>
+  </div>
+  <script>
+    var ext = {
+      created: function () {
+        console.log("我是被扩展出来的created");
+      },
+      methods: {
+        add: function () { // 如果方法名一样，就不执行
+          console.log('我是被扩展出来的方法！');
+        }
+      }
+    }
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello Vue!'
+      },
+      created: function () {
+        console.log("我是原生的created");
+      },
+      methods: {
+        add: function () {
+          console.log('我是原生方法');
+        }
+      },
+      extends: ext,
+      delimiters:['${','}'] // delimiters的作用是改变我们插值的符号
+    })
+  </script>
+</body>
+
+</html>
