@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "css-loader": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0"
   }
 }
