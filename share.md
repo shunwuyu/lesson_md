@@ -1,3 +1,14 @@
+https://juejin.im/post/5b02283e5188254271500b12 mpvue: vuejs和小程序碰撞出来的火花
+
+https://juejin.im/post/5b3027cce51d4558c65216a9 没朋友(mpvue)，点个外卖，一个人也要好好吃饭
+
+https://juejin.im/book/5bc1bf3e5188255c3272e315/section/5bfa6efc6fb9a049cb1869d3 [实现 N 个 API/网页爬虫] Node 的 HTTP 处理 - 请求与响应
+
+https://github.com/iview/iview-admin  iview-admin
+
+https://github.com/azhengyongqin/iview-filter-table  自定义基于iview Table表格带搜索功能的Vue Table组件
+
+https://github.com/shunwuyu/lesson_show/tree/master/vue/vue-qqmusic/src  vue-qqmusic
 
 - 153班戴牧阳 百度 18K
 - 153班邓松松 作业帮 15K
