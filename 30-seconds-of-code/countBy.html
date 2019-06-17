@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <script>
+    const countBy = (arr, fn) =>
+      arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => {
+        if (!acc[val]) acc[val] = 0;
+        acc[val]++;
+        return acc;
+      }, {});
+  </script> -->
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.12-pre/lodash.min.js"></script>
+  <script>
+    countBy([6.1, 4.2, 6.3], Math.floor); // {4: 1, 6: 2}
+    countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
+  </script>
+</body>
+
+</html>

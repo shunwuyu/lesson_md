@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const composeRight = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)));
+    let str = 'HELLO WORLD';
+    // 1: 小写
+    // 2: 拼接字母
+    // 3: 转数组
+    const toLowercase = str => str.toLowerCase();
+    const addLetter = str => `${str} pipe`;
+    const toArr = str => str.split(' ');
+    const addAndSquare = composeRight(toLowercase, addLetter, toArr);
+    let tt = addAndSquare(str); // 9
+    console.log(tt);
+  </script>
+</body>
+
+</html>
