@@ -88,8 +88,9 @@ export default {
               path:'/api/user/login',
               data:userData,
               fn:data=>{
-                if(data.status == 1){
-                  this.$message.error('登录成功');
+								console.log(data);
+								if(data.status == 1){
+                  this.$message.success('登录成功');
 									// this.saveUserInfo() // 存入缓存，用于显示用户名
 									// this.generateMenuPushIndex() //模拟动态生成菜单并定位到index
 									// this.$store.dispatch('initLeftMenu'); //设置左边菜单始终为展开状态
