@@ -10,8 +10,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+<<<<<<< HEAD
     "todomvc-app-css": "^2.2.0",
     "vue": "^2.5.2"
+=======
+    "vue": "^2.5.2",
+    "vuex": "^3.1.1"
+>>>>>>> 095ef74991c8bbd32775125a30b49a57a298cfe4
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

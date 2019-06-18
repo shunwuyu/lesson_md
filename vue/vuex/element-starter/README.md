@@ -1,0 +1,6 @@
+-  使用start 省去配element-ui
+- /page alias 
+- /page  目录的意义  index.js 架构方式
+- login  先transition 配置form   生命周期让它显示 
+- less   
+- 配置utils  axios

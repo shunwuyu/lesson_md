@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <section class="todoapp">
     <!-- header -->
     <header class="header">
@@ -42,9 +43,14 @@
       </button>
     </footer>
   </section>
+=======
+  <div>
+    <counter />
+  </div>
+>>>>>>> 095ef74991c8bbd32775125a30b49a57a298cfe4
 </template>
-
 <script>
+<<<<<<< HEAD
 import { mapActions } from 'vuex'
 import TodoItem from './components/TodoItem'
 
@@ -54,9 +60,21 @@ const filters = {
   completed: todos => todos.filter(todo => todo.done)
 }
 
+=======
+// 两个兄弟组件， 共享count 数据  
+// count 不应该属于Counter组件私有， data(){} , props 
+import Counter from './components/Counter';
+>>>>>>> 095ef74991c8bbd32775125a30b49a57a298cfe4
 export default {
-  name: 'App',
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+  },
   components: {
+<<<<<<< HEAD
     TodoItem
   },
   data () {
@@ -102,3 +120,12 @@ export default {
 <style src="todomvc-app-css/index.css">
 
 </style>
+=======
+    'counter': Counter
+  }
+}
+</script>
+<style>
+  
+</style>
+>>>>>>> 095ef74991c8bbd32775125a30b49a57a298cfe4
