@@ -1,5 +1,5 @@
 {
-  "name": "todomvc",
+  "name": "chat",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "shunwuyu <shunwu2001@163.com>",
@@ -10,8 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "todomvc-app-css": "^2.2.0",
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
