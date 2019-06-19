@@ -1,0 +1,5 @@
+## 即将移除
+
+componentWillMount
+componentWillReceiveProps
+componentWillUpdate
