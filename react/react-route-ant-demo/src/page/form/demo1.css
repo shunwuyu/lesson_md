@@ -1,0 +1,26 @@
+ .login-form {
+    max-width: 300px;
+    margin:0 auto;
+}
+.login-form-forgot {
+    float: right;
+}
+.login-form-button {
+    width: 100%;
+}
+.widthLength {
+    margin:0 auto;
+}
+
+/* For demo */
+.car .ant-carousel .slick-slide {
+    text-align: center;
+    height: 160px;
+    line-height: 160px;
+    background: #364d79;
+    overflow: hidden;
+  }
+  
+  .car .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }
