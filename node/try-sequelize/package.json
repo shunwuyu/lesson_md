@@ -1,0 +1,21 @@
+{
+  "name": "try-sequelize",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "env2": "^2.2.2",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.10"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.0"
+  }
+}
