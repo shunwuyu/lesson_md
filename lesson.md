@@ -83,3 +83,8 @@
 33. ~~[括号匹配]~~   leetcode/valid_parentheses
 34. ~~[weui-cell](https://juejin.im/weui-cell)~~ css/weui-cell 
 35. ~~[大白](https://juejin.im/post/5c77ab9f5188253ec91e2830)~~ css/dabai 
+
+
+1. 去名企， 项目经验弥补学校， 要有实习经验， 搭建合作, 走向低年级
+2. 提前收割东理， 1.2万， 学一年
+3. 标准化课程 再升级， 培训体制化。 
