@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    Function.prototype.myBind = function (context) {
+      if (typeof this !== 'function') {
+        throw new TypeError('Error')
+      }
+      const _this = this
+      const args = [...arguments].slice(1)
+      // 返回一个函数
+      return function F() {
+        console.log(this);
+        // if (this instanceof F) {
+        //   return new _this(...args, ...arguments)
+        // }
+        return _this.apply(context, args.concat(...arguments))
+      }
+    }  
+  </script>
+  <script>
+    // Function.prototype.myBind = function (context) {
+    //   if (typeof this !== 'function') {
+    //     throw new TypeError('Error')
+    //   }
+    //   const _this = this
+    //   const args = [...arguments].slice(1)
+    //   // 返回一个函数
+    //   return function F() {
+    //     // 因为返回了一个函数，我们可以 new F()，所以需要判断
+    //     if (this instanceof F) {
+    //       return new _this(...args, ...arguments)
+    //     }
+    //     return _this.apply(context, args.concat(...arguments))
+    //   }
+    // }  
+  </script>
+  <script>
+  var a = function(a, b, c) {
+    this.a = a;
+    console.log(a, b, c);
+  }
+  var obj = {
+    a: 'a val'
+  }
+  // var abind = a.myBind(obj);
+  // abind(1, 2, 3);
+  var b = a.myBind(obj);
+  var binstance = new b(1, 2, 3);
+
+  </script>
+</body>
+
+</html>
