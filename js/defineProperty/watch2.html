@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function watch(target, func) {
+      var proxy = new Proxy(target, {
+        get: function (target, prop) {
+          return target[prop];
+        },
+        set: function (target, prop, value) {
+          target[prop] = value;
+          func(prop, value);
+        }
+      });
+      return proxy;
+    }
+    
+  </script>
+</body>
+
+</html>

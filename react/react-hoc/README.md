@@ -9,3 +9,18 @@ high order compopnent
 
 ## decorators
 1. yarn eject
+2. yarn add babel-plugin-transform-decorators-legacy --dev
+3. npm install --save-dev @babel/plugin-proposal-decorators
+4. yarn add @babel/plugin-proposal-decorators --dev
+5. "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy" : true }]
+  ]
+
+
+## git
+git rm -rf --cached myuntrackedfolder
+This tells git to forget about it (since it was being tracked formally).
+
+Then I used:
+
+git add myuntrackedfolder 

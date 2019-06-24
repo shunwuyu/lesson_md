@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-let isLogin = true;
+let isLogin = false;
 const withLogin = (Com) => {
   class NewComponent extends Component {
     
