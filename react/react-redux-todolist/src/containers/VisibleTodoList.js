@@ -3,6 +3,10 @@ import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
 import { VisibilityFilters } from '../actions'
 
+/**
+ * 哪些 todos 可见  
+ 根据 state.visibilityFilter 里面筛选设置
+ */
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case VisibilityFilters.SHOW_ALL:
@@ -15,7 +19,10 @@ const getVisibleTodos = (todos, filter) => {
       throw new Error('Unknown filter: ' + filter)
   }
 }
-
+/**
+ * 需要把 todos 传下去显示
+ 和 切换状态的事件传下去
+ */
 const mapStateToProps = state => ({
   todos: getVisibleTodos(state.todos, state.visibilityFilter)
 })
