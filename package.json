@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "react-router-breadcrumbs-hoc": "^3.2.0",
+    "react-transition-group": "^4.1.1",
+    "umi-plugin-react": "^1.9.1"
   },
   "devDependencies": {
     "css-loader": "^3.0.0",
