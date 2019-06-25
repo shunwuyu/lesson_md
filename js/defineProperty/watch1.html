@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>watch</title>
+</head>
+<body>
+    <span id="container">1</span>
+    <button id="button">点击加 1</button>
+  <script src="./watch.js"></script>
+  <script>
+    var obj = {
+    value: 1
+}
+    watch(obj, "value", function(newvalue){
+        document.getElementById('container').innerHTML = newvalue;
+    })
+
+    document.getElementById('button').addEventListener("click", function(){
+        obj.value += 1
+    });
+    setTimeout(() => {
+      obj.value = 10;
+    }, 3000);
+  </script>
+</body>
+</html>
