@@ -1,4 +1,7 @@
 - REST API
+- [umi](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
+- [对称树](https://github.com/paopao2/leetcode-js/blob/master/Symmetric%20Tree.js)
+- [leetcode94 二叉树的中序遍历](https://juejin.im/post/5ccfde04f265da035c6bd9b3)
 - [cors]
 - [reack hooks todo](https://juejin.im/post/5d0b7abff265da1b7e103e3c)
 - [hapi]
@@ -83,3 +86,8 @@
 33. ~~[括号匹配]~~   leetcode/valid_parentheses
 34. ~~[weui-cell](https://juejin.im/weui-cell)~~ css/weui-cell 
 35. ~~[大白](https://juejin.im/post/5c77ab9f5188253ec91e2830)~~ css/dabai 
+
+
+1. 去名企， 项目经验弥补学校， 要有实习经验， 搭建合作, 走向低年级
+2. 提前收割东理， 1.2万， 学一年
+3. 标准化课程 再升级， 培训体制化。 
