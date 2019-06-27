@@ -9,22 +9,34 @@ class Btn extends Component {
   state = {  }
 
   // @decDebounce(10000)
-  handleClick = debounce((e) => {
-    console.log(1, e);
-  }, 1000)
+  // handleClick = function(e) {
+  //   console.log(1);
+  // }
+  // handleClick = function() {} 
+  // handleClick = () => {}
   // @decDebounce(1000)
   // handleClick() {
   //   console.log('1');
   // }
+  @decDebounce(1000)
+  handleArrowFunction = () => {
+    console.log('2');
+  }
   // @decDebounce(1000)
   // handleClick = () => {
   //   console.log('1');
   // }
-  render() { 
+  render() {
+    console.log(this.handleArrowFunction);
     return (
+      <div>
       <button onClick={this.handleClick}>
         123
       </button>
+      <button onClick={this.handleArrowFunction}>
+        arrow function
+      </button>
+      </div>
     );
   }
 }
