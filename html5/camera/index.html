@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>camera</title>
+  <style>
+  .btn-container {
+    position: fixed;
+    transform: translate(-50%, 0);
+    left: 50%;
+    width: 10rem;
+    height: 2rem;
+    bottom: 10px;
+  }
+  .btn {
+    height: 100%;
+    background-color: green;
+    color: white;
+    /* margin-right: 10px; */
+  }
+  </style>
+</head>
+<body>
+  <video id="video" autoplay></video>
+  <canvas id="canvas"></canvas>
+  <div class="btn-container">
+    <button class="btn" id="photo">拍照</button>
+    <button class="btn close" id="close_camera">关闭摄像头</button>
+    
+  </div>
+  <script>
+  const videoConstraints = { width: 1366, height: 768 };
+  const videoNode = document.querySelector('#video');
+  const canvas = document.getElementById("canvas");
+  const context = canvas.getContext('2d');
+  let s;
+  canvas.width = 1366;
+  canvas.height = 768;
+ 
+  navigator.getUserMedia({ audio: true, video: videoConstraints}, function(stream) {
+    s = stream;
+    videoNode.srcObject = stream;
+    // mediaRecorder.stream();
+    console.log(stream);
+    videoNode.onloadedmetadata = function(e) {
+      videoNode.play();
+      
+    };
+  }, function(error) {
+    console.log(error);
+  });
+
+  function download(src) {
+    if (!src) return;
+    const a = document.createElement('a');
+    a.setAttribute('download', new Date());
+    a.href = src;
+    a.click();
+  }
+
+  document.querySelector('#photo').addEventListener('click', function(event) {
+    event.preventDefault();
+    // console.log(context);
+    context.drawImage(videoNode, 0, 0, canvas.width, canvas.height);
+    download(canvas.toDataURL('image/jpeg'));
+  });
+
+  document.querySelector('#close_camera').addEventListener('click', function(event) {
+    // event.preventDefault();
+    // console.log(context);
+    s.getTracks().forEach(track => track.stop());
+  });
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+.ui.navbar {
+  background: #fff;
+}
+.ui.navbar .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.ui.navbar .menu-icon {
+  transition: all 0.5s;
+}
+.ui.navbar .menu-icon i {
+  cursor: pointer;
+}
+.ui.navbar .header {
+  transition: all 0.5s;
+}
+.ui.navbar .header > img {
+  padding: 8px;
+  width: 98px;
+  box-sizing: content-box;
+}
+.ui.navbar .menu {
+  margin-left: 103px;
+  transition: all 0.4s;
+}
+.ui.navbar .menu .item {
+  display: inline-block;
+  font-size: 18px;
+  color: #000;
+  padding-bottom: 35px;
+  padding-top: 26px;
+}
+.ui.navbar .menu .item:not(:first-child) {
+  margin-left: 64px;
+}
+.ui.navbar .menu .item.active {
+  border-bottom: 2px solid #000;
+}
+.ui.navbar .search-icon {
+  flex-grow: 1;
+  text-align: right;
+  cursor: pointer;
+}
+.ui.navbar .search-form {
+  position: absolute;
+  transform: translateY(-120px);
+  transition: all 0.5s;
+  opacity: 0;
+}
+.ui.navbar .searching ~ .search-form {
+  transform: translateY(-50px);
+  opacity: 1;
+}
+.ui.navbar .searching .header,
+.ui.navbar .searching .menu,
+.ui.navbar .searching .menu-icon {
+  transform: translateY(80px);
+  opacity: 0;
+}
+@media only screen and (min-width: 767px) {
+  .ui.navbar .menu-icon {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .ui.navbar .header > img {
+    width: 56px;
+  }
+  .ui.navbar .content {
+    justify-content: space-between;
+  }
+  .ui.navbar .content .menu {
+    display: none;
+  }
+  .ui.navbar .search-icon {
+    flex-grow: 0;
+  }
+  .ui.navbar .searching ~ .search-form {
+    transform: translateY(-40px);
+    opacity: 1;
+  }
+}
+.ui.hero {
+  background: #f0f0f0;
+}
+.ui.hero .item {
+  position: relative;
+  overflow: hidden;
+}
+.ui.hero .item .content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 696px;
+}
+.ui.hero .item .header {
+  font-size: 48px;
+  margin: 0;
+  margin-bottom: 16px;
+}
+.ui.hero .item .sub.header {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+.ui.hero .item .description {
+  font-size: 18px;
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+.ui.hero .item .image {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  object-fit: cover;
+  height: 696px;
+}
+.ui.hero .item .action {
+  margin-bottom: 32px;
+}
+.ui.hero .white {
+  color: #fff;
+}
+.ui.hero .big .header {
+  font-size: 56px;
+  letter-spacing: 8px;
+}
+.ui.hero .big .sub.header {
+  font-size: 24px;
+  letter-spacing: 16px;
+  font-family: "PingFangSC-Ultralight";
+}
+.ui.hero .bottom .content {
+  align-items: flex-end;
+  padding-bottom: 4%;
+}
+@media only screen and (max-width: 767px) {
+  .ui.hero .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .ui.hero .item .image {
+    position: inherit;
+    order: 1;
+    height: auto;
+  }
+  .ui.hero .item .content {
+    order: 2;
+    height: auto;
+    color: #000;
+    align-items: center;
+    min-height: 320px;
+  }
+  .ui.hero .item .header {
+    font-size: 36px;
+    letter-spacing: 4px;
+  }
+  .ui.hero .item .sub.header {
+    font-size: 16px;
+    letter-spacing: 8px;
+  }
+}
+.ui.carousel .prev.button {
+  left: 24px;
+}
+.ui.carousel .next.button {
+  right: 24px;
+}
+.ui.carousel .prev.button,
+.ui.carousel .next.button {
+  position: absolute;
+  z-index: 3;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  background: rgba(255,255,255,0.4);
+  color: rgba(0,0,0,0.4);
+}
+.ui.carousel .prev.button.bottom,
+.ui.carousel .next.button.bottom {
+  top: auto;
+  bottom: 0;
+  margin-bottom: 24px;
+}
+.ui.carousel .prev.button:hover,
+.ui.carousel .next.button:hover {
+  background: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
+}
+.ui.carousel .slick-dots {
+  bottom: 32px;
+}
+.ui.vertical.story .slick-dots {
+  bottom: -48px;
+}
+.ui.cards {
+  margin-top: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.ui.card {
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+  box-shadow: none;
+  border-radius: 0;
+}
+.ui.card:hover {
+  box-shadow: 0 32px 48px rgba(0,0,0,0.06);
+}
+.ui.card .image > img {
+  width: 100%;
+  border-radius: 0;
+}
+.ui.card .content {
+  padding: 40px;
+  padding-bottom: 56px;
+  min-height: 252px;
+  box-sizing: border-box;
+}
+.ui.card .content > .header {
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 24px;
+}
+.ui.card .content > .header ::after {
+  content: " ";
+  display: block;
+  border-bottom: 2px solid #000;
+  width: 40px;
+  padding-bottom: 8px;
+}
+.ui.card .content .sub.header {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.ui.card .content .description {
+  margin-bottom: 8px;
+}
+@media only screen and (max-width: 767px) {
+  .ui.stackable.grid .ui.card {
+    width: auto;
+  }
+}
+.ui.sidebar {
+  background: #fff;
+}
+.ui.sidebar .menu {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.ui.sidebar .menu .item {
+  padding: 16px;
+  padding-right: 24px;
+  font-size: 18px;
+  color: #000;
+}
+.ui.sidebar .menu .item.active {
+  background: #f8f8f8;
+}
+.ui.sidebar .menu .item:hover {
+  background: #fbfbfb;
+}
+.ui.sidebar .close-icon {
+  height: 50px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+body {
+  background: #f8f8f8;
+  font-family: 'PingFangSC-Light';
+}

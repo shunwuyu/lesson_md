@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var nameSymbol = Symbol('name');
+    var obj = {
+      [nameSymbol]: 'this is name'
+    }
+    for (let key in obj) {
+      console.log(key);
+    }
+    console.log(Object.getOwnPropertySymbols(obj))
+    Object.getOwnPropertySymbols(obj)
+    .forEach(smb => {
+      console.log(obj[smb]);
+    })
+    // 应用场景1 
+    // const SHAPE_MAP = {
+    //   react: 'react',
+    //   triangle: 'triangle'
+    // }
+    const SHAPE_MAP = {
+      react: Symbol('react'),
+      triangle: Symbol('triangle')
+    }
+    function getArea(shape, options) {
+      const { width, height } = options;
+      let area;
+      switch (shape) {
+        case SHAPE_MAP.react:
+         area = width * height;
+         break;
+        case SHAPE_MAP.triangle:
+          area = .5 * width * height;
+          break;
+      }
+      return area;
+    }
+    getArea(SHAPE_MAP.react, {width: 20, height: 30})
+  </script>
+</body>
+</html>

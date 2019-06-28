@@ -1,0 +1,62 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="section">
+    <view class="nav-me" bindtap="showUser">
+      <image src="../../assets/images/nav-me.png" />
+    </view>
+    <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <block wx:for="{{navData}}" wx:for-index="id" wx:for-item="navItem" wx:key="index">
+        <view class="nav-item {{currentTab == id ?'active':''}}" data-name="{{navItem.name}}" data-current="{{id}}" bindtap="switchNav">
+          {{navItem.name}}
+        </view>
+      </block>
+    </scroll-view>
+    <navigator url="/pages/carts/carts">
+      <view class="nav-all">
+        <image src="../../assets/images/nav-all.png" />
+      </view>
+    </navigator>
+  </view>
+  <!-- 呼叫车 -->
+  <view class="content">
+    <view class="didi-time">{{waitingTimes}}</view>
+    <import src="/templates/loading.wxml" />
+    <template is="loading" data='{{isLoading}}'></template>
+    <view class="circle-str"></view>
+    <navigator url="/pages/starting/starting" redirect>
+      <view class="didi-input-str" style="color: #333333">{{address}}</view>
+    </navigator>
+    <navigator url="/pages/destination/destination" redirect>
+      <input type="text" class="didi-input-end" value="{{destination}}" style="color: #333333" placeholder="你要去哪儿" placeholder-color="#ccccccc" focus="{{false}}" />
+    </navigator>
+    <view class="circle-end"></view>
+    <button class="didi-btn" wx:if="{{!callCart}}" bindtap="toCast">呼叫{{cart}}</button>
+  </view>
+  <!-- 计费区域 -->
+  <view class='' wx:if="{{callCart}}">
+    <view class="cost-content">
+      <view class="cost">
+        <view class="cost-title">
+          <block wx:for="{{cost}}" wx:key="{{item.id}}">
+            <view class="cost-item">
+              <image style="width: 30rpx;height: 30rpx;  display: inline-block; " src="{{item.url}}" /> {{item.name}}
+            </view>
+          </block>
+        </view>
+        <view class="cost-pic">
+          <block wx:for="{{costType}}" wx:for-index="costIndex">
+            <view class="carpooling  {{ index == costIndex?'on':''}}" data-index="{{costIndex}}" bindtap="switchCart">
+              <text class="carpooling-name">{{item.typeName}}</text>
+              <image style="width: 150rpx;height: 70rpx;  display: inline-block; " src="{{item.typeImagUrl}}" />
+              <text class="money" style="font-size: 28rpx;padding-top: 15rpx;">
+                                预计
+                                <text style="font-size: 40rpx;">{{item.pay}}</text> 元
+              </text>
+            </view>
+          </block>
+        </view>
+        <button class="cost-btn" wx:if="{{callCart}}" bindtap="toWait">呼叫{{cart}}</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    document.cookie = "name=helloWorld";
+    $.ajax({
+      type: "GET",
+      url: "/api/post",
+      // 预期服务器返回的数据类型
+      dataType: "json",
+      xhrFields: {
+        withCredentials: true,
+      },
+      contentType: 'application/x-www-form-urlencoded',
+      headers: {
+        'X-custom': 'abc123'
+      },
+      success: function (data) {
+        console.log(data);
+      },
+      error: function (e) {
+        console.log(e);
+      }
+    })
+  </script>
+  <script>
+    // function getPosts(data) {
+    //   console.log('jsonp data', data);
+    // }
+  </script>
+  <!-- <script src="http://localhost:8080/post?callback=getPosts"></script> -->
+</body>
+
+</html>

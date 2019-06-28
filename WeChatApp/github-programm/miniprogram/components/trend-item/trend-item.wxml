@@ -1,0 +1,30 @@
+<view class='repo' hover-class='hover'>
+  <form bindsubmit='formSubmit' report-submit='{{true}}' class='id'>
+    <button form-type='submit' class='borderless'>
+      <text class='name title'>{{repo.full_name}}</text>
+      <text class='desc'>{{repo.description}}</text>
+      <view class='bottom'>
+        <view>
+        <!-- aspectFit	缩放模式，保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。 -->
+          <image mode='aspectFit' src='/octicons/flame.png'></image>
+          <text>{{repo.currentPeriodStars || 0}}</text>
+        </view>
+        <view>
+          <image mode='aspectFit' src='/md/unstar.png'></image>
+          <text>{{repo.stargazers_count}}</text>
+        </view>
+        <view>
+          <image mode='aspectFit' src='/octicons/repo-forked.png'></image>
+          <text>{{repo.forks}}</text>
+        </view>
+        <view>
+          <image mode='aspectFit' src='/md/language.png'></image>
+          <text>{{repo.language || 'Unknown'}}</text>
+        </view>
+      </view>
+    </button>
+    <view class='built-by'>
+      <image wx:for='{{repo.builtBy}}' wx:key='{{index}}' mode='aspectFit' src='{{item.avatar}}?s=40&v=4' class='avatar' data-username='{{item.username}}' catchtap='toUserPage' lazy-load='{{true}}' hover-stop-propagation></image>
+    </view>
+  </form>
+</view>

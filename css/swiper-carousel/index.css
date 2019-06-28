@@ -1,0 +1,26 @@
+* {
+  margin: 0;padding: 0;
+}
+.swiper-container {
+  width: 100%;
+  height: 336px;
+}
+.bgs {
+  background-size: cover;
+  background-position:center;
+}
+.swiper-container .swiper-slide:nth-child(1) {
+  background-image: url(http://p1.music.126.net/fmX7z0QVzltoVh24SYHVjw==/109951163941937693.jpg);
+}
+.swiper-container .swiper-slide:nth-child(2) {
+  background-image: url(http://p1.music.126.net/Clk3xIgCVGQf1zCTVbn5Ug==/109951163941936510.jpg);
+}
+.swiper-container .swiper-slide:nth-child(3) {
+  background-image: url(http://p1.music.126.net/fmX7z0QVzltoVh24SYHVjw==/109951163941937693.jpg);
+}
+.swiper-container .swiper-slide:nth-child(4) {
+  background-image: url(http://p1.music.126.net/c7UHVwKlkmrgx7Xtk7xM-A==/109951163942005218.jpg);
+}
+.swiper-container .swiper-slide:nth-child(5) {
+  background-image: url(http://p1.music.126.net/1mm9AwV7MGcf1HT5Ugg0Ew==/109951163941936343.jpg);
+}

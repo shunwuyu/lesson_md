@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>送花-代理模式</title>
+</head>
+<body>
+<script>
+// 松涛 玫瑰？丁香？... class new  在想送什么花呢？ 打印出来， 小美收到了什么花
+// {} json 对象字面量
+const ljd = {
+  name: "吴江东",
+  hometown: "赣州",
+  single: false,
+  room: "1315"
+}
+// JS 极具表现力的语言
+// 对象字面量
+const cst = {
+  // 属性
+  name: "陈松涛",
+  single: true,
+  hometown: "高安",
+  hobbies: ["桌球", "下棋", "游戏"],
+  yz: 75,
+  // 送花？ 目标 
+  // target 形参
+  send_flower (target) {
+    target.receiveFlower(cst);
+  }
+};
+const xm = {
+  name: "小美",
+  receiveFlower(sender) {
+    // console.log("收到了花");
+    // 颜值 85以上 
+    if (sender.yz < 85) {
+      console.log("你是个好人");
+    } else {
+      console.log("万达走一波");
+    }
+  },
+  // 心情
+  listenGoodMood(fn) {
+    console.log("心情不好");
+    
+    setTimeout(function() {
+      cst.yz = 88;
+      console.log("心情现在不错， 感觉人生到达了高潮");
+      fn();
+      // cst.send_flower();
+    },3000);
+  }
+}
+const xiaohong = {
+  name: "小红",
+  hometown: "高安",
+  sex: "女",
+  receiveFlower(sender) {
+    // 代理对象，实现复杂需求， 
+    // 监听小美的心情, 3秒钟后心情好了，
+    // 送  
+    xm.listenGoodMood(function() {
+      // sender.send_flower(xiaomei);
+      xm.receiveFlower(sender)
+    });
+    // xm.receiveFlower(sender);
+    // if (sender.name === "陈松涛") {
+    //   // console.log("涛哥， 让我们在一起吧");
+    
+    // } else {
+    //   console.log("玩去");
+    // }
+  }
+} 
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "rest-api",
+  "version": "0.1.0",
+  "description": "[source](https://github.com/ruanyf/jstraining/blob/master/demos/rest-api-demo/package.json)",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server db.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "yushunwu <shunwu2001@163.com> (https://shunwuyu.github.io)",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.15.0"
+  }
+}

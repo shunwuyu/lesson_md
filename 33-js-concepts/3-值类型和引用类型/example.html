@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function setName(obj) {
+      obj.name = "Nicholas";
+      // 重新定义了一个局部变量 之后的操作都不影响上面的 obj
+      var obj = {};
+      obj.name = '123';
+    }
+    var person = new Object();
+    setName(person);
+    console.log(person.name);
+
+    function addTen(num) {
+      num += 10;
+      return num;
+    }
+    var count = 20;
+    var result = addTen(count);
+    console.log(count); //20，没有变化
+    console.log(result); //30
+  </script>
+</body>
+
+</html>

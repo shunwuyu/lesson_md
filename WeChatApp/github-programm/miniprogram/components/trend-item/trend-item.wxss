@@ -1,0 +1,67 @@
+@import '../../style/base.wxss';
+
+.repo {
+  padding: 12px;
+  color: #b8b8b8;
+  border-top: 0.5px solid rgba(65, 65, 65, 0.9);
+}
+
+.repo .name {
+  color: #fff;
+  word-break: break-all;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.repo .desc {
+  font-size: 12px;
+  margin: 12rpx 0;
+  word-break: break-all;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.bottom {
+  display: flex;
+  font-size: 12px;
+  margin: 12rpx 0;
+}
+
+.bottom image {
+  width: 16px;
+  height: 16px;
+}
+
+.bottom view:not(:first-child) {
+  margin-left: 12px;
+}
+
+.bottom view:not(:last-child) {
+  width: 20%;
+}
+
+.bottom view {
+  display: flex;
+}
+
+.bottom view text {
+  margin-left: 2px;
+  color: #FFF;
+  line-height: 16px;
+  font-weight: bold;
+}
+
+.built-by {
+  margin-top: 12rpx;
+}
+
+.built-by .avatar {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.built-by .avatar:not(:first-of-type) {
+  margin-left: 8rpx;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- html -->
+  <div class="wrap">
+      <div class="box">
+          <img src="./segement.ico">
+          <span>English</span>
+        </div>
+        <div class="box-1"></div>
+  </div>
+
+  
+  <!-- CSS -->
+  <style>
+      .box {
+          width: 280px;
+          outline: 1px solid #aaa;
+          text-align: center;
+          /* 解决方案1 */
+          /* font-size: 0; */
+          /* 解决方案2 
+          下面的空隙高度，实际上是文字计算后的行高值和字母x下边缘的距离
+          */
+          /* line-leight: 0; */
+          line-height: 240px;
+          background-color: aquamarine;
+      }
+      .box > img {
+        vertical-align: middle;
+          height: 96px;
+          /* 解决方案3 */
+          /* display: block; */
+      } 
+      .box-1 {
+        width: 40px;
+        height: 120px;
+        background-color: aqua;
+      }
+      .wrap {
+        display: flex;
+      }
+  </style>
+  
+</body>
+</html>

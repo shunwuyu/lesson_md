@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings!</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <td>姓名</td>
+        <td>邮箱</td>
+        <td>微信</td>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr>
+        <td>name</td>
+        <td>email</td>
+        <td>wechat</td>
+      </tr>
+    </tbody>
+  </table>
+<script>
+  const tbody = document.getElementById('tbody');
+  const name = 'Snickers';
+  const age = 2;
+  const sentence = `My dog ${name} is ${age * 7} years old.`;
+  console.log(sentence);
+  const person = {
+    name: '韩梅梅',
+    email: '12345@qq.com',
+    wechat: 'wxid_12345'
+  }
+  var a = 1 
+  + 2;
+  const html = '<tr>' + 
+    '<td>'+ person.name + '</td>' +
+    '<td>'+ person.email + '</td>' +
+    '<td>'+ person.wechat + '</td>' +
+    '</tr>';
+  tbody.insertAdjacentHTML('beforeend', html);
+  const text = `1
+  2
+  3
+  `
+  document.body.append(text);
+</script>
+</body>
+</html>

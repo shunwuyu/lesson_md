@@ -1,0 +1,3 @@
+<view class='trends'>
+  <search placeholder="Search Users or Repositories" bind:search="onSearch"></search>
+</view>

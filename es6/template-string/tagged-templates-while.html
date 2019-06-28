@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+  </div>
+  <script>
+  var a = () => {
+    // console.log(arguments);
+  }
+  a(123);
+  function combine(literals) {
+    let result = '';
+    var i = 0;
+    console.log(arguments);
+    while (i < literals.length) {
+      // 把没有替换的部分 拼接起来
+      result += literals[i];
+      i ++;
+      if (i < arguments.length) {
+        // 从 1的位置 开始往后 一个一个 把变量连接起来
+        result += arguments[i]
+      }
+    }
+    console.log(result);
+  }
+  const total = 123;
+  combine`the total is ${total}:${total * 1.5} with tax ${'js'}`;
+  </script>
+</body>
+</html>

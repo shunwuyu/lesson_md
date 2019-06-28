@@ -1,0 +1,30 @@
+/* pages/profile/profile.wxss */
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  line-height: 1.6;
+}
+.section {
+  padding:0 15px;
+  margin-top: 10px;
+}
+.btn-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-area button {
+  width: 40%;
+}
+.header, .dataLists {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hobby {
+  display: flex;
+}
+.tip {
+  text-align: center;
+  color: #666;
+}

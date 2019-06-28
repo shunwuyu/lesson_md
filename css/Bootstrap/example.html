@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事例</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .form-container {
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <!-- <th scope="col">序号</th> -->
+          <th scope="col">姓名</th>
+          <th scope="col">年龄</th>
+          <th scope="col">性别</th>
+          <th scope="col">单身</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>保密</td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+  <form class="needs-validation form-container" novalidate id="form">
+    <div class="form-group">
+      <label for="nameInput">姓名</label>
+      <input type="text" class="form-control" id="nameInput" placeholder="请输入姓名" required>
+      <div class="valid-feedback">
+        pass
+      </div>
+      <div class="invalid-feedback">
+        请输入姓名
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="ageInput">年龄</label>
+      <input type="number" class="form-control" id="ageInput" placeholder="请输入年龄" required>
+      <div class="valid-feedback">
+        pass
+      </div>
+      <div class="invalid-feedback">
+        请输入年龄
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="sexInput">性别</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input inputRadio" type="radio" name="sexOption" id="inlineRadio1" value="m" required>
+        <label class="form-check-label" for="inlineRadio1">男</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input inputRadio" type="radio" name="sexOption" id="inlineRadio2" value="w" required>
+        <label class="form-check-label" for="inlineRadio2">女</label>
+        <div class="valid-feedback">
+          pass
+        </div>
+        <div class="invalid-feedback">
+          请选择性别
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="sexInput">单身</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input inputRadio" type="radio" name="dogOption" id="doginlineRadio1" value="y"
+          required>
+        <label class="form-check-label" for="doginlineRadio1">是</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input inputRadio" type="radio" name="dogOption" id="doginlineRadio2" value="n"
+          required>
+        <label class="form-check-label" for="doginlineRadio2">否</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input inputRadio" type="radio" name="dogOption" id="doginlineRadio3" value="s"
+          required>
+        <label class="form-check-label" for="doginlineRadio3">保密</label>
+        <div class="valid-feedback">
+          pass
+        </div>
+        <div class="invalid-feedback">
+          请选择分类
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">提交</button>
+  </form>
+
+  <script>
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        let dataSource = [
+          { name: '1', age: '18', sex: 'w', dog: 's' },
+          { name: '2', age: '18', sex: 'w', dog: 's' },
+        ];
+        const form = document.getElementById('form');
+        const tableBody = document.getElementById('tableBody');
+        const nameNode = document.getElementById('nameInput');
+        const ageNode = document.getElementById('ageInput');
+        const sexRadioNodes = document.getElementsByName('sexOption');
+        const dogRadioNodes = document.getElementsByName('dogOption');
+
+        console.log(sexRadioNodes);
+        function insertNodes(item) {
+          //   <tr>
+          //   <td>1</td>
+          //   <td>Mark</td>
+          //   <td>Otto</td>
+          //   <td>@mdo</td>
+          //   <td>保密</td>
+          // </tr>
+          const tr = document.createElement('tr');
+          Object.keys(item).forEach((key, i) => {
+            console.log(key, item[key]);
+            const td = document.createElement('td');
+            const text = document.createTextNode(item[key]);
+            const indexText =  document.createTextNode(i);
+            // td.appendChild(indexText);
+            td.appendChild(text);
+            // tr.appendChild(indexText);
+            tr.appendChild(td);
+          })
+          tableBody.appendChild(tr, tableBody.firstChild);
+        }
+        dataSource.forEach(data => {
+          insertNodes(data);
+        })
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          if (form.checkValidity()) {
+            const name = nameNode.value;
+            const age = ageNode.value;
+            const checkedSexRadio = Array.from(sexRadioNodes).find(node => node.checked);
+            const sex = checkedSexRadio.value;
+            const checkedDogRadio = Array.from(dogRadioNodes).find(node => node.checked);
+            const dog = checkedDogRadio.value;
+            insertNodes({
+              name,
+              age,
+              sex,
+              dog
+            })
+            console.log(name, age, sex, dog);
+          }
+          form.classList.add('was-validated');
+        }, false);
+      }, false);
+    })();
+  </script>
+</body>
+
+</html>

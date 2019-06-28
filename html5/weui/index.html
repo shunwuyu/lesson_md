@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+      <div class="page__hd">
+        <h1 class="page__title">Button</h1>
+        <p class="page__desc">按钮</p>
+      </div>
+      <div class="page__bd">
+        <a href="#" class="weui-btn weui-btn_primary" id='primary'>页面主操作 normal</a>
+        <a href="#" class="weui-btn weui-btn_loading">
+          <i class="weui-loading"></i>
+          页面主操作 loading
+        </a>
+        <a href="#" class="weui-btn weui-btn_disabled">页面操作 Disabled</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    var oPrimary = document.getElementById('primary')
+    // console.log(oPrimary)
+    oPrimary.onclick = function () {
+      // this.innerHTML = 'Hello World!'
+      this.classList.add('active')
+    }
+  </script>
+</body>
+</html>

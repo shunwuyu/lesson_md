@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #evParent {
+      width: 400px;
+      height: 300px;
+      border: 1px solid #000;
+    }
+    #ev {
+      width: 300px;
+      height: 200px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 100px;
+    }
+    #ev img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+    <h2>冒泡</h2>
+  <div id="evParent">
+    父级
+    <div id="ev">
+      <img src="http://po6khh05j.bkt.clouddn.com/ie6.jpg" alt="">
+    </div>
+  </div>
+  <div class="lists">
+    <li id="li-1">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </div>
+  <script>
+    // onClick addEventListener
+    const ev = document.getElementById('ev');
+    const evParent = document.getElementById('evParent');
+
+    // 捕获阶段
+    window.addEventListener('click', () => {
+      console.log('window captrue');
+    }, false);
+    evParent.addEventListener('click', () => {
+      console.log('evParent captrue');
+    }, false);
+    ev.addEventListener('click', () => {
+      console.log('ev captrue');
+    }, false);
+    document.addEventListener('click', () => {
+      console.log('document captrue');
+    }, false);
+    document.documentElement.addEventListener('click', () => {
+      console.log('html captrue');
+    }, false);
+    document.body.addEventListener('click', () => {
+      console.log('body captrue');
+    }, false);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .container-demo {
+      background-color: var(--cyan);
+      height: 100vh;
+    }
+
+    .col-demo {
+      border: 1px solid #000;
+      height: 50px;
+    }
+
+    .row-demo {
+      height: 200px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container container-demo">
+    <!-- justify-content-center -->
+    <div class="row row-demo">
+      <!-- <div class="col col-4 col-demo">
+        1
+      </div>
+      <div class="col col-4 col-demo">
+        2
+      </div>
+      <div class="col col-4 col-demo">
+        3
+      </div> -->
+      <!-- <div class="col col-8 offset-2 col-demo">
+        1
+      </div> -->
+      <div class="col-sm-4 col-demo">
+        图片
+      </div>
+      <div class="col-sm-8 col-demo">
+        内容
+      </div>
+    </div>
+    <div class="row row-demo align-items-end">
+      <div class="col col-4 col-demo order-2">
+        1
+      </div>
+      <div class="col col-4 offset-md-4 col-demo order-1">
+        2
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

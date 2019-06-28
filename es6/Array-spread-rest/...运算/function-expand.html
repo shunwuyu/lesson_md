@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数扩展</title>
+</head>
+<body>
+  <script>
+    // rest 参数 形式为(...变量名) 获取函数多余参数
+    // 搭配的变量是一个数组
+    // 该变量将多余的参数 放入其中
+    function add(...values) {
+      let sum = 0;
+      for (let val of values) {
+        sum += val;
+      }
+      return sum;
+    }
+    add(1,2,3);
+    // 注意 rest 参数之后不能再有其他参数了 否则报错
+    // Rest parameter must be last formal parameter
+    function foo(a, ...b, c) {
+
+    }
+    foo(1, 2, 3, 4);
+  </script>
+</body>
+</html>

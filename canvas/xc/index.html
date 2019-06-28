@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Canvas</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    height: 100%;
+  }
+  #container {
+    background: #1f1b22;
+  }
+  .container {
+    width: 1448px;
+    height: 750px;
+  }
+  body {
+    background: linear-gradient(to bottom, #000000 0%, #5788fe 100%);
+  }
+  .filter {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fe5757;
+    animation: colorChange 30s ease-in-out infinite;
+    animation-fill-mode: both;
+    mix-blend-mode: overlay;
+  }
+  @keyframes colorChange {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+  .landscape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('http://www.jq22.com/css/img/xkbg.png');
+    background-size: 1000px 250px;
+    background-repeat: repeat-x;
+    background-position: center bottom;
+  }
+
+  /* body {
+    background-color: red;
+  }
+  @media screen and (orientation:portrait) {
+    body {
+      background-color: yellow;
+    }
+  } */
+  </style>
+</head>
+<body>
+  <div class="landscape"></div>
+  <div class="filter"></div>
+  <canvas id="canvas"></canvas>
+  <!-- 一个类一个文件，一个模块， 多人合作 -->
+  <script src="./round_item.js">
+  </script>
+  <script>
+  let canvas = document.getElementById('canvas'),
+    context = canvas.getContext('2d'),
+    round = [],
+    WIDTH = document.documentElement.clientWidth,
+    HEIGHT = document.documentElement.clientHeight,
+    initRoundPopulation = 80;
+  
+  canvas.width = WIDTH;
+  canvas.height = HEIGHT;
+  init();
+  animate();
+  function init() {
+    for (var i = 0; i < initRoundPopulation; i++) {
+      round[i] = new Round_item(i, Math.random() * WIDTH, Math.random() * HEIGHT, context);
+      round[i].draw();
+    }
+  }
+  function animate () {
+    context.clearRect(0, 0, WIDTH, HEIGHT);
+    // 运动 变化之所在
+    for (var star of round) {
+      star.move();
+    }
+    requestAnimationFrame(animate);
+  }
+
+
+
+  </script>
+</body>
+</html>

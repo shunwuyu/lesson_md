@@ -1,0 +1,4 @@
+/* miniprogram/pages/uploader/uploader.wxss */
+.page__hd{
+  text-align: center;
+}

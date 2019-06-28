@@ -1,0 +1,102 @@
+.container, .page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.page__bd{
+  height: 100%;
+  background-color: #F5FAFE;
+  overflow-y: auto;
+}
+.tab{
+  display: none;
+}
+.tab.show{
+  display: block;
+}
+.fruit{
+  background-color: #fff;
+}
+.mine_shop, .mine_title{
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+.tab .weui-cell{
+  background-color: #fff;
+}
+.avatar{
+  position: relative;
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.avatar img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.weui-cells{
+  margin-top: 10px;
+}
+.weui-cell::before{
+  content: '';
+  display: none;
+}
+.after::after{
+  content: " ";
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+  right: 15px;
+  height: 1px;
+  border-top: 1px solid #e5e5e5;
+  color: #e5e5e5;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+.weui-cell__bd img{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+.weui-cell__bd span{
+  vertical-align: middle;
+}
+.fruit-items{
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.fruit-item{
+  width: 47%;
+  font-size: 0;
+  float: left;
+  margin: 5px;
+  background-color: #fff;
+}
+/* .fruit-item:nth-child(2n){
+  margin-left: 10px;
+} */
+.fruit-item p{
+  text-align: center;
+  font-size: 16px;
+}
+.pic{
+  width: 100%;
+  height: 100%;
+}
+.pic img{
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,40 @@
+<view class="agenda">
+  <!-- 上面 日期切换部分 -->
+  <view class="date">
+    <view class="dateLeft" bindtap="turnleft">
+      <image src="{{showLeft?'../../images/indextop/left.png':'../../images/indextop/left1.png'}}"></image>
+    </view>
+    <!-- <swiper autoplay="{{false}}" current="{{current}}"> -->
+    <swiper autoplay="{{false}}" current="{{index}}">
+      <block wx:for="{{date}}" wx:key="{{index}}">
+        <swiper-item>
+          <text class="time">{{item.time}}</text>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dateRight" bindtap="turnright">
+      <image src="{{showRight?'../../images/indextop/right.png':'../../images/indextop/right1.png'}}">
+      </image>
+    </view>
+  </view>
+  <!-- wx:for="{{agenda}}" wx:key="{{index}}"  -->
+  <view class="agenda-grade">
+    <view class="leftteam">
+      <image src="{{agenda.leftteam}}"></image>
+      <text>{{agenda.leftname}}</text>
+    </view>
+    <!-- <view class="leftgrade {{light==1?'on':''}}">{{agenda.leftgrade}}</view> -->
+    <view class="leftgrade {{agenda.leftgrade > agenda.rightgrade ? 'on' : ''}}">
+      {{agenda.leftgrade}}
+    </view>
+    <view class="Mid">-</view>
+    <!-- <view class="rightgrade {{light==1?'':'on'}}">{{agenda.rightgrade}}</view> -->
+    <view class="rightgrade {{agenda.rightgrade > agenda.leftgrade ? 'on' : ''}}">
+      {{agenda.rightgrade}}
+    </view>
+    <view class="rightteam">
+      <image src="{{agenda.rightteam}}"></image>
+      <text>{{agenda.rightname}}</text>
+    </view>
+  </view>
+</view>

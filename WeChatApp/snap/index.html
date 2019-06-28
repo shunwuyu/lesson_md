@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>thanos-snap</title>
+  <style>
+  #app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  .main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .main .gauntlet {
+    height: 100px;
+  }
+  .main .gauntlet-item {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+  }
+  .main #gauntlet-snap {
+    background: transparent url(https://yiliang114.github.io/vue-thanos-snap/images/thanos_snap.png) center left no-repeat;
+    background-position: 0 0;
+  }
+  .main .snaping {
+    -webkit-animation: gauntlet 2.8s steps(47) both;
+    animation: gauntlet 2.8s steps(47) both;
+  }
+  .main #gauntlet-reverse {
+    background: transparent url('https://yiliang114.github.io/vue-thanos-snap/images/thanos_reverse.png') center left no-repeat;
+    background-position: 0 0;
+  }
+
+  .main .reversing {
+    -webkit-animation: gauntlet 2.8s steps(47) both;
+    animation: gauntlet 2.8s steps(47) both;
+  }
+  @-webkit-keyframes gauntlet {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -3760px 0;
+    }
+  }
+  @-webkit-keyframes heroBack {
+    0% {
+      opacity: 0;
+      /* color: green; */
+      background-color: green;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      /* color: #000; */
+      transform: scale(1);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .content .item {
+    flex: 1;
+    height: 260px;
+    margin: 10px;
+    border: 1px solid #CECECE;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .content .item .avatar img {
+    width: 200px;
+    height: 200px;
+  }
+  .content .item .info {
+    height: 30px;
+    line-height: 30px;
+  }
+  .content .time {
+  -webkit-animation: heroBack 2s linear;
+  animation: heroBack 2s linear;
+}
+
+.dust-container {
+  position: absolute;
+  pointer-events: none;
+}
+
+.dust-container canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+  opacity: 1;
+  transform: rotate(0deg) translate(0px, 0px) rotate(0deg);
+}
+
+  </style>
+</head>
+<body>
+  <div id="app" class="main">
+    <Snap />
+
+  </div>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  <script src="./heroes.js"></script>
+  <script>
+  Vue.component("Content", {
+    props: {
+      heroes: {
+        type: Array,
+        default: function() {
+          return [];
+        }
+      },
+      reversing: {
+        type: Boolean,
+        default: false
+      },
+      heroHided: {
+        type: Array,
+        default: function() {
+          return [];
+        }
+      }
+    },
+    watch: {
+    reversing: function(val, oldVal) {
+      // is reversing now
+      if (val && !oldVal) {
+        // this.reversingClass
+        let obj = {};
+        this.heroHided.forEach(heroId => {
+          obj[heroId] = true;
+        });
+        this.reversingClass = obj;
+      } else {
+        // teardown watcher
+        const keys = Object.keys(this.reversingClass);
+        keys.forEach(key => {
+          this.$delete(this.reversingClass, key);
+        });
+        this.snapingClass = {};
+      }
+    }
+  },
+    data() {
+      return {
+        reversingClass: {}
+      };
+    },
+    template:`
+      <div class="content">
+          <div class="item"
+            v-for="(hero, index) in heroes"
+            :id="hero.id"
+            :style="reversingClass[hero.id] ? 'visibility: visible;': ''"
+            :class="reversingClass[hero.id] ? 'time': ''"
+            :key="index">
+            <div class="item-body">
+              <div class="avatar">
+                  <img :src="hero.src" alt="" />
+              </div>
+              <div class="info">{{hero.name}}</div>
+            </div>
+          </div>
+      </div>
+    `
+  })
+  Vue.component("Snap",{
+    data() {
+      return {
+        showSnap: true,
+        snaping: false,
+        showReverse: false,
+        reversing: false,
+        heroes: heroes,
+        heroHidedIds: []
+      }
+    },
+    methods: {
+      scrollToAnchor (anchorName) {
+        if (anchorName) {
+          let anchorElement = document.getElementById(anchorName);
+          if (anchorElement) {
+            anchorElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          }
+        }
+      },
+      snapToDust($elm) {
+        return new Promise(resolve => {
+          html2canvas($elm, {
+          allowTaint: true
+          }).then($canvas => {
+            // console.log($canvas, '----------')
+            const $container = document.createElement("div");
+            $container.classList.add("dust-container");
+
+            const $frames = this.generateFrames($canvas);
+            console.log($frames);
+
+            $frames.forEach(($frame, i) => {
+              $frame.style.transitionDelay = `${(1.35 * i) / $frames.length}s`;
+              $container.appendChild($frame);
+            });
+
+            this.replaceElementVisually($elm, $container);
+            $container.offsetLeft;
+            // console.log($container, '=====');
+            console.log($container.offsetLeft);
+            $frames.forEach($frame => {
+              const randomRadian = 2 * Math.PI * (Math.random() - 0.5);
+              // rotate(${15 * (Math.random() - 0.5)}deg)
+              // console.log(15 *
+              //   (Math.random() - 0.5), 60 *
+              //   Math.cos(randomRadian), 30 * Math.sin(randomRadian) );
+              $frame.style.transform = `rotate(${15 *
+                (Math.random() - 0.5)}deg) translate(${60 *
+                Math.cos(randomRadian)}px, ${30 * Math.sin(randomRadian)}px)`;
+              $frame.style.opacity = 0;
+            });
+            resolve();
+          })
+        });
+      },
+      replaceElementVisually($old, $new) 
+      {
+        this.playAudio();
+        const $parent = $old.offsetParent;
+        $new.style.top = `${$old.offsetTop}px`;
+        $new.style.left = `${$old.offsetLeft}px`;
+        $new.style.width = `${$old.offsetWidth}px`;
+        $new.style.height = `${$old.offsetHeight}px`;
+        $parent.appendChild($new);
+        $old.style.visibility = "hidden";
+      },
+      generateFrames($canvas, count = 32) {
+        const { width, height } = $canvas;
+        const ctx = $canvas.getContext("2d");
+        const originalData = ctx.getImageData(0, 0, width, height);
+        const imageDatas = [...Array(count)].map((_, i) =>
+        // createImageData funciton is used to create a blank ImageData obj
+        ctx.createImageData(width, height)
+        );
+        for (let x = 0; x < width; ++x) {
+          for (let y = 0; y < height; ++y) {
+            // REPEAT
+            for (let i = 0; i < 2; ++i) {
+              const dataIndex = Math.floor(
+                (count * (Math.random() + (2 * x) / width)) / 3
+              );
+              const pixelIndex = (y * width + x) * 4;
+              for (let offset = 0; offset < 4; ++offset) {
+                imageDatas[dataIndex].data[pixelIndex + offset] =
+                  originalData.data[pixelIndex + offset];
+              }
+            }
+          }
+        }
+        return imageDatas.map(data => {
+          const $c = $canvas.cloneNode(true);
+          // putImageData used to put a ImageData on a canvas
+          $c.getContext("2d").putImageData(data, 0, 0);
+          return $c;
+        });
+      },
+      snapHandle() {
+        // console.log('----')
+        if (this.snaping || this.reversing) return;
+        this.snaping = true;
+        this.playAudio("snap");
+        setTimeout(async () => {
+          this.showReverse = true;
+          this.showSnap = false;
+          this.heroHidedIds = this.heroes
+          .slice(0)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, Math.ceil(this.heroes.length / 2))
+          .map(hero => hero.id);
+          console.log(this.heroHidedIds);
+          for (let i = 0; i < this.heroHidedIds.length; i++) {
+            let heroId = this.heroHidedIds[i],
+              itm = document.getElementById(heroId);
+            console.log(heroId, itm, '+++++++');
+            this.scrollToAnchor(heroId);
+            // // add canvas and turn html hidden
+            await this.snapToDust(itm);
+            await this.sleep();
+          }
+          this.snaping = false;
+        }, 1500);
+
+      },
+      sleep(delay) {
+        return new Promise(resovle => {
+          setTimeout(() => {
+            resovle();
+          }, delay || 1000);
+        });
+      },
+      reverseHandle () {
+        if (this.snaping || this.reversing) return;
+        this.reversing = true;
+        this.playAudio("reverse");
+        setTimeout(() => {
+          this.showSnap = true;
+          this.showReverse = false;
+          this.reversing = false;
+        }, 1500);
+      },
+      playAudio(target) {
+        const dom = this.$refs.allAuduio;
+        console.log(dom);
+        if (!dom) return;
+        if (["snap", "reverse"].indexOf(target) > -1) {
+          if (target === "snap") {
+            dom.src = "https://yiliang114.github.io/vue-thanos-snap/media/thanos_snap_sound.b746c7d7.mp3";
+          } else if (target === "reverse") {
+            dom.src = "https://yiliang114.github.io/vue-thanos-snap/media/thanos_reverse_sound.e00730e1.mp3";
+          }
+        } else {
+          let index = target || Math.floor(Math.random() * 6 + 1);
+          console.log(index);
+          if (index === 1) {
+            dom.src = `https://yiliang114.github.io/vue-thanos-snap/media/thanos_dust_1.ad4820bd.mp3`;
+          } else if (index === 2) {
+            dom.src = `https://yiliang114.github.io/vue-thanos-snap/media/thanos_dust_2.7bd6a609.mp3`;
+          } else if (index === 3) {
+            dom.src = `https://yiliang114.github.io/vue-thanos-snap/media/thanos_dust_3.94ca0f5b.mp3`;
+          } else if (index === 4) {
+            dom.src = `https://yiliang114.github.io/vue-thanos-snap/media/thanos_dust_4.adf013fc.mp3`;
+          } else if (index === 5) {
+            dom.src = `https://yiliang114.github.io/vue-thanos-snap/media/thanos_dust_5.eed1dd08.mp3`;
+          } else if (index === 6) {
+            dom.src = `https://yiliang114.github.io/vue-thanos-snap/media/thanos_dust_6.c1b80089.mp3`;
+          }
+          
+        }
+        dom.play();
+      }
+    },
+    template:`
+      <div class="main">
+        <div class="gauntlet">
+          <div class="gauntlet-wrapper">
+              <div id="gauntlet-snap"
+                v-show="showSnap"
+                :class="snaping? 'snaping':''"
+                class="gauntlet-item"
+                @click="snapHandle"></div>
+              <div id="gauntlet-reverse"
+              v-show="showReverse"
+              :class="reversing? 'reversing':''"
+              class="gauntlet-item"
+              @click="reverseHandle"></div>
+          </div>
+        </div>
+        <Content :heroes="heroes"
+        :heroHided="heroHidedIds"
+        :reversing="reversing" />
+        <audio preload
+      ref="allAuduio">
+      </audio>
+      </div>
+    `
+  });
+  // console.log(Main);
+  new Vue({
+    el: '#app'
+  })
+  </script>
+</body>
+</html>

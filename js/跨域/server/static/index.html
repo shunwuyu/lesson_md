@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    index.html的内容
+  </div>
+  <script src="./jq.js"></script>
+  <script>
+    // 1
+    window.addEventListener("message", function (event) {
+      // 监听父窗口发送过来的数据向服务器发送post请求
+      var data = event.data;
+      $.ajax({
+        // 注意这里的url只是一个示例.实际练习的时候你需要自己想办法提供一个后台接口
+        type: 'get',
+        url: '/api/post',
+        data: data,
+        dataType: "json"
+      }).done(function (res) {
+        //将请求成功返回的数据通过postMessage发送给父窗口        
+        window.parent.postMessage(res, "*");
+      }).fail(function (res) {
+        //将请求失败返回的数据通过postMessage发送给父窗口        
+        window.parent.postMessage(res, "*");
+      });
+    });
+    // window.addEventListener('message', function() {
+    //   console.log('子页面', 1);
+    // })
+    // 2
+    $.ajax({
+        // 注意这里的url只是一个示例.实际练习的时候你需要自己想办法提供一个后台接口
+        type: 'get',
+        url: '/api/post',
+        dataType: "json"
+      }).done(function (res) {
+        window.name = JSON.stringify(res);
+        location.href = 'http://localhost:52168/middle.html';
+      }).fail(function (res) {
+      });
+  </script>
+</body>
+
+</html>

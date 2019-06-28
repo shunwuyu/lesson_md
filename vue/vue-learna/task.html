@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a href="/" class="navbar-brand">
+        <i class="glyphicon glyphicon-bullhorn"></i>
+        Vue备忘录
+      </a>
+    </div>
+  </nav>
+  <!-- 应用的主要部分 -->
+  <div class="container" id="events">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>添加一个事务</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="事件名称" v-model="event.name">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="事件描述" v-model="event.description">
+
+                </textarea>
+          </div>
+          <div class="form-group">
+            <input type="date" placeholder="Date" class="form-control" v-model="event.date">
+          </div>
+          <button class="btn btn-primary" @click="addEvent">提交</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="list-group">
+        <a href="#" class="list-group-item" v-for="(event, index) in events">
+          <h4 class="list-group-item-heading">
+            <i class="glyphicon glyphicon-bullhorn"></i>
+            {{event.name}}
+          </h4>
+          <h5>
+            <i class="glyphicon glyphicon-calendar"></i>
+            {{event.date}}
+          </h5>
+          <p class="list-group-item-text">{{event.description}}</p>
+          <button class="btn btn-xs btn-danger" @click="deleteEvent(index)">删除</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#events',
+      data: {
+        event: {
+          name: '',
+          description: '',
+          date: ''
+        },
+        events: []
+      },
+      methods: {
+        addEvent() {
+          // console.log(this.event.name)
+          this.events.push(this.event)
+          this.event = {}
+        },
+        deleteEvent(index) {
+          this.events.splice(index, 1)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

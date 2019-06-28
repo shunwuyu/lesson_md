@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  html, body {
+    scroll-behavior: smooth;
+  }
+  .box {
+    height: 500px;
+    margin: 20px auto;
+    background-color: pink;
+  }
+  .view-box {
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+    background-color: red;
+  }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="view-box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <script>
+  //某个元素相对于视窗的位置集合
+  const inViewport = (el, partiallyVisible = false) => {
+    const { top, left, bottom, right } = el.getBoundingClientRect();
+    const { innerHeight, innerWidth } = window;
+    return partiallyVisible ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) && ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth)): top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+    // console.log(top, left, bottom, right);
+  }
+  // inViewport(document.querySelector('.view-box'));
+  </script>
+</body>
+</html>

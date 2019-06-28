@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{ /* 先不写这个先去写下面一行，便没有父属性给到继承*/
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+/* @media screen and (mix-width: 750px) {
+	html,body {
+		font-size: 24px;
+	}
+} */
+.pay-page{
+    width: 100%;
+    height: 100%;
+    background-color: #F5FAFE;
+}
+.header{
+    background-color: #fff;
+    padding: 0.75rem 0.75rem 1rem 0.75rem;
+}
+.header-title{
+    font-size: 0.85rem;
+}
+.flex{
+    display: flex;
+}
+.flex1{
+    flex: 1;
+}
+.header-items{
+    margin-top: 0.75rem;
+}
+.header-items .mar{
+    margin: 0 0.375rem;
+}
+.item-price{
+    /* height:5.5rem; */
+    border:1px solid rgba(153,153,153,1);
+    border-radius:10px;
+    font-family:PingFang-SC-Regular; /*公用样式*/
+    line-height: 1;
+    text-align: center;
+}
+.item-price__month{
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+}
+.item-price__old{
+    margin-top: 0.5rem;
+    font-size: 0.6rem;
+    font-weight:400;
+    text-decoration:line-through;
+    color:rgba(153,153,153,1);
+}
+.item-price__new{
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight:bold;
+    color:rgba(72,166,253,1);
+    margin-bottom: 1rem;
+}
+/* 中间内容 */
+.content{
+    margin-top: 0.5rem;
+    padding: 0 0.75rem;
+    background-color: #fff;
+}
+.pic{
+    width: 1.8rem;
+    height: 1.8rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+.pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.pay-detail{
+    display: inline-block;
+    margin-left: 0.5rem;
+    line-height: 1;
+    font-family:PingFang-SC-Regular;
+    vertical-align: middle;
+}
+.pay-detail__title{
+    font-size:0.85rem;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+}
+.pay-detail .money-last{
+    margin-top: 0.5rem;
+    font-size:0.6rem;
+    color:rgba(153,153,153,1);
+}
+.pay-candy{
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(225,225,225,1);
+}
+.content .pay-wrapper{
+    position: relative;
+}
+.content .pay-btn{
+    /* display: inline-block; */
+    border:1px solid rgba(153,153,153,1);
+    /* vertical-align: middle; */
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.pay-wechat{
+    padding: 0.75rem 0;
+}
+/* button */
+.footer{
+    position: fixed;
+    bottom: 1.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width:15.75rem;
+    height:2.45rem;
+    background:linear-gradient(-90deg,rgba(41,142,238,1),rgba(72,140,253,1));
+    box-shadow:0px 2px 4px 0px rgba(0,74,143,0.28);
+    border-radius:40px;
+    text-align: center;
+    line-height: 2.45rem;
+    color: #fff;
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    html, body {
+        height: 100%;
+        background-color: #000;
+        overflow: hidden;
+    }
+    .g-candle {
+        position: absolute;
+        width: 400px;
+        /* margin: 0 auto; */
+        height: 400px;
+    }
+    .g-body {
+        position: relative;
+        width: 100px;
+        height: 300px;
+        margin: 280px auto;
+        background: linear-gradient(230deg, #ca9800, #573903, black 70%);
+        z-index:1;
+    }
+    .g-body:before {
+        position: absolute;
+        content: "";
+        width: 100px;
+        height: 40px;
+        border-radius: 50%;
+        /* box-sizing: border-box; */
+        top: -20px;
+        background:radial-gradient(#a46800, #5c3104 45%, #905602 100%);
+    }
+    .g-body:after {
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 48px;
+        /* background: #ffffff; */
+        left: 50%;
+        top: -22px;
+        transform: translate(-50%, -50%);
+        border-radius: 50% 50% 0 0 ;
+        background: linear-gradient(180deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,.8) 60%, #ffff);
+        opacity: .7;
+        filter:blur(1px);
+    }
+    .g-fire-box {
+        position: absolute;
+        top: 97px;
+        left: 50%;
+        width: 80px;
+        height: 200px;
+        transform: translate(-50%, -50%);
+        filter:blur(2px) contrast(10);
+    }
+    .g-fire {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        border-radius: 45%;
+        /* box-sizing: border-box; */
+        border: 120px solid #000;
+        border-bottom: 120px solid transparent;
+        transform: translate(-50%, 0) scaleX(.45);
+        background-color: #761b00;
+    }
+    .g-ball {
+        position: absolute;
+        top: 60px;
+        transform: translate(0, 0);
+        background: #fa8763;
+        border-radius:50%;
+        width: 40px;
+        height: 40px;
+        z-index: -1;
+        /* 就是混合模式 该CSS属性作用是让元素内容和这个元素的背景以及下面的元素发生“混合” */
+        mix-blend-mode: screen;
+    }
+    @keyframes movetop {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(0, 0);
+    }
+    87.7% {
+        transform: translate(0, -170px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, -170px);
+        opacity: 0;
+    }
+    }
+
+    </style>
+    <link rel="stylesheet" href="./fire.css">
+</head>
+<body>
+    <div class="g-candle">
+        <div class="g-body"></div>
+        <div class="g-fire-box">
+            <div class="g-fire">
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                <div class="g-ball"></div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+.ui.navbar
+  background #fff
+  .content
+    display flex
+    flex-direction row
+    align-items center
+    position relative
+    overflow hidden
+  .menu-icon
+    transition all .5s
+  .menu-icon i
+    cursor pointer
+  .header
+    transition all .5s
+  .header > img
+    padding 8px
+    width 98px
+    box-sizing content-box
+  .menu
+    margin-left 103px
+    transition all .4s
+  .menu .item
+    display inline-block
+    font-size 18px
+    color #000
+    padding-bottom 35px
+    padding-top 26px
+    &:not(:first-child)
+      margin-left 64px
+  .menu .item.active
+    border-bottom 2px solid #000
+  .search-icon
+    flex-grow 1
+    text-align right
+    cursor pointer
+  .search-form
+    position absolute
+    transform translateY(-120px)
+    transition all .5s
+    opacity 0
+    // 有 searching 类名 表单出现 头部导航 菜单 icon 往下滑动
+  .searching ~ .search-form
+    transform translateY(-50px)
+    opacity 1
+  .searching
+    .header, .menu, .menu-icon
+      transform translateY(80px)
+      opacity 0
+
+// 
+@media only screen and (min-width: 767px)
+  .ui.navbar
+    .menu-icon
+      display: none
+
+@media only screen and (max-width: 767px)
+  .ui.navbar
+    .header > img
+      width: 56px
+    .content
+      justify-content: space-between
+    // 小屏幕不要 菜单
+    .content .menu
+      display: none
+    .search-icon
+      flex-grow: 0
+    .searching ~ .search-form
+      transform: translateY(-40px)
+      opacity: 1

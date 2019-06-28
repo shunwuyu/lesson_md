@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>object</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      foo: 'aaa',
+      bar: 'bbb'
+    };
+    // const foo = obj.foo, bar = obj.bar;
+    const {foo, bar} = {foo: 'aaa', bar: 'bbb'};
+    // 数组 元素按照次序排列的 变量取值由位置决定
+    // 对象 属性没有次序 变量必须与属性名相同
+    // 取不到 undefined
+
+    // 变量名与属性名不一致
+    const { foo: baz } = obj;
+
+    // 嵌套
+
+    var obj1 = {
+      p: ['hello', { y: 'world'}]
+    }
+    const {p: [f, g]} = obj1
+    // 默认值生效的也是 === undefinedpiou
+  </script>
+</body>
+</html>

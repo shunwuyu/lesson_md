@@ -1,0 +1,22 @@
+{
+  "name": "partition-list",
+  "version": "1.0.0",
+  "description": "[leetcode](https://leetcode-cn.com/problems/partition-list/) [wsx](https://juejin.im/post/5cef822ce51d454f71439c5e)",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.1"
+  }
+}

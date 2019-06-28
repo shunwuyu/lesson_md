@@ -1,0 +1,3 @@
+<!--compoents/icon/index.wxml-->
+<text class="icon icon-{{ type }}"></text>
+

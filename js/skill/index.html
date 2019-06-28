@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>URL</title>
+</head>
+<body>
+  <a href="?name=yajun&sex=female">Search</a>
+  <script>
+    
+
+    const params = location.search;
+    function getQueryString() {
+      var obg={},a='';
+      a=window.location.search.substr(1)
+      a.split(/&/g).forEach(function(item){
+        console.log(item);
+        obg[(item=item.split('='))[0]]=item[1];
+      })
+      return obg;
+    }
+    const paramsObj = getQueryString();
+    console.log(paramsObj);
+    // console.log(params);
+    // if (params) {
+    //   var urlParamObj = {};
+    // (function(){
+    //     var searchString = decodeURIComponent(window.location.search).substring(1);
+    //     //	用 decodeURIComponent 对 URI 进行解码。
+    //     //	使用 substring 是因为 substr 在 w3cSchool 中说 ECMAscript 没有标准化该方法
+    //     var searchArr = searchString.split('&');
+    //     var returnObj = {},
+    //     	switchStr = '',
+    //     	loopArr = [];
+    //     for(var i = 0; i < searchArr.length; i++){
+    //         switchStr = searchArr[i];
+    //         switch(switchStr.indexOf('=')){
+    //             case -1:
+    //             //	如果没有 '=' 则参数对应值为'' 
+    //                 returnObj[switchStr] = '';
+    //                 break;
+    //             case 0:
+    //             //	如果 '=' 之前无参数名则跳过循环
+    //                 break;
+    //             default:
+    //                 var loopArr = switchStr.split('=');
+    //                 //	'=' 之后如果没有值会在split的时候为''
+    //                 returnObj[loopArr[0]] = loopArr[1];
+    //                 loopArr = [];
+    //                 break;
+    //         }
+    //         switchStr = '';            
+    //     }
+    //     return urlParamObj = returnObj;
+    // })();
+    // console.log(urlParamObj, '------');
+      // alert(window.location.pathname);
+      // alert(window.location.port);
+      // alert(window.location.protocol);
+      // alert(window.location.host);
+      // alert(window.location.search);
+      // const paramsObj = new URLSearchParams(location.search);
+      // console.log(paramsObj.has("yajun"));
+      // console.log(paramsObj.has("name"));
+      // console.log(paramsObj.get("name"));
+      // console.log(paramsObj.get("sex"));
+    // }
+  </script>
+  <script>
+    
+  </script>
+</body>
+</html>

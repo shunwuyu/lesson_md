@@ -1,0 +1,39 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.songList{
+  width: 100%;
+}
+.item{
+    width: 100%;
+    height:45px;
+    display: flex;
+}
+.index{
+    width: 10%;
+    padding:5px;
+    text-align: center;
+}
+.rightView{
+    width: 90%;
+    padding: 5px;
+    border-bottom: 1px solid rgba(214,214,214,0.5);    
+}

@@ -1,0 +1,25 @@
+/* miniprogram/pages/trends/trends.wxss */
+.trends {
+  padding-top: 100rpx;
+}
+/* lang-picker 部分*/
+.lang-picker {
+  position: fixed;
+  bottom: 288rpx;
+  right: 48rpx;
+  height: 48rpx;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.van-search {
+  width: 100%;
+  top: 0;
+  position: fixed;
+  padding: 20rpx !important;
+  background-color: #24292e;
+  z-index: 100;
+}
+
+.van-search__field .field-index--van-field {
+  border-radius: 8rpx !important;
+}

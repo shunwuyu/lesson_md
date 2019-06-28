@@ -1,0 +1,15 @@
+.title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+image.avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 6rpx;
+}
+
+image.icon {
+  width: 32rpx;
+  height: 32rpx;
+}

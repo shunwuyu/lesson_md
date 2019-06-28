@@ -1,0 +1,292 @@
+<!DOCTYPE html><html>
+  <head>
+    <title>Snake Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
+
+  </head>
+  <body>
+    <div id="score">0</div>
+    <canvas id="gameCanvas" width="300" height="300"></canvas>
+    <style>
+      #gameCanvas {        
+          position: absolute; 
+          top: 50%;     
+          left: 50%;       
+          transform: translate(-50%, -50%);
+      }      
+      #score {       
+          text-align: center;    
+          font-size: 140px;    
+          font-family: 'Antic Slab', serif;
+      }    
+    </style>
+  </body>
+
+  <script>
+    const GAME_SPEED = 100;   
+    const CANVAS_BORDER_COLOUR = 'black';    
+    const CANVAS_BACKGROUND_COLOUR = "white";  
+    const SNAKE_COLOUR = 'lightgreen';    
+    const SNAKE_BORDER_COLOUR = 'darkgreen';
+    const FOOD_COLOUR = 'red';    
+    const FOOD_BORDER_COLOUR = 'darkred';  
+    let snake = [
+      {x: 150, y: 150},
+      {x: 140, y: 150},
+      {x: 130, y: 150},
+      {x: 120, y: 150},
+      {x: 110, y: 150}
+    ]    
+
+    // 玩家的分数
+    let score = 0;    
+
+    // changingDirection 为 true 时表示蛇正在改变方向
+    let changingDirection = false;    
+
+    // 食物的 x 坐标
+    let foodX;    
+
+    // 食物的 y 坐标
+    let foodY;    
+
+    // 横向移动速度
+    let dx = 10;    
+
+    // 纵向移动速度
+    let dy = 0;    
+
+    // 获取 canvas 元素
+    const gameCanvas = document.getElementById("gameCanvas");    
+
+    // 返回一个二维绘制上下文
+    const ctx = gameCanvas.getContext("2d");    
+
+    // 开始游戏
+    main();    
+
+    // 生成第一个食物位置
+    createFood();    
+
+    // 按下任意一个键，都会调用 changeDirection
+    document.addEventListener("keydown", changeDirection);    
+
+    /**
+     * 游戏的主函数
+     * 递归调用以推进游戏  
+     */
+    function main() {      
+
+    // 判定游戏结束时提前返回从而终止游戏
+      if (didGameEnd()) return;
+      setTimeout(function onTick() {
+        changingDirection = false;
+        clearCanvas();
+        drawFood();
+        advanceSnake();
+        drawSnake();        
+
+    // 再次调用 main
+        main();
+      }, GAME_SPEED)
+    }    
+
+    /**
+     * 设置画布的背景色为 CANVAS_BACKGROUND_COLOUR 
+     * 并绘制画布的边框
+     */
+    function clearCanvas() {      
+
+    //  选择画布的背景颜色
+      ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;      
+
+    //  选择画布的边框颜色
+      ctx.strokestyle = CANVAS_BORDER_COLOUR;      
+
+    // 绘制一个“实心的”长方形来覆盖整个画布
+      ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);      
+
+    // 绘制画布的“边框”
+      ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+    }    
+
+    /**
+     * 在画布上画食物
+     */
+    function drawFood() {
+      ctx.fillStyle = FOOD_COLOUR;
+      ctx.strokestyle = FOOD_BORDER_COLOUR;
+      ctx.fillRect(foodX, foodY, 10, 10);
+      ctx.strokeRect(foodX, foodY, 10, 10);
+    }    
+
+    /**
+     * 根据蛇的水平移动速度改变蛇的 x 坐标，
+     * 根据蛇的垂直移动速度改变蛇的 y 坐标
+     */
+    function advanceSnake() {      
+
+    // 绘制新的头部
+      const head = {x: snake[0].x + dx, y: snake[0].y + dy};      
+
+    // 将新的头部放到蛇身体的第一个部位
+      snake.unshift(head);      
+
+    const didEatFood = snake[0].x === foodX && snake[0].y === foodY;      
+
+    if (didEatFood) {        
+
+    // 增加分数
+        score += 10;        
+
+    // 在屏幕上显示分数
+        document.getElementById('score').innerHTML = score;        
+
+    // 生成新的食物
+        createFood();
+      } else {        
+
+    // 移除蛇的最后一个部分
+        snake.pop();
+      }
+    }    
+
+    /**
+     * 当蛇撞墙或者蛇头碰到蛇身的时候返回 true
+     */
+    function didGameEnd() {      
+
+    for (let i = 4; i < snake.length; i++) {        
+
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
+      }      
+
+        const hitLeftWall = snake[0].x < 0;      
+
+        const hitRightWall = snake[0].x > gameCanvas.width - 10;      
+
+        const hitToptWall = snake[0].y < 0;      
+
+        const hitBottomWall = snake[0].y > gameCanvas.height - 10;      
+
+        return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+    }    
+
+    /**
+     * 给定一个最大值和最小值，生成一个 10 的倍数的随机数     
+     * @param { number } min —— 随机数的下限
+     * @param { number } max —— 随机数的上限
+     */
+    function randomTen(min, max) {      
+
+        return Math.round((Math.random() * (max-min) + min) / 10) * 10;
+    }    
+
+    /**     
+     * 随机生成食物坐标
+     */
+    function createFood() {      
+
+    // 随机生成食物的 x 坐标
+      foodX = randomTen(0, gameCanvas.width - 10);      
+
+    // 随机生成食物的 y 坐标
+      foodY = randomTen(0, gameCanvas.height - 10);      
+
+    // 如果新生成的食物与蛇当前位置重叠，重新为食物生成一个位置
+      snake.forEach(function isFoodOnSnake(part) {        
+
+        const foodIsoNsnake = part.x == foodX && part.y == foodY;        
+
+        if (foodIsoNsnake) createFood();
+      });
+    }    
+
+    /**
+     * 在画布上画蛇
+     */
+    function drawSnake() {      
+
+        // 循环遍历蛇的每一部分，并将其绘制到画布上
+      snake.forEach(drawSnakePart)
+    }    
+
+    /**
+     * 在画布上画蛇的一个部分
+     * @param { object } snakePart —— 需要绘制的部位的所在坐标
+     */
+    function drawSnakePart(snakePart) {      
+
+    // 设置蛇身体的背景颜色
+      ctx.fillStyle = SNAKE_COLOUR;      
+
+    // 设置蛇身的边框色
+      ctx.strokestyle = SNAKE_BORDER_COLOUR;      
+
+    // 在蛇身坐标所在的位置，绘制“实心”的矩形以表示蛇      
+      ctx.fillRect(snakePart.x, snakePart.y, 10, 10);     
+
+     // 绘制蛇身的边框
+      ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+    }    
+
+     /**     
+     * 根据按下的键，改变蛇的水平移动速度和垂直移动速度
+     * 为了避免蛇反转，蛇的移动方向不能直接变成相反的方向，
+     * 比如说，当前方向是“向右”，那么下一个方向不能是“向左”
+     * @param { object } event —— 键盘事件
+     */
+    function changeDirection(event) {      
+
+     const LEFT_KEY = 37;      
+
+     const RIGHT_KEY = 39;      
+
+     const UP_KEY = 38;      
+
+     const DOWN_KEY = 40;      
+
+     /**
+       * 避免贪食蛇掉头
+       * 举个例子：
+       * 蛇正在向右移动。玩家按下向下键然后迅速地按下向左键。
+       * 此时蛇不会先向下移动一步，而会马上改变方向
+       */
+      if (changingDirection) return;
+      changingDirection = true;      
+
+     const keyPressed = event.keyCode;      
+
+     const goingUp = dy === -10;      
+
+     const goingDown = dy === 10;      
+
+     const goingRight = dx === 10;      
+
+     const goingLeft = dx === -10;      
+
+     if (keyPressed === LEFT_KEY && !goingRight) {
+        dx = -10;
+        dy = 0;
+      }      
+
+     if (keyPressed === UP_KEY && !goingDown) {
+        dx = 0;
+        dy = -10;
+      }      
+
+     if (keyPressed === RIGHT_KEY && !goingLeft) {
+        dx = 10;
+        dy = 0;
+      }      
+
+     if (keyPressed === DOWN_KEY && !goingUp) {
+        dx = 0;
+        dy = 10;
+      }
+    }  
+
+     
+</script>
+
+</html>

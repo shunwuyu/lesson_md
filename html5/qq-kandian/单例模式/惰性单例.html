@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function add() {
+      var num = 0;
+      return function () {
+        return num++;
+      }
+    }
+    const num = add();
+    console.log(num());
+    console.log(num());
+    console.log(num());
+    console.log(num());
+    // 特别是惰性单例模式，用到时才创建，再次用到是不需要再次创建
+    var createA = (function () {
+      var instance;
+      return function () {
+        if (!instance) {
+          //xxx
+          instance = 'A';
+        }
+        return instance;
+      };
+    })();
+    function render() {
+      let a = createA();
+      console.log(a);
+    }
+    render();
+    render();
+
+
+  </script>
+</body>
+
+</html>

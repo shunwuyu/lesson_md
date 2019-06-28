@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>rotate </title>
+  <style>
+  #box {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    margin: 200px auto;
+    /* transform: rotateZ(20deg); */
+    transform-origin: 0 0;
+    transition: transform .4s;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  }
+  .container {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    animation: moving 1s infinite;
+    animation-direction: alternate;
+  }
+  @keyframes moving {
+    0% {
+      transform: translateX(300px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  </style>
+</head>
+<body>
+  <div id="box">
+    我的
+  </div>
+  <div class="container">
+
+  </div>
+  <script>
+  const box = document.getElementById('box');
+  // rotateX
+  // setTimeout(() => {
+  //   box.style.transform = 'rotateX(20deg)';
+  // }, 200);
+
+  // rotateY
+  // setTimeout(() => {
+  //   box.style.transform = 'rotateY(20deg)';
+  // }, 200);
+
+  // rotateZ
+  setTimeout(() => {
+    box.style.transform = 'rotateZ(20deg)';
+  }, 200);
+  </script>
+</body>
+</html>

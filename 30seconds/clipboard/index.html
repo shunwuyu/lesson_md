@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+</head>
+<body>
+  <div>
+      代码的另外一处点睛之笔在于：如果用户选中了某段文字后点击复制内容到剪贴板的复制操作这段选中的文字就会消失掉，肥肥的大拇指在手机屏幕像选着文本内容一直是一件挺让人不舒服的操作，选中文字的消失十分影响用户体验。
+  </div>
+  <a class="btn" href="javascript:;">复制</a>
+  <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+  <script>
+  document.addEventListener('copy', copy);
+  function copy(oEvent) {
+    var text = oEvent.srcElement.innerHTML;
+    if (text) {
+      text += '\n-----------文本来自于天天晒';
+      oEvent.preventDefault();
+      oEvent.clipboardData.setData("text", text);
+    }
+  }
+  </script>
+</body>
+</html>

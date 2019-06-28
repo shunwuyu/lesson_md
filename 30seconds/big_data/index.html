@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>chunk</title>
+  <style>
+  .news > div {
+    text-align: center;
+    height: 50px;
+  }
+  </style>
+</head>
+<body>
+  <div class="news-header"></div>
+  <div class="news"></div>
+  <div class="news-footer"></div>
+  <script>
+  const chunk = (arr, size) =>
+  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+    arr.slice(i * size, i * size + size)
+  );
+  const originNews = Array.from(
+    { length: 10000 },
+    (v, k) => ({ content: `新闻${k}` })
+  )
+  let pageNum = Math.ceil(window.innerHeight / 50)
+  let page = 0 // 当前显示了第几页的数据
+  let news = chunk(originNews, pageNum)
+
+  const element = document.querySelector('.news');
+  const loadObserver = new IntersectionObserver((entries) => {
+    // 如果不可见，就返回
+    console.log(entries[0].intersectionRatio, '-------');
+    if (entries[0].intersectionRatio <= 0) {
+        return;
+    }
+
+    // 判断是否有上一页和下一页
+    const hasPrePage = page != 0
+    const hasNextPage = page != news.length - 1
+
+    const now = news[page]
+    const pre = hasPrePage ? news[page - 1] : []
+    const next = hasNextPage ? news[page + 1] : []
+
+    // 传递锚点的坐标 和 当前页面显示的数据
+    render(pre.length, [ ...pre, ...now, ...next ])
+    
+    // 判断是否需要翻页，且防止数组越界
+    page = entries[0].target.className == 'news-footer' || page === 0
+        ? (hasNextPage ? page + 1 : page)
+        : (hasPrePage ? page - 1 : page)
+  }, { threshold: [1] })
+
+  loadObserver.observe(document.querySelector('.news-header'))
+  loadObserver.observe(document.querySelector('.news-footer'))
+
+  
+
+  function render(last, data) {
+    element.innerHTML = ''
+
+    data.forEach((i, v) => element.innerHTML += v == last
+        ? `<div id="news-herf">${i.content}</div>`
+        : `<div>${i.content}</div>`
+    )
+
+    window.location.href = "#news-herf"
+  }
+
+  </script>
+</body>
+</html>

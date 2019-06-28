@@ -1,0 +1,86 @@
+.ui.hero {
+  background: #f0f0f0;
+}
+.ui.hero .item {
+  position: relative;
+  overflow: hidden;
+}
+.ui.hero .item .content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 696px;
+}
+.ui.hero .item .header {
+  font-size: 48px;
+  margin: 0;
+  margin-bottom: 16px;
+}
+.ui.hero .item .sub.header {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+.ui.hero .item .description {
+  font-size: 18px;
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+.ui.hero .item .image {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  object-fit: cover;
+  height: 696px;
+}
+.ui.hero .item .action {
+  margin-bottom: 32px;
+}
+.ui.hero .white {
+  color: #fff;
+}
+.ui.hero .big .header {
+  font-size: 56px;
+  letter-spacing: 8px;
+}
+.ui.hero .big .sub.header {
+  font-size: 24px;
+  letter-spacing: 16px;
+  font-family: "PingFangSC-Ultralight";
+}
+.ui.hero .bottom .content {
+  align-items: flex-end;
+  padding-bottom: 4%;
+}
+@media only screen and (max-width: 767px) {
+  .ui.hero .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .ui.hero .item .image {
+    position: inherit;
+    order: 1;
+    height: auto;
+  }
+  .ui.hero .item .content {
+    order: 2;
+    height: auto;
+    color: #000;
+    align-items: center;
+    min-height: 320px;
+  }
+  .ui.hero .item .header {
+    font-size: 36px;
+    letter-spacing: 4px;
+  }
+  .ui.hero .item .sub.header {
+    font-size: 16px;
+    letter-spacing: 8px;
+  }
+}

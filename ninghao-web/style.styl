@@ -1,0 +1,165 @@
+* 
+  margin 0
+  padding 0
+html,body
+  background #000
+  line-height 1.5
+  font-family "Open Sans","Segoe UI","Helvetica",sans-serif
+  -webkit-font-smoothing antialiased //这个属性可以使页面上的字体抗锯齿,使用后字体看起来会更清晰。加上之后就顿时感觉页面小清晰了。
+  padding-top 27px
+// -----------------------
+ul
+  li
+    list-style none
+a
+  text-decoration none
+.center
+  text-align center
+.very
+  padding 0
+  margin 0
+h3
+  font-family inherit
+  font-size 24.5px
+  font-weight 700
+  line-height 40px
+  color inherit
+  text-rendering optimizelegibility
+@media (min-width 1200px)
+  $jl30 = 30px
+  #mainbody
+    .container
+      width 1170px
+      .thumbnails
+        margin-left -($jl30)
+        li
+          margin-left $jl30
+@media (max-width 1200px)
+  $jl30 = 20px
+  #mainbody
+    .container
+      width 940px
+      .thumbnails
+        margin-left -($jl30)
+        li
+          margin-left $jl30
+        .span4
+          width 300px !important
+@media (max-width 980px)
+  $jl30 = 20px
+  #mainbody
+    .container
+      width 724px
+      .thumbnails
+        margin-left -($jl30)
+        li
+          margin-left $jl30
+        .span4
+          width 228px !important
+@media (max-width 768px)
+  $jl30 = 0px
+  #mainbody
+    .container
+      padding 0 30px
+      width 100%
+      box-sizing border-box
+      .thumbnails
+        margin-left -($jl30)
+        li
+          float none !important
+          margin-left $jl30
+        .span4
+          width 100% !important
+// ------------------------
+#mainbody
+  background #f8f8f8
+  .noise
+    background url(./white-noise.png)
+  .tag-menu
+    position relative
+    .menu
+      padding 0
+      border-bottom 1px solid #DDD
+      overflow visible
+      li
+        width 24.5%
+        text-align center
+        margin-right 0
+        display inline-block
+        list-style none
+        padding-top 5px
+        a
+          display block
+          color #808080
+          margin 0 0 -1px
+          padding 7px 23px
+          line-height 1.9
+          border-bottom 1px solid #ddd
+          cursor pointer
+        .active
+          color #000000
+
+  .very.relaxed
+    padding 60px 0 120px 0
+    .container
+      margin 0 auto
+      .maincontent
+        padding 20px 0
+        position relative
+        .thumbnails
+          margin-top 48px
+          overflow hidden
+          li
+            float left
+            margin-bottom 30px
+            margin-left $jl30
+          .span4
+            width 370px
+            .thumbnail
+              display block
+              background #fff
+              border 1px solid #f1f1f1
+              padding 0
+              border-radius 2px
+              line-height 20px
+              a
+                color #333333
+                div
+                  text-align center
+                .p20
+                  padding 20px
+                  img
+                    width 163px
+                    max-width 100%
+                    height auto
+                    vertical-align middle
+                    border 0
+                p
+                  font-size 16px
+                  opacity .75
+                  margin 0 0 20px
+              .meta
+                border-top 1px solid #f1f1f1
+                text-align left
+                background #fff
+                padding 10px
+                color #838383
+                .pull-right
+                  float right
+
+        .load-more
+          display block
+          padding 13px
+          background #FFF
+          color #8D8D8D
+          margin-bottom 20px
+          font-size 15px
+          box-sizing border-box
+          margin-top 20px
+          cursor pointer
+          &:hover
+            color #333
+            text-decoration none
+            background-position 0 -15px
+            transition background-position .1s linear
+            background-color #e6e6e6

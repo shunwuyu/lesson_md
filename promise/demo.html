@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function callback() {
+    //   console.log('Done');
+    // }
+    // console.log('before setTimeout()');
+    // setTimeout(callback, 1000); // 1秒钟后调用callback函数
+    // console.log('after setTimeout()');
+// ---------------------
+    function test(resolve, reject) {
+      var timeOut = Math.random() * 2;
+      // console.log('此时的时间是' + timeOut + '秒');
+      setTimeout(function () {
+        if (timeOut < 1) {
+          console.log('call resolve()...');
+          resolve('该次执行花费了' + timeOut + '秒');
+        }
+        else {
+          console.log('call reject()...');
+          reject('时间已经来到' + timeOut + '秒');
+        }
+      }, timeOut * 1000);
+    }
+    // test()
+    var p1 = new Promise(test)
+    // p1.then((result) => {
+    //   console.log('成功：' + result)
+    // })
+    var p2 = p1.then(function (result) {
+      console.log('成功：' + result);
+    });
+    p2.catch(function (reason) {
+      console.log('失败：' + reason);
+    });
+    // -------
+    // new Promise(test).then(function (result) {
+    //   console.log('成功：' + result);
+    // }).catch(function (reason) {
+    //     console.log('失败：' + reason);
+    // });
+// ----------------
+  </script>
+</body>
+</html>

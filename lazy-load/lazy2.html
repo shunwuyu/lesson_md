@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .list-item{
+      height: 400px; 
+      margin: 5px; 
+      list-style: none;
+    }
+    .list-item-img{
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+    <li class="list-item"><img class="list-item-img" alt="loading" data-src='http://img1.3lian.com/2015/a1/149/d/129.jpg'></li>
+    <li class="list-item"><img class="list-item-img" alt="loading" data-src='http://img15.3lian.com/2015/f2/57/d/96.jpg'></li>
+    <li class="list-item"><img class="list-item-img" alt="loading" data-src='http://img2.3lian.com/2014cf/f6/146/d/93.jpg'></li>
+    <li class="list-item"><img class="list-item-img" alt="loading" data-src='http://s9.knowsky.com/sc/mjpg/92/2013082412182770364.jpg'></li>
+    <li class="list-item"><img class="list-item-img" alt="loading" data-src='http://pic1.win4000.com/wallpaper/b/546441f1d83c2.jpg'></li>
+    <li class="list-item"><img class="list-item-img" alt="loading" data-src='http://img1.3lian.com/2015/w22/38/d/82.jpg'></li>
+
+    <script>
+        var observer = new IntersectionObserver(function(changes) {
+            console.log(changes);
+            changes.forEach(function(element, index) {
+                // statements
+                if (element.intersectionRatio > 0 && element.intersectionRatio <= 1) {
+                    element.target.src = element.target.dataset.src;
+                }
+            });
+        });
+
+
+        function addObserver() {
+            var listItems = document.querySelectorAll('.list-item-img');
+            listItems.forEach((item) => {
+                observer.observe(item);
+            });
+        }
+
+        addObserver();
+    </script>
+  <!-- <script>
+    function LazyLoad (images, options = {}) {
+      if (!(this instanceof LazyLoad)) {
+        return new LazyLoad(images, options)
+      }
+      this.setting = Object.assign({}, { src: 'data-src', srcset: 'data-srcset', selector: '.lazyload' }, options)
+      this.images = images || document.querySelectorAll(this.setting.selector)
+      this.observer = null
+      this.init()
+    }
+
+    LazyLoad.prototype.init = function () {
+      let self = this
+      let observerConfig = {
+        root: null,
+        rootMargin: '0px',
+        threshold: [0]
+      }
+      this.observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const target = entry.target
+          if (entry.intersectionRatio > 0) {
+            this.observer.unobserve(target)
+            const src = target.getAttribute(this.setting.src)
+            const srcset = target.getAttribute(this.setting.srcset)
+            if ('img' === target.tagName.toLowerCase()) {
+              if (src) {
+                target.src = src
+              }
+              if (srcset) {
+                target.srcset = srcset
+              }
+            } else {
+              target.style.backgroundImage = `url(${src})`
+            }
+          }
+        })
+      }, observerConfig)
+
+      this.images.forEach(image => this.observer.observe(image))
+    }
+  </script> -->
+</body>
+</html>
