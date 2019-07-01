@@ -1,0 +1,9 @@
+<%- include('header')%>
+  <h1><%= name.toUpperCase() %></h1>
+  <p>hello, <%= name%></p>
+  <ul>
+    <% for (var i = 0; i < supplies.length; i++) { %>
+    <li><%= supplies[i] %></li>
+    <% } %>  
+  </ul>
+<%- include('footer')%>

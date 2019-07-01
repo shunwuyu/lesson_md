@@ -1,0 +1,17 @@
+{
+  "name": "jest-test-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "jest": "^24.8.0",
+    "rewire": "^4.0.1"
+  }
+}

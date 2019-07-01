@@ -1,3 +1,15 @@
+- [层序遍历](https://github.com/azl397985856/leetcode/blob/master/problems/102.binary-tree-level-order-traversal.md)  
+- REST API
+- [umi](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
+- [对称树](https://github.com/paopao2/leetcode-js/blob/master/Symmetric%20Tree.js)
+- [leetcode94 二叉树的中序遍历](https://juejin.im/post/5ccfde04f265da035c6bd9b3)
+- [cors]
+- [reack hooks todo](https://juejin.im/post/5d0b7abff265da1b7e103e3c)
+- [hapi]
+- 排序算法
+[vue2-element-touzi-admin](https://github.com/wdlhao/vue2-element-touzi-admin)
+[leetcode 21题 merge-two-sorted-lists.js](https://github.com/lessfish/leetcode/blob/master/Algorithms/Merge%20Two%20Sorted%20Lists/merge-two-sorted-lists.js)
+[webpack optimize](https://github.com/teabyii/webpack-examples/tree/master/optimize)
 [LeetCode第26号问题：删除排序数组中的重复项.md](https://github.com/MisterBooo/LeetCodeAnimation/blob/master/notes/LeetCode%E7%AC%AC26%E5%8F%B7%E9%97%AE%E9%A2%98%EF%BC%9A%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9.md)
 [simple vue router](https://juejin.im/post/5b35dcb5f265da59a117344d)
 [history 源码实现](https://juejin.im/post/5b330142e51d4558b10a9cc5)
@@ -75,3 +87,8 @@
 33. ~~[括号匹配]~~   leetcode/valid_parentheses
 34. ~~[weui-cell](https://juejin.im/weui-cell)~~ css/weui-cell 
 35. ~~[大白](https://juejin.im/post/5c77ab9f5188253ec91e2830)~~ css/dabai 
+
+
+1. 去名企， 项目经验弥补学校， 要有实习经验， 搭建合作, 走向低年级
+2. 提前收割东理， 1.2万， 学一年
+3. 标准化课程 再升级， 培训体制化。 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>defineProperty</title>
+</head>
+
+<body>
+
+  <body>
+    <span id="container">1</span>
+    <button id="button">点击加 1</button>
+  </body>
+  <script>
+    var obj = {};
+    Object.defineProperty(obj, "isLogin", {
+      value: false,
+      // writable: true,
+      enumerable: false,
+      configurable: false
+    });
+    // writable false obj.isLogin
+    // writable 为 true 时，该属性才能被赋值运算符改变 默认为 false。
+    for (let key in obj) {
+      console.log('key->', key, obj[key]);
+    }
+    // enumerable
+    // enumerable 为 true 时，该属性才能够出现在对象的枚举属性中。默认为 false。
+
+    // configurable
+    // 如果为false，则任何尝试删除目标属性或修改属性以下特性（writable, configurable, enumerable）的行为将被无效化
+    // 注意 writable 优先级会更高
+    obj.isLogin = true;
+    delete obj.isLogin;
+    // 存取描述符
+    // let value = '';
+    Object.defineProperty(obj, 'uname', {
+      get: function () {
+        console.log('获取了 uname属性');
+        return value;
+      },
+      set: function (val) {
+        console.log('设置了 uname属性');
+        value = val;
+      }
+    })
+    setTimeout(() => {
+      obj.uname = 123456
+    }, 2000);
+
+
+    // 传统做法
+    // document.getElementById('button').addEventListener("click", function(){
+    //     var container = document.getElementById("container");
+    //     container.innerHTML = Number(container.innerHTML) + 1;
+    // });
+    var container = {
+      value: 1
+    }
+    // 储存 obj.value 的值
+    var value = 1;
+    Object.defineProperty(obj, "value", {
+      get: function () {
+        return value;
+      },
+      set: function (newValue) {
+        value = newValue;
+        document.getElementById('container').innerHTML = newValue;
+      }
+    });
+
+    document.getElementById('button').addEventListener("click", function() {
+        obj.value += 1;
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>proxy</title>
+</head>
+
+<body>
+  <script>
+    var proxy = new Proxy({}, {
+      get: function (obj, prop) {
+        console.log('设置 get 操作');
+        return obj[prop];
+      },
+      set: function (obj, prop, value) {
+        console.log('设置 set 操作');
+        obj[prop] = value;
+      }
+    });
+
+    proxy.time = 35; // 设置 set 操作
+
+    console.log(proxy.time); // 设置 get 操作 // 35
+
+    /*
+    function watch(target, func) {
+
+      var proxy = new Proxy(target, {
+        get: function (target, prop) {
+          return target[prop];
+        },
+        set: function (target, prop, value) {
+          target[prop] = value;
+          func(prop, value);
+        }
+      });
+
+      return proxy;
+    }
+    var obj = {
+    value: 1
+}
+
+  var newObj = watch(obj, function(key, newvalue) {
+      if (key == 'value') document.getElementById('container').innerHTML = newvalue;
+  })
+
+  document.getElementById('button').addEventListener("click", function() {
+      newObj.value += 1
+  });
+    */
+  </script>
+</body>
+
+</html>
