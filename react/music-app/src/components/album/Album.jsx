@@ -1,14 +1,14 @@
-import React from "react"
+import React from "react";
 import ReactDOM from 'react-dom';
-import { CSSTransition } from "react-transition-group"
-import Header from "@/common/header/Header"
-import Scroll from "@/common/scroll/Scroll"
-import Loading from "@/common/loading/Loading"
-import { getAlbumInfo } from "@/api/recommend"
-import { CODE_SUCCESS } from "@/api/config"
-import { getSongVKey } from "@/api/song"
-import * as AlbumModel from "@/model/album"
-import * as SongModel from "@/model/song"
+import { CSSTransition } from "react-transition-group";
+import Header from "@/common/header/Header";
+import Scroll from "@/common/scroll/Scroll";
+import Loading from "@/common/loading/Loading";
+import { getAlbumInfo } from "@/api/recommend";
+import { CODE_SUCCESS } from "@/api/config";
+import { getSongVKey } from "@/api/song";
+import * as AlbumModel from "@/model/album";
+import * as SongModel from "@/model/song";
 import "./album.styl"
 
 class Album extends React.Component {
@@ -24,6 +24,17 @@ class Album extends React.Component {
     }
   }
   /**
+ * 播放全部
+ */
+playAll = () => {
+  if (this.state.songs.length > 0) {
+      //添加播放歌曲列表
+      this.props.setSongs(this.state.songs);
+      this.props.changeCurrentSong(this.state.songs[0]);
+      this.props.showMusicPlayer(true);
+  }
+}
+  /**
  * 选择歌曲
  */
   selectSong(song) {
@@ -38,6 +49,7 @@ class Album extends React.Component {
         if (res.code === CODE_SUCCESS) {
           if (res.data.items) {
             let item = res.data.items[0];
+            // http://dl.stream.qqmusic.qq.com/C4000040d46h30h1sA.m4a?vkey=E16060E12C3F800E65C6616D1A71492A8A89F52FFC7CCC717402A28A58EDE4CE3D5D8C15C8EA8E2AC34261B255722B11D348E4E97A571A71&guid=3655047200&fromtag=66
             song.url = `http://dl.stream.qqmusic.qq.com/${item.filename}?vkey=${item.vkey}&guid=3655047200&fromtag=66`
           }
         }
@@ -60,6 +72,7 @@ class Album extends React.Component {
           let songList = res.data.list;
           let songs = [];
           songList.forEach(item => {
+            // 这一步没有产生 歌曲 url
             let song = SongModel.createSong(item);
             //获取歌曲vkey
             this.getSongUrl(song, item.songmid);
@@ -105,7 +118,7 @@ class Album extends React.Component {
             <div className="play-wrapper" ref="playButtonWrapper">
               <div className="play-button">
                 <i className="icon-play"></i>
-                <span>播放全部</span>
+                <span onClick={this.playAll}>播放全部</span>
               </div>
             </div>
           </div>
