@@ -29,10 +29,10 @@ class Player extends React.Component {
   }
   componentDidUpdate() {
     //兼容手机端canplay事件触发后第一次调用play()方法无法自动播放的问题
-    if (this.isFirstPlay === true) {
-      this.audioDOM.play();
-      this.isFirstPlay = false;
-    }
+    // if (this.isFirstPlay === true) {
+    //   this.audioDOM.play();
+    //   this.isFirstPlay = false;
+    // }
   }
   componentDidMount() {
     this.audioDOM = ReactDOM.findDOMNode(this.refs.audio);
@@ -254,13 +254,12 @@ class Player extends React.Component {
   }
   render() {
     // this.currentIndex = this.props.currentIndex;
-
+    console.log('this.render', this.state.playProgress);
     //从redux中获取当前播放歌曲
     if (this.props.currentSong && this.props.currentSong.url) {
       //当前歌曲发发生变化
       if (this.currentSong.id !== this.props.currentSong.id) {
         this.currentSong = this.props.currentSong;
-        console.log('this.audioDOM', this.audioDOM);
         this.audioDOM.src = this.currentSong.url;
         //加载资源，ios需要调用此方法
         this.audioDOM.load();
@@ -284,6 +283,7 @@ class Player extends React.Component {
             this.playerDOM.style.display = "none";
           }}>
           <div className="player" ref="player">
+            {/* 头 start */}
             <div className="header">
               <span className="header-back" onClick={this.hidePlayer}>
                 <i className="icon-back"></i>
@@ -292,11 +292,14 @@ class Player extends React.Component {
                 {song.name}
               </div>
             </div>
+            {/* 头 end */}
+            {/* 歌手名字 */}
             <div className="singer-top">
               <div className="singer">
                 <div className="singer-name">{song.singer}</div>
               </div>
             </div>
+            {/* 歌曲封面 */}
             <div className="singer-middle">
               <div className="singer-img" ref="singerImg">
                 <img src={playBg} alt={song.name} onLoad={
@@ -307,8 +310,11 @@ class Player extends React.Component {
                 } />
               </div>
             </div>
+            {/* 操作区域 */}
             <div className="singer-bottom">
+              {/* 控制区域 */}
               <div className="controller-wrapper">
+                {/* 进度条 */}
                 <div className="progress-wrapper">
                   <span className="current-time">{getTime(this.state.currentTime)}</span>
                   <div className="play-progress">
@@ -318,6 +324,7 @@ class Player extends React.Component {
                   </div>
                   <span className="total-time">{getTime(song.duration)}</span>
                 </div>
+                {/* 操作区域 */}
                 <div className="play-wrapper">
                   <div className="play-model-button" onClick={this.changePlayMode}>
                     <i className={"icon-" + this.playModes[this.state.currentPlayMode] + "-play"}></i>
@@ -342,10 +349,10 @@ class Player extends React.Component {
           </div>
         </CSSTransition>
         <MiniPlayer song={song} progress={this.state.playProgress}
-                            playOrPause={this.playOrPause}
-                            next={this.next}
-                            showStatus={this.props.showStatus}
-                            showMiniPlayer={this.showPlayer}/>
+          playOrPause={this.playOrPause}
+          next={this.next}
+          showStatus={this.props.showStatus}
+          showMiniPlayer={this.showPlayer} />
       </div>
     );
   }
