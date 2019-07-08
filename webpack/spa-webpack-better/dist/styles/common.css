@@ -1,0 +1,5 @@
+.test {
+  --fontColor: yellowgreen;
+  color: var(--fontColor);
+  color: aqua;
+}

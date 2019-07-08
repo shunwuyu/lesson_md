@@ -2,9 +2,12 @@ import React from "react"
 import ReactDOM from "react-dom"
 import PropTypes from "prop-types"
 
-import "./progress.styl"
+import "./progress.css"
 
 class Progress extends React.Component {
+  state={
+    progressBarWidth: 0
+  }
     componentDidUpdate() {
         //组件更新后重新获取进度条总宽度
         if (!this.progressBarWidth) {
@@ -14,9 +17,12 @@ class Progress extends React.Component {
     componentDidMount() {
         let progressBarDOM = ReactDOM.findDOMNode(this.refs.progressBar);
         let progressDOM = ReactDOM.findDOMNode(this.refs.progress);
-        let progressBtnDOM = ReactDOM.findDOMNode(this.refs.progressBtn);
+        let progressBtnDOM = this.refs.progressBtn;
         this.progressBarDOM = progressBarDOM;
         this.progressBarWidth = progressBarDOM.offsetWidth;
+        this.setState({
+          progressBarWidth: this.progressBarWidth
+        })
         let {disableButton, disableDrag, onDragStart, onDrag, onDragEnd} = this.props;
         if (disableButton !== true && disableDrag !== true) {
             //触摸开始位置
@@ -64,15 +70,15 @@ class Progress extends React.Component {
     render() {
         //进度值：范围 0-1
         let {progress, disableButton}  = this.props;
+        const { progressBarWidth } = this.state;
         if (!progress) progress = 0;
 
         //按钮left值
         let progressButtonOffsetLeft = 0;
         
-        if(this.progressBarWidth){
+        if(progressBarWidth){
             progressButtonOffsetLeft = progress * this.progressBarWidth;
         }
-        console.log('p r', this.progressBarDOM, progressButtonOffsetLeft);
         return (
             <div className="progress-bar" ref="progressBar">
                 <div className="progress-load"></div>

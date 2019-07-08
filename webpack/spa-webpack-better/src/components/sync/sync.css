@@ -1,0 +1,8 @@
+.test {
+  --fontColor: yellowgreen;
+  color: var(--fontColor);
+  color: aqua;
+}
+.header-name-login {
+  color: red;
+}
