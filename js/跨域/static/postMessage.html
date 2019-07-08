@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <iframe src="http://localhost:8080"  id="otherPage">
+    </iframe>
+  </div>
+  <script>
+    // otherWindow.postMessage(message, targetOrigin, [transfer]);
+    // otherWindow
+    // 窗口的一个引用,比如iframe的contentWindow属性,
+    // 执行window.open返回的窗口对象,或者是命名过的或数值索引的window.frames
+    window.onload = function() {
+      var iframeWin = document.getElementById("otherPage").contentWindow;
+      console.log(location.origin);
+      iframeWin.postMessage({id: '123'}, 'http://localhost:8080');
+      // 监听跨域请求的返回
+      window.addEventListener("message", function (event) {
+        console.log(event, event.data);
+      }, false);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,2 +1,6 @@
-- 简单入门  page   build
-- 
+render() {
+
+  return(
+    <Noticafatiob show={state}>
+  )
+}
