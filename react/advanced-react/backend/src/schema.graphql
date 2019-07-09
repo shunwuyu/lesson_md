@@ -1,0 +1,12 @@
+type SuccessMessage {
+  message: String
+}
+
+type Mutation {
+  createItem(title: String, description: String, price: Int, image: String, largeImage: String): Item!
+}
+
+type Query {
+  items(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, first: Int): [Item]!
+}
+
