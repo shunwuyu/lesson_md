@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = 'hello',
+      b = 123,
+      c = true,
+      d = undefined,
+      e = null,
+      // ------
+      f = {},
+      g = [],
+      h = function () { };
+    console.log(typeof (b))
+    console.log(b instanceof Number)
+    // --------------------------------------------
+    //  显式原型：prototype 隐式原型：__proto__
+    // __proto__ 是每个实例都有的属性，可以访问 [[prototype]] 属性。
+    // 实例的__proto__ 与其构造函数的prototype指向的是同一个对象
+    function Student(name) {
+      this.name = name;
+    }
+    Student.prototype.setAge = function () {
+      this.age = 20;
+    }
+    let Jack = new Student('jack');
+    console.log(Jack.__proto__);
+    //console.log(Object.getPrototypeOf(Jack));;
+    console.log(Student.prototype);
+    console.log(Jack.__proto__ === Student.prototype);//true
+    // --------------------------------------------
+
+
+    // instanceof 原理
+    // L instanceof R
+    function instance_of(L, R) {//L 表示左表达式，R 表示右表达式
+      var O = R.prototype;// 取 R 的显式原型
+      L = L.__proto__;    // 取 L 的隐式原型
+      while (true) {
+        if (L === null) //已经找到顶层
+          return false;
+        if (O === L)   //当 O 严格等于 L 时，返回 true
+          return true;
+        L = L.__proto__;  //继续向上一层原型链查找
+      }
+    }
+    console.log(instance_of(123, Object))
+
+    //准确判断数据类型
+    Object.prototype.toString.call(1) // number  
+    //Object.prototype.toString取得对象的一个内部属性[[Class]]，
+    // 然后依据这个属性，返回一个类似于 "[object Array]"，
+    // 然后.call将作用域放到这个 [object Array]里面去我们可以取得任何对象的内部属性 [[Class]]，然后把类型检测转化为字符串比较，以达到我们的目的
+    
+
+    // toString为Object的原型方法，而Array 、Function等类型作为Object的实例，都重写了toString方法
+    // 任何对象都有String()方法
+    // true.toString();//"true"
+    // 接下来的三个例子都是以重写的方式实现了toString()方法：
+
+    // var arr = ["tom",12,"rose",18];
+    // console.log(arr.toString());//"tom,12,rose,18"
+
+    // var patten = new RegExp("\\[hbc\\]at", "gi");
+    // console.log(patten.toString());//"/\[hbc\]at/gi"
+
+    // var date = new Date(2014,02,26);//注意这种格式创建的日期，其月份是3月
+    // console.log(date.toString());//"Wed Mar 26 2014 00:00:00 GMT+0800"输出格式因浏览器不同而不同，此为firefox的输出格式；
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 数组去重 -->
+  <!-- uniq([1, 2, 3, 5, 3, 2]);//[1, 2, 3, 5] -->
+  <script>
+    function uniq (array) {
+      return [...new Set(array)] //es6 新增的Set类似于数组，但是成员的值都是唯一的，没有重复的值
+    }
+    console.log(uniq([1, 2, 3, 5, 3, 2]))
+    
+  </script>
+</body>
+</html>

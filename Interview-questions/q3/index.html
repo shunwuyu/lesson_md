@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 浅拷贝和深拷贝 -->
+  <script>
+  // 浅拷贝只拷贝一层，
+    let obj = {
+      name: '蜗牛',
+      age: 26,
+      like: ['sing', 'reading']
+    }
+    let obj2 = Object.assign({}, obj)
+    // console.log(obj2)
+    let obj3 = {...obj}
+    // 相当于
+    // let obj3 = {name: '蜗牛',age: 26,like: ['sing', 'reading']}
+    // console.log(obj3)
+    // obj.name = '蜗牛小生'
+    // obj.like.push('coding')
+    console.log(obj2)
+    console.log(obj3)
+  // 而深拷贝是层层拷贝，（深拷贝是将对象及值复制过来例如： JSON.parse()和JSON.stringify()）
+    let obj4 = JSON.parse(JSON.stringify(obj))
+    obj.name = '蜗牛小生'
+    obj.like.push('coding')
+    console.log(obj4)
+  </script>
+  <!-- <script>
+    // 数组解构的意义：
+    function example() {
+      return [1, 2, 3];
+    }
+    // let a = example()[0]
+    let [a, b, c] = example();
+    console.log(a)
+
+    // 返回一个对象
+    function example2() {
+      return {
+        foo: 'hello',
+        bar: 'world'
+      };
+    }
+    let foo = example2().foo
+    // let { foo, bar } = example2();
+    console.log(foo)
+  </script> -->
+</body>
+
+</html>
