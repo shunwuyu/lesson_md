@@ -11,63 +11,53 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-image: url("https://images.unsplash.com/photo-1440613905118-99b921706b5c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=255b304482a2f50d0917f3de7b06251e");
+  background-image: url("https://images.unsplash.com/photo-1440613905118-99b921706b5c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=255b304482a2f50d0917f3de7b06251e%27");
   background-repeat: no-repeat;
   background-size: auto 100%;
 }
 .page_hd {
   width: 1.866667rem /* 70/37.5 */;
-  height: 0.555555rem;
-  margin: 2.962962rem auto;
+  height: 0.555rem;
   color: #fff;
-  font-size: 0.462962rem;
+  font-size: 0.46rem;
+  margin: 2.96rem auto;
+}
+.page_content_number {
+  width: 6.96rem;
+  display: flex;
+  margin-left: 1.45rem;
 }
 .number {
-  width: 1.629629rem;
-  height: 1.629629rem;
-  margin-bottom: 0.722222rem;
-  font-size: 25px;
-  font-weight: 100;
-  text-align: center;
-  line-height: 1.629629rem;
-  color: #e8ffff;
-  border: 2px solid #81969c;
+  width: 1.62rem;
+  height: 1.62rem;
+  line-height: 1.62rem;
   border-radius: 50%;
+  border: 2px solid #81969c;
+  font-size: 25px;
+  text-align: center;
+  font-weight: 100;
+  color: #e8ffff;
+  margin-bottom: 0.72rem;
 }
-.page_content {
-  position: relative;
-  margin-top: 2.592592rem;
-}
-.page_content__number {
-  display: flex;
-  width: 6.962962rem;
-  height: 6.333333rem;
-  margin-left: 1.458518rem;
-}
+.numbermid,
 .numberleft {
-  margin-right: 1.037037rem;
-}
-.numbermid {
-  margin-right: 1.037037rem;
-}
-.zero {
-  margin-top: 0.722222rem;
-  margin-left: 4.185185rem;
+  margin-right: 1.03rem;
 }
 .page_foot {
-  position: relative;
-  width: 100%;
-  height: 0.592592rem;
-  margin-bottom: 0.259259rem;
+  display: flex;
+  padding-top: 0.59rem;
+  margin-bottom: 0.259rem;
 }
-.page_foot__left {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.444444rem;
-  display: inline-block;
-  margin-left: 0.185185rem;
-  margin-right: 6.881851rem;
-}
+.page_font,
+.page_foot__left,
 .page_foot__right {
   color: rgba(255,255,255,0.5);
-  font-size: 0.444444rem;
+  font-size: 0.444rem;
+}
+.page_foot__left {
+  margin-left: 0.25rem;
+  flex: 1;
+}
+.page_foot__right {
+  width: 1.88rem;
 }
