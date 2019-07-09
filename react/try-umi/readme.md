@@ -1,6 +1,3 @@
-- 简单入门  
-
-
 render() {
 
   return(

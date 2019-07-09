@@ -1,0 +1,23 @@
+{
+  "name": "date-picker",
+  "version": "0.1.0",
+  "description": "[source](https://github.com/meathill-lecture/date-picker/tree/master/date-picker)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require babel-core/register",
+    "stylus:watch": "mkdir css & stylus -w -m styl/ -o css/",
+    "lint": "eslint ./app --cache --ignore-pattern .gitignore",
+    "dev": "node live-server.js"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "babel-register": "^6.26.0",
+    "mocha": "^6.1.4",
+    "should": "^13.2.3"
+  }
+}
