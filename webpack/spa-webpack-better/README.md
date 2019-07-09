@@ -39,3 +39,11 @@ webpack 用来连接模块化应用程序所需的所有代码,方法
 ## 上线
 1. 压缩 new UglifyJsPlugin
 2. es6 不编译 编译过后变大 不优雅 3 行变 6行
+3. 解决 es6 可以 使用 polyfill
+4. 前端缓存小负载 webpack-manifest-plugin
+5. 真正的 loading 得到所有的资源 计算到底加载了多少
+6. 分析打包结果
+7. test exclude include
+8. 压缩 css js happypack 
+9. devtool eval
+10. cacahe-loader

@@ -1,0 +1,20 @@
+{
+  "name": "webpack-core-MD",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  },
+  "dependencies": {
+    "acorn": "^6.2.0",
+    "acorn-walk": "^6.2.0"
+  }
+}

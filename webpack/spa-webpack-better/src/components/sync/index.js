@@ -9,7 +9,9 @@ const sync = function() {
   .then(res => {
     console.log('/api/test->', res);
   })
-  // document.getElementById('app').innerHTML= `<h1 class="${item.test}">hello</h1>`
+  setTimeout(() => {
+    document.getElementById('app').innerHTML= `<h1 class="${item.test}">hello</h1>`
+  }, 2000);
 }
 const isArrayTest = function(arg) {
   // 分析不到

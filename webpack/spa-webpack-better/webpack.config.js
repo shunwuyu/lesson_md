@@ -6,6 +6,7 @@ const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 // 通知
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const smp = new SpeedMeasurePlugin();
 const argv = require('yargs-parser')(process.argv);
 const merge = require('webpack-merge');
@@ -14,6 +15,9 @@ const _modeFlag = (_mode == 'production' ? true : false)
 const _mergeConfig = require(`./config/webpack.${_mode}.js`);
 const glob = require('glob');
 const path = require('path');
+const loading = {
+  html: '加载中...'
+}
 console.log('__mode', _mode);
 const webpackConfig = {
   entry: [
@@ -79,6 +83,7 @@ const webpackConfig = {
   },
   plugins: [
     new ProgressBarPlugin(),
+    new ManifestPlugin(),
     new WebpackBuildNotifierPlugin({
       title: "京程一灯Webpack",
       // logo: path.resolve("./img/favicon.png"),
@@ -86,7 +91,8 @@ const webpackConfig = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.html'
+      template: './src/index.html',
+      loading
     }),
     // new WebpackDeepScopeAnalysisPlugin(),
     // new CleanWebpackPlugin(['dist']),
