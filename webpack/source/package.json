@@ -1,0 +1,21 @@
+{
+  "name": "source",
+  "version": "0.1.0",
+  "description": "[source](https://juejin.im/post/5b4609f5e51d4519596b66a7)",
+  "main": "bundler.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "yushunwu <shunwu2001@163.com> (https://shunwuyu.github.io)",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/parser": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/traverse": "^7.5.0"
+  }
+}

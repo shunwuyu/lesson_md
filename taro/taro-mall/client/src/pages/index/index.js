@@ -29,6 +29,13 @@ class Index extends Component {
         <View className='index-search_into'>
           <SearchInto placeholder='搜索框' type='index' />
         </View>
+        <ScrollView
+          scrollY
+          className='index_list'>
+          {
+
+          }
+        </ScrollView>
       </View>
     )
   }
