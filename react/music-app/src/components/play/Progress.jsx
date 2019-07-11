@@ -16,9 +16,7 @@ class Progress extends React.Component {
         let progressDOM = ReactDOM.findDOMNode(this.refs.progress);
         let progressBtnDOM = ReactDOM.findDOMNode(this.refs.progressBtn);
         this.progressBarDOM = progressBarDOM;
-        console.log('progressBarDOM', progressBarDOM);
         this.progressBarWidth = progressBarDOM.offsetWidth;
-
         let {disableButton, disableDrag, onDragStart, onDrag, onDragEnd} = this.props;
         if (disableButton !== true && disableDrag !== true) {
             //触摸开始位置

@@ -25,7 +25,7 @@ export default class TouchableOpacity extends Component{
     return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state), fromJS(nextState))
   }
   
-  render(){
+  render() {
     return (
       <div className={`btn-con ${this.props.className}`} onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} ref='btn'>{this.props.text||'确认'}</div>
     );
