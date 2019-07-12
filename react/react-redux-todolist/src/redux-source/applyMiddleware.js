@@ -18,6 +18,7 @@ import compose from './compose'
  */
 export default function applyMiddleware(...middlewares) {
   return createStore => (...args) => {
+    // 接收 createStore 参数
     const store = createStore(...args)
     let dispatch = () => {
       throw new Error(
@@ -25,13 +26,21 @@ export default function applyMiddleware(...middlewares) {
           'Other middleware would not be applied to this dispatch.'
       )
     }
-
+    // 传递给中间件的参数
     const middlewareAPI = {
       getState: store.getState,
-      dispatch: (...args) => dispatch(...args)
+      dispatch: (...args) => {
+        // 收到 args 为：一个action 
+        // dispatch 为： action => { // thunk 函数体  }
+        return dispatch(...args)
+      }
     }
+    // // 注册中间件调用链，并由此可知，所有的中间件最外层函数接收的参数都是{getState,dispatch}
+    // chain:[next => {}, next => {}]
+    // 从后往前执行，会把后面的执行结果交给前面这个中间件
     const chain = middlewares.map(middleware => middleware(middlewareAPI))
-    dispatch = compose(...chain)(store.dispatch)
+    var aaa = compose(...chain);
+    dispatch = aaa(store.dispatch)
 
     return {
       ...store,

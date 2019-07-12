@@ -29,7 +29,6 @@ import isPlainObject from './utils/isPlainObject'
  * and subscribe to changes.
  */
 export default function createStore(reducer, preloadedState, enhancer) {
-  console.log('createStore', reducer);
   if (
     (typeof preloadedState === 'function' && typeof enhancer === 'function') ||
     (typeof enhancer === 'function' && typeof arguments[3] === 'function')
@@ -50,7 +49,6 @@ export default function createStore(reducer, preloadedState, enhancer) {
     if (typeof enhancer !== 'function') {
       throw new Error('Expected the enhancer to be a function.')
     }
-
     return enhancer(createStore)(reducer, preloadedState)
   }
 
@@ -206,7 +204,6 @@ export default function createStore(reducer, preloadedState, enhancer) {
     try {
       isDispatching = true
       currentState = currentReducer(currentState, action)
-      console.log('currentState', currentState);
     } finally {
       isDispatching = false
     }
