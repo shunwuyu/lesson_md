@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<!--闭包-->
+<script>
+    // function foo() {
+    //   var a = 2
+    //   function fn() {
+    //     console.log(a)
+    //     let b = a
+    //     return b
+    //   }
+    //   return fn()
+    // }
+    // foo()
+    // let func = foo()
+    // func()
+    var a = []
+    for (var i = 0; i < 10; i++) {
+        a[i] = (function(j) {
+            return function() {
+                console.log(j)
+            }
+        })(i)
+    }
+    a[6]()
+</script>
+</body>
+</html>
