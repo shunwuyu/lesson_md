@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    // import main from './main.js';
+    // console.log(main.a, main.b);
+    import main, {c, d} from './main.js';
+    console.log(main, c, d);
+    import * as lib from './main.js';
+    console.log('lib', lib.c, lib.d, lib.default);
+    import('./dynamic.js')
+    .then(_ => {
+      console.log('dynamic module', _);
+    })
+    // import lib2 from './cjs.js';
+    // console.log('cjs', lib2);
+    import { dynamic, main1 } from './learnFromReactRouter.js';
+    console.log('dynamic', dynamic, main1);
+    </script>
+</body>
+</html>

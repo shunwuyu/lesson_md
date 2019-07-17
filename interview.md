@@ -73,3 +73,12 @@
 
 ## 参考
 [http,性能优化,react,proxy,掘金链接](https://juejin.im/user/58d8cd0644d9040069433edb/posts)
+
+
+
+## 牛客面经
+[字节跳动前端实习生(非科班已定offer)三技术面+一HR面](https://www.nowcoder.com/discuss/201256?type=0&order=4&pos=18&page=1)
+[字节跳动一面，二面总结（前端技术岗）](https://www.nowcoder.com/discuss/204829?type=2&order=0&pos=24&page=1)
+## github 博客
+[funfish 博客 有关于react](https://github.com/funfish/blog)
+[汤姆大叔的博客](https://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
