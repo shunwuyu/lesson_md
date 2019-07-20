@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      // let result = {
+      //   data: {
+      //     id: '123',
+      //     name: 'ysw',
+      //     avatar: 'https://user-gold-cdn.xitu.io/2016/11/29/1f8696de1b039644cd832953cca8f38d?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1'
+      //   }
+      // }
+      // document.cookie = "id="+result.data['id']+"; path=/";
+      // document.cookie = "name="+result.data['name']+"; path=/";
+      // document.cookie = "avatar="+result.data['avatar']+"; path=/";
+      // var cookie = document.cookie;
+      // var cookieArr = cookie.split(";");
+      // var user_info = {};
+      // for(var i = 0; i < cookieArr.length; i++) {
+      //   user_info[cookieArr[i].split("=")[0]] = cookieArr[i].split("=")[1];
+      // }
+      // console.log(user_info);
+    // function addCookie(name,mess, days) {
+    //   var exp = new Date();
+    //   exp.setTime(exp.getTime() + days * 24 * 60 * 60 * 1000);
+    //   document.cookie = name + "=" + escape(mess) + ";expires=" + exp.toGMTString()+";path= /";
+    // }
+    // addCookie('hehe', '123', 1  );
+
+    function delCookie(name) {
+      var exp = new Date();
+      exp.setTime(exp.getTime()- 1);
+      // var cval = common.getCookie("token");
+      // if (cval != null)
+        // console.log(document.cookie)
+        // console.log("token=null;expires=" + exp.toGMTString())
+        　　// document.cookie ="token=" + escape(cval) + ";expires=" + exp.toGMTString();
+      document.cookie = name + "=null;expires=" + exp.toGMTString()+";path= /";
+      // console.log(document.cookie)
+    }
+    delCookie('hehe');
+    
+</script>
+</body>
+</html>

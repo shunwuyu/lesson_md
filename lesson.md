@@ -1,3 +1,5 @@
+- [进程与线程](https://www.cnblogs.com/lixiaolun/p/4320843.html)  https://lucifer.ren/fe-interview/#/./topics/os/memory/allocation
+- [virtual dom](https://juejin.im/post/5c8e5e4951882545c109ae9c)
 - [cycle list](https://juejin.im/post/5c19e1646fb9a049ac791a35)
 - [simple_webpack](https://github.com/dykily/simple_webpack/blob/master/bundler.js)
 - [react-graphql](https://github.com/wesbos/Advanced-React/blob/master/finished-application/backend/src/index.js)
