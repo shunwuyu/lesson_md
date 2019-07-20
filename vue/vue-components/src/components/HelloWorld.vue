@@ -36,7 +36,8 @@ export default {
   methods: {
     handle (val) {
       // console.log(val)
-      this.obj.name = '蜗牛'
+      // this.obj.name = '蜗牛'
+      this.$toast('提交成功', 'bottom')
     }
   }
 }

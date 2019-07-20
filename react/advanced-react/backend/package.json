@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "yushunwu <shunwu2001@163.com> (https://shunwuyu.github.io)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "graphql-yoga": "^1.18.0"
+  }
 }

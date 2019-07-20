@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-公司简介
-品牌起源 价值观 课程介绍 成绩  
-竞品研究
-商业模式
-
-UI logo  
-=======
 ## 安装环境
 1.  vscode 编辑器  
 https://code.visualstudio.com/Download
@@ -29,4 +21,7 @@ https://nodejs.org/en/
 5. https://www.imooc.com/learn/680
 6. https://www.imooc.com/learn/488
 7. https://www.imooc.com/learn/10
->>>>>>> 7c6bbddd38e9912d7493fe0919b2561b813ca0d4
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c0343ffb4580e07b2c55f923d60e2443da1d7d6

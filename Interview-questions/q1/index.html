@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let _new = function _new () {
+      let target = {} //创建的新对象
+      let [constructor, ...args] = [...arguments] //第一个参数是构造函数
+      target.__proto__ = constructor.prototype //执行[原型]链连接，target是constructor的实例, 参考https://www.jianshu.com/p/80bcf8b2004e
+      let result = constructor.apply(target, args) //执行构造函数，将属性或方法添加到创建的空对象上
+      if (result && (typeof(result) === 'object' || typeof(result) === 'function')) {
+        // 如果构造函数执行的结构返回的是一个对象，那么返回这个对象
+        return result
+      }
+      // 如果构造函数执行的结构返回的不是一个对象，那么返回创建的新对象
+      return target
+    }
+  </script>
+</body>
+</html>

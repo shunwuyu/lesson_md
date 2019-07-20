@@ -1,0 +1,3 @@
+type AggregateCartItem {
+  count: Int!
+}
