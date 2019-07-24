@@ -25,6 +25,7 @@ export default class RouteConfig extends Component{
           <Route path="/balance" component={balance} />
           <Redirect to="/" />
         </Switch>
+        <button vant={1}>ckey</button>
       </HashRouter>
     )
   }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // [作者解释](https://www.cnblogs.com/xxcanghai/p/5189353.html)
+    function Foo() {
+      console.log(1111);
+      getName = function () { console.log(1); };
+      return this;
+    }
+    Foo.getName = function () { console.log(2); };
+    Foo.prototype.getName = function () { console.log(3); };
+    var getName = function () { console.log(4); };
+    function getName() { console.log(5); }
+
+    //请写出以下输出结果：
+    // Foo.getName(); // 2
+    // getName();    // 4
+    // Foo().getName(); // 1
+    // getName(); // 1
+    // 优先级排序
+    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+    // mdn：对 new 的解释
+    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new
+    // new Foo 等同于 new Foo()，也就是没有指定参数列表，Foo 不带任何参数调用的情况
+    new Foo.getName();
+    // new Foo().getName();
+    // console.log(new new Foo().getName());
+
+    // 先执行 new Foo()
+    new new Foo().getName();
+    new ((new Foo()).getName)();
+  </script>
+</body>
+
+</html>

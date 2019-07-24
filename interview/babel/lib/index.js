@@ -1,5 +1,10 @@
+import Bar from './foo';
+
 function Foo() {
-  return React.createElement("div", null, React.createElement("button", {
+  var a = 1,
+      b = '2',
+      c = '';
+  return React.createElement("div", null, React.createElement(Bar, null), React.createElement("button", {
     vant: "1"
   }, "1"), React.createElement("button", {
     vant: "2"
