@@ -46,6 +46,8 @@ function App() {
       <Btn />
       <ExampleLogin />
       <Example1 />
+      <button vant="1">collectKey</button>
+      <button vant="2">collectKey</button>
     </div>
   );
 }

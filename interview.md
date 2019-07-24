@@ -49,9 +49,9 @@
 
 ## 设计模式
 1. 单例（提设计一个弹窗）
-2. 装饰者模式（提 react hoc）
+2. 装饰者模式（提 react hoc）@xxx
 3. 发布订阅
-4. 代理模式 （提到 看了 koa源码）
+4. 代理模式 （提到 看了 koa源码）ctx.
 
 ## 前端工程化
 1. git hook （结合 eslint 或者 commit message）
