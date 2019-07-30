@@ -16,7 +16,7 @@ export class Album {
 *  通过专辑列表数据创建专辑对象函数
 */
 export function createAlbumByList(data) {
-  return new Album(
+  return new Album( 
       data.album_id,
       data.album_mid,
       data.album_name,

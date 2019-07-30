@@ -52,7 +52,7 @@ function App (props) {
     console.log('click');
    }
    useEffect(() => {
-     console.log(document.querySelector('#size'))
+    console.log(document.querySelector('#size'))
     document.querySelector('#size').addEventListener('click', onClick, false);
       return () => {
         console.log('removeEventListener');
