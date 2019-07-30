@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>koa2-blog</title>
+	<link rel="icon" href="http://www.wclimb.site/images/avatar.png">
+	<link rel="stylesheet" href="/index.css">
+	<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+	<script>
+		function fade(txt){
+			$('.message').text(txt)
+			$('.message').animate({
+				top:0
+			})
+			setTimeout(function(){
+				$('.message').animate({
+					top: '-100%'
+				})
+			},1500)
+		}
+		$(function(){
+			$('.signout').click(function(){
+				$.ajax({
+					url: "/signout",
+					type: "GET",
+					cache: false,
+					dataType: 'json',
+					success: function (msg) {
+						if (msg) {
+							fade('登出成功')
+							setTimeout(function(){
+								location.href = "/posts"
+							},1500)	
+						}
+					},
+					error: function () {
+						alert('异常');
+					}
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<header>
+  </header>
