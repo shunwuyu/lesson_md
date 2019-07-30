@@ -1,12 +1,13 @@
 
 /**
  * React.createElement("div", {
-    auth: "/url/auth/1"
+    foo: "/url/auth/1"
  });
  */
+// 收集所有文件的 props 而不是 某一个文件
+let result = {};
 module.exports = function(babel) {
   const { types: t }  = babel;
-  let result = {};
   const typeMap = {
     Identifier: 'name',
     StringLiteral: 'value'
@@ -19,6 +20,7 @@ module.exports = function(babel) {
         enter(path) {
         },
         exit(path) {
+          console.log('result', result);
           path.node.body.push(babel.parse(`window.__collectMap__ = ${JSON.stringify(result)}`).program.body[0]);  
         }
       },

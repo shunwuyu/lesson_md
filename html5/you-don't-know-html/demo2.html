@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <iframe src="http://localhost:9999/test.html" id="iframe" frameborder="0"></iframe>
+  <script>
+    window.onload = function () {
+      var iframe = document.getElementById('iframe').contentWindow;
+      function setAnotherOriginLocalStorage(key, value) {
+        iframe.postMessage({ key, value, operation: 'set' }, 'http://localhost:9999');
+      }
+      function getAnotherOriginLocalStorage(key, cb) {
+        window.onmessage = (e) => {
+          console.log(1111);
+          var localStorageData = e.data;
+          cb(null, localStorageData);
+        }
+        iframe.postMessage({ key, operation: 'get' }, 'http://localhost:9999');
+      }
+      setAnotherOriginLocalStorage('key', { s: 'string' })
+      setAnotherOriginLocalStorage('key1', { s: 'string1' })
+      getAnotherOriginLocalStorage('key', (err, res) => {
+        console.log('get key:', res);
+      });
+      getAnotherOriginLocalStorage('key1', (err, res) => {
+        console.log('get key1:', res);
+      });
+    }
+  </script>
+</body>
+
+</html>
