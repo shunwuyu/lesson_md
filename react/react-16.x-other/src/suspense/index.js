@@ -11,7 +11,7 @@ function requestData() {
     setTimeout(() => {
       data = 'Data resolved'
       resolve()
-    }, 2000)
+    }, 5000)
   })
   throw promise
 }
@@ -23,9 +23,15 @@ function SuspenseComp() {
   return <p>{data}</p>
 }
 
+// export default () => (
+//   <Suspense fallback="loading data">
+//     <SuspenseComp />
+//     <LazyComp />
+//   </Suspense>
+// )
 export default () => (
   <Suspense fallback="loading data">
-    <SuspenseComp />
+    {/* <SuspenseComp /> */}
     <LazyComp />
   </Suspense>
 )

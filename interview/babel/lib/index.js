@@ -4,26 +4,15 @@ function Foo() {
   var a = 1,
       b = '2',
       c = '';
-  return React.createElement("div", null, React.createElement(Bar, null), React.createElement("button", {
-    vant: "1"
+  return React.createElement("div", null, React.createElement(Bar, {
+    iview: 4
+  }), React.createElement("button", {
+    iview: "2"
   }, "1"), React.createElement("button", {
-    vant: "2"
-  }, "1"), React.createElement("button", {
-    vant: "3"
-  }, "1"), React.createElement("button", {
-    iview: "4"
-  }, "1"), React.createElement("button", {
-    iview: 6
-  }, "1"), React.createElement("button", {
-    iview: 7
-  }, "1"), React.createElement("button", {
-    iview: {
-      a: 1
-    }
+    iview: 3
   }, "1"));
 }
 
 window.__collectMap__ = {
-  "vant": ["1", "2", "3"],
-  "iview": ["4", 6, 7, null, null]
+  "iview": [1, 5, 4, "2", 3]
 };

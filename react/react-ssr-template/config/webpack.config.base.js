@@ -1,6 +1,9 @@
 const webpack = require("webpack");
 const path = require("path");
+// 压缩 js
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// 压缩 css
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 let env = "dev";
@@ -15,13 +18,22 @@ const baseWebpackConfig = {
   devtool: isProd ? "#source-map" : "#cheap-module-source-map",
   output: {
     path: path.resolve(__dirname, "../dist"),
-    publicPath: "/dist/"  // 打包后输出路径以/dist/开头
+    publicPath: "/dist/" // 打包后输出路径以/dist/开头
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
+    extensions: [".js", ".jsx", ".json"]
   },
   module: {
     rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loader: ["babel-loader"],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         loader: "url-loader",
@@ -54,8 +66,12 @@ const baseWebpackConfig = {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      "process.env": require("./" + env + ".env")
+    // 定义一个全局变量
+    // new webpack.DefinePlugin({
+    //   "process.env": require("./" + env + ".env")
+    // })
+    new MiniCssExtractPlugin({
+      filename: "static/css/[name].[contenthash].css"
     })
   ]
 }
