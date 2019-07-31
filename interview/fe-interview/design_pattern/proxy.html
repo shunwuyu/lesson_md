@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .box {
+    height: 1400px;
+    background-color: #ccc;
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+  </div>
+  <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png" alt="" id="img1">
+  <script>
+  function lazyloadImg(node, src) {
+    var intersectionObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].intersectionRatio > 0) return node.src = src;
+    });
+    // start observing
+    intersectionObserver.observe(node);
+  }
+  lazyloadImg(document.querySelector('#img1'), 'https://user-gold-cdn.xitu.io/2019/7/30/16c4217cf3ecfd9b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1')
+  </script>
+</body>
+</html>
