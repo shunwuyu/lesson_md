@@ -143,6 +143,15 @@
         {
           "legacy": true
         }
+      ],
+      [
+        "./collectKey.js",
+        {
+          "collectKey": [
+            "vant",
+            "iview"
+          ]
+        }
       ]
     ],
     "presets": [

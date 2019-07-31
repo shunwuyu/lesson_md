@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function sleep(time) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(1);
+        }, time);
+      });
+    }
+  /*
+    async function test() {
+      for (let i = 0; i < 10; i++) {
+        let result = await sleep(1000);
+        console.log(result);
+      }
+    }
+    test()
+    */
+  //   function foo() {
+  //    setTimeout(() => {
+  //      console.log(1);
+  //    }, 2000);
+  //  }
+    let test = function () {
+      // ret 为一个Promise对象，因为ES6语法规定 async 函数的返回值必须是一个 promise 对象
+      let ret = _asyncToGenerator(function* () {
+        for (let i = 0; i < 10; i++) {
+          let result = yield sleep(1000);
+          console.log(result);
+        }
+      });
+      return ret;
+    }();
+
+    // generator 自执行器
+    function _asyncToGenerator(genFn) {
+      return new Promise((resolve, reject) => {
+        let gen = genFn();
+        function step(key, arg) {
+          let info = {};
+          try {
+            info = gen[key](arg);
+            console.log(info);
+          } catch (error) {
+            reject(error);
+            return;
+          }
+          // 已经完成
+          if (info.done) {
+            resolve(info.value);
+          } else {
+            console.log('v', info.value)
+            // info.value 是一个 promise async 标准规定
+            return Promise.resolve(info.value).then((v) => {
+              // 下一次 next 的时候 带上 上一次的 value
+              return step('next', v);
+            }, (error) => {
+              return step('throw', error);
+            });
+          }
+        }
+        step('next');
+      });
+    }
+    //
+    // Promise.resolve(v).then((v) => {
+    //   Promise.resolve(v).then(v => {
+    //     Promise.resolve(v).then(v => {
+    //       Promise.resolve(v).then(v => {
+        
+    //       })
+    //     })
+    //   })
+    // })
+  </script>
+</body>
+
+</html>

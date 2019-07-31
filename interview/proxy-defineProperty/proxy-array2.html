@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 初始数组
+    const arr = [1, 2, 3, 4];
+
+    // 监听数组
+    const newArr = new Proxy(arr, {
+      get: function (target, key, receiver) {
+        console.log('get', key);
+        return Reflect.get(target, key, receiver);
+      },
+      set: function (target, key, value, receiver) {
+        console.log('set', target, key, value, receiver);
+        if (key !== 'length') {
+        }
+        return Reflect.set(target, key, value, receiver);
+      },
+    });
+    newArr.push(1);
+  </script>
+</body>
+
+</html>

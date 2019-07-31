@@ -1,0 +1,17 @@
+{
+  "name": "you-don't-know-html",
+  "version": "1.0.0",
+  "description": "1. crossorigin=\"anonymous\"    anonymous：如果使用这个值的话就会在请求中的header中的带上Origin属性    crossorigin=\"use-credentials\"    跨域请求中带上cookie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  }
+}

@@ -5,7 +5,11 @@ import withLogin from './withLogin';
 class WithLoginButton extends Component {
   render() { 
     return (
-          <button>退出</button>
+      <div>
+        <button>退出</button>
+        <button vant="0">collectKey</button>
+        <button vant="2">collectKey</button>
+      </div>
     )
   }
 }

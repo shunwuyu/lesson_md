@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function* test() {
+      console.log('start');
+      var a = yield 'a value 123 456';
+      console.log('a', a);
+      var b = yield 2;
+      console.log('b', b);
+    }
+    // 自动运行
+    // let genObj = test();
+    // let g = genObj.next()
+    // while(!g.done) {
+    //   g = genObj.next(g.value);
+    // }
+    // 2
+    // function aotoRun(gen) {
+    //   var g = gen();
+    //   function next(data) {
+    //     var result = g.next(data);
+    //     if (result.done) return;
+    //     next(result.value);
+    //   }
+    //   next(g.value);
+    // }
+    // aotoRun(test);
+    // 3
+    function aotoRun(gen) {
+      let genObj = gen();
+      let g = genObj.next()
+      while(!g.done) {
+        g = genObj.next(g.value);
+      }
+    }
+    aotoRun(test);
+  </script>
+</body>
+
+</html>

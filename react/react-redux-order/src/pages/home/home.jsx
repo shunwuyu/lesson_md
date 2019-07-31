@@ -127,6 +127,7 @@ class Home extends Component {
     
     return (
       <main className="home-container">
+        {<button vant={2}>ckey</button>}
         <PublicHeader title='首页' record />
         <p className="common-title">请录入您的信息</p>
         <form className="home-form">

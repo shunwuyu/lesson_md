@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .test::after{
+    content: url('javascript::alert(123)');
+  }
+  </style>
+</head>
+<body>
+  <div class="test">
+  </div>
+  <img src="" alt="" crossorigin="anonymous"> 
+  <script>
+  var s = Date.now();
+  var img = new Image();
+  img.src = 'https://pic.u51.com/sfs-gateway/api/v1/download/7152abef9bbb4f30aef47ea667a502d584f7';
+  img.crossOrigin = 'anonymous';
+  img.onload = function(event) {
+    console.log('event', event, img);
+    var e = Date.now();
+    var w = 40 / (e - s); // 1 - 1000
+    console.log(w, e - s);
+  }
+  // navigator.sendBeacon();
+  // ajax 接口 减少工作量 
+  // ajax 接口 有并发限制
+  // https://web.u51.com/api.u51.com/nodejs-performance-log-server/t.png?_u=https%3A%2F%2Fwww.u51.com%2F&_o=&_v=0.2.24&dns=0&ntw=39&dlt=252&dct=786&tlt=787&spt=228&kmdNetwork=&kmdOs=&kmdHasBg=false
+  // var img = new Image();
+  // img.src = ''
+  </script>
+  <script>
+  window.onerror = function(...args) {
+    console.log(args);
+  }
+  </script>
+  <!-- <script src="http://localhost:9999/test.js"></script> -->
+  <script src="http://localhost:9999/test.js" crossorigin="anonymous"></script>
+</body>
+</html>

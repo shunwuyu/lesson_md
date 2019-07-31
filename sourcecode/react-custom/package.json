@@ -1,0 +1,17 @@
+{
+  "name": "react-custom",
+  "version": "1.0.0",
+  "description": "1. install: `npm install -g parcel-bundler` 2. 运行命令  `parcel index.html` 3. 这个transform-react-jsx就是将jsx转换成js的babel插件，它有一个pragma项，可以定义jsx转换方法的名称 4.  component.base保存的是组件的dom对象，反过来base._component保存的是dom对象所对应的组件，这个就是为了把他们关联起来",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0"
+  }
+}

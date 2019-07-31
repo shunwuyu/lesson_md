@@ -12,12 +12,22 @@ const AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value))
+        function asyncAdd(value) {
+          return dispatch => {
+            console.log('contain 里面的dispatch', dispatch);
+            setTimeout(() => {
+              console.log('contain 里面 setTimeout dispatch', dispatch);
+              // Yay! Can invoke sync or async actions with `dispatch`
+              dispatch(addTodo(value));
+            }, 1000);
+          };
+        }
+        dispatch(asyncAdd(input.value));
         input.value = ''
       }}>
         <input ref={node => input = node} />
         <button type="submit">
-          Add Todo
+          async Add Todo
         </button>
       </form>
     </div>

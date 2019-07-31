@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>node server</h3>
+  <script>
+  window.addEventListener('message', (e) => {
+    console.log(e.data);
+    const { key, value, operation } = e.data;
+    if (operation === 'set') {
+      localStorage.setItem(key, JSON.stringify(value));
+    } else if (operation === 'get') {
+      var data = localStorage.getItem(key);
+      console.log('get', data);
+      window.parent.postMessage(JSON.parse(data), 'http://127.0.0.1:8080');
+    }
+  })
+  </script>
+</body>
+</html>

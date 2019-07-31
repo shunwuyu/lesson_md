@@ -1,6 +1,6 @@
 const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default;
 const PurifyCSSPlugin = require('purifycss-webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const argv = require('yargs-parser')(process.argv);
 const merge = require('webpack-merge');
