@@ -1,8 +1,8 @@
 (function(){
   function list() {
     $.ajax({
-      // url: 'https://www.easy-mock.com/mock/5ca2c29464930718b239eb94/lm/lvmeng/test',
-      url: '/test.json',
+      url: 'https://www.easy-mock.com/mock/5ca2c29464930718b239eb94/lm/lvmeng/test',
+      // url: './test.json',
       type: 'GET',
       success: function (res) {
         console.log(res.data)
