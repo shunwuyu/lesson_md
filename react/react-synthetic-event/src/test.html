@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1 id="native">native</h1>
+  </div>
+  <script>
+  const native = document.getElementById('native');
+  native.addEventListener('click', () => {
+    console.log(3);
+  })
+  window.document.addEventListener('click', () => {
+    console.log(4);
+  })
+  </script>
+</body>
+</html>

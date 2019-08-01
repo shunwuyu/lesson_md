@@ -1,7 +1,9 @@
 <template>
   <div class="menu">
+    <slot name="menu1"></slot>
     {{message}}
     {{name.name}}
+    <slot name="menu2"></slot>
   </div>
 </template>
 

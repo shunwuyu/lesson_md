@@ -14,7 +14,11 @@
   <script>
     const input = document.getElementById('input');
     const p = document.getElementById('p');
-    const obj = {};
+    const obj = {
+      test: {
+        a: 123
+      }
+    };
 
     const newObj = new Proxy(obj, {
       get: function (target, key, receiver) {
@@ -39,7 +43,8 @@
     input.addEventListener('keyup', function (e) {
       newObj.text = e.target.value;
     });
-
+    newObj.test.a = 123;
+    newObj.for = 456;
 
   </script>
 </body>
