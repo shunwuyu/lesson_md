@@ -11,5 +11,5 @@ function Foo() {
 
 export default Foo;
 window.__collectMap__ = {
-  "iview": [1, 5]
+  "iview": [99, 1, 5]
 };

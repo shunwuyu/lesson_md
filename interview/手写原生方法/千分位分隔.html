@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>千分位分隔</p>
+  <script>
+    function moneyFormat(num) {
+      // 123456789
+      // 123,456,789
+      const res = [];
+      const decimalIndex = num.indexOf(".");
+      const hasDecimal = decimalIndex > -1;
+      for (let i = num.length - 1; i > -1; i--) {
+        let cur = 1;
+        while (hasDecimal && i >= decimalIndex) {
+          res.unshift(num[i]);
+          i--;
+        }
+        while (cur <= 3) {
+          res.unshift(num[i]);
+          cur++;
+          i--;
+        }
+        res.unshift(",");
+      }
+      if (res[0] === ",") res.shift();
+      return res.join("");
+    }
+    console.log(moneyFormat("11111111111123456789"));
+    console.log(moneyFormat("11111111111123456789.123"));
+  </script>
+</body>
+
+</html>

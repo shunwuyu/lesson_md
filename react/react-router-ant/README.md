@@ -5,3 +5,6 @@ match.params
 
 /table?id=123
 location.search
+
+
+/api/
