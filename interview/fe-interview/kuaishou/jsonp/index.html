@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax</title>
+</head>
+<body>
+  <script>
+  function ajax(params) {
+    params = params || {};
+    //params.data post
+    params.data = params.data || {};
+    var json = params.jsonp ? jsonp(params) : json(params);
+    function json(params) {
+      params.type = (params.type || 'GET').toUpperCase(); 
+      params.data = formatParams(params.data);
+      var xhr = null;
+      if(window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+      } else {
+        xhr = new ActiveXObjcet('Microsoft.XMLHTTP');
+      }
+
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4) {
+          var status = xhr.status;
+          if(status >= 200 && status < 300) {
+            var response = '';
+            var type = xhr.getResponseHeader('Content-type');
+            if(type.indexOf('xml') !== -1 && xhr.responseXML) {
+              response = xhr.responseXML; 
+            } else if (type === 'application/json') {
+              response = JSON.parse(xhr.responseText);
+            }else {   
+              response = xhr.responseText; 
+            } 
+            params.success && params.success(response); 
+          }
+
+        }
+      }
+      if(params.type == 'GET') {
+        xhr.open(params.type, params.url + '?' + params.data, true);
+        xhr.send(null);
+      } else {
+        xhr.open(params.type, params.url, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.send(params.data);
+      }
+    }
+
+    function formatParams(data) {
+      var arr = [];
+      for(var name in data) {
+        arr.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
+      };
+      arr.push('v=' + random());
+      return arr.join('&');
+    }
+    function random() {   
+      return Math.floor(Math.random() * 10000 + 500);
+    }
+
+    function jsonp(params) {
+      var callbackName = params.jsonp;
+      var head = document.getElementsByTagName('head')[0];
+      params.data['callback'] = callbackName;
+        var data = formatParams(params.data);
+        var script = document.createElement('script'); 
+        head.appendChild(script);
+
+        window[callbackName] = function(json) {   
+
+          head.removeChild(script);   
+
+          clearTimeout(script.timer);   
+
+          window[callbackName] = null;   
+          console.log(json);
+          params.success && params.success(json);  
+        }; 
+        script.src = params.url + '?' + data;
+        if(params.time) {   
+
+      script.timer = setTimeout(function() {   
+
+        window[callbackName] = null;   
+
+        head.removeChild(script);   
+
+        params.error && params.error({   
+
+          message: '超时'   
+
+        });   
+
+      }, time); 
+
+    }
+  }
+}
+
+
+ajax({   
+
+url: 'http://localhost:3333/test',    // 请求地址
+
+jsonp: 'jsonpCallback',  // 采用jsonp请求，且回调函数名为"jsonpCallbak"，可以设置为合法的字符串
+
+data: {'b': 'aa'},   // 传输数据
+
+success:function(res){   // 请求成功的回调函数
+
+  console.log(res);   
+
+},
+
+error: function(error) {}   // 请求失败的回调函数
+
+});
+
+
+ajax({   
+
+url: 'http://localhost:3333/test',    // 请求地址
+
+// jsonp: 'jsonpCallback',  // 采用jsonp请求，且回调函数名为"jsonpCallbak"，可以设置为合法的字符串
+
+data: {'b': 'aa'},   // 传输数据
+
+success:function(res){   // 请求成功的回调函数
+
+  console.log(res);   
+
+},
+
+error: function(error) {}   // 请求失败的回调函数
+
+});
+  </script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .box {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    display: table;
+    background-color:blue;
+  }
+  .inner {
+    height: 100%;
+    float: left;
+    width: 50%;
+    background-color:green;
+  }
+  .inner:nth-child(odd) {
+    background-color: pink;
+  }
+  .box:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="inner"></div>
+    <div class="inner"></div>
+  </div>
+</body>
+</html>
