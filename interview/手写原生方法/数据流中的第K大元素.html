@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+   * @param {number} k
+   * @param {number[]} nums
+   */
+    var KthLargest = function (k, nums) {
+      nums.sort((a, b) => b - a);
+      this.knums = nums.slice(0, k);
+      this.k = k;
+    };
+
+    /** 
+     * @param {number} val
+     * @return {number}
+     */
+    KthLargest.prototype.add = function (val) {
+      var index = this.knums.findIndex(num => val >= num);
+      if (index >= 0 && this.knums.length > 0) {
+        this.knums.splice(index, 0, val).slice(0, this.k);
+      } else if (this.knums.length < this.k) {
+        this.knums.push(val);
+        this.knums.sort((a, b) => b - a);
+        this.knums = this.knums.slice(0, k);
+      }
+      return this.knums[this.k - 1];
+    };
+
+    /**
+     * Your KthLargest object will be instantiated and called as such:
+     * var obj = new KthLargest(k, nums)
+     * var param_1 = obj.add(val)
+     */
+  </script>
+</body>
+
+</html>

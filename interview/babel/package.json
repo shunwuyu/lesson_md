@@ -4,7 +4,7 @@
   "description": "编译器一样，编译过程分为三个阶段：解析、转换和打印输出 ```js const babel = code => code ``` 想要 Babel 做一些实际的工作，就需要为其添加插件, Presets: 作为 Babel 插件的组合",
   "main": "plugin1.js",
   "scripts": {
-    "build": "babel ./src/ -d lib"
+    "build": "babel ./src/ -d dist"
   },
   "keywords": [],
   "author": "",
