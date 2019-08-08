@@ -40,10 +40,13 @@ html {
 
 .loading .c-cube {
   font-size: .8rem;
+  /* https://www.cnblogs.com/zhaozhaoli/p/9909549.html 
+  rotatex、rotatez的旋转正方向是顺时针，rotatey的旋转正方向是逆时针。
+  */
   transform: rotateX(-33.5deg) rotateY(45deg);
   transform-origin: .5em .5em;
   transform-style: preserve-3d;
-  animation: spin-cube-right 1.2s linear infinite;
+  /* animation: spin-cube-right 1.2s linear infinite; */
 }
 
 @keyframes spin-cube-right {
@@ -110,6 +113,7 @@ html {
 }
 
 .loading .c-cube__side--top {
+  /* rotateX */
   transform: rotateX(90deg) translateZ(.5em)
 }
 
@@ -119,7 +123,7 @@ html {
   left: 50%;
   margin-top: -2.13333rem;
   margin-left: -.4rem;
-  animation: cube-up-down-1 .8s ease-in-out infinite alternate;
+  /* animation: cube-up-down-1 .8s ease-in-out infinite alternate; */
 }
 
 @keyframes cube-up-down-1 {

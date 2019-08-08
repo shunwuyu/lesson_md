@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    "use strict";
+
+    function _instanceof(left, right) {
+      if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
+        return !!right[Symbol.hasInstance](left);
+      } else {
+        return left instanceof right;
+      }
+    }
+
+    function _classCallCheck(instance, Constructor) {
+      if (!_instanceof(instance, Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    /*
+    把 原型属性 protoProps
+    静态属性 staticProps
+    */
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) _defineProperties(Constructor, staticProps);
+      return Constructor;
+    }
+
+    // 继承 start
+    function _inherits(subClass, superClass) {
+      if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function");
+      }
+      subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+          value: subClass,
+          writable: true,
+          configurable: true
+        }
+      });
+      if (superClass) _setPrototypeOf(subClass, superClass);
+    }
+    function _typeof(obj) {
+      if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+        _typeof = function _typeof(obj) {
+          return typeof obj;
+        };
+      } else {
+        _typeof = function _typeof(obj) {
+          return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        };
+      }
+      return _typeof(obj);
+    }
+    function _assertThisInitialized(self) {
+      if (self === void 0) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+      }
+      return self;
+    }
+    // 可能返回什么东西呢？？？
+    function _possibleConstructorReturn(self, call) {
+      // 如果 构造函数 返回一个对象 那么 使用该对象作为 return 值
+      if (call && (_typeof(call) === "object" || typeof call === "function")) {
+        return call;
+      }
+      return _assertThisInitialized(self);
+    }
+    // 获取 某个对象的.__proto__
+    function _getPrototypeOf(o) {
+      _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+      };
+      return _getPrototypeOf(o);
+    }
+    // 设置 某个对象的.__proto__
+    function _setPrototypeOf(o, p) {
+      _setPrototypeOf = Object.setPrototypeOf ||
+      function _setPrototypeOf(o, p) {
+        o.__proto__ = p;
+        return o;
+      };
+      return _setPrototypeOf(o, p);
+    }
+    function _inherits(subClass, superClass) {
+      if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function");
+      }
+      // 继承 核心代码
+      subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+          value: subClass,
+          writable: true,
+          configurable: true
+        }
+      });
+      // 改变 subClass 的 .__proto__
+      if (superClass) _setPrototypeOf(subClass, superClass);
+    }
+    // 继承 end
+
+    var Person =
+      /*#__PURE__*/
+      function () {
+        function Person(name, age) {
+          // 如果 通过 new 调用 this 指向 该对象 this 是 该对象的构造函数 检查一下 如果不是 new 调用 报错
+          _classCallCheck(this, Person);
+
+          this.name = name;
+          this.age = age;
+        }
+
+        _createClass(Person, [{
+          key: "say",
+          value: function say() {
+            return "".concat(this.name, ",").concat(this.age);
+          }
+        }], [{
+          key: "a",
+          value: function a() {
+            console.log('this is a static function');
+          }
+        }]);
+
+        return Person;
+      }();
+
+    // extends
+    var B =
+      /*#__PURE__*/
+      function (_Person) {
+        // 方法继承
+        _inherits(B, _Person);
+
+        function B(c) {
+          var _this;
+
+          _classCallCheck(this, B);
+          // 属性继承
+          // 调用父级的构造函数 改变 this
+          _this = _possibleConstructorReturn(this, _getPrototypeOf(B).call(this, 'name', 'age'));
+          _this.c = c;
+          return _this;
+        }
+
+        return B;
+      }(Person);
+
+      var b = new B(19);
+      console.log(b);
+  </script>
+</body>
+
+</html>

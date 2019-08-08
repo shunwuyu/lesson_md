@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+     * @param {number[]} nums
+     * @param {number} k
+     * @return {number[]}
+     */
+    // 解法1:暴力求解的方法
+    /**
+     * 
+    var maxSlidingWindow = function (nums, k) {
+      if (nums.length <= k) return nums;
+      var res = [];
+      let start = 0;
+      while (nums.slice(start, k + start).length === 3) {
+        res.push(Math.max(...nums.slice(start, k + start)));
+        start += 1;
+      }
+      return res;
+    };
+    */
+    // 最费时的过程在于求解 最大值
+    // 下面开始 用 双端队列 解决最大值的求解过程
+    var nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3;
+    var maxSlidingWindow = function (nums, k) {
+      if (nums.length <= k) return nums;
+      var deque, res = [];
+      deque = nums.slice(0, k);
+      for (let i = k; i < nums.length; i++) {
+        var maxNum = Math.max()
+      }
+    }
+  </script>
+</body>
+
+</html>

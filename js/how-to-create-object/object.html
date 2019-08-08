@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj = new Object();
+    obj.test1 = 'test1';
+    var obj1 = {
+      a: 'a val',
+      foo: function () {
+        console.log(this.a);
+      }
+    }
+    // js 创建对象 工厂模式
+    function createPerson(name, age, family) {
+      var o = new Object();
+      o.name = name;
+      o.age = age;
+      o.family = family;
+      o.say = function () {
+        alert(this.name);
+      }
+      return o;
+    }
+    var person1 = createPerson("lisi", 21, ["lida", "lier", "wangwu"]);
+
+    // 构造函数模式
+    function Person(name, age, family) {
+      this.name = name;
+      this.age = age;
+      this.family = family;
+      this.say = function () {
+        alert(this.name);
+      }
+    }
+    var person2 = new Person("lisi", 21, ["lida", "lier", "wangwu"]);
+
+  </script>
+</body>
+
+</html>
