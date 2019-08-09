@@ -8,15 +8,32 @@
   <style>
   .box {
     border: 30px solid;
-    border-image: linear-gradient(#ff1224, rgba(255, 18, 36, 0)) 2 100%;
+    border-image-source: linear-gradient(#ff1224, rgba(255, 18, 36, 0));
+    border-image-slice: 2 100%;
     width: 400px;
     height: 400px;
+    border-top: none;
+    border-bottom: none;
   }
+
+    .border_image {
+        width: 400px;
+        height: 115px;
+        border: 3em double orange;
+        -webkit-border-image: url(border.png) 27 round;
+        border-image: url(border.png) 27 round;
+    }
+    .box1 {
+        background: blue;
+    }
   </style>
 </head>
 <body>
   <div class="box">
 
+  </div>
+  <div class="box1">
+      <div class="border_image"></div>
   </div>
 </body>
 </html>

@@ -82,3 +82,8 @@
 ## github 博客
 [funfish 博客 有关于react](https://github.com/funfish/blog)
 [汤姆大叔的博客](https://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
+
+
+林志远 良    准备简历/面试  无投递简历
+付豪   良    准备简历/面试  有投递简历/有回应 有几家上海不去面试
+李斌   良    准备简历/面试  有投递简历/回应少  回应少
