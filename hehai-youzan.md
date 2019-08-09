@@ -287,3 +287,38 @@
     1.  h5 history api
     2.  hashChange
 17. 你知道webpack吗？比如tree shaking之类的问题。我只知道这一个，其他都没有说出来.
+  - [source](https://juejin.im/post/5cfa17a46fb9a07ef1617429)
+    1. 什么是webpack
+      webpack是一个静态模块处理器（bundler），当它处理应用程序时，它会递归地构建一个关系依赖图，其中包含应用程序需要的每个模块，然后把所有这些模块打包成一个或多个包。 
+      ![](https://webpack.github.io/assets/what-is-webpack.png)
+    2. 核心概念
+      - entry（入口）
+        webpack要使用哪些模块，作为内部依赖图的开始
+      - output（出口）
+        告诉webpack在哪里输出它所构建的bundles，以及如何命名这些文件
+      - loader
+        把文件转换成webpack能处理的模块
+        - test 属性，用于标识出应该被对应的 loader 进行转换的某个或某些文件。
+        - use 属性，表示进行转换时，应该使用哪个 loader。
+      - plugin 从打包优化和压缩，一直到重新定义环境中的变量。
+      - Chunk
+        一个 Chunk 由多个模块组合而成，用于代码合并与分割
+      - tree shaking 
+        Tree-shaking的本质是消除无用的js代码
+        DCE Dead Code Elimination   
+        程序中没有执行的代码 (如不可能进入的分支，return 之后的语句等
+        导致 dead variable 的代码(写入变量之后不再读取的代码)
+        如果把代码打包比作制作蛋糕。传统的方式是把鸡蛋(带壳)全部丢进去搅拌，然后放入烤箱，最后把(没有用的)蛋壳全部挑选并剔除出去。而 treeshaking 则是一开始就把有用的蛋白蛋黄放入搅拌，最后直接作出蛋糕。
+        ["es2015", {"modules": false}]
+    3. 打包过程
+      1. 初始化：启动构建，读取和合并参数，加载plugin，实例化complier
+      2. 从 Entry 发出，针对每个 Module 串行调用对应的 Loader 去翻译文件内容，再找到该 Module 依赖的 Module，递归地进行编译处理。
+      3. 输出：对编译后的 Module 组合成 Chunk，把 Chunk 转换成文件，输出到文件系统。
+    4. [webpack 4 新特性](https://segmentfault.com/a/1190000013970017)
+      - mode 属性
+      - 插件和优化
+        webpack4删除了CommonsChunkPlugin插件，它使用内置API optimization.splitChunks 和 optimization.runtimeChunk ，这意味着webpack会默认为你生成共享的代码块。
+      - 开箱即用WebAssembly
+        WebAssembly(wasm)会带来运行时性能的大幅度提升
+      - 支持多种模块类型
+      - 0CJS
