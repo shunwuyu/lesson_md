@@ -1,0 +1,26 @@
+@import "./_variable.styl"
+
+.tqb-date-picker
+  background-color white
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  font-size root-font-size
+  z-index 1024
+  transition all 0.2s
+  display flex
+  flex-direction column
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  &.static
+    position relative
+    width 100%
+  .tqb-dp-container
+    flex 1
+    overflow-y auto
+    -webkit-overflow-scrolling touch
+
+@import "framework/_header.styl"
+@import "framework/_labels.styl"
+@import "framework/_calendar.styl"

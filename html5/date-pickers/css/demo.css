@@ -1,0 +1,9 @@
+body {
+  background-color: #808080;
+}
+.container {
+  width: 375px;
+  height: 675px;
+  background-color: #fff;
+  margin: 2rem auto;
+}

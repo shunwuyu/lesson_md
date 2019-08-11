@@ -1,0 +1,59 @@
+border-color = rgb(238,238,238)
+point-radius = 6px
+red = rgb(254,156,68)
+orange = rgb(254,164,83)
+
+.tqb-date-picker .tqb-calendar-item
+  header
+    border-bottom 1px solid border-color
+    margin-bottom root-font-size
+
+    h4
+      color aqua
+      text-align center
+      margin 0
+      line-height 3.25
+      font-weight normal
+
+  ul
+    display flex
+    flex-wrap wrap
+    margin 0
+    padding 0
+    border-bottom 1px solid border-color
+
+    li
+      list-style none
+      min-width 14.285714%
+      max-width 14.29%
+      flex 1 1 14.285714%
+      text-align center
+      line-height 50px
+      margin-bottom root-font-size
+      
+      for n in (0..6)
+        saturday = 8 - n
+        sunday = 9 - n
+        &.empty-{n}
+          flex n n 14.285714%*n
+          min-width 14.285714%*n
+          max-width 100%
+
+      &.disabled
+        color gray
+
+      &.today
+        position relative
+
+        &:after
+          content: ''
+          position absolute
+          width point-radius
+          height point-radius
+          line-height point-radius
+          font-size point-radius
+          background-color red
+          border-radius 50%
+          left 50%
+          margin-left -(point-radius / 2)
+          bottom .5em
