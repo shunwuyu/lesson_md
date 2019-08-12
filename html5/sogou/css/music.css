@@ -1,0 +1,25 @@
+.icon_audio {
+  width: 21.6797px;
+  height: 21.6797px;
+  top: 22.2656px;
+  right: 25.1953px;
+  position: absolute;
+  z-index: 999;
+  background: url(../img/icon_audio_off.png) no-repeat 0 0 ;
+  background-size:100% 100% ;
+  z-index: 98;
+}
+.sound_icon_on {
+  background: url(../img/icon_audio.png) 0 0 no-repeat;
+  animation: rotate360 2.4s linear infinite;
+  background-size:100% 100% ;
+}
+.sound_icon_off {
+  background: url(../img/icon_audio_off.png) no-repeat 0 0 !important;
+  background-size:100% 100% !important;
+}
+@keyframes rotate360{
+  0%{-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+  50%{-webkit-transform: rotate(180deg);transform: rotate(180deg);}
+  100%{-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+}

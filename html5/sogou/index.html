@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css" type="text/css">
+  <link rel="stylesheet" href="./css/loading.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/music.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/wrapperbg.css" type="text/css">
+</head>
+<body>
+  <div class="body_logobg" id="loaddingWrap">
+    <div class="loadingbox xycenter">
+      <div class="loadingrange">
+        <div class="loading" id="loadingPercent" style="width: 100%;"></div>
+      </div>
+      <p id="loading">0%</p>
+    </div>
+ </div>
+ <div class="icon_audio sound_icon_off" id="btn_audio"></div>
+ <div class="wrapper body_bg displaynone" id="minWrap">
+    <div class="minWrapper">
+      <!-- 引言 -->
+      <div class="mainConbox wrapYinyan" id="introductionWrap">
+        <img id="introductionTxt" class="xycenter" src="./img/yinyan.png" alt="">
+      </div>
+    </div>
+  </div>
+ <div class="wrapIndex xycenter displaynone" id="indexWrap">
+    <img class="ycenter font_index" src="./img/index.png" alt="">
+    <a href="javascript:;" class="btn_start anipulse" id="btn_start"></a>
+    <div class="input_text">
+      <div class="textbox" id='textbox' placeholder='1' contenteditable='true' max-length='4'>输入姓名，探测最真实的你</div>
+    </div>
+    <div class="logo_ingdex"></div>
+  </div>
+ <script src="./js/jquery.js"></script>
+ <script src="./js/pageResponse.min.js"></script>
+ <script src="./js/index.js">
+ </script>
+ <script>
+ window.onload = window.onresize = function () {
+    pageResponse({
+      selectors: '.minWrapper',
+      mode: 'contain',
+      width: '640',
+      height: '1030'
+    })
+  }
+ </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.body_logobg {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+.loadingrange {
+  width: 200px;
+  height: 7px;
+  padding: 2px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.loadingbox p {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 5px;
+}
+.loading {
+  height: 100%;
+  background: #8f82bc;
+  border-radius: 4px;
+  color: #fff;
+  animation: prece 1.5s ease-out
+}
+@keyframes prece {
+  from {
+    width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+}
+p {
+  display: block;
+  
+}
