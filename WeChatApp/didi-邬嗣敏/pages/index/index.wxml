@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
   <view class="section">
     <view class="nav-me" bindtap="showUser">
@@ -39,7 +39,8 @@
         <view class="cost-title">
           <block wx:for="{{cost}}" wx:key="{{item.id}}">
             <view class="cost-item">
-              <image style="width: 30rpx;height: 30rpx;  display: inline-block; " src="{{item.url}}" /> {{item.name}}
+              <image style="width: 30rpx;height: 30rpx;  display: inline-block; " src="{{item.url}}" />
+              {{item.name}}
             </view>
           </block>
         </view>
@@ -49,8 +50,9 @@
               <text class="carpooling-name">{{item.typeName}}</text>
               <image style="width: 150rpx;height: 70rpx;  display: inline-block; " src="{{item.typeImagUrl}}" />
               <text class="money" style="font-size: 28rpx;padding-top: 15rpx;">
-                                预计
-                                <text style="font-size: 40rpx;">{{item.pay}}</text> 元
+                预计
+                <text style="font-size: 40rpx;">{{item.pay}}</text>
+                元
               </text>
             </view>
           </block>

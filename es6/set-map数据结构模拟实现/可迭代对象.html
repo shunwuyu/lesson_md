@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var iterable = {
+      [Symbol.iterator]() {
+        return {
+          i: 0,
+          next() {
+            if (this.i < 3) {
+              return { value: this.i++, done: false };
+            }
+            return { value: undefined, done: true };
+          }
+        };
+      }
+    };
+
+    for (var value of iterable) {
+      console.log(value);
+    }
+  </script>
+</body>
+
+</html>
