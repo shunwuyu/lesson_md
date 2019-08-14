@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <ul id="items">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <a href="javascript:;" id="addBtn">Add One</a>
+    <script>
+    var ulNode = document.getElementById("items");
+    ulNode.addEventListener('click', function (e) {
+        if (e.target && e.target.nodeName.toUpperCase() == "LI") {
+            alert(e.target.innerHTML);
+        }
+    }, false);
+
+    document.getElementById('addBtn').addEventListener('click', function() {
+      const oLi = document.createElement('li');
+      // oLi.innerHTML = ulNode.childNodes.length + 1;
+      oLi.innerHTML = Array.from(ulNode.childNodes).filter(item => item.nodeType == 1).length + 1;
+      ulNode.appendChild(oLi);
+    })
+    </script>
+</body>
+</html>

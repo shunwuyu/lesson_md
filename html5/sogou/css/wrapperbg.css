@@ -1,0 +1,94 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.body_bg {
+  background: #fff url('../img/bg.png') no-repeat center top;
+  background-size: auto 100%;
+}
+.body_bg1 {
+  background: #fff url('../img/bg1.png') no-repeat center top;
+  background-size: auto 100%;
+}
+.wrapYinyan {
+  background: url('../img/wrapbg.png') no-repeat 50% 50%;
+  background-size: 100% 100%;
+}
+/* 首页 */
+
+/* 左边文字 */
+.wrapIndex {
+  height: 603.516px;
+  width: 375px;
+  background: url('../img/wrapbg.png') no-repeat 505 50%;
+  background-size: 100% 100%;
+}
+.font_index {
+  right: 13.75%;
+  height: 77.38%;
+  display: block;
+}
+/* 输入框 */
+.input_text {
+  width: 27.5391px;
+  padding-left: 27.5391px;;
+  padding-right: 28.125px;
+  padding-top: 189.258px;
+  height: 253.125px;
+  left: 63.2812px;
+  position: absolute;
+  top: 0;
+  z-index: 7;
+  background: url('../img/textbg.png') no-repeat 50% 0;
+  background-size: 100% 100%;
+}
+.textbox {
+  width: 100%;
+  height: 100%;
+  font-size: 17.5781px;
+  line-height: 27.5391px;
+  outline: none;
+  color: #959595;
+  appearance: none;
+  writing-mode: vertical-lr;
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow: hidden;
+  caret-color: #c3a575;
+}
+/* 按钮 */
+.btn_start {
+  display: block;
+  width: 23.75%;
+  padding-top: 23.75%;
+  position: absolute;
+  left: 16%;
+  bottom: 11.16%;
+  background: url('../img/btn_start.png') no-repeat 50% 50%;
+  background-size: cover;
+}
+.anipulse {
+  animation: pulse 2s infinite both;
+}
+@keyframes pulse {
+  0% {
+    transform: scale3d(1,1,1);
+  }
+  50% {
+    transform: scale3d(1.05,1.05,1.05);
+  }
+  100% {
+    transform: scale3d(1,1,1);
+  }
+}
+/* logo */
+.logo_ingdex {
+  width: 100%;
+  height: 5.7%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url('../img/logo.png') no-repeat 50% 100%;
+  background-size: 100% auto;
+}

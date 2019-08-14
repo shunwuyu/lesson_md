@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    /* animation: mymove 5s infinite; */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  /* @keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+  } */
+
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    // https://juejin.im/entry/5a968ba56fb9a06340524128
+  // var box = document.querySelector('.box');
+  // var flag = true;
+  // var left = 0;
+  // setInterval(() => {
+  //   if (left >= 100) {
+  //     flag = false;
+  //   } else if  (left <= 0) {
+  //     flag = true;
+  //   }
+  //   flag ? box.style.left = ` ${left++}px` : box.style.left = ` ${left--}px`
+  // }, 1000 / 60)
+  var e = document.querySelector(".box");
+  var flag = true;
+  var left = 0;
+
+  function render() {
+      left == 0 ? flag = true : left == 100 ? flag = false : '';
+      flag ? e.style.left = ` ${left++}px` :
+          e.style.left = ` ${left--}px`;
+  }
+
+  (function animloop() {
+    render();
+    requestAnimationFrame(animloop);
+  })()
+  </script>
+</body>
+</html>

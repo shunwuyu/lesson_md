@@ -1,0 +1,17 @@
+{
+  "name": "date-pickers",
+  "version": "0.1.0",
+  "description": "[source](https://github.com/meathill-lecture/date-picker/blob/lesson1/sample/demo.html)",
+  "main": "index.js",
+  "scripts": {
+    "stylus:watch": "stylus -w styl/ -o css/",
+    "dev": "live-server"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "colors.css": "^3.0.0",
+    "normalize.css": "^8.0.1"
+  }
+}
