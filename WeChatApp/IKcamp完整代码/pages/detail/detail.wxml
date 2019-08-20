@@ -1,5 +1,7 @@
 <import src="../../lib/wxParse/wxParse.wxml"/>
-
+<!-- 
+iOS点击顶部状态栏、安卓双击标题栏时，滚动条返回顶部，只支持竖向
+ -->
  <scroll-view scroll-y="true" scroll-top="{{ scrollTop }}" enable-back-to-top="true" class="root-wrap">
     <view class="wrapper">
       <view class="info">

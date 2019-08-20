@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vw;
+      background: cornsilk;
+      padding: 1%;
+      background: linear-gradient(165deg, #527785 0%, #7FB4C7 100%);
+    }
+
+    #cloud-circle {
+      /* width: 180px;
+      height: 180px; */
+      width: 500px;
+  	  height: 275px;
+      background: coral;
+      border-radius: 50%;
+      filter: url(#filter);/*看这里看这里*/
+      box-shadow: 200px 200px 50px 0px #000;
+      /* 位置 */
+      box-shadow: 400px 400px 60px 0px #fff; /* 拉大阴影的位移位置，改变阴影的颜色 */
+    position: absolute; /* 改成绝对定位 */
+    top: -320px; /* 向上移一点 */
+    left: -320px; /* 向左移一点 */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cloud-circle"></div>
+  <svg width="0" height="0">
+    <filter id="filter">
+      <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="10" />
+      <feDisplacementMap in="SourceGraphic" scale="180" />
+    </filter>
+  </svg>
+</body>
+
+</html>
