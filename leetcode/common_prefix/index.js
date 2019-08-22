@@ -1,3 +1,4 @@
+
 function isCommonPrefix(strs, middle) {
   const prefix = strs[0].substring(0, middle);
   for (let i = 1; i < strs.length; i++) {

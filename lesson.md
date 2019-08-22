@@ -1,3 +1,7 @@
+- [dialog](css/bagua)
+- [wesbos chec](https://github.com/wesbos/JavaScript30/blob/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-FINISHED.html)
+- [interview](https://juejin.im/post/5d51e16d6fb9a06ae17d6bbc)
+- [compose](https://juejin.im/post/5d50bfebf265da03cb122b6f)
 - [雷达图](https://blog.csdn.net/lecepin/article/details/60466711)
 - [alley 考题]
 - [树的算法]
