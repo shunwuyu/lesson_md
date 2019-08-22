@@ -11,36 +11,89 @@
 <body>
   <script>
     /**
-   * @param {number} k
-   * @param {number[]} nums
-   */
+     * 建堆
+     * */
+     function build_max_heap(arr) {
+      arr.heapSize = arr.length - 1;
+      // 第一个非叶子节点 往前 一一 调整
+      let noLeafNode = Math.floor(arr.length / 2) - 1;
+      for (let i = noLeafNode; i >= 0; i--) {
+        max_heapify(arr, i);
+      }
+    }
+    /**
+     * 维护堆
+    */
+    function max_heapify(arr, i) {
+      let l = leftPos(i), r = rigthPos(i), largest = null;
+      if (l <= arr.heapSize && arr[l] > arr[i]) largest = l;
+      else largest = i;
+      if (r <= arr.heapSize && arr[r] > arr[largest]) largest = r;
+      // console.log(arr, i, largest);
+      if (largest !== i) {
+        // 如果 该节点不是最大值 
+        // 用户最大值和它交换
+        let t = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = t;
+        // 交换过后 largest 和原来 i 值产生的交换 可能会对 largest 位置的产生 影响
+        max_heapify(arr, largest);
+      }
+    }
+    function leftPos(i) {
+      return 2 * i + 1;
+    }
+    function rigthPos(i) {
+      return 2 * i + 2;
+    }
+    /**
+     * @param {number} k
+     * @param {number[]} nums
+     */
     var KthLargest = function (k, nums) {
-      nums.sort((a, b) => b - a);
-      this.knums = nums.slice(0, k);
+      build_max_heap(nums);
+      this.nums = nums;
       this.k = k;
     };
+    
 
     /** 
      * @param {number} val
      * @return {number}
      */
     KthLargest.prototype.add = function (val) {
-      var index = this.knums.findIndex(num => val >= num);
-      if (index >= 0 && this.knums.length > 0) {
-        this.knums.splice(index, 0, val).slice(0, this.k);
-      } else if (this.knums.length < this.k) {
-        this.knums.push(val);
-        this.knums.sort((a, b) => b - a);
-        this.knums = this.knums.slice(0, k);
+      let lastElement = this.nums[this.nums.length - 1];
+      if (val >= lastElement) this.nums.push(val);
+      else this.nums.unshift(val);
+      for (let i = this.nums.length - 1;
+      i >= this.nums.length - this.k;
+      i --) {
+        let t = this.nums[0];
+        this.nums[0] = this.nums[i];
+        this.nums[i] = t;
+        this.nums.heapSize = this.nums.heapSize - 1;
+        max_heapify(this.nums, 0);
       }
-      return this.knums[this.k - 1];
+      return this.nums[this.nums.length - this.k];
     };
 
     /**
      * Your KthLargest object will be instantiated and called as such:
      * var obj = new KthLargest(k, nums)
      * var param_1 = obj.add(val)
-     */
+    */
+    var arr = [4,5,8,2];
+    var obj = new KthLargest(3, arr);
+    var param_1 = obj.add(3);
+    console.log(param_1); // 4
+    var param_2 = obj.add(5);
+    console.log(param_2); // 5
+    var param_3 = obj.add(10);
+    console.log(param_3); // 5
+    var param_4 = obj.add(9);
+    console.log(param_4); // 8
+    var param_5 = obj.add(4);
+    console.log(param_5); 
   </script>
 </body>
 

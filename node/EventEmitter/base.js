@@ -31,3 +31,10 @@ ee.emit('one');
 //  ee.emit('open')
 // }, 1000)
 // console.log(process.argv);
+function foo(num) {
+  console.log(1);
+}
+ee.once('two', foo)
+ee.once('two', foo)
+ee.emit('two');
+ee.emit('two');
