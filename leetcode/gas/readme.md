@@ -1,4 +1,5 @@
 [source](https://leetcode-cn.com/problems/gas-station/)
+[answer](https://github.com/azl397985856/leetcode/blob/master/daily/answers/134.gas-station.js)
 
 在一条环路上有 N 个加油站，其中第 i 个加油站有汽油 gas[i] 升。
 
@@ -13,3 +14,4 @@ cost = [3,4,5,1,2]
 6-4+3=5
 3  
   
+- cost 总各一定小于等于gas 总和

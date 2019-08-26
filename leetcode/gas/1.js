@@ -1,33 +1,22 @@
-const gas = [1,2,3,4,5];
-const cost = [3,4,5,1,2];
-/**
- * @param {number[]} gas
- * @param {number[]} cost
- * @return {number}
- */
-function getIndex(index, n) {
-  if (index > n - 1) {
-    return index - n;
-  }
-  return index;
-}
-
 var canCompleteCircuit = function(gas, cost) {
-    let remain = 0;
-    const n = gas.length;
-    for (let i = 0; i < gas.length; i++) {
-      remain += gas[i];
-      remain -= cost[i];
-      let count = 0;
-      while (remain >= 0) {
-        count++;
-        if (count === n) return i;
-        remain += gas[getIndex(i + count, n)];
-        remain -= cost[getIndex(i + count, n)];
-      }
-      remain = 0;
-    }
-    return -1;
-};
+  const n = gas.length;
+  let total = 0,
+    remain = 0,
+    start = 0;
+  
+  for (let i = 0; i < n; i++) {
+    total += gas[i];
+    total -= cost[i];
 
-console.log(canCompleteCircuit(gas, cost));
+    remain += gas[i];
+    remain -= cost[i];
+
+    if (remain < 0) {
+      remain = 0;
+      start = i + 1;
+    }
+  }
+  return total >= 0? start : -1;
+}
+console.log(canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]));
+console.log(canCompleteCircuit([2,3,4], [3,4,3]));

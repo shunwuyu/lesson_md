@@ -9,4 +9,3 @@ this 的指向并不是在创建的时候就可以确定的，在 es5 中，永�
 - 在函数内部使用 _this = this
 - 使用 apply、call、bind
 - new 实例化一个对象
-
