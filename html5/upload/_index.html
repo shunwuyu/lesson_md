@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="file" />
+  <script>
+  var eleFile = document.querySelector('#file');
+  //文件对象 
+  var reader = new FileReader(), img = new Image();;
+  var canvas = document.createElement('canvas');
+  var context = canvas.getContext('2d');
+
+  eleFile.addEventListener('change', function (event) {
+    file = event.target.files[0];
+    // 选择的文件是图片 
+    if (file.type.indexOf("image") == 0) {
+        reader.readAsDataURL(file);    
+    }
+  })
+  reader.onload = function(e) {
+    img.src = e.target.result;
+  }
+  img.onload = function() {
+    var originWidth = this.width;
+    var originHeight = this.height;
+    var maxWidth = 400, maxHeight = 400;
+    var targetWidth = originWidth, targetHeight = originHeight;
+    console.log(targetWidth, targetHeight);
+    if (originWidth > maxWidth || originHeight > maxHeight) {
+      if (originWidth / originHeight > maxWidth / maxHeight) {
+        targetWidth = maxWidth;
+        targetHeight = Math.round(maxWidth * (originHeight / originWidth));
+      } else {
+        targetHeight = maxHeight;
+        targetWidth = Math.round(maxHeight * (originWidth / originHeight));
+      }
+    } 
+    canvas.width = targetWidth;
+    canvas.height = targetHeight;
+    document.body.appendChild(canvas);
+    context.clearRect(0, 0, targetWidth, targetHeight);
+    context.drawImage(img, 0, 0, targetWidth, targetHeight);
+    canvas.toBlob(function (blob) {
+        // 图片ajax上传
+        var xhr = new XMLHttpRequest();
+        // 文件上传成功
+        xhr.onreadystatechange = function(e) {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						// 100%进度
+						elePercent.innerHTML = '100%';
+						
+						// 显示上传成功后的图片地址
+						var response = xhr.responseText;
+						
+						if (/^\/\//.test(response)) {
+							response = response.split(filename)[0] + filename;
+							log('图片上传成功，地址是：<a href="'+ response +'" target="_blank">'+ response +'</a>');
+						} else {
+							log(response);
+						}
+					}
+				}
+			};
+        // 开始上传
+        xhr.open("POST", '/upload', true);
+        xhr.send(blob);    
+    }, file.type || 'image/png');
+  }
+  </script>
+</body>
+</html>

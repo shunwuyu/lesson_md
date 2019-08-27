@@ -1,0 +1,16 @@
+{
+  "name": "upload",
+  "version": "0.1.0",
+  "description": "[source](https://www.zhangxinxu.com/study/201707/js-compress-image-before-upload.html)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
+  }
+}
