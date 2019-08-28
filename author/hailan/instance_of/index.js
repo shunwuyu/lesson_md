@@ -5,36 +5,41 @@ function instance_of(L, R) {
   //return L.__proto__ == O;
   // console.log(O);
   // console.log(L.__proto__, '------');
+  console.log(L, '-------');
   L = L.__proto__; // 取 L 的隐式原型, 
+  console.log(L, '++++++++');
   while (true) {
+    console.log(L, '??????');
     // console.log(L.__proto__);
     if (L === null) return false;
     if (O === L)
       // 这里重点：当 O 严格等于 L 时，返回 true
       return true;
     L = L.__proto__; //一直找
+    console.log(L, '//////');
   }
 }
 
 function Animal(name) {
   this.name = name;
 }
-
-Animal.prototype.eat = function() {
-  console.log(`${this.name} is eating`);
+Animal.prototype = { 
+  canRun: function() {
+    console.log('it can run!');
+  }
 }
 
-function Person(name, job) {
-  Animal.call(this, name);
-  this.job = job;
+function Cat () {
+  this.speak = '喵！';
 }
-Person.prototype = new Animal();
+Cat.prototype = new Animal('miao');
+Cat.prototype.constructor = Cat;
 
 const dog = new Animal('小黄');
 //console.log(dog.__proto__ == Animal.prototype);
 // console.log(bili);
 // console.log(instance_of(dog, Animal));
-const bili = new Person('bili', '工程师');
+const garfield = new Cat('加菲猫');
 // console.log(instance_of(bili, Person));
-// console.log(instance_of(bili, Animal));
-console.log(bili.__proto__.__proto__ === Animal.prototype, '----');
+console.log(instance_of(garfield, Animal));
+// console.log(bili.__proto__.__proto__ === Animal.prototype, '----');
