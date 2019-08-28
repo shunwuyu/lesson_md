@@ -1,0 +1,1 @@
+[前端战五渣学JavaScript——call、apply以及bind](https://juejin.im/post/5c9ca4dd6fb9a070c023092e)
