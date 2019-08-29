@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .box {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    display:flex;
+    background-color:blue;
+    font-size: 0;
+    background-color:green;
+    align-items: stretch;
+  }
+  .inner {
+    flex: 1;
+    background-color: red;
+  }
+  .inner:nth-child(odd) {
+    background-color: yellow;
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="inner"></div>
+    <div class="inner"></div>
+  </div>
+</body>
+</html>

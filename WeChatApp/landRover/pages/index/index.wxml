@@ -1,6 +1,8 @@
 <swiper class="section hero white" indicator-dots="{{ true }}">
   <block wx:for="{{ slides }}" wx:key="id">
     <swiper-item>
+    <!-- aspectFill	缩放模式，
+    保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向     将会发生截取。 -->
       <image src="{{ item.image }}" mode="aspectFill" />
       <view class="content centered">
         <view class="sub-header">{{ item.sub_header }}</view>

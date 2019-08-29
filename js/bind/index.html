@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bind</title>
+</head>
+<body>
+  <a href="javascript:;" id="hi_a">Say hi Luffy!</a>
+  <script>
+  var name = 'Jack Sparrow';
+
+  var onePiece = {
+    name: 'Monkey·D·Luffy'
+  };
+
+  function sayWhoAmI() {
+    console.log(this.name)
+  }
+
+  sayWhoAmI.call(onePiece);
+  var mySayWhoAmI = sayWhoAmI.bind(onePiece);
+  document.getElementById('hi_a').addEventListener('click',mySayWhoAmI, false)
+  // document.getElementById('hi_a').addEventListener('click',function() {
+  //   sayWhoAmI.call(onePiece);
+  // }, false)
+  
+
+  sayWhoAmI(); // Jack Sparrow
+  // mySayWhoAmI();
+ </script>
+</body>
+</html>

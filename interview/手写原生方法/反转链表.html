@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var list = {
+      val: 1,
+      next: {
+        val: 2,
+        next: {
+          val: 3,
+          next: {
+            val: 4,
+            next: {
+              val: 5,
+              next: null
+            }
+          }
+        }
+      }
+    }
+    var reverseList = function (head) {
+      var cur = head,
+        prev = null;
+      while (cur) {
+        // js 引用的问题 需要暂存一下 下一个节点
+        // 相当于 cur.next 指向一个对象的引用
+        // 现在 我们把这个对象的引用 赋给 t 把
+        //  cur.next 指向另外一个地方 切断了原来的引用
+        var t = cur.next;
+        cur.next = prev;
+        prev = cur;
+        cur = t;
+        // cur = cur.next; // 假如不存在引用问题
+      }
+      return prev;
+    };
+    var a = {
+      v: 1,
+      next: {
+        v: 2, next: null
+      }
+    };
+    var t = a.next;
+    a.next = 123;
+    console.log(t, a);
+    console.log(reverseList(list));
+  </script>
+</body>
+
+</html>

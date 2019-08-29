@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+    * Definition for singly-linked list.
+    * function ListNode(val) {
+    *     this.val = val;
+    *     this.next = null;
+    * }
+    */
+    /**
+     * @param {ListNode} head
+     * @return {ListNode}
+     */
+     var listNode = {
+       v: 1, next: {
+         v: 2, next: {
+           v: 3, next: {
+             v: 4, next: null
+           }
+         }
+       }
+     }
+    //  给定 ?->1->2->3->4, 你应该返回 2->1->4->3.
+    var swapPairs = function (head) {
+      //      1) curr.next = curr.next.next   ?->1->2->3->4  => ?->2->3->4
+      //      2) node.next = node.next.next   1->2->3->4     => 1->3->4
+      //      3) curr.next.next = node        ?->2->3->4     => ?->2->1->3->4
+      var pre = {};
+      pre.next = head;
+      var cur = pre;
+      while (cur.next && cur.next.next) {
+        var t = cur.next;
+        cur.next = cur.next.next;
+        t.next = t.next.next;
+        cur.next.next = t;
+        cur = t
+      }
+      return pre.next;
+    };
+    console.log(swapPairs(listNode));
+  </script>
+</body>
+
+</html>

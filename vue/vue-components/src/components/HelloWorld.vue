@@ -1,7 +1,10 @@
 <template>
   <div class="hello">
-    <i-menu></i-menu>
-    <i-button size="large" @click.native="handle">按钮1</i-button>
+    <i-menu>
+      <p slot="menu1">第一个菜单</p>
+      <p slot="menu2">第二个菜单</p>
+    </i-menu>
+    <i-button size="large" @click.native="handle" slot="add">按钮1</i-button>
     <i-button disabled id="btn1" class="btn-submit">按钮2</i-button>
   </div>
 </template>

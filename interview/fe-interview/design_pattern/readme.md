@@ -1,0 +1,1 @@
+[source](https://lucifer.ren/fe-interview/#/./topics/design-pattern/singleton)

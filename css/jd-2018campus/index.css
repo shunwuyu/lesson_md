@@ -301,10 +301,10 @@ html, body {
   transform: rotate(-45deg) translate3d(3.06667rem,0,0);
 }
 .p8.swiper-slide-active .cube-2 {
-  animation: cube-1-anim .8s .8s both;
+  /* animation: cube-1-anim .8s .8s both; */
 }
 .p8.swiper-slide-active .cube-3 {
-  animation: cube-2-anim .8s .8s both;
+  /* animation: cube-2-anim .8s .8s both; */
 }
 @keyframes cube-1-anim {
 	0% {

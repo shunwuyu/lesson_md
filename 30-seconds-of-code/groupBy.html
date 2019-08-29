@@ -11,13 +11,13 @@
 <body>
   <!-- <script src="https://cdn.bootcss.com/lodash.js/4.17.12-pre/lodash.min.js"></script> -->
   <script>
-  const groupBy = (arr, fn) =>
-  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val, i) => {
-    console.log(acc, i, arr);
-    if (!acc[val]) acc[val] = [];
-    acc[val] = acc[val].concat(arr[i]);
-    return acc;
-  }, {});
+    const groupBy = (arr, fn) =>
+      arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val, i) => {
+        console.log(acc, i, arr);
+        if (!acc[val]) acc[val] = [];
+        acc[val] = acc[val].concat(arr[i]);
+        return acc;
+      }, {});
   </script>
   <script>
     // 向下取整
@@ -25,7 +25,7 @@
     // [6, 4, 6];
     // => { '4': [4.2], '6': [6.1, 6.3] }
     let r2 = groupBy(['one', 'two', 'three'], 'length');
-    let r3 = groupBy([{age: 23, name: 'name1'}, {age: 23, name: 'name2'}, {age: 24, name: 'name3'}], 'age');
+    let r3 = groupBy([{ age: 23, name: 'name1' }, { age: 23, name: 'name2' }, { age: 24, name: 'name3' }], 'age');
   </script>
 </body>
 

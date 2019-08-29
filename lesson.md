@@ -1,3 +1,11 @@
+- [dialog](css/bagua)
+- [wesbos chec](https://github.com/wesbos/JavaScript30/blob/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-FINISHED.html)
+- [interview](https://juejin.im/post/5d51e16d6fb9a06ae17d6bbc)
+- [compose](https://juejin.im/post/5d50bfebf265da03cb122b6f)
+- [雷达图](https://blog.csdn.net/lecepin/article/details/60466711)
+- [alley 考题]
+- [树的算法]
+- [统计字符串出现最多的字母]
 - [kth]()
 - [进程与线程](https://www.cnblogs.com/lixiaolun/p/4320843.html)  https://lucifer.ren/fe-interview/#/./topics/os/memory/allocation
 - [virtual dom](https://juejin.im/post/5c8e5e4951882545c109ae9c)

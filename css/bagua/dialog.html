@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .dialog {
+      position: relative;
+      margin-top: 50px;
+      margin-left: 50px;
+      padding-left: 20px;
+      width: 300px;
+      line-height: 2;
+      background: lightblue;
+      color: #fff;
+    }
+    .dialog::before {
+      content: '';
+      position: absolute;
+      border: 8px solid;
+      border-color: transparent lightblue transparent transparent;
+      left: -16px;
+      top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dialog">这是一个对话框鸭！</div>
+</body>
+</html>

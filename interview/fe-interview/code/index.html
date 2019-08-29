@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+  function setRem () {
+    let doc = document.documentElement
+    let width = doc.getBoundingClientRect().width
+    // console.log(width);
+    let rem = width / 75
+    // console.log(rem);
+    doc.style.fontSize = rem + 'px'
+  }
+  window.onload = function() {
+    setRem();
+  }
+  window.addEventListener('resize', setRem);
+  </script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .box {
+    width: 74rem;
+    height: 1rem;
+    background-color: green;
+  }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

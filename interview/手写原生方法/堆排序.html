@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [100, 4, 8, 7, 1, -2, 9, 6];
+    heapSort(arr);
+    console.log(arr);
+    function heapSort(arr) {
+      build_max_heap(arr);
+      for (let i = arr.length - 1; i >= 1; i --) {
+        let t = arr[0];
+        arr[0] = arr[i];
+        arr[i] = t;
+        arr.heapSize = arr.heapSize - 1;
+        max_heapify(arr, 0);
+      }
+    }
+    /**
+     * 建堆
+     * */
+    function build_max_heap(arr) {
+      arr.heapSize = arr.length - 1;
+      // 第一个非叶子节点 往前 一一 调整
+      let noLeafNode = Math.floor(arr.length / 2) - 1;
+      for (let i = noLeafNode; i >= 0; i--) {
+        max_heapify(arr, i);
+      }
+    }
+    /**
+     * 维护堆
+    */
+    function max_heapify(arr, i) {
+      let l = leftPos(i), r = rigthPos(i), largest = null;
+      if (l <= arr.heapSize && arr[l] > arr[i]) largest = l;
+      else largest = i;
+      if (r <= arr.heapSize && arr[r] > arr[largest]) largest = r;
+      // console.log(arr, i, largest);
+      if (largest !== i) {
+        // 如果 该节点不是最大值 
+        // 用户最大值和它交换
+        let t = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = t;
+        // 交换过后 largest 和原来 i 值产生的交换 可能会对 largest 位置的产生 影响
+        max_heapify(arr, largest);
+      }
+    }
+    /**
+     * 维护堆
+    */
+    // function max_heapify(arr, i) {
+    //   let l = leftPos(i), r = rigthPos(i), min = null;
+    //   if (l <= arr.heapSize && arr[l] < arr[i]) min = l;
+    //   else min = i;
+    //   if (r <= arr.heapSize && arr[r] < arr[min]) min = r;
+    //   console.log(arr, i, min);
+    //   if (min !== i) {
+    //     // 如果 该节点不是最大值 
+    //     // 用户最大值和它交换
+    //     let t = arr[i];
+    //     arr[i] = arr[min];
+    //     arr[min] = t;
+    //     // 交换过后 min 和原来 i 值产生的交换 可能会对 min 位置的产生 影响
+    //     max_heapify(arr, min);
+    //   }
+    // }
+    function leftPos(i) {
+      return 2 * i + 1;
+    }
+    function rigthPos(i) {
+      return 2 * i + 2;
+    }
+    /**
+     * 优先队列
+    */
+   let priorityQueue = [0, 9, 4, 0, -1, 10];
+   build_max_heap(priorityQueue);
+   function maximum(arr) {
+     return arr[0];
+   }
+   console.log('priorityQueue', priorityQueue);
+   function extractMax(arr) {
+     let max = arr[0];
+     arr[0] = arr[arr.heapSize];
+     arr.heapSize = arr.heapSize - 1;
+     max_heapify(arr, 0);
+     return max;
+   }
+   console.log('priorityQueue', extractMax(priorityQueue), priorityQueue);
+  </script>
+</body>
+</html>
