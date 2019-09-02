@@ -1,3 +1,4 @@
+- [animation](https://juejin.im/post/5be53e24e51d4539731437ab) /wechat/animation
 - [fullpage](https://blog.csdn.net/weixin_34037977/article/details/89373418) /js/fullpage
 - [dialog](css/bagua)
 - [wesbos chec](https://github.com/wesbos/JavaScript30/blob/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-FINISHED.html)

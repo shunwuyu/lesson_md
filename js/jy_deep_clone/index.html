@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  const dataLength = 200000;
+  
+	let objInt = {};
+	for(var i=0;i<dataLength;++i){
+		objInt[i] = {};
+	}
+
+  function runTestCase(obj){
+		
+		console.time( 'for-in' );
+		for(var key in obj){
+			// do something
+			//var val = obj[key];
+		}
+		console.timeEnd( 'for-in' );
+		
+ 
+		console.time( 'keys' );
+		let keys = Object.keys(obj);
+		console.timeEnd( 'keys' );
+		
+		console.time( 'for' );
+		for(var ii=0;ii<keys.length;++ii){
+			var val = obj[keys[ii]];
+		}
+		console.timeEnd( 'for' );
+ 
+		console.log("---------------------------")
+  }
+  runTestCase(objInt);
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <label for="unDebounce">没有防拦的input</label>
+    <input type="text" id="unDebounce" />
+  </div>
+  <div>
+    <label for="unDebounce">防拦</label>
+    <input type="text" id="debounce" />
+  </div>
+  <div>
+    <label for="unDebounce">节流</label>
+    <input type="text" id="throttle" />
+  </div>
+  <script>
+  function ajax(content) {
+    console.log('ajax request ' + content)
+  }
+  let inputa = document.getElementById('unDebounce')
+  
+  inputa.addEventListener('keyup', function (e) {
+    ajax(e.target.value)
+  })
+
+  function debounce(fun, delay) {
+    return function (args) {
+        let that = this
+        let _args = args
+        clearTimeout(fun.id)
+        fun.id = setTimeout(function () {
+            fun.call(that, _args)
+        }, delay)
+    }
+}
+    
+let inputb = document.getElementById('debounce')
+
+let debounceAjax = debounce(ajax, 500)
+
+inputb.addEventListener('keyup', function (e) {
+        debounceAjax(e.target.value)
+    })
+
+
+    function throttle(fun, delay) {
+        let last, deferTimer
+        return function (args) {
+            let that = this
+            let _args = arguments
+            let now = +new Date()
+            if (last && now < last + delay) {
+                clearTimeout(deferTimer)
+                deferTimer = setTimeout(function () {
+                    last = now
+                    fun.apply(that, _args)
+                }, delay)
+            }else {
+                last = now
+                fun.apply(that,_args)
+            }
+        }
+    }
+
+    let throttleAjax = throttle(ajax, 1000)
+
+    let inputc = document.getElementById('throttle')
+    inputc.addEventListener('keyup', function(e) {
+        throttleAjax(e.target.value)
+    })
+  </script>
+</body>
+</html>
