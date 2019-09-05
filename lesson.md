@@ -1,3 +1,6 @@
+- [throttle](https://juejin.im/post/583b10640ce463006ba2a71a)
+  [7分钟理解JS的节流、防抖及使用场景](https://juejin.im/post/5b8de829f265da43623c4261)
+- []
 - [animation](https://juejin.im/post/5be53e24e51d4539731437ab) /wechat/animation
 - [fullpage](https://blog.csdn.net/weixin_34037977/article/details/89373418) /js/fullpage
 - [dialog](css/bagua)
