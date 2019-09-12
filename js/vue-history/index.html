@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SPA</title>
+</head>
+<body>
+  <!-- 不动的导航 -->
+  <div id="nav">
+    <a href="#/page1">page1</a>
+    <a href="#/page2">page2</a>
+    <a href="#/page3">page3</a>
+    <a href="#/page4">page4</a>
+    <a href="#/page5">page5</a>
+  </div>
+  <!-- 动态的内容 -->
+  <div id="container"></div>
+  <script src="hash_router.js">
+  </script>
+  <script>
+    // # hash IE8 兼容性好
+  let router = new HashRouter();
+  //动态显示页面吧
+  let container = document.getElementById('container');
+  router.register('/page1', () => container.innerHTML = '我是page1');
+  router.register('/page2', () => container.innerHTML = '我是page2');
+  router.register('/page3', () => container.innerHTML = '我是page3');
+  router.register('/page5', () => {
+    // 出错
+    throw new Error('抛出一个异常');
+  });
+  router.registerNotFound(() => {
+    container.innerHTML = '页面未找到';
+  })
+  router.registerError((e) => {
+    container.innerHTML = `页面出错异常，错误消息：<br/>${e.message}`;
+  })
+  </script>
+</body>
+</html>
