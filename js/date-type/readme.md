@@ -10,3 +10,4 @@ Object  Object  Array  Function
 
 # 不可变性
 
+内存空间又被分为两种，栈内存与堆内存。
