@@ -1,4 +1,5 @@
-- geek-node.js  
+- vue-chat  /vue/vue-chat
+- geek-node.js  /book/geek-node.js 
 - proxy_defineproperty js/proxy_defineproperty/
 - 从一道面试题谈起 /author/xsfq/is_boolean
 - [history](https://juejin.im/post/5d2d19ccf265da1b7f29b05f)
