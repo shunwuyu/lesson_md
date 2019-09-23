@@ -1,3 +1,4 @@
+- vue-cli /workflow/xl-cli
 - beibao /leetcode/beibao
 - vue menu /vue/menu
 - vue-chat  /vue/vue-chat
