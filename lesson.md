@@ -1,3 +1,4 @@
+- beibao /leetcode/beibao
 - vue menu /vue/menu
 - vue-chat  /vue/vue-chat
 - geek-node.js  /book/geek-node.js 
