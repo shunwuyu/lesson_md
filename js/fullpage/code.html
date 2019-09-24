@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fullpage</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 99999;
+            overflow: hidden;
+        }
+        .scrollContainer{
+            display: none;
+            transition: all ease 1s;
+        }
+        .slide1{
+            background-color: rgb(27, 188, 155);
+        }
+        .slide2{
+            background-color: rgb(255, 153, 0);
+        }
+        .slide3{
+            background-color: rgb(123, 170, 190);
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="scrollContainer">
+            <div class="slide slide1">
+            </div>
+            <div class="slide slide2">
+            </div>
+            <div class="slide slide3">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            var $container = $('.container');
+            var $scroll = $container.find('.scrollContainer');
+            var height = $container.height();
+            // console.log(height);
+            var len = 3;
+            var current = 1;
+            $container.find('.slide').css('height', height + 'px');
+            $scroll.show();
+
+            var page = {
+                isScrolling: false,
+                start: 0,
+                next: function() {
+                    if((current + 1) <= len) {
+                        current += 1;
+                        page.move(current);
+                    }
+                },
+                pre: function() {
+                    if(current -1 > 0) {
+                        current -= 1;
+                        page.move(current);
+                    }
+                },
+                move: function(index) {
+                    page.isScrolling = true;
+                    var di = -(index-1)*height + 'px';
+                    page.start = +new Date();
+                    $scroll.css('transform', 'translateY('+di+')');
+                },
+                moveEnd: function() {
+                    page.end = +new Date();
+                    console.log('end', (page.end - page.start)/1000);
+                    page.isScrolling = false;
+                }
+            };
+
+            var mouseWheelHandle = function(event) {
+                var  deltaY = 0;
+                if (page.isScrolling) {
+                    return false;
+                }
+                var e = event.originalEvent || event;
+                deltaY = e.deltaY;
+                console.log(deltaY);
+                if (deltaY > 0) {
+                    page.next();
+                } else if (deltaY < 0) {
+                    page.pre();
+                }
+            };
+
+            // var keyboardHandle = function(event) {
+            //     var key = event.keyCode || event.which;
+            //     switch (key) {
+            //       case 37:
+            //         page.pre();
+            //         break;
+            //       case 38:
+            //         page.pre();
+            //         break;
+            //       case 39:
+            //         page.next();
+            //         break;
+            //       case 40:
+            //         page.next();
+            //         break;
+            //     }
+            // };
+
+            // var bindTouchMove = function(isVertical) {
+            //     var startPos = {};
+            //     var movePos = {};
+            //     var diffX = 0;
+            //     var diffY = 0;
+            //     var touch;
+                
+            //     var touchHande = function() {
+            //         diffY = movePos.y - startPos.y;
+            //         diffX = movePos.x - startPos.x;
+            //         if(isVertical) {
+            //             if(Math.abs(diffX) < Math.abs(diffY)) {
+            //                 if(diffY < 0) {
+            //                     page.next();
+            //                 }else {
+            //                     page.pre();
+            //                 }
+            //             }
+            //         }
+                    
+            //     };
+            //     var touchstartHandle = function(event) {
+            //         var e = event.originalEvent || event;
+            //         var touch = e.touches[0];
+            //         if(page.isScrolling) {
+            //             return false;
+            //         }
+            //         startPos = {
+            //             x: touch.pageX,
+            //             y: touch.pageY
+            //         };
+            //         event.preventDefault();
+
+            //     };
+            //     var touchmoveHandle = function(event) {
+            //         var e = event.originalEvent || event;
+            //         var touch = e.touches[0];
+            //         if(page.isScrolling) {
+            //             return false;
+            //         }
+            //         movePos = {
+            //             x: touch.pageX,
+            //             y: touch.pageY
+            //         };
+            //         event.preventDefault();
+            //     };
+            //     var touchendHandle = function(event) {
+            //         event.preventDefault();
+            //         touchHande();
+            //     };
+            //     $(document).on('touchstart', touchstartHandle);
+
+            //     $(document).on('touchmove', touchmoveHandle);
+
+            //     $(document).on('touchend', touchendHandle);
+            // };
+
+            var eventBind = function() {
+                $scroll.on('webkitTransitionEnd', page.moveEnd);
+                $(document).on('mousewheel', mouseWheelHandle);
+                // $(document).on('keydown', keyboardHandle);
+                // bindTouchMove(true);
+            };
+            eventBind();
+        });
+    </script>
+</body>
+</html>

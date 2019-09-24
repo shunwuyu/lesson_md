@@ -1,0 +1,26 @@
+{
+  "name": "xl-cli",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "xl-cli": "./bin/www"
+  },
+  "scripts": {
+    "dev": "node dist/main.js",
+    "compile": "babel src -d dist",
+    "watch": "npm run compile -- --watch"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "commander": "^3.0.1",
+    "download-git-repo": "^2.0.0",
+    "inquirer": "^7.0.0",
+    "ora": "^4.0.0"
+  }
+}
