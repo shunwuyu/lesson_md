@@ -53,9 +53,9 @@
   1. 原型链继承
   ```js
    function Parent1() {
-  this.name = ['super1']
-  this.reName = function () {
-    this.name.push('super111')
+    this.name = ['super1'];
+    this.reName = function () {
+      this.name.push('super111')
     }
   }
   function Child1() {
@@ -64,6 +64,7 @@
   var child11 = new Child1()
   var child12 = new Child1()
   var parent1 = new Parent1()
+  console.log('child11', child11);
   child11.reName()
   console.log(child11.name, child12.name) // [ 'super1', 'super111' ] [ 'super1', 'super111' ], 可以看到子类的实例属性皆来自于父类的一个实例，即子类共享了同一个实例
   console.log(child11.reName === child12.reName)

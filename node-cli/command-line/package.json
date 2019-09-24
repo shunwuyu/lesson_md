@@ -1,0 +1,23 @@
+{
+  "name": "iconfont-cli",
+  "version": "1.0.0",
+  "description": "玩转命令行开发",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ykg",
+  "license": "ISC",
+  "bin": {
+    "iconfont": "index.js"
+  },
+  "devDependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "inquirer": "^1.1.2",
+    "lodash": "^4.14.1"
+  },
+  "dependencies": {
+    "webfonts-generator": "^0.4.0"
+  }
+}

@@ -131,13 +131,10 @@
   "babel": {
     "plugins": [
       [
-        "@babel/plugin-proposal-decorators",
+        "@babel/plugin-proposal-class-properties",
         {
-          "legacy": true
+          "loose": false
         }
-      ],
-      [
-        "@babel/plugin-proposal-class-properties"
       ],
       [
         "./collectKey.js",
