@@ -158,13 +158,13 @@ Page({
     }
   },
   back() {
-    if (this.data.isFromShare) {
-      wx.navigateTo({
-        url: '../index/index'
-      })
-    } else {
+    // if (this.data.isFromShare) {
+    //   wx.navigateTo({
+    //     url: '../index/index'
+    //   })
+    // } else {
       wx.navigateBack()
-    }
+    // }
   },
 
 });

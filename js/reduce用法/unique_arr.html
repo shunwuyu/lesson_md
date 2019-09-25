@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  var a = [0, 0, 1, 1];
+  function unique(arr) {
+    let uniqueArr = [];
+    for (let ele of arr) {
+      if (!uniqueArr.includes(ele)) {
+        uniqueArr.push(ele);
+      }
+    }
+    return uniqueArr
+  }
+  function unique1(arr) {
+    return arr.reduce((pre, next) => {
+      if (!pre.includes(next)) {
+        pre.push(next)
+      }
+      return pre;
+    }, [])
+  }
+  console.log(unique1(a))
+  </script>
+</body>
+</html>

@@ -4,7 +4,12 @@ import Example1 from './example1/Example';
 import log from './exampleLog/index';
 import { debounce, decDebounce } from './exampleDebounce/index';
 import './App.css';
-
+function test() {
+  return function(a, b, c) {
+    console.log(a, b, c);
+  }
+}
+@test
 class Btn extends Component {
   state = {  }
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    (function (global, factory) {
+      // console.log(global, factory);
+      if (typeof module === "object" && typeof module.exports === "object") {
+        // 如果存在global.document 则返回factory(global, true);
+        // 有 global.document 只有 window 才有 document
+        module.exports = global.document ?
+          factory(global, true) :
+          function (w) {
+            if (!w.document) {
+              throw new Error("jQuery requires a window with a document");
+            }
+            return factory(w);
+          };
+      } else {
+        factory(global);
+      }
+    })(
+      typeof window !== "underfined" ? window : this,
+      function (window, noGlobal) {
+        var version = "3.4.1",
+          // Define a local copy of jQuery
+          jQuery = function (selector, context) {
+            // 返回new之后的对象
+            return new jQuery.fn.init(selector, context);
+          };
+        jQuery.fn = jQuery.prototype = {
+          // jQuery当前版本
+          jquery: version,
+          // 修正构造器为jQuery
+          constructor: jQuery,
+          length: 0,
+        };
+        init = jQuery.fn.init = function (selector, context, root) {
+          // ...
+          if (!selector) {
+            return this;
+          }
+          // ...
+        };
+        init.prototype = jQuery.fn;
+
+        if (noGlobal) {
+          window.jQuery = window.$ = jQuery;
+        }
+      }
+    )
+  </script>
+</body>
+
+</html>

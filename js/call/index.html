@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 1;
+    function test() {
+      console.log(this === obj);
+      console.log(this.a);
+    }
+    // test();
+    var obj = {
+      a: 2
+    }
+    // test.call(obj);
+    // 模拟一个 call 函数的实现
+    var testObj = {
+      a: 3,
+      test: function() {
+        console.log(this === testObj, this.a);
+      }
+    }
+    testObj.test();
+
+    function Foo() {}
+    Foo.prototype = {}
+
+    // myCall
+    Function.prototype.myCall = function(obj, ...rest) {
+      // console.log(1);
+      // 手写一个 call 实现
+      // console.log('call', obj);
+      obj._fn = this;
+      // 单纯运行 return 被吞掉了
+      // obj._fn === testMyCall === this
+      // console.log(obj._fn === testMyCall, testMyCall === this);
+      let res = obj._fn(...rest);
+      delete obj._fn;
+      return res;
+    }
+    function testMyCall(a, c, d) {
+      // console.log(this.b + a + c + d);
+      return this.b + a + c + d;
+    }
+    var testObj1 = {
+      b: 'b val',
+    }
+    // testMyCall('a val')
+    // testObj1._fn(); // this === testObj1
+    var t = testMyCall.myCall(testObj1, 'a val', 'c', 'd');
+    console.log('testObj1', testObj1);
+    console.log('t', t);
+
+    // function test1 () {}
+    // test1.myCall()
+  </script>
+</body>
+</html>

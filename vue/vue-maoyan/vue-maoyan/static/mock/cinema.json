@@ -1,0 +1,180 @@
+{
+  	"code": 1,
+	"cinemas": [
+		{
+			"id": 25654,
+			"mark": 0,
+			"nm": "奥斯卡影城又一城店",
+			"sellPrice": "29",
+			"addr": "中原区高新区科学大道89号升龙又一城广场3楼",
+			"distance": "2.9km",
+			"tag": {
+				"allowRefund": 0,
+				"buyout": 0,
+				"cityCardTag": 0,
+				"deal": 0,
+				"endorse": 1,
+				"hallTypeVOList": [ ],
+				"sell": 1,
+				"snack": 1,
+				"vipTag": "折扣卡"
+			},
+			"promotion": {
+				"cardPromotionTag": "开卡特惠，首单2张立减3元"
+			}
+		},
+		{
+			"id": 25984,
+			"mark": 0,
+			"nm": "万达影城(郑州公园茂店)",
+			"sellPrice": "29.5",
+			"addr": "中原区雪松路与翠竹街交叉口潮流茂4楼万达影城",
+			"distance": "3.9km",
+			"tag": {
+				"allowRefund": 0,
+				"buyout": 0,
+				"cityCardTag": 0,
+				"deal": 0,
+				"endorse": 0,
+				"hallTypeVOList": [ ],
+				"sell": 1,
+				"snack": 0
+			},
+			"promotion": { }
+		},
+		{
+			"id": 16560,
+			"mark": 0,
+			"nm": "CGV影城(高新IMAX店)",
+			"sellPrice": "34",
+			"addr": "中原区高新区科学大道与瑞达路交叉口正弘生活广场4层CGV影城",
+			"distance": "4.8km",
+			"tag": {
+				"allowRefund": 0,
+				"buyout": 0,
+				"cityCardTag": 0,
+				"deal": 0,
+				"endorse": 0,
+				"hallType": [
+					"IMAX厅"
+				],
+				"hallTypeVOList": [
+					{
+						"name": "IMAX厅",
+						"url": ""
+					}
+				],
+				"sell": 1,
+				"snack": 1,
+				"vipTag": "折扣卡"
+			},
+			"promotion": {
+				"cardPromotionTag": "折扣卡限时¥20促销开卡"
+			}
+		},
+		{
+			"id": 25727,
+			"mark": 0,
+			"nm": "中影星美国际影城(高新睿达广场店)",
+			"sellPrice": "19.9",
+			"addr": "中原区郑州高新区瑞达路与合欢街交叉口睿达广场3层",
+			"distance": "5.3km",
+			"tag": {
+			"allowRefund": 1,
+			"buyout": 0,
+			"cityCardTag": 0,
+			"deal": 0,
+			"endorse": 1,
+			"hallTypeVOList": [ ],
+			"sell": 1,
+			"snack": 1,
+			"vipTag": "折扣卡"
+			},
+			"promotion": {
+				"cardPromotionTag": "开卡特惠，首单2张立减5元"
+			}
+		},
+		{
+			"id": 8925,
+			"mark": 0,
+			"nm": "奥斯卡高新影城(科学大道店)",
+			"sellPrice": "29",
+			"addr": "中原区科学大道53号中原广告产业园4楼",
+			"distance": "5.7km",
+			"tag": {
+				"allowRefund": 0,
+				"buyout": 0,
+				"cityCardTag": 0,
+				"deal": 0,
+				"endorse": 1,
+				"hallTypeVOList": [ ],
+				"sell": 1,
+				"snack": 1,
+				"vipTag": "折扣卡"
+			},
+			"promotion": {
+				"cardPromotionTag": "开卡特惠，首单2张立减3元"
+			}
+		},
+		{
+			"id": 24132,
+			"mark": 0,
+			"nm": "悦影绘影城(华强广场店)",
+			"sellPrice": "24",
+			"addr": "中原区电厂路华强广场4楼",
+			"distance": "8.6km",
+			"tag": {
+				"allowRefund": 1,
+				"buyout": 0,
+				"cityCardTag": 0,
+				"deal": 0,
+				"endorse": 1,
+				"hallType": [
+					"杜比全景声厅"
+				],
+				"hallTypeVOList": [
+					{
+						"name": "杜比全景声厅",
+						"url": ""
+					}
+				],
+				"sell": 1,
+				"snack": 1,
+				"vipTag": "折扣卡"
+			},
+			"promotion": {
+				"cardPromotionTag": "开卡特惠，首单2张立减5元"
+			}
+		},
+		{
+			"id": 24864,
+			"mark": 0,
+			"nm": "横店星光影城",
+			"sellPrice": "38",
+			"addr": "荥阳市国泰路与惠民路交叉口东南侧正上豪布斯卡五楼",
+			"distance": "8.7km",
+			"tag": {
+				"allowRefund": 1,
+				"buyout": 0,
+				"cityCardTag": 0,
+				"deal": 0,
+				"endorse": 1,
+				"hallType": [
+					"杜比全景声厅"
+				],
+				"hallTypeVOList": [
+				{
+					"name": "杜比全景声厅",
+					"url": ""
+				}
+				],
+				"sell": 1,
+				"snack": 1,
+				"vipTag": "折扣卡"
+			},
+			"promotion": {
+				"cardPromotionTag": "限时¥27.9促销开卡，首单更优惠,开卡即赠价值¥48元礼包"
+			}
+		}
+	]
+}
