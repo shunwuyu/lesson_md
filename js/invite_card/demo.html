@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>邀请卡</title>
+  <style>
+  .set-option {
+      float: left;
+      width: 400px;
+  }
+  .set-option .text {
+      width: 200px;
+      height: 40px;
+      padding-left: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+  }
+  .set-option td {
+      padding: 10px 0;
+  }
+  .set-option td:first-child {
+      text-align: right;
+      padding-right: 10px;
+  }
+  .set-option p {
+      margin: 0;
+      line-height: 16px;
+  }
+  .check-box {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      vertical-align: top;
+  }
+  button {
+      width: 200px;
+      height: 50px;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 10px auto;
+  }
+  button:hover {
+      opacity: .9;
+  }
+  .btn-all {
+      background: #f90;
+  }
+  .btn-save {
+      background: #09f;
+  }
+  .btn-download {
+      background: #4CAF50;
+  }
+  </style>
+</head>
+<body>
+<div>
+    <div class="set-option">
+        <table>
+            <tr>
+                <td>画布尺寸</td>
+                <td><input type="text" class="text" id="size"
+                placeholder="200x200"
+                  /></td>
+            </tr>
+            <tr>
+                <td>背景图片</td>
+                <td><input type="file" id="file"/></td>
+            </tr>
+            <tr>
+                <td>用户名</td>
+                <td>
+                    <input type="text" class="text" id="user-name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>用户名字体大小</td>
+                <td><input type="number" class="text" id="text-size"/></td>
+            </tr>
+            <tr>
+                <td>文字颜色</td>
+                <td><input type="color" class="text" id="text-color"/></td>
+            </tr>
+            <tr>
+                <td>图片类型</td>
+                <td>
+                    <select type="text" class="text" id="img-type">
+                        <option value="jpg">jpg</option>
+                        <option value="png">png</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        
+        <button id="download-img" class="btn-download">下载当前图片</button>
+    </div>
+    <div class="show-canvas">
+        <canvas width=200 height=200 id="thecanvas"></canvas>
+    </div>
+</div>
+<script>
+var option = {
+  img: '111.jpg',
+  width: 600,
+  height: 420,
+  fontSize: "20px Microsoft YaHei",
+  color: "black",
+  text: '守候',
+  x: 100,
+  y: 100,
+  imgType: 'jpg'
+};
+window.onload = function () {
+  draw(option);
+  var size = document.getElementById("size");
+  size.addEventListener("blur", function () {
+    var sizeVal = this.value;
+    var xyArr = sizeVal.split('x');
+    option.width = xyArr[0];
+    option.height = xyArr[1];
+    // console.log(option.x, option.y);
+    draw(option);
+  });
+
+
+  var file = document.getElementById("file"), imagesFile, imageData;
+        file.addEventListener('change', function (e) {
+            imagesFile = e.target.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(imagesFile);
+            reader.onload = function (e) {
+                imageData = this.result;
+                option.img = imageData;
+                draw(option);
+            }
+        });
+
+        var userName = document.getElementById("user-name");
+        userName.addEventListener("blur", function () {
+            var text = userName.value;
+            option.text = text;
+            draw(option);
+        });
+        var dlButton = document.getElementById("download-img");
+        dlButton.addEventListener('click', function () {
+            downloadImg(option.text)
+        });
+}
+
+function draw(obj) {
+  var canvas = document.getElementById("thecanvas");
+        //画布大小
+  canvas.width = obj.width;
+  canvas.height = obj.height;
+  var img = new Image();
+  img.src = obj.img;
+  var ctx = canvas.getContext("2d");
+  img.onload = function () {
+    ctx.drawImage(img,0,0);
+    ctx.font=obj.fontSize;
+    ctx.fillStyle=obj.color;
+    ctx.fillText(obj.text, obj.x,obj.y);
+
+  }
+}
+
+function downloadImg(fileName) {
+        var myCanvas = document.getElementById("thecanvas");
+        var image = myCanvas.toDataURL("image/" + option.imgType).replace("image/" + option.imgType, "image/octet-stream");
+        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        save_link.href = image;
+        save_link.download = fileName + '.' + option.imgType;
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        save_link.dispatchEvent(event);
+    }
+</script>
+</body>
+</html>
