@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "commander": "^3.0.2",
+    "images": "^3.0.2"
+  },
+  "name": "national_day_70",
+  "version": "0.1.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "description": ""
+}

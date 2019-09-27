@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MVVM</title>
+</head>
+<body>
+  <div id="app">
+      <!-- 双向数据绑定 靠的是表单 -->
+      <input type="text" v-model="message">
+      <div>{{message}}</div>
+      <ul>
+          <li>{{message}}</li>
+      </ul>
+      {{message}}
+  </div>
+  <script src="compile.js">
+  </script>
+  <script src="mvvm.js">
+    </script>
+  <script>
+  let vm = new MVVM({
+      el: '#app',
+      data: {
+          message: 'hello world!'
+      }
+  });
+  </script>
+
+</body>
+</html>
