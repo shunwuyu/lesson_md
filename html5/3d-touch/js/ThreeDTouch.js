@@ -25,6 +25,7 @@ class ThreeDTouch {
   }
   touchForceDidChange(ev) {
     let force = ev.touches[0].force;
+    alert(force);
     this.callback(force)
     clearTimeout(this.timeoutId)
   }
@@ -54,7 +55,8 @@ let ui = {
   makeSlothLaugh() {
     var frame = Math.max(1, Math.ceil(this.force * 24)),
 		    posX = ((frame - 1) % 4) * -FRAME_WIDTH,
-		    posY = Math.floor((frame - 1) / 4) * -FRAME_HEIGHT
+        posY = Math.floor((frame - 1) / 4) * -FRAME_HEIGHT;
+    
 
 		document.getElementById('sloth').style.backgroundPosition = posX + 'px ' + posY + 'px'
   }

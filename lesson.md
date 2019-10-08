@@ -1,3 +1,10 @@
+- [vuex](https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart)
+- [最佳实践](https://juejin.im/post/583d1fe00ce463006baca2fa)
+- [pic2html](https://github.com/shunwuyu/ysw_js_fullstack/tree/master/html5/pic2html)
+- [weui switch](https://github.com/shunwuyu/ysw_js_fullstack/blob/master/css/switch/index.html)
+- [paopaotang](https://github.com/shunwuyu/ysw_js_fullstack/blob/master/js/paopaotang/index.js)
+- [duck typing](https://github.com/shunwuyu/ysw_js_fullstack/blob/master/js/choir/index.js)
+- mpvue todos  /vue/mpvue-demo
 - touch3d  /html5/3dtouch
 - babel 
 - node/nation_day_70
