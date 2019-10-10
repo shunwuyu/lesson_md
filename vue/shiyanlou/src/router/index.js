@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
-const __import__ = file => () => import(`@/pages/${file}.vue`)
-
-const router = new Router({
+export default new Router({
   routes: [
     {
-        path: '/',
-        name: 'Home',
-        component: __import__('home')
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld
     }
   ]
 })
-
-export default router

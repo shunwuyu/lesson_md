@@ -1,3 +1,4 @@
+- [vuex 手写](https://github.com/jackiewillen/build-your-own-vuex)
 - [vuex](https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart)
 - [最佳实践](https://juejin.im/post/583d1fe00ce463006baca2fa)
 - [pic2html](https://github.com/shunwuyu/ysw_js_fullstack/tree/master/html5/pic2html)
