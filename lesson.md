@@ -1,3 +1,4 @@
+- [snake](html5/snake)
 - [vuex 手写](https://github.com/jackiewillen/build-your-own-vuex)
 - [vuex](https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart)
 - [最佳实践](https://juejin.im/post/583d1fe00ce463006baca2fa)
