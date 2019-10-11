@@ -1,3 +1,38 @@
+- [snake](html5/snake)
+- [vuex 手写](https://github.com/jackiewillen/build-your-own-vuex)
+- [vuex](https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart)
+- [最佳实践](https://juejin.im/post/583d1fe00ce463006baca2fa)
+- [pic2html](https://github.com/shunwuyu/ysw_js_fullstack/tree/master/html5/pic2html)
+- [weui switch](https://github.com/shunwuyu/ysw_js_fullstack/blob/master/css/switch/index.html)
+- [paopaotang](https://github.com/shunwuyu/ysw_js_fullstack/blob/master/js/paopaotang/index.js)
+- [duck typing](https://github.com/shunwuyu/ysw_js_fullstack/blob/master/js/choir/index.js)
+- mpvue todos  /vue/mpvue-demo
+- touch3d  /html5/3dtouch
+- babel 
+- node/nation_day_70
+- js/singleton  vue use 使用
+- [canvas入门实战--邀请卡生成与下载](https://juejin.im/post/5a31dbc951882510b27563b9)
+- vue-cli /workflow/xl-cli
+- beibao /leetcode/beibao
+- vue menu /vue/menu
+- vue-chat  /vue/vue-chat
+- geek-node.js  /book/geek-node.js 
+- proxy_defineproperty js/proxy_defineproperty/
+- 从一道面试题谈起 /author/xsfq/is_boolean
+- [history](https://juejin.im/post/5d2d19ccf265da1b7f29b05f)
+- [throttle](https://juejin.im/post/583b10640ce463006ba2a71a)
+  [7分钟理解JS的节流、防抖及使用场景](https://juejin.im/post/5b8de829f265da43623c4261)
+- []
+- [animation](https://juejin.im/post/5be53e24e51d4539731437ab) /wechat/animation
+- [fullpage](https://blog.csdn.net/weixin_34037977/article/details/89373418) /js/fullpage
+- [dialog](css/bagua)
+- [wesbos chec](https://github.com/wesbos/JavaScript30/blob/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-FINISHED.html)
+- [interview](https://juejin.im/post/5d51e16d6fb9a06ae17d6bbc)
+- [compose](https://juejin.im/post/5d50bfebf265da03cb122b6f)
+- [雷达图](https://blog.csdn.net/lecepin/article/details/60466711)
+- [alley 考题]
+- [树的算法]
+- [统计字符串出现最多的字母]
 - [kth]()
 - [进程与线程](https://www.cnblogs.com/lixiaolun/p/4320843.html)  https://lucifer.ren/fe-interview/#/./topics/os/memory/allocation
 - [virtual dom](https://juejin.im/post/5c8e5e4951882545c109ae9c)

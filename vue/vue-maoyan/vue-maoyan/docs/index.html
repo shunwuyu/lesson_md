@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue2.5从0开发猫眼</title>
+  <link rel="icon" href="_media/favicon.ico">
+  <meta name="keywords" content="vue 猫眼">
+  <meta name="description" content="vue 猫眼">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app">loading....</div>
+</body>
+<script>
+  window.$docsify = {
+    logo: '/_media/icon.svg',  
+    name: 'vue2实战猫眼APP',
+  	//侧边栏
+    loadSidebar: true,
+    maxLevel: 4,
+    subMaxLevel: 2,
+  	//导航栏
+  	loadNavbar: true,
+    auto2top: true,
+  	formatUpdated: '{MM}/{DD} {HH}:{mm}',
+    search: {
+      maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      paths: 'auto',
+      placeholder: '搜索',
+      noData: '没有记录！'
+    },
+    repo: 'https://github.com/docsifyjs/docsify/'
+  }
+</script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<!--全文搜索 - Search-->
+<script src="//unpkg.com/docsify@4.3.8/lib/plugins/search.min.js"></script>
+<!-- Prism 代码高亮 -->
+<script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script>
+</html>

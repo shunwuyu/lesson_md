@@ -1,0 +1,6 @@
+<view class='container fc_container'>
+  <view animation="{{moveOne}}" class='rect {{isMove && "one"}}'></view>
+  <view animation="{{moveTwo}}" class='rect {{isMove && "two"}}'></view>
+  <view animation="{{moveThree}}"  class='rect {{isMove && "three"}}'></view>
+  <view animation="{{moveFour}}" class='rect {{isMove && "four"}}'></view>
+</view>

@@ -1,0 +1,392 @@
+* {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+body, dd, dl, form, h1, h2, h3, h4, h5, h6, ol, p, ul {
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Helvetica Neue,STHeiti,Microsoft Yahei,Tahoma,Simsun,sans-serif;
+}
+
+#loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -.86667rem;
+  margin-top: -1.46667rem;
+  z-index: 9999;
+}
+
+#loading, #loading .loading {
+  width: 1.73333rem;
+  height: 1.73333rem;
+}
+
+#loading .loading {
+  background: url(//gw.alicdn.com/tfs/TB1ZoYwbMvD8KJjy0FlXXagBFXa-130-130.gif) no-repeat 50%;
+  background-size: 100% 100%;
+}
+
+#loading .text {
+  text-align: center;
+  font-size: .4rem;
+  line-height: .8rem;
+  white-space: nowrap;
+  color: #fff;
+  margin-top: .2rem;
+}
+
+#app, .full-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.warm-up {
+  background: #000;
+}
+
+.warm-up .poster-container {
+  /* 先写成1 */
+  opacity: 0;
+  background: #000;
+}
+
+.warm-up .poster-container .poster-mayun {
+  position: absolute;
+  top: 7.81333rem;
+  left: 2.92rem;
+  width: 4.41333rem;
+  height: 8.86667rem;
+  background-image: url(//gw.alicdn.com/tfs/TB1EFAFbRfH8KJjy1XbXXbLdXXa-331-665.png);
+  background-size: 100% 100%;
+}
+
+.warm-up .poster-container .poster-left {
+  position: absolute;
+  left: -3.93333rem;
+  top: 2.41333rem;
+  width: 5.41333rem;
+  height: 15.37333rem;
+  opacity: 0;
+  transition: all 1.75s ease-out;
+  background-image: url(//gw.alicdn.com/tfs/TB1.XAFbRfH8KJjy1XbXXbLdXXa-406-1153.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+}
+
+.warm-up .poster-container .poster-left.end {
+  -webkit-transform: translateX(3.13333rem);
+  transform: translateX(3.13333rem); 
+  opacity: 1; 
+}
+
+.warm-up .poster-container .poster-right {
+  position: absolute;
+  left: 8rem;
+  top: 2.82667rem;
+  width: 4.98667rem;
+  height: 14.96rem;
+  opacity: 0;
+  transition: all 1.75s ease-out;
+  background-image: url(//gw.alicdn.com/tfs/TB18XAFbRfH8KJjy1XbXXbLdXXa-374-1122.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+}
+
+.warm-up .poster-container .poster-right.end {
+  -webkit-transform: translateX(-2.56rem);
+  transform: translateX(-2.56rem);
+  opacity: 1;
+}
+
+.warm-up .poster-container .poster-logo {
+  position: absolute;
+  top: 0;
+  bottom: -.61333rem;
+  width: 10rem;
+  height: 17.78667rem;
+  transition: all 1.25s ease-out 1s;
+  opacity: 0;
+  background-image: url(//gw.alicdn.com/tfs/TB1W2wSbLDH8KJjy1XcXXcpdXXa-750-1334.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+}
+
+.warm-up .poster-container .poster-logo.end {
+  -webkit-transform: translateY(-.61333rem);
+  transform: translateY(-.61333rem);
+  opacity: 1;
+}
+
+/* 音乐相关  */
+
+.music {
+  width: .8rem;
+  height: .8rem;
+  background: url(//gw.alicdn.com/tfs/TB1w.V3XyqAXuNjy1XdXXaYcVXa-60-60.png) no-repeat 50%;
+  background-size: 100% 100%;
+  position: absolute;
+  left: .37333rem;
+  top: .37333rem;
+  z-index: 1000;
+  display: none;
+  -webkit-animation: rotateBall 6s 0s linear infinite;
+  animation: rotateBall 6s 0s linear infinite;
+}
+
+.music.disabled {
+  background-image: url(//gw.alicdn.com/tfs/TB1rUM1bMvD8KJjy0FlXXagBFXa-60-60.png);
+  -webkit-animation: none;
+  animation: none;
+}
+
+@keyframes rotateBall {
+0% {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+
+
+50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+}
+}
+
+.warm-up .poster-container .poster-text {
+  position: absolute;
+  left: .24rem;
+  bottom: -.34667rem;
+  width: 9.30667rem;
+  height: 5.92rem;
+  transition: all 1s ease-out 1.25s;
+  opacity: 0;
+  background-image: url(//gw.alicdn.com/tfs/TB1cbd9cr_I8KJjy1XaXXbsxpXa-688-438.png);
+  background-size: 100% 100%;
+}
+
+.warm-up .poster-container .poster-text.end {
+  -webkit-transform: translateY(-.77333rem);
+  transform: translateY(-.77333rem);
+  opacity: 1;
+}
+
+.warm-up .main {
+  opacity: 0;
+  background: rgba(0,0,0,.8);
+  -webkit-animation: fadeIn .5s linear 0s forwards;
+  animation: fadeIn .5s linear 0s forwards;
+}
+
+@keyframes fadeIn {
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+}
+
+.warm-up .main-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 10.66667rem;
+  margin-top: -5.33333rem;
+}
+.warm-up-sprite {
+  background-image: url(//gw.alicdn.com/tfs/TB1egMzXiqAXuNjy1XdXXaYcVXa-750-797.png);
+  background-repeat: no-repeat;
+  background-size: 10rem 10.62667rem;
+}
+.warm-up .main-box .info {
+  height: 8.33333rem;
+  background-position: top;
+}
+.warm-up .main-box .btn {
+  width: 6rem;
+  height: 1.6rem;
+  background-position: -2rem -8.33333rem;
+  margin: 0 auto;
+}
+.warm-up .main-box .btn, .warm-up .main-box .tip {
+  opacity: 0;
+  -webkit-animation: fadeInUp .2s ease-out .5s forwards;
+  animation: fadeInUp .2s ease-out .5s forwards;
+}
+.warm-up .main-box .tip {
+  color: #caab3f;
+  line-height: .66667rem;
+  font-size: .32rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@keyframes fadeInUp {
+0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0,2.66667rem,0);
+  transform: translate3d(0,2.66667rem,0);
+}
+
+100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+}
+}
+
+.user-input {
+  background: #fff url(//gw.alicdn.com/tfs/TB1DEXabN6I8KJjy0FgXXXXzVXa-1150-1534.jpg) no-repeat top;
+  background-size: 15.33333rem 20.45333rem;
+}
+
+.user-input-wrapper {
+  width: 8.93333rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -4.46667rem;
+  top: 50%;
+  overflow: hidden;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.user-input-sprite {
+  background-image: url(//gw.alicdn.com/tfs/TB13P5QXiqAXuNjy1XdXXaYcVXa-750-1312.png);
+  background-repeat: no-repeat;
+  background-size: 10rem 17.49333rem;
+}
+.user-input-wrapper .hd {
+  width: 4.16rem;
+  height: .85333rem;
+  background-position: -.53333rem -.66667rem;
+  margin: 0 auto .2rem;
+}
+.user-input-wrapper .input-box {
+  height: .72rem;
+  border: 1px solid #565656;
+  width: 7.06667rem;
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
+  padding: .30667rem .26667rem;
+  font-size: 0;
+  line-height: .72rem;
+}
+.user-input-wrapper .input-box input {
+  background: 0 0;
+  border: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  width: 7.06667rem;
+  height: .72rem;
+  line-height: .72rem;
+  text-align: center;
+  vertical-align: top;
+  font-size: .48rem;
+  user-select: text;
+  -webkit-user-select: text;
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: textfield;
+}
+.user-input-wrapper .error-info {
+  color: #e30000;
+  line-height: .8rem;
+  height: .8rem;
+  font-size: .32rem;
+  text-align: center;
+  white-space: nowrap;
+  margin: .13333rem auto;
+}
+.user-input-wrapper .sex-radio {
+  height: .93333rem;
+  margin: 0 auto .26667rem;
+  width: 7.6rem;
+  line-height: .93333rem;
+  overflow: hidden;
+}
+.user-input-sprite {
+  background-image: url(//gw.alicdn.com/tfs/TB13P5QXiqAXuNjy1XdXXaYcVXa-750-1312.png);
+  background-repeat: no-repeat;
+  background-size: 10rem 17.49333rem;
+}
+.user-input-wrapper .sex-radio-item {
+  width: 50%;
+  height: .93333rem;
+  float: left;
+  background-position: -1.26667rem -2.18667rem;
+}
+.user-input-wrapper .sex-radio-item.checked {
+  background-position: -1.26667rem -3.36rem;
+}
+.user-input-wrapper .sex-radio-item:last-child {
+  background-position: -5.06667rem -2.18667rem;
+}
+.user-input-sprite {
+  background-image: url(//gw.alicdn.com/tfs/TB13P5QXiqAXuNjy1XdXXaYcVXa-750-1312.png);
+  background-repeat: no-repeat;
+  background-size: 10rem 17.49333rem;
+}
+.user-input-wrapper .upload-area {
+  width: 7.6rem;
+  height: 7.06667rem;
+  background-position: -1.26667rem -4.8rem;
+  margin: 0 auto;
+  position: relative;
+}
+.user-input-wrapper .upload-area .upload-btn {
+  width: 6.2rem;
+  height: 6.2rem;
+  position: relative;
+  padding-top: .86667rem;
+  margin: 0 auto;
+}
+.upload_file_input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-appearance: none;
+}
+.user-input-wrapper .next-btn {
+  height: 2rem;
+  margin: .42667rem auto 0;
+  width: 7.6rem;
+  background-position: -1.26667rem -12.56rem;
+}
+.user-input-wrapper .disabled {
+  background-position: -1.26667rem -15.01333rem;
+}

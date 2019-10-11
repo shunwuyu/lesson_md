@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iconfont</title>
+	<link rel="stylesheet" href="./iconfont.css">
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 0;
+			padding: 10px 20px;
+		}
+
+		.preview {
+			line-height: 2em;
+		}
+
+		.preview__icon {
+			display: inline-block;
+			width: 32px;
+			text-align: center;
+		}
+
+		.icon {
+			display: inline-block;
+			font-size: 16px;
+		}
+
+		@font-face {
+	font-family: "iconfont";
+	src: url("iconfont.eot?82061d6e0c9589812a76c38b2fc21c5f?#iefix") format("embedded-opentype"),
+url("iconfont.woff2?82061d6e0c9589812a76c38b2fc21c5f") format("woff2"),
+url("iconfont.woff?82061d6e0c9589812a76c38b2fc21c5f") format("woff");
+}
+
+.icon {
+	line-height: 1;
+}
+
+.icon:before {
+	font-family: iconfont !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.icon-juejin:before {
+	content: "\f101";
+}
+
+	</style>
+</head>
+<body>
+	<h1>iconfont</h1>
+	<div class="preview">
+		<span class="preview__icon">
+			<span class="icon-juejin icon"></span>
+		</span>
+		<span>juejin</span>
+	</div>
+</body>
+</html>

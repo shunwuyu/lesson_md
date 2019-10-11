@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .box {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    background: linear-gradient( to right, #ff9e2c 0%, #ff9e2c 50%, #b6701e 50%, #b6701e 100% );
+  }
+  .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: red;
+  }
+  .right{
+    left: 50%;
+    background-color: green;
+  }
+  </style>
+</head>
+<body>
+    <!-- 父元素需要设置高度，但是这样做内容无法自适应（内容更改!），更不要说绝对定位会脱离文档流。所以，很难达到所有的要求，但我们可以将其他内容放在下面。 -->
+
+    
+  <div class="box">
+    <div class="inner"></div>
+    <div class="inner right"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  img {
+    display: block;
+    margin-bottom: 50px;
+    width: 400px;
+    height: 400px;    
+  }
+  </style>
+</head>
+<body>
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" />
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190808/v2_1565254363234_img_jpg">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190905/v2_1567641293753_img_png">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190905/v2_1567640518658_img_png">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190905/v2_1567642423719_img_000">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190905/v2_1567642425030_img_000">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190905/v2_1567642425101_img_000">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190905/v2_1567642425061_img_000">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190904/v2_1567591358070_img_jpg">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190905/v2_1567641974410_img_000">
+    <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png"  data-src="https://img.36krcdn.com/20190905/v2_1567641974454_img_000">
+    <script>
+    function throttle(func, delay, time) {
+      var timeout,
+        startTime = new Date();
+      return function() {
+        var context = this,
+          args = arguments,
+          curTime = new Date();
+        clearTimeout(timeout);
+        if (curTime - startTime >= time) {
+            func.apply(context, args);
+            startTime = curTime;
+            // 没达到触发间隔，重新设定定时器
+        } else {
+            timeout = setTimeout(func, delay);
+        }
+
+      }
+    }
+    var images = document.getElementsByTagName("img");
+    var num = images.length;
+    var n = 0;
+    lazyload(); //页面载入完毕加载可是区域内的图片
+    // window.onscroll = lazyload;
+    window.addEventListener('scroll',throttle(lazyload,500,1000));
+    function lazyload() { //监听页面滚动事件
+        var seeHeight = document.documentElement.clientHeight; //可见区域高度
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //滚动条距离顶部高度
+        for (var i = n; i < num; i++) {
+            if (images[i].offsetTop < seeHeight + scrollTop) {
+                if (images[i].getAttribute("src") == "https://misc.360buyimg.com/mtd/pc/common/img/blank.png") {
+                  images[i].src = images[i].getAttribute("data-src");
+                }
+                n = i + 1;
+            }
+        }
+    }
+
+  </script>
+</body>
+</html>

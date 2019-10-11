@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <span id="container">1</span>
+  <button id="button">点击加 1</button>
+  <script>
+  // document.getElementById('button').addEventListener("click", function(){
+  //   var container = document.getElementById("container");
+  //   container.innerHTML = Number(container.innerHTML) + 1;
+  // });
+  var obj = {
+    value: 1
+}
+
+// 储存 obj.value 的值
+var value = 1;
+
+Object.defineProperty(obj, "value", {
+    get: function() {
+        return value;
+    },
+    set: function(newValue) {
+        value = newValue;
+        document.getElementById('container').innerHTML = newValue;
+    }
+});
+
+document.getElementById('button').addEventListener("click", function() {
+    obj.value += 1;
+});
+
+  </script>
+</body>
+</html>

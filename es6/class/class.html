@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      static a() {
+        console.log('this is a static function')
+      }
+      say() {
+        return `${this.name},${this.age}`;
+      }
+    }
+    // Person.a();
+    Person.prototype.addFn = function() {
+      console.log('this is a addFn');
+    }
+    var obj = new Person("tom", 18);
+    console.log(obj.say());
+    
+    console.log('typeof Person', typeof Person);//function
+    console.log('Person obj', obj, obj.constructor === Person);
+    console.log('判断Person prototype', Person.a, Person === Person.prototype.constructor);//true
+    // 甚至可以通过 prototype 的方式添加方法
+
+    class B extends Person{
+  constructor(c) {
+    super()
+        this.age = c;
+      }
+    }
+  </script>
+</body>
+
+</html>

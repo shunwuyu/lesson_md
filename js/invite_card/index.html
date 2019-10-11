@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>邀请卡</title>
+  <style>
+  .set-option {
+      float: left;
+      width: 400px;
+  }
+  .set-option .text {
+      width: 200px;
+      height: 40px;
+      padding-left: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+  }
+  .set-option td {
+      padding: 10px 0;
+  }
+  .set-option td:first-child {
+      text-align: right;
+      padding-right: 10px;
+  }
+  .set-option p {
+      margin: 0;
+      line-height: 16px;
+  }
+  .check-box {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      vertical-align: top;
+  }
+  button {
+      width: 200px;
+      height: 50px;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 10px auto;
+  }
+  button:hover {
+      opacity: .9;
+  }
+  .btn-all {
+      background: #f90;
+  }
+  .btn-save {
+      background: #09f;
+  }
+  .btn-download {
+      background: #4CAF50;
+  }
+  </style>
+</head>
+<body>
+<div>
+    <div class="set-option">
+        <table>
+            <tr>
+                <td>画布尺寸</td>
+                <td><input type="text" class="text" id="size"/></td>
+            </tr>
+            <tr>
+                <td>背景图片</td>
+                <td><input type="file" id="file"/></td>
+            </tr>
+            <tr>
+                <td>用户名</td>
+                <td>
+                    <input type="text" class="text" id="user-name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>用户名x坐标</td>
+                <td>
+                    <input type="number" class="text" id="text-option-x"/></br>
+                    <p><input type="checkbox" class="check-box" value="1" id="is-center-x">居中显示</p>
+                </td>
+            </tr>
+            <tr>
+                <td>用户名y坐标</td>
+                <td>
+                    <input type="number" class="text" id="text-option-y"/></br>
+                    <p><input type="checkbox" class="check-box" value="1" id="is-center-y">居中显示</p>
+                </td>
+            </tr>
+            <tr>
+                <td>用户名字体大小</td>
+                <td><input type="number" class="text" id="text-size"/></td>
+            </tr>
+            <tr>
+                <td>文字颜色</td>
+                <td><input type="text" class="text" id="text-color"/></td>
+            </tr>
+            <tr>
+                <td>图片类型</td>
+                <td>
+                    <select type="text" class="text" id="img-type">
+                        <option value="jpg">jpg</option>
+                        <option value="png">png</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button id="save-image" class="btn-save">效果预览</button>
+        <button id="download-img" class="btn-download">下载当前图片</button>
+        <button id="download-all" class="btn-all">批量导出</button>
+    </div>
+    <div class="show-canvas">
+        <canvas width=200 height=200 id="thecanvas"></canvas>
+    </div>
+</div>
+<script>
+var option = {
+        img: '111.jpg',
+        width: 500,
+        height: 350,
+        fontSize: "20px Microsoft YaHei",
+        color: "black",
+        text: '守候',
+        textAll: [],
+        imgType: 'jpg',
+        x: 30,
+        y: 30,
+        xCenter: false,
+        yCenter: false,
+        fn: null,
+        all: false
+    };
+    window.onload = function () {
+        var saveButton = document.getElementById("save-image");
+        saveButton.addEventListener('click', saveImageInfo);
+        var dlButton = document.getElementById("download-img");
+        dlButton.addEventListener('click', function () {
+            downloadImg(option.text)
+        });
+        draw(option);
+        //选择图片
+        var file = document.getElementById("file"), imagesFile, imageData;
+        file.addEventListener('change', function (e) {
+            imagesFile = e.target.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(imagesFile);
+            reader.onload = function (e) {
+                imageData = this.result;
+                option.img = imageData;
+                draw(option);
+            }
+        });
+        //画布尺寸
+        var size = document.getElementById("size");
+        size.addEventListener("blur", function () {
+           var sizeVal = this.value;
+           var xyArr = sizeVal.split('x');
+           option.x = xyArr[0];
+           option.y = xyArr[1];
+           console.log(option.x, option.y);
+           draw(option);
+        });
+        //用户名
+        var userName = document.getElementById("user-name");
+        userName.addEventListener("blur", function () {
+            var _text = userName.value.replace(/(^\s*)|(\s*$)/g, "").split(/\s+/);
+            option.text = _text[0];
+            draw(option);
+        });
+        //字体大小
+        var textSize = document.getElementById("text-size");
+        textSize.addEventListener("input", function () {
+            textSize.value === "" ? option.fontSize = '20px Microsoft YaHei' : option.fontSize = textSize.value + 'px Microsoft YaHei';
+            draw(option);
+        });
+        //横坐标
+        var optionX = document.getElementById("text-option-x");
+        optionX.value = option.x;
+        var optionXCenter = document.getElementById("is-center-x");
+        optionX.addEventListener("input", function () {
+            if (optionXCenter.checked) {
+                option.xCenter = true;
+            }
+            else {
+                option.xCenter = false;
+                option.x = parseInt(optionX.value);
+            }
+            draw(option);
+        });
+        //是否水平居中显示
+        optionXCenter.addEventListener("change", function () {
+            if (optionXCenter.checked) {
+                option.xCenter = true;
+            }
+            else {
+                option.xCenter = false;
+                option.x = parseInt(optionX.value);
+            }
+            draw(option);
+        });
+        //纵坐标
+        var optionY = document.getElementById("text-option-y");
+        optionY.value = option.y;
+        var optionYCenter = document.getElementById("is-center-y");
+        optionY.addEventListener("input", function () {
+            if (optionYCenter.checked) {
+                option.yCenter = true;
+            }
+            else {
+                option.yCenter = false;
+                option.y = parseInt(optionY.value);
+            }
+            draw(option);
+        });
+        //是否垂直居中显示
+        optionYCenter.addEventListener("change", function () {
+            if (optionYCenter.checked) {
+                option.yCenter = true;
+            }
+            else {
+                option.yCenter = false;
+                option.y = parseInt(optionY.value);
+            }
+            draw(option);
+        });
+        //字体颜色
+        var textColor = document.getElementById("text-color");
+        textColor.addEventListener("blur", function () {
+            textColor.value === "" ? option.color = "#fff" : option.color = '#' + textColor.value;
+            draw(option);
+        });
+        //图片类型
+        var imgType = document.getElementById("img-type");
+        imgType.addEventListener("change",function () {
+            option.imgType=this.value;
+        });
+        //批量导出
+        var downloadAll = document.getElementById("download-all");
+        downloadAll.addEventListener('click', function () {
+            var _text = userName.value.replace(/(^\s*)|(\s*$)/g, "").split(/\s+/);
+            option.textAll = _text;
+            option.all = true;
+            option.fn = downloadImg;
+            draw(option);
+        });
+    };
+    //画图
+    function draw(obj) {
+        var canvas = document.getElementById("thecanvas");
+        //画布大小
+        canvas.width = obj.width;
+        canvas.height = obj.height;
+        //设置图片
+        var img = new Image();
+        img.src = obj.img;
+        var ctx = canvas.getContext("2d");
+        //设置字体的坐标
+        var _x = obj.x, _y = obj.y;
+        //是否居中显示
+        if (obj.xCenter) {
+            _x = obj.width / 2;
+        }
+        if (obj.yCenter) {
+            _y = obj.height / 2;
+        }
+        //图片加载后
+        img.onload = function () {
+            if(obj.all){
+                for(var i=0;i<obj.textAll.length;i++){
+                    ctx.drawImage(img,0,0);
+                    ctx.font=obj.fontSize;
+                    ctx.fillStyle=obj.color;
+                    if(obj.xCenter){
+                        ctx.textAlign="center";
+                    }
+                    ctx.fillText(obj.textAll[i], _x,_y);
+                    if(obj.fn){
+                        obj.fn(obj.textAll[i]);
+                    }
+                }
+                option.all=false;
+            }
+            else{
+                ctx.drawImage(img,0,0);
+                ctx.font=obj.fontSize;
+                ctx.fillStyle=obj.color;
+                if(obj.xCenter){
+                    ctx.textAlign="center";
+                }
+                ctx.fillText(obj.text, _x,_y);
+            }
+        };
+    }
+    //预览图片
+    function saveImageInfo() {
+        var mycanvas = document.getElementById("thecanvas");
+        var image = mycanvas.toDataURL("image/png");
+        var w = window.open('about:blank', 'image from canvas');
+        w.document.write("<img src='" + image + "' alt='from canvas'/>");
+    }
+    //下载图片
+    function downloadImg(fileName) {
+        var myCanvas = document.getElementById("thecanvas");
+        var image = myCanvas.toDataURL("image/" + option.imgType).replace("image/" + option.imgType, "image/octet-stream");
+        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        save_link.href = image;
+        save_link.download = fileName + '.' + option.imgType;
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        save_link.dispatchEvent(event);
+    }
+</script>
+</body>
+</html>

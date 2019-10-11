@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = [0, [1, 2], [3]]
+    function flatten(arr) {
+      var newarr = [];
+      for (var t of arr) {
+        if (!Array.isArray(t)) {
+          newarr.push(t);
+        } else {
+          newarr = newarr.concat(t);
+        }
+      }
+      return newarr
+    }
+    console.log(flatten(arr));
+    function flatten1(arr) {
+      return arr.reduce((p, n) => {
+        if (!Array.isArray(n)) {
+          p.push(n);
+        } else {
+          p = p.concat(n);
+        }
+        return p;
+      }, [])
+    }
+    /*
+    const arr = [1, [[2], 3, 4], 5];
+    const flatten = arr => {
+      return arr.reduce((flat, toFlat) => {
+        return flat.concat(Array.isArray(toFlat) ? flatten(toFlat) : toFlat);
+      }, []);
+    };
+    const res = flatten(arr);
+    console.log(res);
+    */
+    console.log(flatten1(arr));
+  </script>
+</body>
+
+</html>

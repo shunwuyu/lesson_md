@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img src="https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg" alt="">
+  <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png" alt="">
+  <svg width="200" height="200"
+    style="transform:rotate(-90deg)"
+    >
+      <circle
+      r="45"
+      cx="100"
+      cy="100"
+      stroke="rgb(229, 233, 242)"
+      fill="none"
+      stroke-width="3"
+      >
+      </circle>
+    <circle
+    id="bar"
+    r="45"
+    cx="100"
+    cy="100"
+    stroke="red"
+    fill="none"
+    stroke-width="3"
+    stroke-dasharray="282.7"
+    stroke-dashoffset="10"
+    >
+    </circle>
+  </svg>
+  <script>
+  var percent = 10;
+  var lineLen = 2 * Math.PI * 45;
+  var offset = lineLen * ((100 - percent) / 100);
+  const bar = document.getElementById('bar');
+
+  bar.setAttribute('stroke-dashoffset', offset);
+
+
+  </script>
+</body>
+</html>

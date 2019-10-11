@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function a(a) {
+        var d, e, b = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", c = "";
+        for (d = 0; a > d; d += 1)
+          e = Math.random() * b.length,
+            e = Math.floor(e),
+            c += b.charAt(e);
+        return c
+      }
+      console.log(a(16));
+    </script>
+</body>
+</html>

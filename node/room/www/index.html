@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+  <head>        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chat</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/font-awesome-4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="all">
+      <div class="name">
+        <!-- <h2>请输入你的昵称</h2> -->
+        <input type="text" id="name" placeholder="请输入昵称..." autocomplete="off"> 
+        <button id="nameBtn">确  定</button>
+      </div>
+      <div class="main">
+        <div class="header">
+          <img src="image/logo.jpg">
+          happy聊天室
+        </div>
+        <div id="container">
+          <div class="conversation">
+              <ul id="messages"></ul>
+              <form action="">
+                  <div class="edit"> 
+                    <input type="color" id="color" value="#000000">
+                    <i title="双击取消选择" class="fa fa-smile-o" id="smile">
+                    </i><i title="双击取消选择" class="fa fa-picture-o" id="img"></i>
+                    <div class="selectBox"> 
+                      <div class="smile"> 
+                      </div>
+                      <div class="img"> 
+                      </div>
+                    </div>
+                  </div>
+                  <!-- autocomplete禁用自动完成功能 -->
+                  <textarea id="m"></textarea>
+                  <button class="btn rBtn" id="sub">发送</button>
+                  <button class="btn" id="clear">关闭</button>
+              </form>
+          </div>
+          <div class="contacts">
+            <h1>在线人员(<span id="num">0</span>)</h1>
+            <ul id="users"></ul>
+            <p>当前无人在线哟~</p>
+          </div>
+        </div>
+      </div> 
+    </div> 
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+    $(function() {
+      // io-client
+      // 连接成功会触发服务器端的connection事件
+      var socket = io(); 
+
+      // 点击输入昵称
+      $('#nameBtn').click(()=> {  
+        var imgN = Math.floor(Math.random()*4)+1; // 随机分配头像
+        if($('#name').val().trim()!=='')
+            socket.emit('login', {  // 触发服务器端登录事件
+              name: $('#name').val(),
+              img: 'image/user' + imgN + '.jpg'
+            }); 
+        return false;  
+      });
+      // 登录成功，隐藏登录层
+      socket.on('loginSuc', ()=> { 
+        $('.name').hide(); 
+      })
+      socket.on('loginError', ()=> {
+        alert('用户名已存在，请重新输入！');
+        $('#name').val('');
+      }); 
+      socket.on('disUser', (usersInfo)=> {
+        displayUser(usersInfo);
+      });
+      $('#sub').click(sendMsg);
+      function sendMsg() { 
+        if($('#m').val() == '') {
+          alert('请输入内容！');
+          return false;
+        }
+        color = '#123'; 
+        socket.emit('sendMsg', {
+          msg: $('#m').val(),
+          color: color,
+          type: 'text'
+        });
+        $('#m').val(''); 
+        return false; 
+      }
+
+      socket.on('receiveMsg', (obj)=> {  
+      // 发送为图片
+     
+        
+
+      // 提取文字中的表情加以渲染
+      var msg = obj.msg;
+      var content = '';
+      while(msg.indexOf('[') > -1) {  // 其实更建议用正则将[]中的内容提取出来
+        var start = msg.indexOf('[');
+        var end = msg.indexOf(']');
+
+        content += '<span>'+msg.substr(0, start)+'</span>';
+        content += '<img src="image/emoji/emoji%20('+msg.substr(start+6, end-start-6)+').png">';
+        msg = msg.substr(end+1, msg.length);
+      }
+      content += '<span>'+msg+'</span>';
+      
+      $('#messages').append(`
+        <li class='${obj.side}'>
+          <img src="${obj.img}">
+          <div>
+            <span>${obj.name}</span>
+            <p style="color: ${obj.color};">${content}</p>
+          </div>
+        </li>
+      `);
+      // 滚动条总是在最底部
+      $('#messages').scrollTop($('#messages')[0].scrollHeight);
+    }); 
+
+      function displayUser(users) {
+        $('#users').text(''); // 每次都要重新渲染
+        if(!users.length) {
+          $('.contacts p').show();
+        } else {
+          $('.contacts p').hide();
+        }
+        $('#num').text(users.length);
+        for(var i = 0; i < users.length; i++) {
+          var $html = `<li>
+            <img src="${users[i].img}">
+            <span>${users[i].name}</span>
+          </li>`;
+          $('#users').append($html);
+        }
+      }
+    });
+    </script>
+  </body>
+</html>

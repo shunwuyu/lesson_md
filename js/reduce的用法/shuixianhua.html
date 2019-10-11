@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sxh(num) {
+      var str = num.toString();
+      var len = str.length;
+      let sum = 0;
+      for (let item of str) {
+        sum += Math.pow(parseInt(item), len)
+      }
+      console.log(sum);
+      return sum === num;
+    }
+    console.log(sxh(153))
+    console.log(sxh(1634));
+  </script>
+</body>
+</html>

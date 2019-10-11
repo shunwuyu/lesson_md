@@ -1,0 +1,10 @@
+.fc_container {
+  display: flex;
+  justify-content: center;
+}
+.rect {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  background-color: red;
+}

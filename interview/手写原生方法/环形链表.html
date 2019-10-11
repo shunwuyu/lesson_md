@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+    * Definition for singly-linked list.
+    * function ListNode(val) {
+    *     this.val = val;
+    *     this.next = null;
+    * }
+    */
+
+    /**
+    * @param {ListNode} head
+    * @return {boolean}
+    */
+    var listNode = {
+      v: 1, next: {
+        v: 2, next: {
+          v: 3, next: listNode
+        }
+      }
+    }
+    console.log(listNode);
+    // 解法一 快慢指针 判断相遇
+    var hasCycle = function (head) {
+      var slow = fast = head;
+      while (slow && fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    // 解法二： 留下足迹
+    var hasCycle = function (head) {
+      var set = new Set();
+      var cur = head
+      while (cur) {
+        if (set.has(cur)) {
+          return true;
+        } else {
+          set.add(cur)
+        }
+        cur = cur.next;
+      }
+      return false;
+    }
+  </script>
+</body>
+
+</html>

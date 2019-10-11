@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function parseParams(url) {
+      let obj = {};
+      let paramsString = url;
+      if (url.indexOf('?') !== -1) {
+        paramsString = url.split('?')[1]
+      }
+      const parasmsArr = paramsString.split('&');
+      parasmsArr.forEach(element => {
+        if (element.indexOf('=') !== -1) {
+          let [key, val] = element.split('=');
+          val = decodeURIComponent(val);
+          if (obj.hasOwnProperty(key)) {
+            obj[key] = [].concat(obj[key], val);
+          } else {
+            obj[key] = val;
+          }
+        } else {
+          obj[element] = true
+        }
+      });
+      return obj;
+    }
+    console.log(parseParams('https://juejin.im/search?query=node&type=article'));
+    console.log(parseParams('https://juejin.im/search?query=%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97&type=article'))
+    console.log(parseParams('https://juejin.im/search?query=node&type=article&query=js'));
+    console.log(parseParams('https://juejin.im/search?query=node&type&query=js'));
+  </script>
+</body>
+
+</html>

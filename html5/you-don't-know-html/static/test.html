@@ -9,6 +9,7 @@
 <body>
   <h3>node server</h3>
   <script>
+    console.log('domain', document.domain);
   window.addEventListener('message', (e) => {
     console.log(e.data);
     const { key, value, operation } = e.data;
