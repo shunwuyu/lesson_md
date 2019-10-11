@@ -12,25 +12,10 @@ function test() {
 @test
 class Btn extends Component {
   state = {  }
-
-  // @decDebounce(10000)
-  // handleClick = function(e) {
-  //   console.log(1);
-  // }
-  // handleClick = function() {} 
-  // handleClick = () => {}
-  // @decDebounce(1000)
-  // handleClick() {
-  //   console.log('1');
-  // }
   @decDebounce(1000)
   handleArrowFunction = () => {
     console.log('2');
   }
-  // @decDebounce(1000)
-  // handleClick = () => {
-  //   console.log('1');
-  // }
   render() {
     console.log(this.handleArrowFunction);
     return (

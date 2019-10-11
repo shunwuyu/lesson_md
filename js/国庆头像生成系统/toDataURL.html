@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  canvas {
+    /* background-color: red; */
+  }
+  </style>
+</head>
+<body>
+  <img src="./preview.png" id="preview" alt="">
+  <canvas width="290" height="290" id="screen"></canvas>
+  <button id="btn">btn</button>
+  <script>
+  const screen = document.getElementById('screen');
+  const btn = document.getElementById('btn');
+  const ctx = screen.getContext('2d');
+  window.onload = function() {
+    ctx.drawImage(document.getElementById('preview'), 0, 0, 290, 290);
+  }
+  </script>
+</body>
+</html>

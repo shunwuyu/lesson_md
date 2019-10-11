@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .imgWrap {
+      width: 200px;
+      height: 200px;
+    }
+    #container {
+      position: relative;
+    }
+    #container canvas {
+      transition: all 2s;
+    }
+    .hidden {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="imgWrap">
+      <img src="./2.jpg" alt="" id="img">
+  </div>
+  <button id="btn">下面是个 canvas 我在绘制的时候 跳过了一些像素点
+    点击一下吧
+  </button>
+  <div id="container">
+    <canvas width="400" height="400" style="width: 200px; height: 200px;"></canvas>
+  </div>
+  <!-- <button>html2canvas 简单演示</button> -->
+  <script src="./html2canvas.min.js"></script>
+  <script>
+    const frame = 32;
+    const img = document.querySelector('.imgWrap');
+    html2canvas(img).then(canvas => {
+      const { width, height } = canvas;
+      const ctx = canvas.getContext("2d");
+      document.body.appendChild(canvas);
+      const imageDatas = [...Array(frame)].map(() =>
+        // createImageData funciton is used to create a blank ImageData obj
+        ctx.createImageData(width, height)
+      );
+      const originalData = ctx.getImageData(0, 0, width, height);
+      const imgData = ctx.createImageData(width, height);
+      const totalPx = width * height;
+      const percent = 0.4;
+      console.log(totalPx);
+      // 生成一百分之 percent 的数组 
+      const totalPxIndex = (new Array(totalPx))
+      .fill()
+      .map((_, i) => i)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, Math.floor(totalPx * percent));
+      console.log(totalPxIndex);
+      // 用选取出来的 像素 赋值 这里就会： 不用全部 像素 赋值，节选部分像素
+      totalPxIndex.forEach((no) => {
+        const start = no * 4;
+        imgData.data[start] = originalData.data[start];
+        imgData.data[start + 1] = originalData.data[start + 1];
+        imgData.data[start + 2] = originalData.data[start + 2];
+        imgData.data[start + 3] = originalData.data[start + 3];
+      })
+      const ctx2 = document.querySelector('#container canvas').getContext('2d');
+      ctx2.putImageData(imgData, 0, 0);
+    });
+    const btn = document.getElementById('btn')
+    btn.addEventListener('click', () => {
+      document.querySelector('#container canvas').classList.toggle('hidden');
+    })
+  </script>
+</body>
+
+</html>
