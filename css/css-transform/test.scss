@@ -1,0 +1,179 @@
+html{
+  background:linear-gradient(to bottom, #4d81bb 0%, #b39ba5 30%, #fad485 60%, #d6673d 60%, #e79d3d 100%);
+   &:before{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:300px;
+    background:linear-gradient(to bottom, darken(#d6673d, 2.5%), darken(#d6673d, 10%));
+    clip-path: polygon(0% 85%, 3% 83%, 5% 75%, 6% 68%, 9% 68%, 13% 68%, 13% 77%, 14% 84%, 17% 83%, 18% 77%, 20% 67%, 22% 58%, 24% 51%, 25% 57%, 28% 64%, 30% 59%, 33% 66%, 35% 77%, 38% 81%, 43% 81%, 48% 80%, 52% 74%, 53% 66%, 54% 56%, 56% 56%, 58% 56%, 58% 62%, 61% 65%, 63% 57%, 64% 49%, 65% 41%, 67% 49%, 68% 65%, 70% 74%, 72% 80%, 75% 78%, 81% 80%, 83% 73%, 86% 66%, 89% 68%, 93% 72%, 96% 68%, 99% 73%, 100% 79%, 100% 100%, 0% 100%);
+    top:calc(50% - 175px);
+  }
+}
+
+body {
+  display:flex;
+  margin:0;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  width:100vw;
+  perspective:700px;
+  transform-style:preserve-3d;
+  animation:swirl 2s linear infinite;
+  span{
+    position:absolute;
+    width:300px;
+    height:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:0px;
+    backface-visibility:hidden;
+    border-radius:100%;
+    transform-style:preserve-3d;
+    &:after{
+      position:absolute;
+      font-size:40px;
+      animation:upndown 4s ease-in-out infinite alternate;
+      @keyframes upndown{
+        from{
+          transform:translateY(-25px) rotateX(-50deg) translateZ(150px) rotate(0deg);
+        }
+        to{
+          transform:translateY(-50px) rotateX(-50deg) translateZ(-150px) rotate(360deg);
+        }
+      }
+    }
+    &:nth-of-type(1){
+      &:after{
+        content:'🐄';
+      }
+    }
+    &:nth-of-type(2){
+      &:after{
+        content:'🏚';
+      }
+    }
+    &:nth-of-type(3){
+      &:after{
+        content:'🚙';
+      }
+    }
+    &:nth-of-type(4){
+      &:after{
+        content:'🐎'
+      }
+    }
+    &:nth-of-type(5){
+      &:after{
+        content:'🚶🏻‍♂️'
+      }
+    }
+    &:nth-of-type(6){
+      &:after{
+        content:'🐖'
+      }
+    }
+    &:nth-of-type(7){
+      &:after{
+        content:'🌭'
+      }
+    }
+    &:nth-of-type(8){
+      &:after{
+        content:'🏄🏽‍♂️'
+      }
+    }
+    
+    @for $i from 1 through 10{
+      &:nth-of-type(#{$i}){
+        &:after{
+          animation-delay:#{$i * $i/-4}s;
+          animation-duration:random(4) + s;
+        }
+      }
+    }
+    @for $i from 1 through 100{
+      &:nth-of-type(#{$i}){
+        &:before{
+          box-shadow:0 0 5px 10px rgba(229,229,218,0.5);
+        }
+      }
+    }
+    @keyframes swirl{
+      0%{
+        transform:rotateX(80deg) rotate(0deg) scale(0.5) translateX(-100px);
+      }
+      50%{
+        transform:rotateX(70deg) rotate(360deg) scale(0.75) translateX(100px);
+      }
+      100%{
+        transform:rotateX(80deg) rotate(720deg) scale(0.5) translateX(-100px);
+      }
+    }
+    @for $i from 40 through 60{
+      &:nth-of-type(#{$i}){
+        &:after{
+          font-size:90px;
+        }
+      }
+    }
+    @for $i from 10 through 60{
+      &:nth-of-type(#{$i}){
+        &:after{
+          content:'•';
+          color:darken(#d6673d, 2.5%);
+          animation:dust 1s ease-in-out infinite;
+          transform-origin:200px 50%;
+          animation-delay:#{$i/-6}s;
+          @keyframes dust{
+            0%{
+              transform:translateZ(-275px) rotateX(-50deg);
+              opacity:0.25;
+            }
+            25%{
+              transform:translateZ(-250px) rotate(180deg) rotateX(-50deg);
+              opacity:0;
+            }
+            50%{
+              transform:translateZ(-275px) rotateX(-50deg);
+              opacity:0.25;
+            }
+            100%{
+              transform:translateZ(-250px) rotate(-90deg) rotateX(-50deg);
+              opacity:0;
+            }
+          }
+        }
+      }
+    }
+    &:before{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+      border-radius:100%;
+      animation:spin 2s linear infinite;
+      transform-style:preserve-3d;
+      transform-origin:50% 37.5%;
+      @keyframes spin{
+        from{
+          transform:translateZ(-300px) rotate(0deg) scale(0);
+          opacity:0.25;
+        }
+        to{
+          transform:translateZ(150px) rotate(900deg) scale(1);
+          opacity:1;
+        }
+      }
+    }
+    @for $i from 1 through 100{
+      &:nth-of-type(#{$i}){
+        &:before{
+          animation-delay:#{$i/-50}s;
+        }
+      }
+    }
+  }
+}
