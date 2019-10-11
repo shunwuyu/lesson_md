@@ -1,0 +1,104 @@
+body {
+  background: #f5f5d8;
+}
+
+.startGame-btn {
+  position: absolute;
+  left: 240px;
+  top: 520px;
+  width: 321px;
+  font-size: 18px;
+  color: #FF0;
+  height: 69px;
+  line-height: 80px;
+  text-align: center;
+  cursor: pointer;
+  background: url(../images/LogoLine.png) no-repeat center/contain;
+  z-index: 9;
+}
+.content-box {
+  display: block;
+  width: 900px;
+  height: 600px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid black;
+  border-top: none;
+}
+
+.intro-game {
+  position: absolute;
+  left: 460px;
+  top: 10px;
+  width: 430px;
+  font-size: 18px;
+  line-height: 25px;
+  color: #F60;
+}
+.intro-game a{
+  color: #ffbe93;
+}
+.cards-list {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  z-index: 99;
+}
+.cards-list .cards-item {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 60px;
+  cursor: pointer;
+}
+.cards-list .cards-item:hover .card-intro {
+  display: block;
+}
+.cards-list .cards-item .card-intro {
+  display: none;
+  position: absolute;
+  left: 100px;
+  top: 0;
+  width: 150px;
+  height: auto;
+  padding-bottom: 5px;
+  border: 1px solid #000;
+  background: #FFFFDD;
+  color: #000;
+}
+.cards-list .cards-item .card-intro span {
+  display: inline-block;
+  width: 100%;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+.menu-box {
+  display: none;
+  position: absolute;
+  left: 674px;
+  top: 0;
+  width: 226px;
+  height: 41px;
+  line-height: 41px;
+}
+.menu-box .contro-btn {
+  display: none;
+  float: left;
+  width: 113px;
+  height: 100%;
+  line-height: inherit;
+  color: #00CB08;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: '黑体';
+  background: url(../images/button.png) center/cover;
+  cursor: pointer;
+}
+.menu-box .contro-btn.show {
+  display: block;
+}

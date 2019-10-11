@@ -1,0 +1,24 @@
+{
+  "name": "demo1",
+  "version": "0.1.0",
+  "description": "",
+  "main": "es6.js",
+  "scripts": {
+    "compile": "babel es6.js -o es5.js",
+    "compile_import": "babel es6mod -d es5mo",
+    "compile_reset": "babel rest -d rest5",
+    "compile_polyfill": "babel es6polyfill -d es5polyfill"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.2"
+  }
+}

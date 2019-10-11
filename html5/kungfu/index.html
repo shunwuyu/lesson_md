@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>马云广发英雄帖</title>
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>著作权归作者所有。
+  <link rel="stylesheet" href="./common_finished.css">
+</head>
+<body>
+  <div id="app">
+    <div id="loading"><div class="loading"></div><div class="text"></div><div>作为中国功夫的铁粉，连马云都对我佩服有加。让我们一起为#功守道#打call，致敬中国传统文化！</div></div>
+    <div class="full-page">
+      <div class="warm-up full-page">
+        <div class="poster-container full-page">
+          <div class="poster-bg full-page">
+            <div class="ani-dev poster-left"></div>
+            <div class="ani-dev poster-right"></div>
+            <div class="ani-dev poster-logo"></div>
+            <div class="poster-mayun"></div>
+          </div>
+          <div class="ani-div poster-text"></div>
+        </div>
+        <div class="main full-page" style="display:none">
+          <div class="main-box">
+            <div class="info warm-up-sprite"></div>
+            <div class="btn warm-up-sprite"></div>
+            <div class="tip">接受马云邀请，开启英雄帖</div>
+          </div>
+        </div>
+      </div>
+      <div class="user-input full-page">
+        <div class="user-input-wrapper">
+          <div class="hd user-input-sprite"></div>
+          <div class="input-box">
+            <input type="text" autocomplete="off">
+          </div>
+          <div class="error-info"></div>
+          <div class="sex-radio">
+            <div class="sex-radio-item user-input-sprite checked"></div>
+            <div class="sex-radio-item user-input-sprite"></div>
+          </div>
+          <div class="upload-area user-input-sprite">
+            <div class="upload-btn">
+              <input type="file" id="file-1510715640344" class="upload_file_input" accept="image/*">
+            </div> <!----></div>
+            <div class="next-btn user-input-sprite disabled"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="music" style="display: none;">
+    <span class="scence_object"></span>
+  </div>
+  <audio src="https://image.planet.youku.com/hudong_op/face/1510148263330_zvBe2J.mp3" id="mp3"></audio>
+  <script>
+  var KungfuMayun = {
+    loading: null,
+    arrPoster: null,
+    audioEle: null,
+    musicController: null,
+    mainEle: null,
+    warmUp: null,
+    userInput: null,
+    init: function() {
+      this.loading = document.getElementById('loading');
+      this.audioEle = document.getElementById('mp3');
+      this.musicController = document.querySelector('.music');
+      this.arrPoster = document.querySelectorAll('.poster-left, .poster-right, .poster-logo, .poster-text');
+      this.mainEle = document.querySelector('.main');
+      this.warmUp = document.querySelector('.warm-up');
+      this.userInput = document.querySelector('.user-input');
+      // 输入后改回来
+      this.showUserInput();
+      // this.hideLoading(this.showPage);
+    },
+    showUserInput: function () {
+      this.loading.style.display = 'none';
+      this.userInput.style.display = 'block';
+    },
+    showPage: function () {
+      var that = this;
+      this.playMusic();
+      document.querySelector('.poster-container').style.opacity = 1;
+      this.arrPoster.forEach(function(poster) {
+        poster.classList.add('end');
+      });
+      setTimeout(function() {
+        that.mainEle.style.display = 'block';
+      }, 1500);
+      this.bindEvents();
+    },
+    hideLoading (fn) {
+      var that = this;
+      setTimeout(function() {
+        that.loading.style.display = 'none';
+        fn.call(that);
+      } ,1000);
+    },
+    playMusic: function() {
+      this.musicController.style.display = 'block';
+      this.audioEle.play();
+      
+    },
+    bindEvents: function() {
+      var that = this;
+      this.musicController.addEventListener('mousedown', function() {
+        // this.classList.
+        this.classList.add('disabled');
+        that.audioEle.pause();
+      });
+      document.querySelector('.btn').addEventListener('mousedown', function() {
+        that.warmUp.style.display = 'none';
+      })
+    }
+  }
+  window.onload = function() {
+    KungfuMayun.init();
+  }
+  </script>
+</body>
+</html>  

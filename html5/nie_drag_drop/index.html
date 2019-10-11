@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    #div1
+    {float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+    #div2
+    {float:left; width:200px; height:135px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+  </style>
+</head>
+<body>
+  <div id="div1" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+    <p>ni hao!</p>
+  </div>
+  <div id="div2" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+      <p>Hello world!</p>
+  </div>
+  <script type="text/javascript">
+    function allowDrop(ev)
+    {
+        ev.preventDefault();
+    }
+
+    var srcdiv = null;
+    function drag(ev,divdom)
+    {
+        srcdiv=divdom;
+        ev.dataTransfer.setData("text/html",divdom.innerHTML);
+    }
+
+    function drop(ev,divdom)
+    {
+        ev.preventDefault();
+        if(srcdiv != divdom){
+            srcdiv.innerHTML = divdom.innerHTML;
+            divdom.innerHTML=ev.dataTransfer.getData("text/html");
+        }
+    }
+  </script>
+
+</body>
+</html>

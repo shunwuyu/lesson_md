@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  body {
+            background: #000000;
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+            overflow: hidden;
+        }
+
+        .texta-front {
+            font-family: YouYuan;
+            font-size: 64px;
+            font-weight: normal;
+            text-transform: uppercase;
+            stroke: #db94f7;
+            stroke-width: 2px;
+            text-shadow: 0px 0px 10px #e2b2f5;
+        }
+        .rect-front {
+            stroke: #07eb93;
+            stroke-width: 5;
+            box-shadow: 0px 0px 10px #07eb93;/*无效，text-shadow也无效 */
+        }
+
+  </style>
+</head>
+<body>
+  <svg width="600" height="250">
+      <rect x="7%" y="25%" rx="30" ry="30" width="340" height="90" fill-opacity="1" class="rect-front" />
+    <text text-anchor="middle" x="30%" y="50%" class="texta-front">
+        巴黎の玫瑰
+    </text>
+  </svg>
+</body>
+</html>
