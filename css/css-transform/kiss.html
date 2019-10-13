@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #78e08f;
+      margin: 0;
+    }
+
+    .container {
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 238px;
+    }
+
+    .face {
+      width: 70px;
+      height: 30px;
+      position: absolute;
+      right: 0;
+      top: 30px;
+      border-top-right-radius: 15px;
+    }
+
+    #r-ball {
+      animation: kiss 4s ease infinite;
+      background-color: white;
+    }
+
+    @keyframes kiss {
+      40% {
+        transform: translate(0px);
+      }
+
+      50% {
+        transform: translate(30px) rotate(20deg);
+      }
+
+      60% {
+        transform: translate(-33px);
+      }
+
+      67% {
+        transform: translate(-33px);
+      }
+
+      77% {
+        transform: translate(0px);
+      }
+    }
+
+    .kiss {
+      width: 13px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      border-left: 5px solid;
+    }
+
+    .kiss-m {
+      position: absolute;
+      left: 20px;
+      top: 22px;
+      opacity: 0;
+      animation: kiss-m 4s ease infinite;
+    }
+
+    @keyframes kiss-m {
+      0% {
+        opacity: 0;
+      }
+
+      55% {
+        opacity: 0;
+      }
+
+      55.1% {
+        opacity: 1;
+      }
+
+      66% {
+        opacity: 1;
+      }
+
+      66.1% {
+        opacity: 0;
+      }
+    }
+
+    .mouth-r {
+      animation: mouth-m 4s ease infinite;
+    }
+
+    @keyframes mouth-m {
+      0% {
+        opacity: 1;
+      }
+
+      54.9% {
+        opacity: 1;
+      }
+
+      55% {
+        opacity: 0;
+      }
+
+      66% {
+        opacity: 0;
+      }
+
+      66.1% {
+        opacity: 1;
+      }
+    }
+
+    .face:after {
+      position: absolute;
+      content: "";
+      width: 18px;
+      height: 8px;
+      background-color: #badc58;
+      left: -5px;
+      top: 20px;
+      border-radius: 50%;
+    }
+
+    .face:before {
+      position: absolute;
+      content: "";
+      width: 18px;
+      height: 8px;
+      background-color: #badc58;
+      right: -8px;
+      top: 20px;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .face-r {
+      left: 0;
+      top: 37px;
+    }
+
+    .face-r:after {
+      width: 10px;
+      height: 10px;
+      left: 5px;
+    }
+
+    .face-r:before {
+      width: 10px;
+      height: 10px;
+      right: -4px;
+    }
+
+    .eye {
+      width: 15px;
+      height: 14px;
+      border-radius: 50%;
+      border-bottom: 5px solid;
+      position: absolute;
+    }
+
+    .eye-r-p {
+      border-top: 5px solid;
+      border-bottom: 0px solid;
+    }
+
+    .eye-l {
+      left: 10px;
+    }
+
+    .eye-r {
+      right: 5px;
+    }
+
+    .mouth {
+      width: 30px;
+      height: 14px;
+      border-radius: 50%;
+      border-bottom: 5px solid;
+      position: absolute;
+      bottom: -5px;
+      transform: translate(3px);
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .ball {
+      border: 8px solid;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+    }
+
+    #r-ball {
+      position: relative;
+      z-index: 40;
+    }
+
+
+    #l-ball {
+      animation: close 4s ease infinite;
+      position: relative;
+      z-index: 50;
+      background-color: #fff;
+    }
+
+    .face-l {
+      animation: face 4s ease infinite;
+    }
+
+    @keyframes close {
+      0% {
+        transform: translate(0)
+      }
+
+      20% {
+        transform: translate(20px)
+      }
+
+      35% {
+        transform: translate(20px)
+      }
+
+      55% {
+        transform: translate(0px)
+      }
+
+      100% {
+        transform: translate(0px)
+      }
+    }
+
+    @keyframes face {
+      0% {
+        transform: translate(0) rotate(0);
+      }
+
+      10% {
+        transform: translate(0) rotate(0);
+      }
+
+      20% {
+        transform: translate(5px) rotate(-2deg);
+      }
+
+      28% {
+        transform: translate(0) rotate(0);
+      }
+
+      35% {
+        transform: translate(5px) rotate(-2deg);
+      }
+
+      50% {
+        transform: translate(0) rotate(0);
+      }
+
+      100% {
+        transform: translate(0) rotate(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class='container'>
+    <div id='l-ball' class='ball'>
+      <div class='face face-l'>
+        <div class='eye eye-l'></div>
+        <div class='eye eye-r'></div>
+        <div class='mouth'></div>
+      </div>
+    </div>
+    <div id='r-ball' class='ball'>
+      <div class='face face-r'>
+        <div class='eye eye-l eye-r-p'></div>
+        <div class='eye eye-r eye-r-p'></div>
+        <div class='mouth mouth-r'></div>
+        <div class='kiss-m'>
+          <div class='kiss'></div>
+          <div class='kiss'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

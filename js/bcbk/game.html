@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #bg {
+      width: 300px;
+      height: 600px;
+      border: 1px solid green;
+      margin: 700px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* .entity {
+      background: url(./img/bg.png);
+      position: absolute;
+    } */
+
+    .white {
+      width: 75px;
+      height: 100px;
+      float: left;
+    }
+
+    .black {
+      width: 75px;
+      height: 100px;
+      float: left;
+      background: url(./img/hk.png);
+    }
+
+    #nnn,
+    #yyy {
+      width: 300px;
+      height: 600px;
+      background: url(./img/bg.png);
+      position: absolute;
+    }
+
+    #nnn {
+      border: 1px solid red;
+    }
+
+    #yyy {
+      border: 1px solid yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="score">0</div>
+  <div id="bg">
+    <div id="nnn" style="top:0px"></div>
+    <div id="yyy" style="top: -600px"></div>
+  </div>
+  <script>
+    var height = 600;
+    var score = 0;
+    var bbb = document.getElementById('nnn');
+    bbb.style.top = '0px';
+    //产生大框中小黑框位置的随机数
+    function generateRand() {
+      var numArr = [];
+      for (var j = 0; j < 6; j++) {
+        // 0 ~ 3 
+        // 0 4 8 12 16 20
+        var num = Math.floor(Math.random() * 4) + j * 4;
+        numArr.push(num);
+      }
+      return numArr;
+    }
+
+    var rArr = [];
+    drawEntity('yyy');
+    function drawEntity(id, top) {
+      // 随机 6个 数
+      var dArr = generateRand();
+      rArr = dArr.concat(rArr);
+      console.log('rArr', rArr, dArr);
+      var entity = document.getElementById(id);
+      entity.innerHTML = '';
+      var ddd = id;
+      for (var i = 0; i < 24; i++) {
+        var ele = document.createElement('div');
+        ele.setAttribute('id', ddd + i);
+        entity.appendChild(ele);
+      }
+      var bg = document.getElementById('bg');
+      bg.appendChild(entity);
+      add_event(ddd, dArr);
+    }
+
+    //给每个小块添加事件
+    function add_event(ddd, dArr) {
+      for (let i = 0; i < 24; i++) {
+        let ele = document.getElementById(ddd + i);
+        // 总的 24 个 但是上面生成一个 随机数组 如果 在上面 的数组里面 那么 表示这块 格子要换成 黑色
+        if (dArr.indexOf(i) > -1) {
+          ele.setAttribute('class', 'black')
+          ele.setAttribute('isTrueBlock', i);
+        } else {
+          ele.setAttribute('class', 'white');
+        }
+        ele.addEventListener('click', function() {
+          judge(ele)
+        }, false);
+      }
+    }
+    // function judge() {
+    //   console.log('judge');
+    // }
+    function judge(ele) {
+      var num = ele.getAttribute('isTrueBlock');
+      // console.log(num, rArr.pop(), rArr);
+      // console.log()
+      // debugger;
+      if (!num) return;
+      console.log(parseInt(num), rArr[rArr.length - 1]);
+      if (parseInt(num) !== rArr[rArr.length - 1]) {
+        clearInterval(timer);
+        console.log("你的得分为：" + score + "分！");
+        return;
+      } else {
+        rArr.pop();
+        score += 100;
+        height += 100;
+        ele.style.background = "silver";
+        document.getElementById('score').innerHTML = score;
+      }
+    }
+    var a = document.getElementById('yyy');
+    var b = document.getElementById('nnn');
+    var anowtop = parseInt(a.style.top);
+    var bnowtop = parseInt(b.style.top);
+    function move() {
+      if (bnowtop === 595) {
+        drawEntity('nnn');
+        b.style.top = '-600px';
+        bnowtop = -600;
+      }
+      if (anowtop === 595) {
+        drawEntity('yyy');
+        a.style.top = '-600px';
+        anowtop = -600;
+      }
+      bnowtop = bnowtop + 5;
+      anowtop = anowtop + 5;
+      console.log(anowtop);
+      a.style.top = anowtop + 'px';
+      b.style.top = bnowtop + 'px';
+      height -= 5;
+      if (height == 0) {
+        clearInterval(timer);
+      }
+    }
+
+    var timer = setInterval(move, 100);
+  </script>
+</body>
+
+</html>

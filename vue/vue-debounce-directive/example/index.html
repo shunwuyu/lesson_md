@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      border: 1px solid #000;
+      position: relative;
+    }
+
+    .loading {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, .5);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="../index.js"></script>
+  <script src="../loading.js"></script>
+  <script>
+    const toggle = {
+      data() {
+        return {
+          loading: false
+        }
+      },
+      methods: {
+        toggleShow() {
+          this.loading = !this.loading;
+        }
+      },
+      mounted() {
+        setTimeout(() => {
+          this.loading = true;
+        }, 3000);
+        setTimeout(() => {
+          this.loading = false;
+        }, 6000);
+      },
+    }
+    Vue.component('my-button', {
+      template: `<div v-debounce="this.helloFn">
+        点击
+        {{ this.loading ? '正在加载中': '关闭' }}
+      </div>`,
+      data: function () {
+        return {
+        }
+      },
+      mixins: [toggle],
+      methods: {
+        helloFn: function () {
+          console.log(new Date().getTime());
+          this.loading = true;
+        },
+      }
+    })
+    Vue.component('my-loadingcontainer', {
+      template: `
+      <div class="box" v-loading="this.loading">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+      `,
+      mixins: [toggle],
+      
+    })
+    new Vue({
+      el: '#app',
+      template: `
+      <div>
+        <my-button />
+        <my-loadingcontainer />
+      </div>
+      `
+    })
+  </script>
+</body>
+
+</html>

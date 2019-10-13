@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #page{
+      width: 500px;
+      height: 500px;
+      background-color: aqua;
+    }
+    #content{
+      width: 200px;
+      height: 200px;
+      background-color: bisque;
+    }
+    #box{
+      width: 40px;
+      height: 40px;
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <!-- js事件流 -->
+  <div id="page">
+    <div id="content">
+      <div id="box">点我</div>
+    </div>
+  </div>
+  <script>
+    //为true时捕获，false时冒泡
+    let box = document.getElementById('box')
+    let content = document.getElementById('content')
+    let page = document.getElementById('page')
+
+    box.addEventListener('click', function() {
+      console.log('box')
+    }, false)
+    content.addEventListener('click', function() {
+      console.log('content')
+    }, false)
+    page.addEventListener('click', function() {
+      console.log('page')
+    }, false)
+    page.addEventListener('click', function() { // 先冒泡，后捕获
+      console.log('page')
+    }, true)
+  </script>
+</body>
+</html>

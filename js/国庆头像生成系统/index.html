@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>头像生成</title>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      background: #f3f3f3;
+    }
+
+    .app {
+      padding-top: 10%;
+    }
+
+    .app p {
+      text-align: center;
+      font-weight: 550;
+      color: rgb(52, 73, 94);
+      font-size: 20px;
+    }
+
+    canvas,
+    #preview {
+      width: 290px;
+      height: 290px;
+      display: block;
+      margin: auto;
+      background: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 20px #2d8cf0;
+    }
+
+    .btn-save {
+      width: 80%;
+      font-weight: 400;
+      text-align: center;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      padding: 5px 15px 6px;
+      font-size: 12px;
+      border-radius: 4px;
+      transition: color .2s linear, background-color .2s linear, border .2s linear, box-shadow .2s linear;
+      margin: auto;
+      display: block;
+      background-color: #2d8cf0;
+      border-color: #2d8cf0;
+      color: #fff;
+      outline: 0;
+    }
+
+    .btn-group {
+      display: flex;
+      width: 290px;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+
+    .btn-group .btn-save {
+      margin: 5px;
+    }
+
+    .github-corner {
+      position: fixed;
+      right: 0px;
+      top: 0px;
+      z-index: 1;
+      border-bottom: 0px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .github-corner svg {
+      color: rgb(255, 255, 255);
+      fill: #42b983;
+      height: 80px;
+      width: 80px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="progress"></div>
+  <div class="app">
+    <p>头像生成工具</p>
+    <input id="loadImageFile" 
+    type="file" 
+    onchange="loadImageFile(event);" 
+    style="visibility: hidden;" />
+    <canvas ></canvas>
+    <!-- <img id="preview" src="" alt=""> -->
+    <div class="btn-group">
+      <button class="btn-save" onclick="uploadImg();">上传头像</button>
+      <button class="btn-save" onclick="saveImg()">保存头像</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  var IsPC = function () {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+    }
+    return flag;
+  }();
+  var uploadImg = function () {
+    document.querySelector('#loadImageFile').click();
+  }
+  var loadImageFile = function (e) {
+    var file = e.target.files[0];
+    // if (!file.type.match('image.*')) {
+    //   return false;
+    // }
+    var fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      console.log('load result', e.target.result);
+      draw(e.target.result);
+    };
+    fileReader.onprogress = function(e) {
+      document.getElementById('progress').innerHTML = `progress:${e.loaded / e.total}`
+    }
+    fileReader.readAsDataURL(file);
+    console.log(file);
+    // fileReader.readAsText(file);
+  }
+  var draw = function (src) {
+    var base64 = [];
+    var c = document.querySelector('canvas');
+    var ctx = c.getContext('2d');
+    c.width = 290;
+    c.height = 290;
+    // 画底图
+    var img = new Image;
+    img.src = src;
+    img.onload = function () {
+      ctx.drawImage(img, 0, 0, 290, 290);
+      // 画红旗
+      var icon = new Image;
+      icon.src = 'icon.png';
+      icon.onload = function () {
+        ctx.drawImage(icon, 0, 0, 290, 290);
+        // 拼好的 图片 转 base64 image 交给 src 显示
+        document.querySelector('#preview').src = c.toDataURL("image/jpeg", 0.8);
+      }
+    }
+  }
+  var saveImg = function () {
+    // if (IsPC) {
+      var canvas = document.querySelector('canvas')
+      var url = canvas.toDataURL("image/jpeg", 0.8);
+      var a = document.createElement("a");
+      a.download = '头像';
+      a.href = url;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    // } else {
+    //   alert('移动端请长按图片保存');
+    // }
+  }
+</script>
+
+</html>
