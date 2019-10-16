@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.bootcss.com/seajs/3.0.3/sea.js"></script>
+  <script>
+    // seajs 的简单配置
+    seajs.config({
+      base: "",
+      alias: {
+      }
+    })
+
+    // 加载入口模块
+    seajs.use('./module.js')
+  </script>
+</body>
+
+</html>
