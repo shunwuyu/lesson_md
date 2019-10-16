@@ -5,6 +5,6 @@ export var obj = {
 
 export function changeValue() {
     counter++;
-    obj.name = 'Peter';
+    obj = {};
 };
 
