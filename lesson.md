@@ -1,3 +1,4 @@
+- [vuex chat](https://github.com/vuejs/vuex/blob/dev/examples/chat/app.js)
 - [shiyanlou](https://github.com/HuberTRoy/vue-shiyanlou/blob/dev/src/components/home_page/base_course.vue)
 - [snake](html5/snake)
 - [vuex 手写](https://github.com/jackiewillen/build-your-own-vuex)
