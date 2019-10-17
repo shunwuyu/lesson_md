@@ -14,14 +14,21 @@
     console.log(main, c, d);
     import * as lib from './main.js';
     console.log('lib', lib.c, lib.d, lib.default);
-    import('./dynamic.js')
-    .then(_ => {
-      console.log('dynamic module', _);
-    })
+    
     // import lib2 from './cjs.js';
     // console.log('cjs', lib2);
-    import { dynamic, main1 } from './learnFromReactRouter.js';
-    console.log('dynamic', dynamic, main1);
+    // import { dynamic, main1 } from './learnFromReactRouter.js';
+    // console.log('dynamic', dynamic, main1);
+    // import('./dynamic.js')
+    // .then(_ => {
+    //   console.log('dynamic module', _);
+    // })
+    setTimeout(() => {
+      import('./dynamic.js')
+      .then(_ => {
+        console.log('dynamic module', _);
+      })
+    }, 3000);
     </script>
 </body>
 </html>

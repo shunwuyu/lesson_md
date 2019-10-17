@@ -2,8 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 Router.prototype.animate = 0
-const _import_ = file => () => import('views/' + file + '.vue')
+// 1
+import ComponentName form 'a.js';
 
+// 2
+const _import_ = file => () => import('views/' + file + '.vue')
 
 /*
     slide: 页面切换动画
