@@ -1,4 +1,4 @@
-- [vue ssr](vue/ninghao-nuxt)
+- [vue ssr](vue/ninghao-nuxt   vue/asyncData vue/nuxt/vuex)
 - [danche](wechat/danche)
 - [daily-interview-question](/interview/daily)
 - [jd](html5/jd)
