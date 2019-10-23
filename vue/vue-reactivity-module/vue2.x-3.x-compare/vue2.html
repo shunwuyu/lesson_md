@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+  <script>
+    const Comp = {
+      template: `
+        <div>
+        <h2>测试对象添加属性</h2>
+      <div>{{person}}</div>
+      <div>
+        <button @click="addProperty">添加属性</button>
+        <button @click="deleteProperty">删除属性age</button>
+      </div>
+      <h2>测试数组修改</h2>
+      <div>{{array}}</div>
+      <div>
+        <button @click="addArrayItemProperty">添加元素0属性</button>
+        <button @click="deleteArrayItemProperty">删除元素0属性</button>
+        <button @click="replaceArrayItem">替换元素1</button>
+      </div>
+        </div>
+      `,
+      data() {
+        return {
+          msg: 'abc',
+          person: { name: 'aa', age: 22 },
+          array: [{
+            name: '1'
+          }, {
+            name: '2'
+          }]
+        };
+      },
+      methods: {
+        addProperty() {
+          this.msg = this.msg + '1';
+          this.person[this.msg] = this.msg;
+        },
+        deleteProperty() {
+          delete this.person.age;
+        },
+        addArrayItemProperty() {
+          this.array[0].enname = 'abc';
+        },
+        deleteArrayItemProperty() {
+          delete this.array[0].name;
+        },
+        replaceArrayItem() {
+          this.array[1] = { name: '222' };
+        },
+      }
+    };
+    Vue.component('Comp', Comp);
+  </script>
+  <script>
+    new Vue({
+      el: '#app',
+      template: '<Comp/>',
+      components: {
+        Comp: Comp
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./dist/reactivity.global.js"></script>
+  <script>
+    const { reactive, effect } = VueObserver
+
+    const origin = {
+      count: 0,
+      age: 50,
+      name: 'lihua'
+    }
+    const state = reactive(origin)
+
+    const fn = () => {
+      const count = state.count
+      console.log(`set count to ${count}`)
+    }
+    const fn1 = () => {
+      const age = state.age
+      console.log(`set age to ${age}`)
+    }
+    effect(fn)
+    effect(fn1)
+    setTimeout(() => {
+      state.count = 100;
+    }, 3000);
+  </script>
+</body>
+
+</html>
