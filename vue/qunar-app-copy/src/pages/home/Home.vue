@@ -68,6 +68,7 @@ export default {
     this.lastCity = this.currentCity
     this.getHomeInfo()
     console.log(this.$router.path);
+    console.log('vm', this);
   },
   activated () {
     if (this.lastCity !== this.currentCity) {

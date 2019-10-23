@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tiny Reactive</title>
+</head>
+
+<body>
+  <script type="module">
+    import { reactive } from './src/reactive.js'
+    import { effect } from './src/effect.js'
+
+    window.state = reactive({
+      count: 0,
+      age: 18
+    })
+
+    const effect1 = effect(() => {
+      console.log('effect1: ' + state.count)
+    })
+
+    const effect2 = effect(() => {
+      console.log('effect2: ' + state.age)
+    })
+
+    const effect3 = effect(() => {
+      console.log('effect3: ' + state.count, state.age)
+    })
+
+    setTimeout(() => {
+      state.count = 1000;
+    }, 4000);
+  </script>
+</body>
+
+</html>

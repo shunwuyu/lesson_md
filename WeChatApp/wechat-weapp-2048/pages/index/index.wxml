@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container"> 
+  <view>
+    <image class='logo' src='../../img/logo.png'></image>
+    <view class='load'>
+      <text class='{{current == 0 ? "sct": ""}}'></text>
+      <text class='{{current == 1 ? "sct": ""}}'></text>
+      <text class='{{current == 2 ? "sct": ""}}'></text>
+      <text class='{{current == 3 ? "sct": ""}}'></text>
+    </view>
+  </view> 
+</view>
