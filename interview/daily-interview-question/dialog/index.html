@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dialog</title>
+  <style>
+    .dialog{
+      position: absolute;
+      border: 1px solid black;
+      padding: 5px 30px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <script>
+  class Dialog {
+    constructor(title, content, left = 0, top = 0) {
+      this.title = title;
+      this.content = content;
+      this.left = left;
+      this.top = top;
+    }
+    createDom () {
+      this.dom = document.createElement("div");
+      let oH1 = document.createElement("h1");
+      oH1.innerHTML = this.title;
+      let oP = document.createElement("p");
+      oP.innerHTML = this.content;
+      this.dom.appendChild(oH1);
+      this.dom.appendChild(oP);
+      this.dom.style.left = this.left + "px";
+      this.dom.style.top = this.top + "px";
+      this.dom.className = 'dialog';
+      document.body.appendChild(this.dom);
+      this.addEvent();
+      return this;
+    }
+    addEvent(){
+      this.dom.onmousedown = function(e){
+      let startX = e.clientX;
+      let startY = e.clientY;
+      let left = this.offsetLeft;
+      let top = this.offsetTop;
+      document.onmousemove = (e) => {
+          let moveX = e.clientX;
+          let moveY = e.clientY;
+          this.style.left = left + (moveX - startX) + "px";
+          this.style.top = top + (moveY - startY) + "px";
+      };
+      document.onmouseup = (e) => {
+          document.onmousemove = document.onmouseup = null;
+      };
+  };
+  return this;
+    }
+  }  
+
+  class autoCloseDialog extends Dialog{
+    constructor(title, content, left = 0, top = 0, timer = 5000){
+        super(title, content, left, top);
+        this.timer = timer;
+    }
+    addEvent(){
+        window.setTimeout(() => {
+            document.body.removeChild(this.dom);
+        }, this.timer);
+        super.addEvent();
+    }
+}
+  new Dialog("你好啊", "测试", 100, 200).createDom();
+  new autoCloseDialog("你好啊3", "测试3,3s后自动关闭", 500, 0, 3000).createDom();
+  </script>
+</body>
+</html>

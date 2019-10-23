@@ -1,3 +1,10 @@
+- [yayu 查找指定元素](https://juejin.im/post/597819a1f265da6c2041c587)
+- [html 凤凰社](https://ninghao.net/video/673)
+- [vue ssr](vue/ninghao-nuxt   vue/asyncData vue/nuxt/vuex)
+- [danche](wechat/danche)
+- [daily-interview-question](/interview/daily)
+- [jd](html5/jd)
+- [448](https://github.com/azl397985856/leetcode/blob/master/daily/2019-06-05.md)
 - [vuex chat](https://github.com/vuejs/vuex/blob/dev/examples/chat/app.js)
 - [shiyanlou](https://github.com/HuberTRoy/vue-shiyanlou/blob/dev/src/components/home_page/base_course.vue)
 - [snake](html5/snake)
@@ -131,7 +138,4 @@
 34. ~~[weui-cell](https://juejin.im/weui-cell)~~ css/weui-cell 
 35. ~~[大白](https://juejin.im/post/5c77ab9f5188253ec91e2830)~~ css/dabai 
 
-
-1. 去名企， 项目经验弥补学校， 要有实习经验， 搭建合作, 走向低年级
-2. 提前收割东理， 1.2万， 学一年
-3. 标准化课程 再升级， 培训体制化。 
+ 

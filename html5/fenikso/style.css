@@ -1,0 +1,22 @@
+/* 
+ * 页面部份样式
+ */
+
+#logo, 
+#search {
+  padding: 30px 0;
+}
+
+/* 
+ * 导航菜单的样式 
+ */
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  box-shadow: none;
+  background-color: #fff;
+  border-bottom: 3px solid #009571;
+}
+#navigation {
+  border-bottom: 1px solid #d7d7d7;
+}
