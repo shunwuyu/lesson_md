@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+  margin: 0;padding: 0;
+  }
+  .scrollContainer {
+    width: 200px;
+    height: 600px;
+    overflow-y: scroll;
+    border: 1px solid #000;
+  }
+  .targetBox {
+    width: 100px;
+    height: 100px;
+    margin-top: 900px;
+    background-color: aqua;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="scrollContainer">
+    <div class="targetBox"></div>
+  </div>
+  <script>
+    const options = {
+      root: document.querySelector('.scrollContainer'),
+      rootMargin: '0px 0px 0px 0px',
+      threshold: [0.3, 0.5, 0.8, 1]
+    }
+    function handler(entries, observer) {
+      entries.forEach(entry => {
+        console.log(entry);
+        // 每个成员都是一个IntersectionObserverEntry对象。
+        // 举例来说，如果同时有两个被观察的对象的可见性发生变化，entries数组就会有两个成员。
+        // entry.boundingClientRect 
+        // entry.intersectionRatio 
+        // entry.intersectionRect 
+        // entry.isIntersecting 
+        // entry.rootBounds 
+        // entry.target 
+        // entry.time 
+      });
+    }
+    const observer = new IntersectionObserver(handler, options)
+    const target = document.querySelector('.targetBox');
+    observer.observe(target);
+  </script>
+</body>
+
+</html>

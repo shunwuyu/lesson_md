@@ -1,0 +1,16 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+// Add a request interceptor
+axios.interceptors.request.use(function (config) {
+      // Do something before request is sent
+      const token = localStorage.getItem('token');
+      if (token) {
+        // Bearer是JWT的认证头部信息
+        config.headers.common['Authorization'] = 'Bearer ' + token;
+      }
+      return config;
+    }, function (error) {
+      // Do something with request error
+      return Promise.reject(error);
+    });
+</script>

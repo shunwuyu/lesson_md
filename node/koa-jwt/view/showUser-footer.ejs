@@ -1,0 +1,14 @@
+<script>
+  axios.get('/userInfo')
+    .then(res => {
+      if (res.data.code === 300) window.location.href = '/401';
+      if (res.data.code === 200) {
+        const data = res.data;
+        document.getElementById('name').innerHTML = data.name
+        document.getElementById('id').innerHTML = data.id
+      }
+    })
+</script>
+</body>
+
+</html>

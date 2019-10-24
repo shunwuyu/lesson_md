@@ -1,0 +1,21 @@
+<script>
+    const form = document.forms['loginForm'];
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const name = form['name'].value;
+      const pwd = form['pwd'].value;
+      axios.post('/login', {
+        name,
+        pwd
+      })
+        .then(res => {
+          if (res.data.code === 200) {
+            localStorage.setItem('token', res.data.token);
+            window.location.href = '/showUser'
+          }
+        })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+<% include("header") %>
+401 unAuth
+<a href="/login">login</a>
+<ul>
+  
+  <% list.forEach(element => { %>
+    <li><%= element.err %></li>
+  <% }) %>
+</ul>
+</body>
+
+</html>
