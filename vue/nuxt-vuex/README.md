@@ -8,4 +8,5 @@
 - posts 
   fetch 替换asyncData
   delete
-    刷新一下
+    刷新一下 原文件也没有
+    
