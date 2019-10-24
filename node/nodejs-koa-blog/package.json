@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-koa-blog",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/cors": "^3.0.0",
+    "env2": "^2.2.2",
+    "koa": "^2.10.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "mysql2": "^1.7.0",
+    "require-directory": "^2.1.1",
+    "sequelize": "^5.21.1",
+    "sequelize-cli": "^5.5.1"
+  }
+}
