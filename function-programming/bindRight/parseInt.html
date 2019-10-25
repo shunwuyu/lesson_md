@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    Function.prototype.bindRight = function (thisObj, ...arg1) {
+      let fn = this, len = fn.length - arg1.length;
+      return function (...arg2) {
+        let rest = [], rargs = arg1.reverse();
+        if (len > 0) {
+          rest = arg2.slice(0, len);
+        }
+        console.log('>>>>>>>>>', rargs, 'arg1', arg1)
+        return fn.apply(thisObj, rest.concat(rargs))
+      }
+    }
+
+    console.log(["2", "3", "4"].map(parseInt));
+    console.log(["2", "3", "4"].map(parseInt.bindRight(null, 10)));
+    function add(x, y, z) {
+      return `${x}${y}${z}`;
+    }
+
+    const add1 = add.bindRight(null, 1, 2);
+    console.log(add1(3));
+    console.log(add1(4));
+
+    const parseInt1 = parseInt.bindRight(null, 10);
+
+    console.log(parseInt1('123'));
+  </script>
+</body>
+
+</html>
