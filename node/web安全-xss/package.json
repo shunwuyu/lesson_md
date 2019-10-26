@@ -1,0 +1,19 @@
+{
+  "name": "xss",
+  "version": "1.0.0",
+  "description": "定义： 原理： 攻击方式： <!-- server limit dos： request header 过长，web server 导致 400 假如 cookie 过长 --> <!-- ddos攻击 利用合理的客户端请求 占用过多的用户资源 合法的用户无法得到服务器的响应 --> 结果：盗用 cookie，在页面上插入广告。 - 反射性： - 存储性： 防御措施：",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "koa": "^2.10.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.2.1"
+  }
+}

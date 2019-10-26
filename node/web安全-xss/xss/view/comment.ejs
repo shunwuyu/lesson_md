@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/htmlParse.js"></script>
+  <script src="/he.js"></script>
+  <script>
+    function parse(str) {
+      var results = '';
+      try {
+        HTMLParser(he.unescape(str), {
+          start: function (tag, attrs, unary) {
+            if (tag == 'script' ||
+            tag == 'style' ||
+            tag == 'iframe') {
+              return;
+            }
+            results += "<" + tag;
+            for (var i = 0; i < attrs.length; i++) {
+              // console.log(attrs[i].name);
+              var attrName = attrs[i].name;
+              // if (['onclick', 'onerror'].includes(attrName)) {
+              //   results += ""
+              // }
+              // else {
+                results += " " + attrs[i].name + '="' + attrs[i].escaped + '"';
+              // }
+            }
+            results += (unary ? '/' : '') + ">";
+          },
+          end: function (tag) {
+            results += "</" + tag + ">";
+          },
+          chars: function (text) {
+            results += text;
+          },
+          comment: function (text) {
+            results += "<!--" + text + "-->";
+          }
+        });
+        return results;
+      } catch (e) {
+
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1></h1>
+  <textarea name="" id="txt" cols="30" rows="10"></textarea>
+  <button id="comment">comment</button>
+  <button id="getcomment">getcomment</button>
+  <script>
+    var comment = document.getElementById('comment')
+    var getcomment = document.getElementById('getcomment')
+    var txt = document.getElementById('txt')
+    comment.addEventListener('click', function () {
+      var xhr = new XMLHttpRequest();
+      var url = '/comment?comment=' + txt.value;
+      xhr.open('GET', url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            console.log(xhr)
+          }
+        }
+      }
+      xhr.send();
+    })
+    getcomment.addEventListener('click', function () {
+      var xhr = new XMLHttpRequest();
+      var url = '/getcomment';
+      xhr.open('GET', url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            // console.log(xhr)
+            // parse
+            var d = JSON.parse(xhr.response);
+            console.log(d);
+            var c = parse(d.comment);
+            var span = document.createElement('span');
+            span.innerHTML = c;
+            document.body.appendChild(span);
+            
+          }
+        }
+      }
+      xhr.send();
+    })
+  </script>
+</body>
+
+</html>
