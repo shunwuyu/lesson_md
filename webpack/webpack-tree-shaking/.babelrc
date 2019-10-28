@@ -1,0 +1,24 @@
+// {
+//   "plugins": [
+//     [
+//       "import",
+//       {
+//         "libraryName": "lodash",
+//         "libraryDirectory": "",
+//         "camel2DashComponentName": false,
+//          //libraryDirectory lodash 下面什么目录
+//          // camel2DashComponentName 驼峰转下划线 不需要
+//       }
+//     ]
+//   ]
+// }
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ]
+  ]
+}
