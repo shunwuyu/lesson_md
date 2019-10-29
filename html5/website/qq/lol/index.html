@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>heros</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  button, input, select, textarea {
+    font-size: 100%;
+    outline: 0;
+  }
+  body, button, input, select, textarea {
+    font: normal 12px/1.6em Microsoft YaHei,Tahoma,simsun;
+    color: #666;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover, a:visited {
+    text-decoration: none;
+  }
+  li {
+    list-style: none;
+  }
+  .info-showbox {
+    padding: 30px 37px 30px 30px;
+    position: relative;
+    min-height: 500px;
+    _height: 500px; /*ie6*/
+  }
+  .selete-checklist {
+    float: left;
+    width: 70%;
+    padding-top: 5px;
+  }
+  .selete-item {
+    float: left;
+    min-width: 60px;
+    _width: 60px;
+    margin-right: 17px;
+    position: relative;
+  }
+  .ms-radio {
+    margin-right: 3px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #b1b1b1;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+  }
+  .selete-item .ms-radio, .selete-item label, .selete-item li {
+    float: left;
+    cursor: pointer;
+  }
+  .ms-radio .i {
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+    background: #fff;
+  }
+  .current .ms-radio .i {
+    background: #00a383;
+    border-radius: 10px;
+  }
+  .selete-item .ms-radio, .selete-item label, .selete-item li {
+    float: left;
+    cursor: pointer;
+  }
+  .searchbox {
+    padding: 0 10px 0 8px;
+    width: 24%;
+    background: #f1f1f1;
+    float: right;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #cdcdcd;
+    box-shadow: -1px 0 3px rgba(0,0,0,.1) inset;
+  }
+  .input-search {
+    float: left;
+    width: 87%;
+    height: 20px;
+    line-height: 20px;
+    border: 0;
+    background: 0 0;
+    color: #999;
+  }
+  .info-searchbox .input-search {
+    margin-top: 10px;
+    border-right: 1px solid #e5e5e5;
+  }
+
+  .imgtextlist {
+    float: left;
+    padding: 30px 0 0;
+    position: relative;
+  }
+
+  .imgtextlist li {
+    float: left;
+    width: 90px;
+    height: 100px;
+    margin-bottom: 22px;
+    text-align: center;
+    line-height: 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .imgtextlist a {
+    color: #666;
+  }
+  .imgtextlist img {
+    display: block;
+    margin: 0 auto 7px;
+    width: 66px;
+    height: 65px;
+  }
+  
+
+  </style>
+</head>
+<body>
+  <div class="info-showbox">
+    <ul class="selete-checklist">
+      <li class="selete-item current">
+        <span class="ms-radio">
+          <i class="i"></i>
+        </span>
+        <label for="">所有英雄</label>
+      </li>
+      <li class="selete-item">
+        <span class="ms-radio">
+          <i class="i"></i>
+        </span>
+        <label for="">战士</label>
+      </li>
+      <li class="selete-item">
+        <span class="ms-radio">
+          <i class="i"></i>
+        </span>
+        <label for="">法师</label>
+      </li>
+      <li class="selete-item">
+        <span class="ms-radio">
+          <i class="i"></i>
+        </span>
+        <label for="">刺客</label>
+      </li>
+      <li class="selete-item">
+        <span class="ms-radio">
+          <i class="i"></i>
+        </span>
+        <label for="">坦克</label>
+      </li>
+      <li class="selete-item">
+        <span class="ms-radio">
+          <i class="i"></i>
+        </span>
+        <label for="">射手</label>
+      </li>
+      <li class="selete-item">
+        <span class="ms-radio">
+          <i class="i"></i>
+        </span>
+        <label for="">辅助</label>
+      </li>
+    </ul>
+    <div class="searchbox info-searchbox">
+      <input type="text"  placeholder="请输入您要搜索的英雄名" class="input-search">
+    </div>
+    <ul class="imgtextlist">
+      <!-- <li>
+        <a href="/">
+          <img src="https://game.gtimg.cn/images/lol/act/img/champion/Aatrox.png" alt="">
+          <p>暗裔剑魔</p>
+        </a>
+      </li> -->
+    </ul>
+  </div>
+  <script>
+  // step - 1 单个事件
+  // const seleteItem = document.querySelector('.selete-item');
+  // seleteItem.addEventListener('click', function() {
+  //   console.log(this);
+  //   if (this.classList.contains('current')) {
+  //     this.classList.remove('current')
+  //   } else {
+  //     this.classList.add('current')
+  //   }
+  // })
+
+  // step-2 多个事件
+  const items = document.querySelectorAll('.selete-item');
+  console.log(items);
+  // items.addEventListener('click', function() {
+  //   console.log(this);
+  // })
+  items.forEach(function(item) {
+    item.addEventListener('click', function() {
+      if (this.classList.contains('current')) {
+        this.classList.remove('current')
+      } else {
+        document.querySelector('.current').classList.remove('current');
+        this.classList.add('current')
+        renderHeros(this.querySelector('label').innerText);
+      }
+    })
+  })
+
+  //step-3 冒泡注册
+
+  const heros = [{
+    pic: 'https://game.gtimg.cn/images/lol/act/img/champion/Garen.png',
+    name: '德玛西亚之力',
+    type: '战士'
+  },{
+    pic: 'https://game.gtimg.cn/images/lol/act/img/champion/Morgana.png',
+    name: '堕落天使',
+    type: '法师'
+  }, {
+    pic: 'https://game.gtimg.cn/images/lol/act/img/champion/Ekko.png',
+    name: '时间刺客',
+    type: '刺客'
+  }, {
+    pic: 'https://game.gtimg.cn/images/lol/act/img/champion/Sion.png',
+    name: '亡灵战神',
+    type: '坦克'
+  }, {
+    pic: 'https://game.gtimg.cn/images/lol/act/img/champion/Ashe.png',
+    name: '寒冰射手',
+    type: '射手'
+  }, {
+    pic: 'https://game.gtimg.cn/images/lol/act/img/champion/Lux.png',
+    name: '光辉女郎',
+    type: '辅助'
+  }]
+
+  const heroContainer = document.querySelector('.imgtextlist');
+
+  function renderHeros(type) {
+    let data = [];
+    if (type == '所有英雄') {
+      data = heros;
+    } else {
+      data = heros.filter(function(hero) {
+        return hero.type == type
+      });
+    }
+    console.log(data);
+    heroContainer.innerHTML = data.map(hero => {
+      return `
+        <li>
+          <a href="/">
+            <img src="${hero.pic}" alt="">
+            <p>${hero.name}</p>
+          </a>
+        </li>
+      `
+    }).join('')
+  }
+
+  renderHeros('所有英雄');
+  </script>
+</body>
+</html>
