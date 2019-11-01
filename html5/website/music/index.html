@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  ul, li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  body, textarea, select, input, button {
+    font-size: 12px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-size-adjust: none;
+  }
+  img, .txt {
+    border: 0;
+  }
+  .n-bill {
+    width: 689px;
+  }
+  
+  .s-bg, .v-hd2, .n-disk li {
+    background: url(https://s2.music.126.net/style/web2/img/index/index.png?0d97b174a115b0b9da787b7e71153f33) no-repeat 0 9999px;
+  }
+  .v-hd2 {
+    height: 33px;
+    padding: 0 10px 0 34px;
+    background-position: -225px -156px;
+    border-bottom: 2px solid #C10D0C;
+  }
+  .f-ff2 {
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+  }
+  .f-tdn, .f-tdn:hover {
+    text-decoration: none;
+  }
+  .v-hd2 .tit {
+    float: left;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+  }
+  .v-hd2 .more {
+    float: right;
+    margin-top: 9px;
+  }
+  .s-fc3, a.s-fc3:hover {
+    color: #666;
+  }
+  .s-bg-6 {
+    background-position: 0 -240px;
+  }
+  .v-hd2 .more .cor, .v-hd3 .more .cor {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .n-bilst {
+    background: url(https://s2.music.126.net/style/web2/img/index/index_bill.png?0bd42b33195bdd2bd2f3a4ed37ccc5d0) no-repeat;
+    height: 472px;
+    margin-top: 20px;
+    padding-left: 1px;
+  }
+  .n-bilst .blk {
+    float: left;
+    width: 230px;
+  }
+  .n-bilst .top {
+    height: 100px;
+    padding: 20px 0 0 19px;
+  }
+  .u-cover {
+    position: relative;
+    display: block;
+  }
+  .u-cover-4 {
+    width: 80px;
+    height: 80px;
+  }
+  .n-bilst .cver {
+    float: left;
+    display: inline;
+  }
+  .u-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .u-cover .msk {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .u-cover-4 .msk {
+    background-position: -145px -57px;
+  }
+  .n-bilst .tit {
+    float: left;
+    width: 116px;
+    margin: 6px 0 0 10px;
+  }
+  .f-fs1 {
+    font-size: 14px;
+  }
+  .f-thide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+  .n-bilst .tit h3 {
+    width: 100%;
+  }
+  .n-bilst ol {
+    height: 319px;
+    margin-left: 50px;
+    line-height: 32px;
+  }
+  .n-bilst ol li {
+    height: 32px;
+  }
+  .n-bilst ol .no {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 32px;
+    margin-left: -35px;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+  }
+  .n-bilst ol .no-top {
+    color: #c10d0c;
+  }
+  .n-bilst ol .no-top {
+    color: #c10d0c;
+  }
+  .f-thide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+  .s-fc0, a.s-fc0:hover {
+    color: #000;
+  }
+  .n-bilst ol li * {
+    vertical-align: middle;
+  }
+  .n-bilst ol .nm {
+    float: left;
+    width: 170px;
+    height: 32px;
+  }
+  .n-bilst .more {
+    clear: both;
+    height: 32px;
+    margin-right: 32px;
+    text-align: right;
+    line-height: 32px;
+  }
+  .s-fc0, a.s-fc0:hover {
+    color: #000;
+  }
+  .n-bilst ol .oper {
+    /* display: none; */
+    float: right;
+    width: 82px;
+    margin-top: 7px;
+    /* background-color: red; */
+  }
+  .n-bilst ol li * {
+    vertical-align: middle;
+  } 
+  .n-bilst ol li.z-hvr .nm, .n-bilst ol li:hover .nm {
+    width: 96px;
+  }
+  .n-bilst ol li.z-hvr .oper {
+    display: block;
+  }
+  .n-bilst ol .oper a {
+    float: left;
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+  }
+  .s-bg-11 {
+    background-position: -267px -268px;
+  }
+  .s-bg-12 {
+    background-position: -297px -268px;
+  }
+  </style>
+</head>
+<body>
+  <div class="n-bill">
+    <div class="v-hd2">
+      <a href="" class="tit f-ff2 f-tdn">榜单</a>
+      <span class="more">
+        <a href="" class="s-fc3">更多</a>
+        <i class="cor s-bg s-bg-6">&nbsp;</i>
+      </span>
+    </div>
+    <div class="n-bilst" id="top-flag">
+      <dl class="blk">
+        <dt class="top">
+          <div class="cver u-cover u-cover-4">
+            <img src="http://p4.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=100y100" alt="" class="j-img">
+            <a href="" class="msk" title="云音乐飙升榜"></a>
+          </div>
+          <div class="tit">
+            <a href="/">
+              <h3 class="f-fs1 f-thide">云音乐飙升榜</h3>
+            </a>
+          </div>
+        </dt>
+        <dd>
+          <ol>
+            <li>
+              <span class="no no-top">
+                1
+              </span>
+              <a href="" class="nm s-fc0 f-thide">与火星的孩子对话</a>
+
+            </li>
+            <li>
+              <span class="no no-top">
+                2
+              </span>
+              <a href="" class="nm s-fc0 f-thide">靠近</a>
+            </li>
+            <li>
+              <span class="no no-top">
+                1
+              </span>
+              <a href="" class="nm s-fc0 f-thide">与火星的孩子对话</a>
+
+            </li>
+            <li onmouseover="this.className='z-hvr'" onmouseout="this.className=''">
+                <span class="no no-top">
+                  1
+                </span>
+                <a href="" class="nm s-fc0 f-thide">世间美好与你环环相扣</a>
+                <div class="oper">
+                  <a href="/" class="s-bg s-bg-11"></a>
+                  <a href="/" class="u-cin u-icn-81"></a>
+                  <a href="/" class="s-bg s-bg-12"></a>
+                </div>
+              </li>
+              <li>
+                <span class="no no-top">
+                  2
+                </span>
+                <a href="" class="nm s-fc0 f-thide">靠近</a>
+              </li>
+              <li>
+                <span class="no no-top">
+                  1
+                </span>
+                <a href="" class="nm s-fc0 f-thide">与火星的孩子对话</a>
+  
+              </li>
+              <li>
+                  <span class="no no-top">
+                    1
+                  </span>
+                  <a href="" class="nm s-fc0 f-thide">与火星的孩子对话</a>
+    
+                </li>
+                <li>
+                  <span class="no no-top">
+                    2
+                  </span>
+                  <a href="" class="nm s-fc0 f-thide">靠近</a>
+                </li>
+                <li>
+                  <span class="no no-top">
+                    1
+                  </span>
+                  <a href="" class="nm s-fc0 f-thide">与火星的孩子对话</a>
+    
+                </li>
+                <li>
+                  <span class="no no-top">
+                    1
+                  </span>
+                  <a href="" class="nm s-fc0 f-thide">与火星的孩子对话</a>
+    
+                </li>
+          </ol>
+          <div class="more">
+            <a href="/" class="s-fc0">查看全部></a>
+          </div>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</body>
+</html>
