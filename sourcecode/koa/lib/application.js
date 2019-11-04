@@ -39,7 +39,8 @@ module.exports = class Application extends Emitter {
     const context = Object.create(this.context);
     const request = context.request = Object.create(this.request);
     const response = context.response = Object.create(this.response);
-    context.req = request.req = req;
+    // context.req = 
+    request.req = req;
     /**
      * context: {
      * req: 原生的 req 对象
@@ -48,7 +49,8 @@ module.exports = class Application extends Emitter {
       },
      * }
      */
-    context.res = response.res = res;
+    // context.res = 
+    response.res = res;
     return context;
   }
   handleRequest(ctx, fnMiddleware) {
