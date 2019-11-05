@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Halloween</title>
+  <style>
+  body {
+    background: rgba(16, 31, 35, 1);
+    width: 100vw;
+    height: 100vh;
+  }
+  p {
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    color: rgba(255, 255, 255, .7);
+    font-size: 1.25em;
+    z-index: -1;
+  }
+  [draggable] {
+    cursor: move;
+  }
+
+  </style>
+</head>
+<body>
+  <p>Drag and drop different features to decorate the pumpkin</p>
+  <img src="https://wow.techbrood.com/uploads/1801/pumpkin.svg" alt="pumpkin" id="pumpkin" style="position: absolute; left: 354px; top: 263px; z-index: 5;">
+  <img draggable="true" src="https://wow.techbrood.com/uploads/1801/eyes1.svg" alt="eyes1" id="eyes1" style="position: absolute; left: 91px; top: 259px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/eyes2.svg" alt="eyes2" id="eyes2" style="position: absolute; left: 84px; top: 525px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/eyes3.svg" alt="eyes3" id="eyes3" style="position: absolute; left: 95px; top: 169px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/eyes4.svg" alt="eyes4" id="eyes4" style="position: absolute; left: 81px; top: 416px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/eyes5.svg" alt="eyes5" id="eyes5" style="position: absolute; left: 97px; top: 343px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/mouth1.svg" alt="mouth1" id="mouth1" style="position: absolute; left: 807px; top: 537px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/mouth2.svg" alt="mouth2" id="mouth2" style="position: absolute; left: 816px; top: 429px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/mouth3.svg" alt="mouth3" id="mouth3" style="position: absolute; left: 832px; top: 233px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/mouth4.svg" alt="mouth4" id="mouth4" style="position: absolute; left: 828px; top: 324px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/mouth5.svg" alt="mouth5" id="mouth5" style="position: absolute; left: 869px; top: 158px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/nose1.svg" alt="nose1" id="nose1" style="position: absolute; left: 342px; top: 589px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/nose2.svg" alt="nose2" id="nose2" style="position: absolute; left: 464px; top: 595px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/nose3.svg" alt="nose3" id="nose3" style="position: absolute; left: 624px; top: 603px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/nose4.svg" alt="nose4" id="nose4" style="position: absolute; left: 408px; top: 589px; z-index: 5;">
+
+<img draggable="true" src="https://wow.techbrood.com/uploads/1801/nose5.svg" alt="nose5" id="nose5" style="position: absolute; left: 553px; top: 595px; z-index: 5;">
+<script>
+(function dragndrop() {
+    let xpos = '';
+    let ypos = '';
+    let whichArt = '';
+
+    function resetZ() {
+        const imgEl = document.querySelectorAll('img');
+        for (let i = imgEl.length - 1; i >= 0; i--) {
+            imgEl[i].style.zIndex = 5;
+        }
+    }
+
+    function moveStart(e) {
+        whichArt = e.target;
+        xpos = e.offsetX === undefined ? e.layerX : e.offsetX;
+        ypos = e.offsetY === undefined ? e.layerY : e.offsetY;
+        whichArt.style.zIndex = 10;
+    }
+
+    function moveDragOver(e) {
+        e.preventDefault();
+    }
+
+    function moveDrop(e) {
+      //alert('fdff');
+        e.preventDefault();
+        whichArt.style.left = e.pageX - xpos + 'px';
+        whichArt.style.top = e.pageY - ypos + 'px';
+    }
+
+    function touchStart(e) {
+        e.preventDefault();
+        const whichArt = e.target;
+        const touch = e.touches[0];
+        let moveOffsetX = whichArt.offsetLeft - touch.pageX;
+        let moveOffsetY = whichArt.offsetTop - touch.pageY;
+        resetZ();
+        whichArt.style.zIndex = 10;
+
+        whichArt.addEventListener('touchmove', function() {
+            let posX = touch.pageX + moveOffsetX;
+            let posY = touch.pageY + moveOffsetY;
+            whichArt.style.left = posX + 'px';
+            whichArt.style.top = posY + 'px';
+        }, false);
+    }
+
+    document.querySelector('body').addEventListener('dragstart', moveStart, false);
+    document.querySelector('body').addEventListener('dragover', moveDragOver, false);
+    document.querySelector('body').addEventListener('drop', moveDrop, false);
+
+    document.querySelector('body').addEventListener('touchstart', touchStart, false);
+
+})();
+</script>
+</body>
+</html>

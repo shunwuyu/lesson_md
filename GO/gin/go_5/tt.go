@@ -1,33 +1,48 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"net/http"
+	"fmt"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
 
-func AuthMiddleWare() gin.HandlerFunc {
-	return func (c *gin.Context) {
-		if cookie, err := c.Cookie("abc"); err == nil {
-			if cookie == "123" {
-				c.Next()
-				return
-			}
-		}
+type Person struct {
+	UserId int `db:"user_id"`
+	Username string `db:"username"`
+	Sex string `db:"sex"`
+	Email string `db:"email"`
+}
 
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "err"})
-		c.Abort()
+type Place struct {
+	Country string `db:"country"`
+	City string `db:"city"`
+	TelCode int `db:"telcode"`
+}
+
+var Db *sqlx.DB
+
+func init() {
+	database, err := sqlx.Open("mysql", "root:1234567890@tcp(127.0.0.1:3306)/test")
+	if err != nil {
+		fmt.Println("open mysql failed,", err)
 		return
+	} else {
+		fmt.Println("success");
 	}
+	Db = database
 }
 
 func main() {
-	r := gin.Default()
-	r.GET("/login", func(c * gin.Context) {
-		c.SetCookie("abc", "123", 60, "/", "localhost", false, true)
-		c.String(200, "Login success!")
-	})
-	r.GET("/home", AuthMiddleWare(), func(c *gin.Context) {
-		c.JSON(200, gin.H{"data": "home"})
-	})
-	r.Run(":8000")
+	r, err := Db.Exec("insert into person(username, sex, email)values(?,?,?)", "stu001", "man", "stu01@qq.com")
+	if err != nil {
+		fmt.Println("exec failed,", err)
+		return
+	}
+	id, err := r.LastInsertId()
+	if  err != nil {
+		fmt.Println("exec failed, ", err)
+		return
+	}
+	fmt.Println("insert succ:", id)
+
 }

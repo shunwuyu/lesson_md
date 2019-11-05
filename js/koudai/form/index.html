@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>What's next?</h1>
+  <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required minlength="5">
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" required pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$">
+
+      <label for="telephone">Phone</label>
+      <input type="text" id="telephone" name="telephone" required pattern="^[0-9]{11}$">
+
+      <label for="description">Short description</label>
+      <input type="text" id="description" name="description" required minlength="5">
+
+      <label for="task">Task</label>
+      <textarea id="task" name="tak" required minlength="10"></textarea>
+
+      <button type="submit">Submit</button>
+  </form>
+  <script>
+  // const formSelector = document.querySelector("form");
+
+  class LocalStorage {
+    static save(key, val) {
+      if (typeof val === 'object') {
+        val = JSON.stringify(val)
+      }
+      localStorage.setItem(key, val)
+    }
+
+    static get(key) {
+      const val = localStorage.getItem(key)
+      if (val === null)  return null
+      return JSON.parse(val)
+    }
+  }
+
+  class Form {
+    constructor(formSelector) {
+      this.formSelector = formSelector;
+      this.storage = storage;
+      this.init();
+    }
+
+    init() {
+      this.formSelector.addEventListener("submit", this.handleSubmit.bind(this));
+    }
+    handleSubmit(event) {
+      event.preventDefault();
+      const { name, email, telephone, description, task } = event.target.elements;
+      console.log(event.target.elements)
+      this.saveData({
+        name: name.value,
+        email: email.value,
+        telephone: telephone.value,
+        description: description.value,
+        task: task.value
+      });
+      // console.log(event);
+    }
+    saveData(payload) {
+      // console.log(payload);
+      this.storage.save('inputList', payload);
+    }
+  }
+
+  const formSelector = document.forms[0];
+  const storage = LocalStorage;
+  new Form(formSelector, storage);
+  
+  </script>
+</body>
+</html>
