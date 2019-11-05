@@ -1,14 +1,38 @@
 import React from 'react';
-import { Layout, Row, Col, Avatar, Input, 
-  Menu, Dropdown, Icon, Badge } from 'antd';
+import {
+  Layout, Row, Col, Avatar, Input,
+  Menu, Dropdown, Icon, Badge
+} from 'antd';
 import { Link } from 'react-router-dom';
 import {
   Route
 } from "react-router-dom";
+function TableLi() {
+  return (
+    <div>TableLi1</div>
+  )
+}
+function TableLi2() {
+  return (
+    <div>TableLi2</div>
+  )
+}
 function Table(props) {
   console.log(props);
   return (
-    <div>table</div>
+    <ul>
+      Table
+      <span>
+        <Link to="/table/li1">li1</Link>
+      </span>
+      <span>
+        <Link to="/table/li2">li2</Link>
+      </span>
+      <div>
+        <Route path="/table/li1" component={TableLi} />
+        <Route path="/table/li2" component={TableLi2} />
+      </div>
+    </ul>
   )
 }
 function Label() {
@@ -16,9 +40,9 @@ function Label() {
     <div>Label</div>
   )
 }
-const { Header, Footer, Sider, Content }  = Layout;
+const { Header, Footer, Sider, Content } = Layout;
 function DropMenu() {
-  return(
+  return (
     <Menu>
       <Menu.Item>
         <a href="">1</a>
@@ -33,7 +57,7 @@ class PageLayout extends React.Component {
   render() {
     return (
       <Layout>
-        <Header style={{color: '#fff', textAlign: 'center', fontWeight: 'bold'}}>
+        <Header style={{ color: '#fff', textAlign: 'center', fontWeight: 'bold' }}>
           <Row>
             <Col span={10}>
               React + Antd 实践
@@ -42,11 +66,11 @@ class PageLayout extends React.Component {
               <Input placeholder="请输入你想要的......"></Input>
             </Col>
             <Col span={6}>
-              <Avatar style={{backgroundColor: '#666', marginRight: 20}}
-              icon="user"
+              <Avatar style={{ backgroundColor: '#666', marginRight: 20 }}
+                icon="user"
               ></Avatar>
               <Dropdown overlay={DropMenu}>
-                <span>Hi, 
+                <span>Hi,
                   <Icon type="down"></Icon>
                 </span>
               </Dropdown>
@@ -56,9 +80,9 @@ class PageLayout extends React.Component {
         <Layout>
           <Sider>
             <Menu
-            style={{width: 256, height: '90vh', overflow: 'auto', minWidth: 256}}
-            defaultOpenKeys={['sub1']}
-            mode="inline"
+              style={{ width: 256, height: '90vh', overflow: 'auto', minWidth: 256 }}
+              defaultOpenKeys={['sub1']}
+              mode="inline"
             >
               <Menu.SubMenu key="sub1" title={
                 <span><Icon type="smile-0"></Icon>部分ui组件实战</span>
@@ -77,7 +101,7 @@ class PageLayout extends React.Component {
               </Menu.SubMenu>
             </Menu>
           </Sider>
-          <Content style={{marginLeft: '5%'}}>
+          <Content style={{ marginLeft: '5%' }}>
             <Route path="/table" component={Table} />
             <Route path="/label" component={Label} />
           </Content>
