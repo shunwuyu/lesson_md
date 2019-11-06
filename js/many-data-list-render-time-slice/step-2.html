@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #goDown {
+    position: fixed;
+    left: 0;top: 0;
+  }
+  </style>
+</head>
+
+<body>
+  <ul id="container"></ul>
+  <button id="goDown">去到最下面</button>
+  <script>
+    document.getElementById('goDown').addEventListener('click', 
+    () => {
+      scrollTo(0, document.body.scrollHeight);
+    })
+    //需要插入的容器
+    let ul = document.getElementById('container');
+    // 插入十万条数据
+    let total = 100000;
+    // 一次插入 20 条
+    let once = 100;
+    //每条记录的索引
+    let index = 0;
+    //循环加载数据
+    function loop(curTotal, curIndex) {
+      if (curTotal <= 0) {
+        return false;
+      }
+      //每页多少条
+      let pageCount = once;
+      setTimeout(() => {
+        for (let i = 0; i < pageCount; i++) {
+          let li = document.createElement('li');
+          li.innerText = curIndex + i + ' : ' + ~~(Math.random() * total)
+          ul.appendChild(li)
+        }
+        loop(curTotal - pageCount, curIndex + pageCount)
+      }, 0)
+    }
+    loop(total, index);
+
+    // setTimeout的执行时间并不是确定的。在JS中，setTimeout任务被放进事件队列中
+    // 刷新频率受屏幕分辨率和屏幕尺寸的影响，因此不同设备的刷新频率可能会不同，而setTimeout只能设置一个固定时间间隔
+
+  </script>
+</body>
+
+</html>

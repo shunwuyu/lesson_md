@@ -27,6 +27,7 @@ class Progress extends React.Component {
             progressBtnDOM.addEventListener("touchstart", (e) => {
                 let touch = e.touches[0];
                 downX = touch.clientX;
+                console.log('downX',downX)
                 buttonLeft = parseInt(touch.target.style.left, 10);
 
                 if (onDragStart) {
