@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="container"></ul>
+  <script>
+  const total = 100000;
+  const ul = document
+  .getElementById('container');
+  let time1 = Date.now();
+  for (let i = 0; i < total; 
+  i ++) {
+    let li = document
+    .createElement('li');
+    li.innerHTML = Math.random() * total;
+    ul.appendChild(li);
+  }
+  let time2 = Date.now();
+  console.log(time2 - time1);
+  // 宏任务 -> 微任务 -> 渲染 -> 宏任务
+  // setTimeout 宏任务
+  setTimeout(() => {
+    let time3 = Date.now();
+    console.log('渲染时间', time3 - time1)
+  }, 0);
+  </script>
+</body>
+</html>
