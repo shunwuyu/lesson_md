@@ -1,0 +1,17 @@
+{
+  "name": "koa-lt",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-route": "^3.2.0",
+    "koa-websocket": "^6.0.0"
+  }
+}
