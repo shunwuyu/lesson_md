@@ -1,0 +1,155 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+  position: relative;
+  font-size: 12px;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eee;
+  width: 320px;
+  height: 564px;
+  box-sizing: border-box;
+}
+
+.title {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  font-size: 16px;
+}
+
+.input-box {
+  margin-top: 10px;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 40px;
+  line-height: 32px;
+  padding: 4px;
+  padding-right: 0;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+}
+
+.input {
+  vertical-align: top;
+  height: 32px;
+  line-height: 32px;
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 0 4px;
+  box-sizing: border-box;
+  flex: 1;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-left: 4px;
+}
+
+.input:focus {
+  border: 1px solid #ccc;
+}
+
+.send {
+  width: 80px;
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  background-color: green;
+  color: #fff;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.send:active {
+  opacity: 0.6;
+}
+
+li {
+  list-style: none;
+  padding: 6px 10px;
+  box-sizing: border-box;
+}
+
+.my-say {
+  text-align: right;
+}
+
+.say {
+  display: inline-block;
+  background-color: #fff;
+  font-size: 12px;
+  padding: 6px 4px;
+  border-radius: 4px;
+  margin-top: 1px;
+  vertical-align: top;
+  max-width: 220px;
+}
+
+.computer-say .sayman {
+  background-color: #40E0D0;
+}
+
+.my-say .sayman {
+  background-color: #FFA500;
+}
+
+.my-say .say {
+  text-align: left;
+}
+
+.sayman {
+  font-size: 10px;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 4px;
+  box-sizing: border-box;
+  margin: 0 4px;
+  color: #fff;
+}
+
+.view {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+}

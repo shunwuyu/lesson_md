@@ -1,0 +1,15 @@
+{
+  "name": "tower",
+  "version": "0.1.0",
+  "description": "[source](https://github.com/iamkun/tower_game/blob/master/index.html)",
+  "main": "tower.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "cooljs": "^1.0.4"
+  }
+}

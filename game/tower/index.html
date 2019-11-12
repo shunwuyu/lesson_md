@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tower</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0
+  }
+  img {
+    width: 100%
+  }
+  html {
+    background: #FFF;
+    height: 100%
+  }
+  body {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #F95240 url(./assets/main-bg.png)
+  }
+  html {
+    font-size: 17.6vh
+  }
+  #canvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  a {
+    text-decoration: none
+  }
+  li, ul, ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0
+  }
+  .hide {
+    display: none
+  }
+  .clear {
+      clear: both
+  }
+  .content {
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+  }
+  .loading {
+    background-color: #F05A50;
+    height: 100%;
+    width: 100%;
+  }
+  .loading .main {
+    width: 60%;
+    margin: 0 auto;
+    color: #FFF
+  }
+  .loading .main img {
+    width: 60%;
+    margin: 1rem auto 0
+  }
+  .loading .main .title {
+    font-size: .3rem
+  }
+  .loading .main .text {
+    font-size: .15rem
+  }
+  .loading .main .bar {
+    height: .12rem;
+    width: 100%;
+    border: 3px solid #FFF;
+    border-radius: .6rem;
+    margin: .1rem 0;
+  }
+
+  .loading .main .bar .sub {
+    height: .1rem;
+    width: 98%;
+    margin: .008rem auto 0;
+  }
+  .loading .main .bar .percent {
+      height: 100%;
+      width: 0;
+      background-color: #FFF;
+      border-radius: .6rem;
+      transition: all .2s;
+  }
+  .landing .title {
+    width: 60%;
+  }
+  .landing .logo {
+    width: 30%;
+    position: absolute;
+    right: .2rem;
+    top: .2rem;
+  }
+  .landing .action-2 {
+    position: absolute;
+    bottom: .2rem;
+    width: 100%;
+  }
+  .landing .start {
+    width: 65%;
+  }
+  .slideTop {
+    -webkit-animation: st 1s ease-in-out;
+    animation: st 1s ease-in-out;
+  }
+  @-webkit-keyframes st {
+    0% {
+      transform: translateZ(0)
+    }
+    100% {
+      transform: translate3d(0, -100%, 0)
+    }
+  }
+
+  .swing {
+    -webkit-animation: sw 2s ease-in-out alternate infinite;
+    animation: sw 2s ease-in-out alternate infinite;
+  }
+
+  @keyframes sw {
+      0% {
+          transform: rotate(5deg);
+          transform-origin: top center;
+      }
+      100% {
+          transform: rotate(-5deg);
+          transform-origin: top center;
+      }
+  }
+  .slideTop {
+    -webkit-animation: st 1s ease-in-out;
+    animation: st 1s ease-in-out;
+  }
+  .slideBottom {
+    -webkit-animation: sb 1s ease-in-out;
+    animation: sb 1s ease-in-out;
+  }
+  @keyframes sb {
+    0% {
+        transform: translateZ(0)
+    }
+    100% {
+        transform: translate3d(0, 200%, 0)
+    }
+  }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" class="hide"></canvas>
+  <div class="content">
+    <div class="loading">
+      <div class="main">
+        <img
+        src="./assets/main-loading.gif">
+        <div class="progress">
+            <div class="title font-wenxue">0%</div>
+            <div class="bar">
+                <div class="sub">
+                    <div class="percent"></div>
+                </div>
+            </div>
+            <div class="text">加载中</div>
+        </div>
+      </div>
+    </div>
+    <div class="landing hide">
+      <div class="action-1">
+          <img
+          src="./assets/main-index-title.png"
+          class="title swing">
+      </div>
+      <div class="action-2">
+        <img id="start"
+        src="./assets/main-index-start.png"
+        class="start">
+      </div>
+    </div>
+  </div>
+  <script src="./tower.js"></script>
+  <script>
+  var game, score, successCount, domReady,
+  loadError = false, canvasReady = false,
+  gameStart = false;
+  var gameWidth = window.innerWidth;
+  var gameHeight = window.innerHeight;
+  // var ratio = 1.5
+  document.querySelector('.content')
+    .style.height = gameHeight + 'px';
+  document.querySelector('.content')
+    .style.width = gameWidth + 'px';
+  
+  function hideLoading() {
+    // console.log('hide');
+    if (domReady && canvasReady) {
+      document.querySelector('#canvas').style.display = '';
+      loadFinish = true
+      setTimeout(function () {
+        document.querySelector('.loading').style.display = 'none';
+        document.querySelector('.landing').style.display = 'block';
+      }, 1000)
+    }
+  }
+
+  const option = {
+    width: gameWidth,
+    height: gameHeight,
+    canvasId: 'canvas',
+  }
+
+  function updateLoading(status) {
+    var success = status.success
+    var total = status.total
+    var failed = status.failed
+    if (failed > 0 && !loadError) {
+      loadError = true
+      alert('加载失败 请刷新后重试')
+      return
+    }
+
+    var percent = parseInt((success / total) * 100);
+    console.log(percent, canvasReady);
+    if (percent === 100 && !canvasReady) {
+      canvasReady = true
+      hideLoading()
+    }
+    percent = percent > 98 ? 98 : percent
+    percent = percent + '%'
+    document.querySelector('.loading .title').innerText = percent;
+    document.querySelector('.loading .percent').style.width = percent;
+  }
+
+  function indexHide() {
+    document.querySelector('.landing .action-1').classList.add('slideTop');
+    document.querySelector('.landing .action-2').classList.add('slideBottom');
+    setTimeout(function () {
+      document.querySelector('.landing').style.display = 'none'
+    }, 950)
+  }
+  
+  
+  function gameReady() {
+    game = TowerGame(option);
+    game.load(function() {
+      console.log('加载完成');
+      game.playBgm()
+      game.init()
+    }, updateLoading)
+  }
+  window.addEventListener('load', function () {
+    domReady = true;
+    gameReady();
+    document
+      .getElementById('start')
+      .addEventListener('click', function() {
+        if (gameStart) return
+        gameStart = true;
+        indexHide()
+      })
+  }, false);
+
+  </script>
+</body>
+</html>
