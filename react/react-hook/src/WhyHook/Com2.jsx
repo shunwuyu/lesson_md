@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
-import Hooks from './fetchDataHook';
-class Com1 extends Component {
-  state = {  }
-  render() { 
-    return (
-      <div>
-        {/* { !data && 'loading' }
-        {
-          data.code === 200 ?
-          data.hotComments.map(comment => {
+import useFetchDataHook from './fetchDataHook';
+
+function Com2() {
+  const data = useFetchDataHook();
+  return (
+    <div>
+      {!data && 'loading'}
+      {
+        data && data.code === 200 ?
+          data.hotComments.map((comment, i) => {
             return (
-              <li>{ comment.content }</li>
+              <li key={i}>{comment.content}</li>
             )
           }) : 'error'
-        } */}
-        <Hooks />
-      </div>
-    );
-  }
+      }
+    </div>
+  );
 }
- 
-export default Com1;
+
+export default Com2;

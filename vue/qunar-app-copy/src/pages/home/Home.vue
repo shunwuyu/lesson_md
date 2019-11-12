@@ -7,7 +7,6 @@
     <home-recommend :list="recommendList"></home-recommend>
     <home-weekend :list="weekendList"></home-weekend>
     <div class="app-bottom">Qunar Web 触屏版
-
       {{ $route.path }}
     </div>
   </div>
