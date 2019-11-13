@@ -1,0 +1,21 @@
+{
+  "name": "demo-egg",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "egg-bin dev"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "ali-mysql-client": "^1.0.3",
+    "egg": "^2.25.0",
+    "egg-mysql": "^3.0.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.14.0",
+    "egg-mock": "^3.24.2"
+  }
+}

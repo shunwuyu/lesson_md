@@ -1,3 +1,5 @@
+- sequelize-cli /node/sequelize-cli
+- ai liaotian  
 - gailou /game/tower
 - baiduai /ai/car
 - git  廖雪峰

@@ -1,0 +1,169 @@
+*
+  margin 0
+  padding 0
+
+ul, li
+  list-style none
+
+.btn
+  display inline-block
+  vertical-align top
+  font-size 14px
+  line-height 32px
+  margin-left 5px
+  padding 0 6px
+  background-color #33DF83
+  color #fff
+  border-radius 3px
+
+.mint-field
+  display flex
+.mint-cell
+  background-color #fff
+  box-sizing border-box
+  color inherit
+  min-height 48px
+  display block
+  overflow hidden
+  position relative
+  text-decoration none
+.mint-cell-wrapper, .mint-cell-value
+  height 45px
+.mint-field-core
+  -webkit-appearance none
+  -moz-appearance none
+  appearance none
+  border-radius 0
+  border 0
+  -webkit-box-flex 1
+  -ms-flex 1
+  flex 1
+  outline 0
+  line-height 1.6
+  font-size inherit
+  width 100%
+  height 100%
+  margin 0 2px
+  padding 0 5px
+
+.header
+  height 50px
+  line-height 50px
+  position absolute
+  top 0px
+  left 0px
+  right 0px
+  background-color #F8F8F8
+  padding 5px 10px
+  img
+    width 50px
+    height 50px
+    float left
+    border-radius 100%
+  .name
+    font-size 18px
+    color #444
+    margin-left 10px
+
+.chatlist
+  position: absolute
+  top 60px
+  bottom 48px
+  left 0px
+  right 0px
+  overflow-y scroll
+  overflow-x hidden
+  padding 10px
+  ul
+    min-height 300px
+    li
+      position relative
+      margin-bottom 10px
+      padding-left 60px
+      min-height 68px
+      .chat-text, .chat-user
+        display inline-block
+        vertical-align top
+        font-size 14px
+        position absolute
+        left: 3px
+      .chat-user
+        position absolute
+        left 3px
+        img
+          width 40px
+          height 40px
+          border-radius 100%
+      .time
+        cite
+          font-style normal
+          line-height 24px
+          font-size 12px
+          white-space nowrap
+          color #999
+          text-align left
+          left auto
+          right 60px
+          i
+            font-style normal
+            padding-left 5px
+            padding-right 5px
+            font-size 12px
+      .chat-text
+        position relative
+        line-height 22px
+        /* margin-top: 25px; */
+        padding 10px 15px
+        background-color #eee
+        border-radius 3px
+        color #333
+        word-break break-all
+      &.chat-mine
+        text-align right
+        padding-left 0
+        padding-right 60px
+        .chat-user 
+          left auto
+          right 3px
+        .chat-text
+          margin-left 0
+          text-align left
+          background-color #33DF83
+          color #fff
+
+.foot
+  width 100%
+  min-height 48px
+  position fixed
+  bottom 0px
+  left 0px
+  background-color #F8F8F8
+  .con
+    position absolute
+    left 66px
+    right 40px
+  .btn-face 
+    width 28px
+    padding 9px 3px 9px 0px
+    position absolute
+    left 35px
+    i
+      font-size 2em
+      color #d9d9d9
+  .btn-plus
+    width 28px
+    padding 9px 3px
+    position absolute
+    left 0px
+    border-left 1px solid #d9d9d9
+    i
+      font-size 2em
+      color #ccc
+  .btn-send
+    position absolute
+    right 0px
+    top 8px
+
+  
+   
+

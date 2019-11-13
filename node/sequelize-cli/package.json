@@ -1,0 +1,24 @@
+{
+  "name": "sequelize-cli",
+  "version": "0.1.0",
+  "description": "[source](https://juejin.im/book/5b63fdba6fb9a04fde5ae6d0/section/5b6c042b6fb9a04fd93e5e03#heading-14)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
+  },
+  "dependencies": {
+    "env2": "^2.2.2",
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "mysql2": "^2.0.0",
+    "sequelize": "^5.21.2"
+  }
+}
