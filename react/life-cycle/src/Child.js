@@ -10,10 +10,10 @@ class Child extends React.Component {
       console.log('child1 setInterval');
     }, 1000);
   }
-  componentWillUnmount() {
-    console.log('componentWillUnmount');
-    clearInterval(this.timer);
-  }
+  // componentWillUnmount() {
+  //   console.log('componentWillUnmount');
+  //   clearInterval(this.timer);
+  // }
   componentWillReceiveProps() {
     console.log('componentWillReceiveProps');
   }

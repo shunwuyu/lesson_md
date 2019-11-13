@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Base {
+      constructor() {
+        this.a = 1
+      }
+    }
+    class Child extends Base {
+      constructor() {
+        super()
+        this.b = 1
+      }
+    }
+    var a = new Child();
+    console.log(a);
+
+    function Foo() {
+      
+    }
+    Foo.prototype.friends = []
+    function Bar(params) {
+      
+    }
+    Bar.prototype = Object.create(Foo.prototype);
+
+    var a = new Bar();
+    var b = new Bar();
+    a.friends.push(111)
+    console.log(a.friends === b.friends);
+    console.log(b.friends);
+    
+  </script>
+</body>
+</html>

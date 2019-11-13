@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="kolor-kolor" class="a">123</div>
+  <script>
+    var targetNode = document.querySelector('#kolor-kolor');
+    var config = {
+      attributes: true,
+      childList: true,
+      subtree: true
+    };
+    var callback = function (mutationsList, observer) {
+      console.log(mutationsList);
+      // if (mutationsList[0].type == 'attributes') {
+      //   console.log('attribute change!');
+      //   let ans = document.querySelector('#kolor-kolor').style.backgroundColor;
+      //   document.querySelectorAll('#kolor-options a').forEach((e) => {
+      //     if (e.style.backgroundColor == ans) {
+      //       e.text = 'Ans!';
+      //       e.click()
+      //     }
+      //   })
+      // }
+    };
+
+    var observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+    setTimeout(() => {
+      targetNode.setAttribute('data-a', 'a val');
+      targetNode.innerHTML= '789'
+    }, 200);
+  </script>
+</body>
+
+</html>
