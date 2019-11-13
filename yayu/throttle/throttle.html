@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+  <title>debounce</title>
+  <style>
+    #container {
+      width: 100%;
+      height: 200px;
+      line-height: 200px;
+      text-align: center;
+      color: #fff;
+      background-color: #444;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script>
+    // 第三版
+    function throttle(func, wait) {
+      var timeout, context, args, result;
+      var previous = 0;
+
+      var later = function () {
+        console.log(1);
+        previous = +new Date();
+        timeout = null;
+        func.apply(context, args)
+        console.log(22222);
+      };
+
+      var throttled = function () {
+        var now = +new Date();
+        //下次触发 func 剩余的时间
+        var remaining = wait - (now - previous);
+        context = this;
+        args = arguments;
+        // debugger;
+        // 如果没有剩余的时间了或者你改了系统时间
+        console.log((now - previous) >= wait, timeout);
+        if ((now - previous) >= wait) {
+          if (timeout) {
+            clearTimeout(timeout);
+            timeout = null;
+          }
+          previous = now;
+          func.apply(context, args);
+        } else if (!timeout) {
+          console.log('set time out');
+          timeout = setTimeout(later, remaining);
+        }
+      };
+      return throttled;
+    }
+  </script>
+  <script>
+    var count = 1;
+    var container = document.getElementById('container');
+
+    function getUserAction() {
+      container.innerHTML = count++;
+    };
+
+    container.onmousemove = throttle(getUserAction, 3000);
+  </script>
+</body>
+
+</html>
