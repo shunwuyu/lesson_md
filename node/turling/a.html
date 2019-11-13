@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./chat.css">
+  <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <section class="header">
+      <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=417072223,815667818&fm=26&gp=0.jpg" alt="" class="head">
+      <span class="name">赵丽颖</span>
+    </section>
+    <div>
+      <section class="chatlist chatlist-bottom">
+        <ul>
+          <li>
+            <div class="chat-user">
+              <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=417072223,815667818&fm=26&gp=0.jpg">
+            </div>
+            <div class="time">
+              <cite>赵丽颖<i>2019-11-08 14:52:58</i></cite>
+            </div>
+            <div class="chat-text">
+              你有什么想跟我说的？
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="foot">
+        <a href="javascript:;" class="mint-cell mint-field con" id="txtContent">
+          <div class="mint-cell-wrapper">
+            <div class="mint-cell-value">
+              <input type="text" id="msg" placeholder="请输入消息" class="mint-field-core">
+            </div>
+          </div>
+        </a>
+        <span class="btn-face">
+          <i class="fa fa-smile-o"></i>
+        </span>
+        <span class="btn-plus">
+          <i class="fa fa-plus-circle"></i>
+        </span>
+        <span class="btn btn-send">发送</span>
+      </section>
+    </div>
+  </div>
+  <ifrme src="" id="me">
+  <script>
+  const chatList = document.querySelector('.chatlist ul')
+  document.querySelector('.btn-send').addEventListener('click', function() {
+    let txt = document.querySelector('#msg').value;
+    var dt = new Date();
+
+    if (txt) {
+      chatList.innerHTML += `
+      <li class="chat-mine">
+        <div class="chat-user">
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3825691717,1038437780&fm=58&s=E4449546C45D13DC4AE5191603001040">
+        </div>
+        <div class="time">
+          <cite>我<i>${dt.getFullYear()}-${dt.getMonth()+1}-${dt.getDate()} ${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}</i></cite>
+        </div>
+        <div class="chat-text">
+          ${txt}
+        </div>
+      </li>
+      `;
+      document.getElementById('me').src=`http://api.qingyunke.com/api.php?key=free&appid=0&msg=${txt}`;
+      // $.getJSON(`http://api.qingyunke.com/api.php?key=free&appid=0&msg=${txt}`, function(result) {
+      //   console.log(result);
+      // })
+
+    }
+  })
+  </script>
+</body>
+</html>
