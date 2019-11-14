@@ -12,3 +12,5 @@ React mixin  不再写class 让function 一统江湖。
   当React 要渲染组件时， 会执行。 
   首次渲染， 每次渲染都会调用一次useEffect componentDidMount componentDidUpdate
   componentWillUnmount  解绑副作用 
+- useContext 可访问全局状态， 避免一层层的状态传递， 状态全局化， 并能统一管理。
+  useReducer action的传递， 
