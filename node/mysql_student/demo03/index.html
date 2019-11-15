@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- <ul id="students">
+
+  </ul> -->
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>姓名</th>
+          <th>家乡</th>
+          <th>手机号</th>
+          <th>邮箱</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  
+  <script>
+  fetch('/students')
+    .then(data => data.json())
+    .then(data => {
+      // let html = '';
+      // for (let student of data) {
+      //   html += `
+      //     <li>${student.id}</li>
+      //     <li>${student.name}</li>
+      //     <li>${student.hometown}</li>
+      //     <li>${student.phone}</li>
+      //     <li>${student.email}</li>
+      //   `
+      // }
+      // document.getElementById('students').innerHTML = html;
+      
+      let html = '';
+      for (let student of data) {
+        html += `
+          <tr>
+            <td>${student.id}</td>
+            <td>${student.name}</td>
+            <td>${student.hometown}</td>
+            <td>${student.phone}</td>
+            <td>${student.email}</td>
+          </tr>
+        `
+      }
+      document.querySelector('tbody').innerHTML = html;
+    })
+  </script>
+</body>
+</html>
