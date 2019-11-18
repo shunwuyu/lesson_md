@@ -1,8 +1,12 @@
 <template>
   <div class="magnifier">
     <!-- 小图 -->
-    <div class="small-box" @mouseover="handOver" @mousemove="handMove" @mouseout="handOut"
-    :style="{ 
+    <div
+      class="small-box"
+      @mouseover="handOver"
+      @mousemove="handMove"
+      @mouseout="handOut"
+      :style="{ 
         width: configs.width + 'px', 
         height: configs.height + 'px'
       }"
@@ -31,24 +35,17 @@
         left: configs.width + 500 + 'px' 
       }"
     >
-      <div
-        class="big-box"
-        :style="{
+      <div class="big-box" :style="{
           left: moveLeft,
           top: moveTop
-        }"
-      >
-        <div
-          class="big-box-img"
-        >
-          <img
-            :src="bigSrc"
-            :style="{ 
+        }">
+        <img
+          :src="bigSrc"
+          :style="{ 
               maxWidth: configs.bigWidth + 'px', 
               maxHeight: configs.bigHeight + 'px' 
             }"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -104,17 +101,23 @@ export default {
   methods: {
     handOver() {
       // 计算小图框在浏览器中的位置
-      this.imgObj = this.$el.getElementsByClassName("small-box")[0];
-      this.imgRectNow = this.imgObj.getBoundingClientRect();
+      // this.imgObj = this.$el.getElementsByClassName("small-box")[0];
+      // this.imgRectNow = this.imgObj.getBoundingClientRect();
       this.showMagnifier = true;
       this.showMask = true;
     },
     handMove(e) {
+      this.imgObj = this.$el.getElementsByClassName("small-box")[0];
+      this.imgRectNow = this.imgObj.getBoundingClientRect();
       // 计算初始的遮罩左上角的坐标
-      console.log(this.imgRectNow.left, this.imgRectNow.top, this.imgRectNow.height);
+      console.log(
+        this.imgObj
+      );
       let objX = e.clientX - this.imgRectNow.left;
       let objY = e.clientY - this.imgRectNow.top;
-      // 
+      // let objX = e.clientX;
+      // let objY = e.clientY;
+      //
       // 计算初始的遮罩左上角的坐标
       let maskX = objX - this.configs.maskWidth / 2;
       let maskY = objY - this.configs.maskHeight / 2;
@@ -150,13 +153,16 @@ export default {
 }
 .smallPic {
   /* vertical-align:bottom */
+  
 }
 .small-box {
   position: absolute;
+  margin-left: 30px;
 }
 .magnifier-zoom {
   position: absolute;
-  left: 0;top: 0;
+  left: 0;
+  top: 0;
 }
 .magnifier-layer {
   position: absolute;
