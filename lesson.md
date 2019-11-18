@@ -1,3 +1,4 @@
+- leetcode python valid-parentheses
 - nginx  https://juejin.im/post/5bd7a6046fb9a05d2c43f8c7#heading-11
 - fullstack students /node/mysql_student
 - leetcode leetcode/distribute-candies/a.py
