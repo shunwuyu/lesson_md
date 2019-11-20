@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3001;
 const fs = require('fs');
 const path = require('path');
 const md5 = require('md5');
-let a = 0;
+let a = 0
 app.get('/', (req, res) => {
   console.log('--request here', a ++);
   res.send(`<!DOCTYPE html>
@@ -13,16 +13,15 @@ app.get('/', (req, res) => {
         <title>Document</title>
     </head>
     <body>
-        demo1
+        demo2
         <script src="/demo.js"></script>
     </body>
     </html>`)
 })
 app.get('/balance', (req, res) => {
   res.send({
-    a: 1
+    a: 2
   })
-  throw new Error(123);
 })
 app.get('/demo.js', (req, res) => {
   // console.log('request here');

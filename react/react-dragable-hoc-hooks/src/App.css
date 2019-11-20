@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.dragWrap {
+  position: absolute;
+  cursor: move;
+}
+h2 {
+  border: 1px solid #000;
+}
+.test3 {
+  position: absolute;
+}

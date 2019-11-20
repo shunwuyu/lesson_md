@@ -1,0 +1,11 @@
+{
+  "name": "node-easy",
+  "script": "index.js",
+  "instances": "max",
+  "log_date_format": "YYYY-MM-DD",
+  "log_file": "./log/log.log",
+  "error_file": "./log/log-err.log",
+  "out_file": "./log/log-out.log",
+  "pid_file": "./log/pid.pid",
+  "exec_mode": "cluster"
+}

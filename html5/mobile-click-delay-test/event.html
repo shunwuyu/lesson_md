@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">1btn</button>
+  <script>
+    const btn = document.getElementById('btn');
+    var event = document.createEvent('MouseEvents');
+    // canBubble,cancelable)
+    // 事件是否起泡。
+    // cancelable	是否可以用 preventDefault() 方法取消事件。
+    event.initEvent('clickclick', true, true);
+    btn.addEventListener('clickclick', () => {
+      console.log(11111111);
+    })
+    btn.dispatchEvent(event)
+  </script>
+</body>
+
+</html>
