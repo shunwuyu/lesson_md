@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <label for="userAgent">userAgent:</label>
+    <span id="userAgent"></span>
+  </div>
+  <div>
+    <label for="touchstart">touchstart:</label>
+    <span id="touchstart"></span>
+  </div>
+  <div>
+    <label for="touchend">touchend:</label>
+    <span id="touchend"></span>
+  </div>
+  <div>
+    <label for="click">click:</label>
+    <span id="click"></span>
+  </div>
+  <div>
+      <label for="tap">tap:</label>
+    <span id="tap"></span>
+  </div>
+  <div>
+    <label for="diffClickTouchend">diff click - touchend:</label>
+    <span id="diffClickTouchend"></span>
+  </div>
+
+  <div>
+    <div id="test">test</div>
+    <div id="diff">diff</div>
+  </div>
+  <script>
+    var userAgent = document.getElementById('userAgent');
+    userAgent.innerText = window.navigator.userAgent;
+
+    var test = document.getElementById('test');
+    var diff = document.getElementById('diff');
+    var touchstart = document.getElementById('touchstart');
+    var touchend = document.getElementById('touchend');
+    var click = document.getElementById('click');
+    var diffClickTouchend = document.getElementById('diffClickTouchend');
+
+    test.addEventListener('touchstart', function (e) {
+      touchstart.innerText = Date.now();
+    });
+
+    test.addEventListener('touchend', function (e) {
+      // e.preventDefault();
+      // e.stopPropagation();
+      // e.stopImmediatePropagation
+      touchend.innerText = Date.now();
+      // e.target.click();
+      // return false;
+      // var event = new MouseEvent('click') //MouseEvent继承自UIEvent
+      // //触发事件
+      // e.target.dispatchEvent(event)
+
+      var event = document.createEvent('MouseEvents');
+      // canBubble,cancelable)
+      // event.initEvent('click', true, true);
+      // e.target.dispatchEvent(event)
+    })
+
+    test.addEventListener('tap', () => {
+      document.getElementById('tap').innerHTML = Date.now();
+    })
+    test.addEventListener('click', function (e) {
+      click.innerText = Date.now();
+    });
+
+    diff.addEventListener('click', function () {
+      diffClickTouchend.innerText = click.innerText - touchend.innerText;
+    });
+  </script>
+</body>
+
+</html>

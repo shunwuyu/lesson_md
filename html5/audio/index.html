@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Audio</title>
+  <style>
+  html, body {
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+    background: #13091B;
+    height: 100%;
+  }
+  body {
+    background: url(https://p1.music.126.net/gAmIGjlWnYXE_0O8LFp5-w==/109951164382001054.jpg) no-repeat;
+    background-size: cover;
+  }
+  #canvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  audio {
+    visibility: hidden;
+  }
+  #play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #13091B;
+    background: #007A99;
+    display: block;
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    z-index: 1;
+    text-align: center;
+    text-decoration: none;
+  }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <canvas id="canvas"></canvas>
+    <audio id="audio" controls src="//m8.music.126.net/21180815163607/04976f67866d4b4d11575ab418904467/ymusic/515a/5508/520b/f0cf47930abbbb0562c9ea61707c4c0b.mp3?infoId=92001"
+    crossOrigin="anonymous"></audio>
+    <a href="javascript:;" id="play-btn">PLAY</a>
+  </div>
+  <script>
+  var btn = document.getElementById("play-btn");
+  var audio = document.getElementById("audio");
+
+  btn.onclick = function () {
+      btn.style.display = "none";
+
+      audio.play();
+      onLoadAudio();
+
+  };
+
+  function onLoadAudio() {
+      var context = new(window.AudioContext || window.webkitAudioContext)();
+      // console.log(context);
+      var analyser = context.createAnalyser();
+      // console.log(analyser);
+      analyser.fftSize = 512;
+      //输入  流式播放
+      var source = context.createMediaElementSource(audio);
+      source.connect(analyser);
+      analyser.connect(context.destination);
+
+      var bufferLength = analyser.frequencyBinCount;
+      // console.log(bufferLength);
+
+      var dataArray = new Uint8Array(bufferLength);
+      // console.log(dataArray);  [0,0,0,0,0]
+
+      var canvas = document.getElementById("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      var ctx = canvas.getContext("2d");
+      var WIDTH = canvas.width;
+      var HEIGHT = canvas.height;
+
+      var barWidth = WIDTH / bufferLength * 1.5;
+      // console.log(barWidth);
+      var barHeight;
+
+      function renderFrame() {
+          requestAnimationFrame(renderFrame);
+
+          analyser.getByteFrequencyData(dataArray);
+          console.log(dataArray);
+          ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+          for (var i = 0, x = 0; i < bufferLength; i++) {
+              barHeight = dataArray[i];
+              // console.log(barHeight);
+              var r = barHeight + 25 * (i / bufferLength);
+              var g = 250 * (i / bufferLength);
+              // console.log(i);
+              var b = 50;
+              // console.log("rgb(" + r + "," + g + "," + b + ")");
+              ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+              ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+              x += barWidth + 2;
+          }
+      }
+
+      renderFrame();
+    }
+  </script>
+</body>
+</html>

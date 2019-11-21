@@ -17,5 +17,14 @@
     })
     
     </script>
+    <script type="module">
+      import { aa, b, bar} from './module.js';
+      bar();
+      console.log('1', aa);
+    </script>
+    <script type="module">
+      import { aa, b} from './module.js';
+      console.log('2', aa);
+    </script>
   </body>
 </html>
