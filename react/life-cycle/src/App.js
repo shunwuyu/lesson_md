@@ -9,6 +9,7 @@ class App extends React.Component {
     flag: true,
     name: 'old child1 name',
     count: 0,
+    list: []
   }
   handleToggle = () => {
     this.setState({
@@ -16,6 +17,13 @@ class App extends React.Component {
     })
   }
   componentDidMount() {
+    fetch('https://cnodejs.org/api/v1/topics')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          list: data
+        })
+      })
     setTimeout(() => {
       this.setState({
         msg: 'new msg'
@@ -24,14 +32,14 @@ class App extends React.Component {
   }
   handleUpdateChild1 = () => {
     let { count } = this.state;
-    count ++;
+    count++;
     this.setState({
       name: 'new name',
       count
     })
   }
   render() {
-    const { msg, flag, name, count } = this.state;
+    const { msg, flag, name, count, list } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -41,10 +49,13 @@ class App extends React.Component {
         <button onClick={this.handleUpdateChild1}>更新chuild1数据</button>
         {
           flag ?
-          <Child msg={msg}/> :
-          <Child1 name={name} count={count} />
+            <Child msg={msg} /> :
+            <Child1 name={name} count={count} />
         }
-        
+        <div dangerouslySetInnerHTML={{ __html: list && list.data && list.data[0].content }}>
+
+        </div>
+      
       </div>
     );
   }

@@ -16,6 +16,7 @@ class Child1 extends React.Component {
   // 组件更新前触发
   getSnapshotBeforeUpdate() {
     console.log('getDerivedStateFromProps');
+    console.log(document.getElementById('text'))
     return 8;
   }
   /**
@@ -33,6 +34,7 @@ class Child1 extends React.Component {
     return (
       <p>child1 的内容
         {this.props.count}
+        <div id="text">text</div>
       </p>
     )
   }

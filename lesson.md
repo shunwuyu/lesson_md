@@ -1,3 +1,12 @@
+- wxapp  /node/songs
+- leetcode  打家打家劫舍  /leetcode/198
+- egg.js  文档
+- leetcode python valid-parentheses
+- nginx  https://juejin.im/post/5bd7a6046fb9a05d2c43f8c7#heading-11
+- fullstack students /node/mysql_student
+- leetcode leetcode/distribute-candies/a.py
+- react hooks http://jspang.com/posts/2019/08/12/react-hooks.html#p07-usereducer%E4%BB%A3%E6%9B%BFredux%E5%B0%8F%E6%A1%88%E4%BE%8B-1
+- cheerio  node 爬虫
 - sequelize-cli /node/sequelize-cli
 - ai liaotian  
 - gailou /game/tower
