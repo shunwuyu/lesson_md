@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .message {
+      width: 600px;
+      min-height: 400px;
+      padding: 15px;
+      border: 1px solid #ccc; 
+    }
+    .message .a {
+      text-align: right;
+    }
+    .message li {
+      line-height: 30px;
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+    <div class="wrap">
+      <input type="text" class="input">
+      <button class="btn-send">发送</button>
+    </div>
+    <ul class="message"></ul>  
+    <script>
+    window.onload = () => {
+      let elInput = document.querySelector('.input');
+      let elUl = document.querySelector('.message');
+      let ws = null;
+      let msgData = {
+        fromUserId: Math.ceil(Math.random()*10000),
+        content: '',
+      };
+      
+      function connectWebsocket() {
+        ws = new WebSocket('ws://localhost:3000');
+        // 连接成功
+        ws.onopen = () => {
+          console.log('连接服务端WebSocket成功');
+          console.log(ws);
+        };
+
+        ws.onmessage = (msg) => {
+          let message = JSON.parse(msg.data);
+          console.log('收到的消息：', message)
+          elUl.innerHTML += `<li class="b">${message.content}</li>`;
+        };
+
+        // 连接失败
+        ws.onerror = () => {
+          console.log('连接失败，正在重连...');
+          connectWebsocket();
+        };
+
+        ws.onclose = () => {
+          console.log('连接关闭');
+        };
+      }
+
+      connectWebsocket();
+      document.querySelector('.btn-send').addEventListener('click', () => {
+        let msg = { ...msgData, content: elInput.value, type: 'text' };
+        // 发送消息
+        ws.send(JSON.stringify(msg));
+        // elUl.innerHTML += `<li class="a">${elInput.value}：小叶</li>`;  
+        elInput.value = '';  
+      });
+    }
+    </script>
+</body>
+</html>
