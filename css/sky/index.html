@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #sckyscrapper {
+    border: 1px solid black;
+    height: 118px;
+    width: 598px;
+    overflow: hidden;
+  }
+
+  .box {
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    margin: 10px auto;
+  }
+  </style>
+</head>
+<body>
+  <div id="skyscrapper">
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <div id="box3" class="box"></div>
+    <div id="box4" class="box"></div>
+  </div>
+  <script src="./gasp.min.js"></script>
+  <script>
+  // 2
+  // var Animation = function(els) {
+  //   var dur = 0.3,
+  //     amount = '55%',
+  //     tl = new TimelineMax({
+  //       repeat: -1, 
+  //       yoyo: true,
+  //       repeatDelay: 1
+  //     });
+  //   tl
+  //     .add(fromLeft([els[0], els[2]]))
+  //     .add(fromRight(els[1]));
+    
+  //   function fromLeft(el) {
+  //     return TweenMax.from(el, dur, {x:"-="+amount, autoAlpha:0.2})
+  //   } 
+  //   function fromRight(el) {
+  //     return TweenMax.from(el, dur, {x:"+="+amount, autoAlpha:0.2});
+  //   }
+  // }
+  // 1
+  // var tl = new TimelineMax({repeat:-1, yoyo:true, repeatDelay:1});
+
+  // tl.from(["#box1,#box3"], 0.3, {x:"-=55%"});
+  // tl.from("#box2", 0.3, {x:"+=55%"});
+  // 2
+  // var anim = new Animation(["#box1", "#box2", "#box3"]);
+  
+  // 3
+  var skyObj = {
+    leftAnimated: [box1, box3],
+    rightAnimated: [box2, box4],
+    amount: "55%"
+  }
+  var Animation = function(els) {
+    var dur = 0.3,
+      tl = new TimelineMax({repeat:-1, yoyo:true, repeatDelay:1})
+    tl
+      .add(fromLeft(els.leftAnimated, els.amount))
+      .add(fromRight(els.rightAnimated, els.amount));
+    
+    function fromLeft(el, amount) {
+      return TweenMax.from(el, dur, {x:"-="+amount, autoAlpha:.2});
+    }
+
+    function fromRight(el, amount) {
+      return TweenMax.from(el, dur, {x:"+="+amount, autoAlpha:.2});
+    }
+  }
+
+  var animSky = new Animation(skyObj);
+  </script>
+</body>
+</html>
