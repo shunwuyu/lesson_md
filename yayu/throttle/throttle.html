@@ -38,21 +38,22 @@
         var now = +new Date();
         //下次触发 func 剩余的时间
         var remaining = wait - (now - previous);
+        console.log('remaining', remaining);
         context = this;
         args = arguments;
         // debugger;
         // 如果没有剩余的时间了或者你改了系统时间
         console.log((now - previous) >= wait, timeout);
-        if ((now - previous) >= wait) {
-          if (timeout) {
-            clearTimeout(timeout);
-            timeout = null;
-          }
+        if ((now - previous) > wait) {
+          // if (timeout) {
+          //   clearTimeout(timeout);
+          //   timeout = null;
+          // }
           previous = now;
           func.apply(context, args);
         } else if (!timeout) {
-          console.log('set time out');
-          timeout = setTimeout(later, remaining);
+          console.log('set time out', remaining);
+          timeout = setTimeout(later, wait);
         }
       };
       return throttled;
@@ -66,7 +67,7 @@
       container.innerHTML = count++;
     };
 
-    container.onmousemove = throttle(getUserAction, 3000);
+    container.onmousemove = throttle(getUserAction, 1000);
   </script>
 </body>
 

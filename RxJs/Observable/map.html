@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #card {
+      width: 40px;height: 40px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="card"></div>
+  <div id="title"></div>
+  <script src="https://unpkg.com/@reactivex/rxjs@5.0.0/dist/global/Rx.js"></script>
+  <script>
+    const docElm = document.documentElement;
+    const cardElm = document.querySelector('#card');
+    const titleElm = document.querySelector('#title');
+
+    const { clientWidth, clientHeight } = docElm;
+
+    // Stream of all mousemove events
+    const mouseMove$ = Rx.Observable
+      .fromEvent(docElm, 'mousemove')
+      .map(event => ({
+        x: event.clientX,
+        y: event.clientY
+      }))
+
+    // Apply values to styles
+    mouseMove$.subscribe(pos => {
+      const rotX = pos.y;
+      const rotY = pos.x;
+
+      cardElm.style.cssText = `
+    transform: rotateX(${rotX}deg) rotateY(${rotY}deg);
+  `;
+    });
+  </script>
+</body>
+
+</html>
