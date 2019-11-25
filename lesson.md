@@ -1,3 +1,4 @@
+- mongodb /node/mongodb
 - weibo /WeChatApp⁩/⁨weibo⁩
 - react mangomusic /react/mango-music2
 - walk dog /css/walk_dog
