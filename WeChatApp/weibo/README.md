@@ -1,0 +1,3 @@
+- circle tabbar切换 mvvm理念
+- onLoad   setNavigationBar
+- rpx main    跳转到发布页

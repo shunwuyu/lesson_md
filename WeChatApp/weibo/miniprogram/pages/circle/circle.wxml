@@ -1,0 +1,24 @@
+<view class="circle-container">
+  <view class="main-area" style="display:{{currentPage === 'main' ? 'block' : 'none'}};height: {{mainAreaHeight}};margin-top:{{mainAreaMarginTop}}">
+
+    <scroll-view scroll-y class="main-area-scroll" bindscroll="onMainPageScroll">
+      <block wx:for="{{pageMainData}}" wx:for-index="idx" wx:for-item="itemName" wx:key="_id">
+        <post-item is="post-item" data="{{itemName}}" originId="{{userId}}" class="post-item-wrapper" bind:deleteEvent="onItemDelete" />
+      </block>
+      <view wx:if="{{pageMainData.length === 0}}" class="item-placeholder">无数据</view>
+    </scroll-view>
+    <button class="add-poster-btn" bindtap="onAddPosterTap" hover-class="add-poster-btn-hover" style="bottom:{{addPosterBtnBottom}}">+</button>
+
+  </view>
+  <view class="footer">
+    <view class="footer-item">
+      <button class="footer-btn" bindtap="onPageMainTap" style="background: {{currentPage === 'main' ? '#111' : 'rgba(0,0,0,0)'}}; color: {{currentPage === 'main' ? '#fff' : '#000'}}">首页</button>
+    </view>
+    <view class="footer-item">
+      <button class="footer-btn" bindtap="onPageMsgTap" style="background: {{currentPage === 'msg' ? '#111' : 'rgba(0,0,0,0)'}}; color: {{currentPage === 'msg' ? '#fff' : '#000'}}">消息</button>
+    </view>
+    <view class="footer-item">
+      <button class="footer-btn" bindtap="onPageMeTap" style="background: {{currentPage === 'me' ? '#111' : 'rgba(0,0,0,0)'}}; color: {{currentPage === 'me' ? '#fff' : '#000'}}">个人</button>
+    </view>
+  </view>
+</view>

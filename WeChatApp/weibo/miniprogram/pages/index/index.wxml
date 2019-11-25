@@ -1,0 +1,3 @@
+<view class="container">
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">进入小圈圈</button>
+</view>
