@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- scaleAble: none -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 192.168.xx.xx:8080/test.html -->
+  <!-- http://127.0.0.1:8080/test.html -->
+</head>
+<body>
+  <div>
+    <p id="start"></p>
+    <p id="end"></p>
+    <p id="click"></p>
+  </div>
+  <div id="diff"></div>
+  <button id="clickMe">Click me</button>
+  <button id="diffMe">diff me</button>
+  <script>
+  document.getElementById('clickMe')
+  .addEventListener('touchstart', function() {
+    document.getElementById('start').innerHTML = Date.now();
+  })
+  document.getElementById('clickMe')
+  .addEventListener('touchend', function(e) {
+    e.preventDefault();
+    // 1
+    // document.getElementById('clickMe').click();
+    // 2
+    let event = document.createEvent('MouseEvents');
+    // 
+    event.initEvent('click', true, true);
+    document.getElementById('clickMe').dispatchEvent(event);
+    //
+    document.getElementById('end').innerHTML = Date.now();
+  })
+  document.getElementById('clickMe')
+  .addEventListener('click', function() {
+    document.getElementById('click').innerHTML = Date.now();
+  })
+  document.getElementById('diffMe')
+  .addEventListener('click', function() {
+    document.getElementById('diff').innerHTML = document.getElementById('click')
+    .innerHTML - document.getElementById('end').innerHTML
+  })
+  </script>
+</body>
+</html>
