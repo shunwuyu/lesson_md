@@ -1,7 +1,7 @@
 //baseComponent.js   component的基类方法
 
 import React from 'react';
-import {is} from 'immutable';
+import { is } from 'immutable';
 
 class BaseComponent extends React.Component {
     constructor(props, context, updater) {
