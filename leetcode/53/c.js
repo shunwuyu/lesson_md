@@ -3,7 +3,6 @@ function maxSubArray(nums) {
   maxsum = thissum = 0;
   // maxsum thissum 保存
   // thissum 代表本场次最大， 0， 
-
   for (i = 0; i < nums.length; i++) {
     thissum += nums[i];
     // 如果都是大于0的数， 那更都新， 就完事了
@@ -19,4 +18,4 @@ function maxSubArray(nums) {
 }
 
 
-console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
+// console.log(maxSubArray([-2,-3,-1,-5]));
