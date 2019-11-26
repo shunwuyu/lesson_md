@@ -1,6 +1,6 @@
 function maxSubArray (nums){
   let thissum, i, j, k, maxsum;
-  maxsum = 0;
+  maxsum = -Number.MAX_VALUE;
   for (i = 0; i < nums.length; i++) {
     for (j = i; j < nums.length; j++) {
       thissum = 0;
