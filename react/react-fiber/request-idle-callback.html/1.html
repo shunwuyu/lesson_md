@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var tasksNum = 10
+    let i = 0;
+
+    requestIdleCallback(unImportWork)
+    /*
+      deadline 有两个参数
+        timeRemaining(): 当前帧还剩下多少时间
+        didTimeout: 是否超时
+      requestIdleCallback 后如果跟上第二个参数 {timeout: ...} 则会强制浏览器在当前帧执行完后执行
+    */
+    function unImportWork(deadline) {
+      while (deadline.timeRemaining() && tasksNum > 0) {
+        i ++;
+        console.log(`执行了${i}个任务`)
+        tasksNum--
+      }
+
+      if (tasksNum > 0) { // 在未来的帧中继续执行
+        requestIdleCallback(unImportWork)
+      }
+    }
+
+  </script>
+</body>
+
+</html>

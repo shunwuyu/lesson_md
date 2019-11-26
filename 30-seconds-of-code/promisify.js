@@ -15,3 +15,8 @@ promiseFsReadFile('./call.html', {
   .then(res => {
     console.log('res', res);
   })
+(
+  async function() {
+    
+  }
+)
