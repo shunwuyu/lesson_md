@@ -1,0 +1,18 @@
+version: "3"
+networks:
+  my-network:
+    driver: bridge
+volumes:
+    node_modules:
+    mongo_data:
+services:
+  mongo:
+    build:
+      context: ./mongo
+    ports:
+      - 127.0.0.1:27017:27017
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+    networks:
+      - my-network
