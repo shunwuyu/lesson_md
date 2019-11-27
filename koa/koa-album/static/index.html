@@ -6,17 +6,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 </head>
 
 <body>
   <div>
-    <form action="/upload" method="post" enctype="multipart/form-data">
+    <div id="app">
+      <div>{{ hello }}</div>
+    </div>
+    <form action="/upload" name="uploadForm" method="post" enctype="multipart/form-data">
       <input type="text" name="userName" />
       <input type="password" name="password" />
       <input type="file" name="avatar" />
-      <input type="submit" value="提交"/>
+      <input type="submit" value="提交" />
     </form>
   </div>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    const uploadForm = document.forms['uploadForm'];
+    uploadForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      // console.log(1);
+      const formData = new FormData();
+      const text = uploadForm['userName'].value;
+      const password = uploadForm['password'].value;
+      const avatar = uploadForm['avatar'].files[0];
+      console.log(text, password, avatar);
+      formData.append('avatar', avatar)
+      formData.append('text', text)
+      formData.append('password', password)
+      fetch('/upload', {
+        method: 'POST',
+        body: formData
+      }).then(res => res.json())
+        .then(data => {
+          console.log(data);
+        })
+    })
+    // new Vue({
+    //   el: '#app',
+    //   data() {
+    //     return {
+    //       hello: 'hello world'
+    //     }
+    //   }
+    // })
+    new Vue({
+      el: '#app',
+      template: `
+      <div>
+          <el-button type="danger">危险按钮</el-button>
+      </div>
+      ` 
+    })
+    
+  </script>
 </body>
 
 </html>

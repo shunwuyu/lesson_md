@@ -10,7 +10,8 @@ let router = new koaRoute();
 const readDir = promisify(fs.readdir);
 app.use(staticServe(__dirname + '/static'));
 //  Content-Type 的类型扩充了multipart/form-data 用以支持向服务器发送二进制数据
-app.use(koaBody({
+// app.use();
+router.post('/upload', koaBody({
   multipart: true,
   formidable: {
     maxFileSize: 200 * 1024 * 1024,
@@ -18,12 +19,15 @@ app.use(koaBody({
     keepExtensions: true,
     hash: true
   },
-}));
-router.post('/upload', async (ctx) => {
-  console.log(ctx.request.files);
+}), async (ctx) => {
+  console.log(ctx.request.files.avatar.path);
   console.log(ctx.request.body);
   // => POST body
-  ctx.body = JSON.stringify(ctx.request.body);
+  let diskPath = ctx.request.files.avatar.path;
+  const fileName = path.basename(diskPath);
+  ctx.body = JSON.stringify({
+    path: `http://localhost:3000/img/${fileName}`
+  });
 }
 );
 router.get('/show', async (ctx) => {
