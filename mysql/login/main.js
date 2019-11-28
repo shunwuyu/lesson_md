@@ -1,7 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const app = express();
-
+const md5 = require('md5');
 const { query } = require('./query-db');
 
 app.get('/', function(req, res) {
@@ -24,7 +24,7 @@ app.post('/login', function(req, res) {
         let word = "select * from userlist where username='";
         word += dataOb.username + "'";
         word += " and password='";
-        word += dataOb.password + "'";
+        word += md5(dataOb.password) + "'";
 
         let result = await query(word);
     

@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "md5": "^2.2.1",
     "mysql": "^2.17.1"
   }
 }

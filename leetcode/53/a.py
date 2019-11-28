@@ -14,3 +14,12 @@ class Solution:
 
 solution = Solution()
 print(solution.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+
+
+class Demo:
+	def add(self, a, b) -> int:
+		ans = a + b
+		return ans
+
+res = Demo()
+print(res.add(1, 2))

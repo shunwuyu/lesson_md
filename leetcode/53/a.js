@@ -4,7 +4,7 @@ function maxSubArray (nums){
   for (i = 0; i < nums.length; i++) {
     for (j = i; j < nums.length; j++) {
       thissum = 0;
-      for (k = i; k <= j; k++) { //自身也包括
+      for (k = i; k <= j; k++) {
         thissum += nums[k];
       } 
       if (thissum > maxsum) {
@@ -14,4 +14,4 @@ function maxSubArray (nums){
   }
   return maxsum;
 }
-console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
+console.log(maxSubArray([1,1,-3,4,-1,2,1,-5,4]));
