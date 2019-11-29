@@ -21,7 +21,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "echo 'test done!!!!'",
+    "eject": "react-scripts eject",
+    "deploy": "node ./myscript/deploy.js"
   }
 }
