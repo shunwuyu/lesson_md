@@ -1,3 +1,4 @@
+- 滴滴小程序 /wechatapp/didi
 - meituan /mongodb/meituan
 - mysql  /mysql/login
 - redis /redis
