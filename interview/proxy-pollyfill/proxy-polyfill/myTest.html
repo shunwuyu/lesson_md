@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./myProxy.js"></script>
+  <script>
+    function observe(o, callback) {
+      return new ProxyA(o, {
+        set(target, property, value) {
+          callback(property, value);
+          target[property] = value;
+        },
+        get(target, property, value) {
+          console.log('get here');
+          return target[property];
+        }
+      });
+    }
+
+    const x = { 'name': 'BB-8' };
+    const p = observe(x, (property, value) => {
+      console.info(property, value, 'hahha')
+    });
+    p.name = 'BB-9';
+    console.log(p.name);
+  </script>
+</body>
+
+</html>
