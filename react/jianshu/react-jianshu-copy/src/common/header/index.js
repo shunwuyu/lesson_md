@@ -25,14 +25,20 @@ class Header extends Component {
 	getListArea() {
 		const { focused, list, page, totalPage, mouseIn, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
 		const newList = list.toJS();
-		const pageList = [];
+		let pageList = [];
 
 		if (newList.length) {
-			for (let i = (page - 1) * 10; i < page * 10; i++) {
-				pageList.push(
-					<SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+			// for (let i = (page - 1) * 10; i < page * 10; i++) {
+			// 	pageList.push(
+			// 		<SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+			// 	)
+			// }
+			pageList = newList.slice((page - 1) * 10, page * 10)
+			.map((item, i) => {
+				return (
+					<SearchInfoItem key={i}>{item}</SearchInfoItem>
 				)
-			}
+			})
 		}
 
 		if (focused || mouseIn) {
@@ -51,7 +57,7 @@ class Header extends Component {
 						</SearchInfoSwitch>
 					</SearchInfoTitle>
 					<SearchInfoList>
-						{pageList}
+						{ pageList }
 					</SearchInfoList>
 				</SearchInfo>
 			)
@@ -85,7 +91,6 @@ class Header extends Component {
 							classNames="slide"
 						>
 							<NavSearch
-								className={focused ? 'focused': ''}
 								onFocus={() => handleInputFocus(list)}
 								onBlur={handleInputBlur}
 							></NavSearch>

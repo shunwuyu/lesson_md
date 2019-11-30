@@ -1,3 +1,7 @@
+- 滴滴小程序 /wechatapp/didi
+- meituan /mongodb/meituan
+- mysql  /mysql/login
+- redis /redis
 - python /python/fact /python/range
 - 最大子和  /leetcode/53
 - mongodb /node/mongodb
