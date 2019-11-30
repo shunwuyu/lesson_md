@@ -9,7 +9,7 @@ const [
 ] = argv._;
 
 const host_map = {
-  prod1: 'root@140.143.242.226:/root/fe-production/jianshu',
+  prod1: 'root@140.143.242.226:/root/fe-production',
 };
 
 if (!host_map[targetName]) {
@@ -36,11 +36,11 @@ if (!host_map[targetName]) {
 
 // // 构建
 
-// console.log(colors.yellow('☕️ 开始构建'));
-// if (shelljs.exec('npm run build').code !== 0) {
-//   shelljs.echo('error: npm install error.');
-//   shelljs.exit(1);
-// }
+console.log(colors.yellow('☕️ 开始构建'));
+if (shelljs.exec('npm run build').code !== 0) {
+  shelljs.echo('error: npm install error.');
+  shelljs.exit(1);
+}
 
 // // 部署
 console.log(colors.yellow('🐛️ 开始部署'));
