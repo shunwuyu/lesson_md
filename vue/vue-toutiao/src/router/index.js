@@ -3,7 +3,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 Router.prototype.animate = 0
 // 1
-import ComponentName form 'a.js';
+// import ComponentName m 'a.js';
 
 // 2
 const _import_ = file => () => import('views/' + file + '.vue')
