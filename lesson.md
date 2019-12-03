@@ -1,3 +1,4 @@
+- python mysql  /python/mysql
 - shell /linux/shell/demo
 - 滴滴小程序 /wechatapp/didi
 - meituan /mongodb/meituan
