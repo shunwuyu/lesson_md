@@ -5,3 +5,22 @@
 1. JavaScript和CSS之间可以变量共享
 2. css 组件化
 3. 
+
+## h5 history api vs hash 
+hash 后面的 不会发送给后端
+刷新的时候：
+history api 表示
+后端无论收到什么请求都 返回 index.html
+app.get('*', () => {
+  render(index)
+})
+
+<script src="/static/a.js" />
+publicPath / -> ./
+html: index.html static/ 
+后续
+ip/static/a.js
+没有拦截到
+location / {
+  root /usr/share/nginx/html
+}
