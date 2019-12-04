@@ -2,6 +2,7 @@
 http 无状态的
 
 ## cookie
+[source](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies)
 存本地
 怎么来：
 1. 用HTTP头向客户端发送cookies，
@@ -27,6 +28,7 @@ path 与 domain 一起构成cookie的作用范围。
 / 所有路径
 /aaa  只能在 aaa 路径下面 以及 aaa 路径下面
 默认 /
+
 ## session
 服务器端
 用户访问的都是一个服务器，产生很多个 session 信息，cookie 又是存在各子的浏览器里面。两者需要关联。
