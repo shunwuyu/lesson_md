@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <iframe src="" frameborder="0"></iframe>
+  <iframe src="" frameborder="0"></iframe>
+  <iframe src="" frameborder="0"></iframe>
+  <script src="">
+  // window.Vue = 'Vue'  
+  // window = {
+  //   alert
+  // }
+  </script>
+  <script>
+    var a = {
+      name: 'a',
+      say: function () {
+        console.log(this.name)
+      }
+    }
+    var b = a.say
+    // b()
+    // window.b();
+    // ?  undefined
+
+    function fn() {
+      // iframe 节点个数
+      console.log(this.length);
+    }
+    // fn();
+    var obj = {
+      length: 5
+    }
+    var m = function() {
+      console.log(this === obj); // bind
+      fn();  // ? 
+      // window.fn();
+      // 类数组 对象
+      console.log(arguments);
+      arguments[0]();  // ? this === arguments 
+      //  arguments.legnth
+      // arguments = {
+      //   '0': fn(),
+      //   '1': '1',
+      //   '2': '2',
+      //   length: 3
+      // }
+    }
+    var res = m.bind(obj);
+    res(fn, 1, 2);
+
+    // function foo(a) {
+    //   this.a = a;
+    //   console.log(this.a);
+    // }
+
+    // let f = new foo(1);
+    // new > apply/bind/call
+
+
+
+  </script>
+</body>
+
+</html>
