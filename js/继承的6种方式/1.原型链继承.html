@@ -11,11 +11,9 @@
 <body>
   <script>
     function Parent1() {
-      this.name = [1];
-      this.renamea = function () {
-      this.name.push(2);
+      this.colors = []
     }
-    }
+    Parent1.prototype.add = () => {}
     function Child1() {
     }
     Child1.prototype = new Parent1();
@@ -23,10 +21,10 @@
     var child12 = new Child1()
     console.log('child11', child11, child12);
     // child11.reName()
-    child11.renamea()
-    console.log(child11.name, child12.name)
-    console.log(child11.name === child12.name)
-    console.log(child11.__proto__ === child12.__proto__)
+    child11.colors.push('1')
+    console.log(child11.colors, child12.colors)
+    console.log(child11.colors === child12.colors)
+    console.log(child11.__proto__.add === child12.__proto__.add)
    // 缺点：1. 子类实例共享属性，造成实例间的属性会相互影响 2. 不能继承父类属性
 
   </script>

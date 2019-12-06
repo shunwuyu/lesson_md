@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
-<script>
-// var number = 1;
-// var string = '123';
-// var boolean = true;
-// var und = undefined;
-// var nul = null;
-// var obj = {a:1};
-// var array = [1,2,3];
-// var date = new Date();
-// var error = new Error();
-// var reg = /a/g;
-// var func = function a() {};
+  <script>
+    // var number = 1;
+    // var string = '123';
+    // var boolean = true;
+    // var und = undefined;
+    // var nul = null;
+    // var obj = {a:1};
+    // var array = [1,2,3];
+    // var date = new Date();
+    // var error = new Error();
+    // var reg = /a/g;
+    // var func = function a() {};
 
-// function checkType() {
-//     for (var i = 0; i < arguments.length; i++) {
-//         console.log(Object.prototype.toString.call(arguments[i]))
-//     }
-// }
-// checkType(number, string, boolean, und, nul, obj, array, date, error, reg, func)
-// var class2type = {};
-// "Boolean Number String Function Array Date RegExp Object Error Null Undefined".split(" ").map(function(item, index) {
-//   class2type["[object " + item + "]"] = item.toLowerCase();
-// })
-// function type(obj) {
-//   return typeof obj === "object" || typeof obj === 'function' ?
-//   class2type[Object.prototype.toString.call(obj)] || "object"
-//   :typeof obj;
-// }
+    // function checkType() {
+    //     for (var i = 0; i < arguments.length; i++) {
+    //         console.log(Object.prototype.toString.call(arguments[i]))
+    //     }
+    // }
+    // checkType(number, string, boolean, und, nul, obj, array, date, error, reg, func)
+    // var class2type = {};
+    // "Boolean Number String Function Array Date RegExp Object Error Null Undefined".split(" ").map(function(item, index) {
+    //   class2type["[object " + item + "]"] = item.toLowerCase();
+    // })
+    // function type(obj) {
+    //   return typeof obj === "object" || typeof obj === 'function' ?
+    //   class2type[Object.prototype.toString.call(obj)] || "object"
+    //   :typeof obj;
+    // }
 
-var class2type = {};
+    var class2type = {};
 
-// 生成class2type映射
-"Boolean Number String Function Array Date RegExp Object Error".split(" ").map(function(item, index) {
-    class2type["[object " + item + "]"] = item.toLowerCase();
-})
+    // 生成class2type映射
+    "Boolean Number String Function Array Date RegExp Object Error".split(" ").map(function (item, index) {
+      class2type["[object " + item + "]"] = item.toLowerCase();
+    })
 
-function type(obj) {
-    // 一箭双雕
-    console.log(obj, '------');
-    if (obj == null) {
+    function type(obj) {
+      // 一箭双雕
+      console.log(obj, '------');
+      if (obj == null) {
         return obj + "";
-    }
-    return typeof obj === "object" || typeof obj === "function" ?
+      }
+      return typeof obj === "object" || typeof obj === "function" ?
         class2type[Object.prototype.toString.call(obj)] || "object" :
         typeof obj;
-}
+    }
 
-function isFunction (obj) {
-  return typeof(obj) === "function";
-}
+    function isFunction(obj) {
+      return typeof (obj) === "function";
+    }
 
-var isArray = Array.isArray || function(obj) {
-  return type(obj) === "array";
-}
+    var isArray = Array.isArray || function (obj) {
+      return type(obj) === "array";
+    }
 
-</script>
+  </script>
 </body>
+
 </html>

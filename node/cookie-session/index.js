@@ -21,52 +21,84 @@ const session = koaSession(session_config, app)
 
 // 使用中间件，注意有先后顺序
 app.use(session);
-app.use(staticServe(path.join(__dirname, './static')));
-router.get('/test', async (ctx) => {
-  // koa ms
-  // js s
-  console.log(ctx.cookies.get('name'), ctx.cookies.get('user'));
+// app.use(staticServe(path.join(__dirname, './static')));
+// router.get('/test', async (ctx) => {
+//   // koa ms
+//   // js s
+//   console.log(ctx.cookies.get('name'), ctx.cookies.get('user'));
+//   ctx.cookies.set('name', 'this is name', {
+//     path: '/user',
+//     maxAge: 10 * 60 * 1000,
+//     domain: '.juejin.im',
+//     httpOnly: true
+//   });
+//   ctx.body = '/'
+// })
+// router.get('/user', async (ctx) => {
+//   console.log(ctx.cookies.get('name'), ctx.cookies.get('user'));
+//   ctx.cookies.set('user', 'this is user');
+//   ctx.body = 'user';
+// })
+// // /user 的 cookie 在其 子路径下面也能生效
+// router.get('/user/123456', async (ctx) => {
+//   console.log(ctx.cookies.get('name'), ctx.cookies.get('user'));
+//   ctx.body = '/user/123456';
+// })
+// router.get('/login', async (ctx) => {
+//   const { userName, password } = ctx.query;
+//   console.log({userName, password});
+//   const isTrue = userName === 'test' && password === 'test';
+//   if (isTrue) {
+//     ctx.session.login = true
+//     ctx.type = 'html'
+//     ctx.body = `
+//     登录成功
+//     <a href="/testlogin">去测试登录</a>
+//     `;
+//   } else {
+//     ctx.session.login = false;
+//     ctx.body = '账户错误';
+//   }
+// })
+// router.get('/testlogin', async (ctx) => {
+//   if (!ctx.session.login) {
+//     ctx.redirect('/');
+//   }
+//    else {
+//      ctx.body = '已经登录';
+//    }
+// })
+// 10 * 1000 10min
+router.get('/', async (ctx) => {
   ctx.cookies.set('name', 'this is name', {
-    path: '/user',
-    maxAge: 10 * 60 * 1000,
-    domain: '.juejin.im',
+    path: '/',
+    maxAge: 1000 * 10 * 60,
     httpOnly: true
   });
-  ctx.body = '/'
+  ctx.body = `
+  <div>
+    <li><a href="/">/</a></li>
+    <li><a href="/user">/user</a></li>
+    <li><a href="/user/abc">/user/abc</a></li>
+  </div>
+  `
 })
 router.get('/user', async (ctx) => {
-  console.log(ctx.cookies.get('name'), ctx.cookies.get('user'));
-  ctx.cookies.set('user', 'this is user');
-  ctx.body = 'user';
+  ctx.body = `
+  <div>
+    <li><a href="/">/</a></li>
+    <li><a href="/user">/user</a></li>
+    <li><a href="/user/abc">/user/abc</a></li>
+  </div>`
 })
-// /user 的 cookie 在其 子路径下面也能生效
-router.get('/user/123456', async (ctx) => {
-  console.log(ctx.cookies.get('name'), ctx.cookies.get('user'));
-  ctx.body = '/user/123456';
-})
-router.get('/login', async (ctx) => {
-  const { userName, password } = ctx.query;
-  console.log({userName, password});
-  const isTrue = userName === 'test' && password === 'test';
-  if (isTrue) {
-    ctx.session.login = true
-    ctx.type = 'html'
-    ctx.body = `
-    登录成功
-    <a href="/testlogin">去测试登录</a>
-    `;
-  } else {
-    ctx.session.login = false;
-    ctx.body = '账户错误';
-  }
-})
-router.get('/testlogin', async (ctx) => {
-  if (!ctx.session.login) {
-    ctx.redirect('/');
-  }
-   else {
-     ctx.body = '已经登录';
-   }
+router.get('/user/abc', async (ctx) => {
+  ctx.body = `
+  <div>
+    <li><a href="/">/</a></li>
+    <li><a href="/user">/user</a></li>
+    <li><a href="/user/abc">/user/abc</a></li>
+  </div>
+  `
 })
 app.use(router.routes())
 

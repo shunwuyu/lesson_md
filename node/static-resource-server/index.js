@@ -56,6 +56,7 @@ const server = http.createServer((rep, res) => {
   })
 })
 
+// 静态资源服务器 koa-static
 // 监听 server 实例
 
 server.listen(conf.port, conf.hostname, () => {

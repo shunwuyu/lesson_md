@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function Parent1() {
+      this.colors = []
+    }
+    Parent1.prototype.add = () => { }
+    function Child1() {
+      Parent1.call(this);
+    }
+    function create(obj) {
+      var F = function() {}
+      F.prototype = obj;
+      return new F();
+    }
+    Child1.prototype = create(Parent1.prototype);
+
+
+    var child11 = new Child1()
+    var child12 = new Child1()
+    console.log(child11.colors === child12.colors)
+  </script>
+</body>
+</html>

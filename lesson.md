@@ -1,3 +1,7 @@
+- react typescript https://github.com/Lemoncode/react-typescript-samples/tree/master/old_class_components_samples/07%20Form
+- leetcode reverse-linked-list /leetcode/206
+- python mysql  /python/mysql
+- shell /linux/shell/demo
 - 滴滴小程序 /wechatapp/didi
 - meituan /mongodb/meituan
 - mysql  /mysql/login
