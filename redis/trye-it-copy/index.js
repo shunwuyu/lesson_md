@@ -1,5 +1,5 @@
 const redis = require('redis');
-const client = redis.createClient( 6379, '192.168.31.98');
+const client = redis.createClient( 6379, '127.0.0.1');
 
 client.set('hello', 5, function(err, obj) {
   console.log(obj);

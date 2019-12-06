@@ -2,16 +2,17 @@ const express = require('express');
 const app = express();
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: '192.168.43.172',
+  host: '127.0.0.1',
   user: 'root',
   password: '849072',
   database: 'koa_blog'
 });
 connection.connect();
+console.log(connection, '--------');
 
 var redis = require("redis"),
 client = redis.createClient({
-  host: '192.168.43.172'
+  host: '127.0.0.1'
 });
 
 app.get("/api/students", function (req, res) {
@@ -25,7 +26,7 @@ app.get("/api/students", function (req, res) {
       connection.query('SELECT * FROM users', function(error, results, fields) {
         if (error) throw error;
         client.set('students', JSON.stringify(results));
-        console.log('from mysql select')
+        // console.log('from mysql select')
         return res.json(results);
       })
     }
