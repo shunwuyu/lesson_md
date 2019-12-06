@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './index.css';
 import PureDemo from './PureDemo';
-
+import PreviousDemo from './usePrevious';
 // import Artists from './Artists';
 
 // 必须返回一个 Promise，
@@ -33,6 +33,7 @@ class App extends React.Component {
                         <br/>
                         <Link to="/about">About</Link>
                         <PureDemo />
+                        <PreviousDemo />
                     </div>
                     <Switch>
                         <Route exact path="/" component={Artists} />
