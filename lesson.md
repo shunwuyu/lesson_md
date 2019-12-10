@@ -1,3 +1,4 @@
+- reg   js + python python/lxf/reg
 - mall /wechatapp/mall
 - egg.js blog
 - react typescript https://github.com/Lemoncode/react-typescript-samples/tree/master/old_class_components_samples/07%20Form
