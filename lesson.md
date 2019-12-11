@@ -1,3 +1,4 @@
+- https://jspang.com/detailed?id=52#toc321
 - leetcode 17 
 - file python/fs
 - reg   js + python python/lxf/reg
