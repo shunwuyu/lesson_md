@@ -1,0 +1,15 @@
+{
+  "name": "mall",
+  "version": "0.1.0",
+  "description": "- 加入weui - 引入搜索组件， 及其中交互",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "apifm-wxapi": "^2.4.0"
+  }
+}

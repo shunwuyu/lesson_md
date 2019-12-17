@@ -1,3 +1,10 @@
+- https://jspang.com/detailed?id=52#toc321
+- uml图   /uml/people
+- leetcode 17 
+- file python/fs
+- reg   js + python python/lxf/reg
+- mall /wechatapp/mall
+- egg.js blog
 - react typescript https://github.com/Lemoncode/react-typescript-samples/tree/master/old_class_components_samples/07%20Form
 - leetcode reverse-linked-list /leetcode/206
 - python mysql  /python/mysql
