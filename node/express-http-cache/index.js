@@ -25,7 +25,7 @@ app.get('/balance', (req, res) => {
   throw new Error(123);
 })
 app.get('/demo.js', (req, res) => {
-  // console.log('request here');
+  console.log('request here');
   let jsPath = path.resolve(__dirname, './static/js/demo.js');
   let cont = fs.readFileSync(jsPath);
   let oneMinuteLater = Date.now() + 1000 * 60 * 2; // 2分钟
@@ -46,6 +46,7 @@ app.get('/demo.js', (req, res) => {
 
   if (req.headers['if-none-match'] === etag) {
     res.writeHead(304, 'Not Modified');
+    console.log(123456789)
     res.end();
     return;
   }
@@ -54,6 +55,7 @@ app.get('/demo.js', (req, res) => {
     res.end()
     return;
   }
+  console.log('refresh cache')
   res.setHeader('Cache-Control', 'public,max-age=30')
   res.setHeader('Last-Modified', lastModified)
   res.setHeader('ETag', etag);

@@ -21,6 +21,7 @@ function compose(middleware) {
        * 初始化： i = 1 index = 1
        * 中间件： i = 2 index = 1
        */
+      console.log('-----', i, index);
       if (i <= index) return Promise.reject(new Error('next() called multiple times'));
       index = i;
       let fn = middleware[i];
@@ -29,6 +30,7 @@ function compose(middleware) {
       try {
         /**
          * fn 即为 app.use() 里面的 async (ctx) => {}
+         * 第一个参数 ctx ，第二个参数 next
          */
         return Promise.resolve(fn(context, () => {
           return dispatch(i + 1);
