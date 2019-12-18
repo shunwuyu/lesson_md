@@ -1,6 +1,10 @@
 <script>
 export default {
-  data() {},
+  data() {
+    return {
+      a: 1
+    }
+  },
   render(h) {
     let obj =  h(
       'div',

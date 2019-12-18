@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function indexOf(s, p) {
+      var sLen = s.length;
+      var pLen = p.length;
+      var i = 0;
+      var j = 0;
+      while (i < sLen && j < pLen) {
+        if (s[i] == p[j]) {
+          //①如果当前字符匹配成功（即S[i] == P[j]），则i++，j++    
+          i++;
+          j++;
+        }
+        else {
+          //②如果失配（即S[i]! = P[j]），令i = i - (j - 1)，j = 0    
+
+          // 刚才匹配过的都可以丢弃了
+          // 都回退
+          i = i - j + 1;
+          j = 0;
+
+          
+        }
+      }
+      //匹配成功，返回模式串p在文本串s中的位置，否则返回-1
+      if (j == pLen)
+        return i - j;
+      else
+        return -1;
+    }
+
+    console.log(indexOf('cdcdecdfg', 'cde'));
+  </script>
+</body>
+
+</html>
