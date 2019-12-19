@@ -1,0 +1,6 @@
+<view class='repo' hover-class='hover'>
+  <!-- <button form-type='submit' class='borderless'> -->
+    <text class='name title'>{{repo.full_name}}</text>
+    <text class='desc'>{{repo.description}}</text>
+  <!-- </button> -->
+</view>
