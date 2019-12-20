@@ -20,6 +20,26 @@ const trendings = (since, language) => new Promise((resolve, reject) => {
     reject(error)
   })
 });
+
+const events = () => ({
+  get: () => new Promise((resolve, reject) => {
+    wx.request({
+      url: 'https://api.github.com/events',
+      data: {},
+      method: 'GET',
+      success: function(res){
+        // success
+        resolve(res.data)
+      },
+      fail: function(error) {
+        // fail
+        reject(error)
+      }
+    })
+  })
+});
+
 module.exports = {
-  trendings
+  trendings,
+  events,
 }

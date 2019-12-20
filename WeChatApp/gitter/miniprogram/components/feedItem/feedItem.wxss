@@ -1,0 +1,35 @@
+@import '../../style/base.wxss';
+
+.feed {
+  display: flex;
+  padding: 12rpx 24rpx;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.avatar {
+  min-width: 88rpx;
+  min-height: 88rpx;
+}
+
+.summary, .detail {
+  font-size: 14px;
+  padding-left: 24rpx;
+  word-break: break-all;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.detail {
+  font-size: 12px;
+}
+
+.time {
+  font-size: 24rpx;
+  padding-left: 24rpx;
+}
+
+button.id::after {
+  border: none;
+}

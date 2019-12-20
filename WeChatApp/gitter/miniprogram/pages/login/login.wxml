@@ -1,0 +1,20 @@
+<view class='wrapper page'>
+  <view class='main'>
+    <view class='logo'>
+      <image src='../../images/mark-github.svg'></image>
+    </view>
+    <tabs>
+      <tab title='账号密码'>
+        <form class='form' bindsubmit='commitAccount' report-submit='{{true}}'>
+          <view>
+            <input name='username' placeholder='输入账号' focus></input>
+            <input name='password' placeholder='输入密码' password='true' value='{{password}}'></input>
+          </view>
+          <button class='login' formType='submit'>登陆</button>
+        </form>
+      </tab>
+      <tab title='Token'>
+      </tab> 
+    </tabs>
+  </view>
+</view>

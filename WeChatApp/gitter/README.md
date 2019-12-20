@@ -5,3 +5,9 @@
 - https://github.com/kezhenxu94/mini-github/blob/master/miniprogram/pages/trends/trends.js
 
 设置onReachBottomDistance
+
+- news  引入 style/base.wxss
+- isSignedIn 用法
+  setStorage 建login页
+
+- hover-stop-propagation 阻止向上一层🐱泡

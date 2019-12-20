@@ -1,1 +1,6 @@
-/* miniprogram/pages/me/me.wxss */
+@import '../../style/base.wxss';
+
+page {
+  font-size: 30rpx;
+}
+

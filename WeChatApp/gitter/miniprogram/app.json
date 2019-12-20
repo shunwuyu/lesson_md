@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/trends/trends",
-    "pages/index/index",
     "pages/news/news",
+    "pages/index/index",
+    "pages/me/me",
+    "pages/trends/trends",
     "pages/issues/issues",
+    "pages/settings/settings",
     "pages/pulls/pulls",
-    "pages/me/me"
+    "pages/login/login"
   ],
   "window": {
     "backgroundColor": "#24292e",

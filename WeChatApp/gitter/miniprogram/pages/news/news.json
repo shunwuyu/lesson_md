@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 100,
+  "usingComponents": {
+    "tabs": "../../../components/tabs/index",
+    "tab": "../../../components/tab/index",
+    "activities": "../../../components/feeds/feeds"
+  }
 }
