@@ -1,0 +1,8 @@
+<view class='trends page'>
+  <trend repo='{{item}}' wx:for="{{trends}}" wx:key="{{index}}"></trend>
+  <picker class='lang-picker' mode='multiSelector' bindchange="changeFilter" value="{{selectedIndices}}" range="{{selectorValues}}" range-key='label'>
+    <button type='primary' size='mini'>
+      {{since.label}} / {{lang.label}}
+    </button>
+  </picker>
+</view>

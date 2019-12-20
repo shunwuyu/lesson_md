@@ -1,0 +1,9 @@
+<view class='page settings'>
+  <cell-group title="Notifications">
+    <form class='id' bindsubmit="formSubmit" report-submit='{{true}}'>
+      <button class='notification borderless' form-type="submit">
+        <switch-cell title="Enable Notifications" checked="{{ enableNotification }}" bind:change="onChangeNotification" formType='submit' />
+      </button>
+    </form>
+  </cell-group>
+</view>
