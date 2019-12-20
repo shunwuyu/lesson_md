@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a href="./history-demo.html">history-demo.html</a>
+  <div>
+    history api 练习
+  </div>
+  <script>
+    window.onpopstate = function(event) {
+      console.log('onpopstate', window.location.pathname, event.state);
+    }
+    // state 自定义的
+    history.pushState({action: 1}, 'action1', '/url1')
+    history.pushState({action: 2}, 'action2', '/url2')
+    history.pushState({action: 3}, 'action3', '/url3')
+    history.back();
+  </script>
+</body>
+</html>

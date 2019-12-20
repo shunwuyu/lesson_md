@@ -7,6 +7,12 @@
   <title>Document</title>
 </head>
 <body>
+  <!-- 
+    popstate事件只会在浏览器某些行为下触发, 比如点击后退、前进按钮
+    (或者在JavaScript中调用history.back()、history.forward()、history.go()方法).
+
+   -->
+  <a href="./history-demo.html">history-demo.html</a>
   <div>
     <a href="#/">home</a>
     <a href="#/book">book</a>
@@ -20,6 +26,7 @@
     constructor (options) {
       this.routes = {};
       this.init();
+      // 将 路径 以及 对应的 方法 组织到 routes里面
       options.forEach(item => {
         this.route(item.path, () => {
           document.getElementById('content').innerHTML = item.component;
@@ -34,6 +41,7 @@
 
     updateView () {
       const currentUrl = window.location.hash.slice(1) || '/';
+      console.log('currentUrl', currentUrl)
       this.routes[currentUrl] && this.routes[currentUrl]();
     }
     route (path, cb) {

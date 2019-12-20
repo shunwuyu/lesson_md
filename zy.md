@@ -1,3 +1,7 @@
+http://www.ncyteng.com
+http://www.ncyteng.com/news.html
+
+
 A-L     队长
 别走心   
 谌梦龙
