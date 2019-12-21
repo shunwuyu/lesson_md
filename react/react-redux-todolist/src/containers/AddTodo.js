@@ -14,12 +14,10 @@ const AddTodo = ({ dispatch }) => {
         }
         function asyncAdd(value) {
           return dispatch => {
-            console.log('contain 里面的dispatch', dispatch);
             setTimeout(() => {
-              console.log('contain 里面 setTimeout dispatch', dispatch);
               // Yay! Can invoke sync or async actions with `dispatch`
               dispatch(addTodo(value));
-            }, 1000);
+            }, 2000);
           };
         }
         dispatch(asyncAdd(input.value));
