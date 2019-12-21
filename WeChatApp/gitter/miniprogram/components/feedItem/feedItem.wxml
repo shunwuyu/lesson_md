@@ -1,0 +1,10 @@
+<view class='feed' hover-class='hover'>
+  <image mode='aspectFill' class='avatar' src='{{item.actor.avatar_url}}' catchtap='toUserPage' hover-stop-propagation lazy-load></image>
+  <form bindsubmit='toFeedDetail' report-submit='{{true}}' class='id'>
+    <button form-type='submit' class='borderless'>
+      <text class='title summary'>{{item.repo.name}}</text>
+      <text class='detail'>{{item.actor.display_login}}</text>
+      <text class='time'>{{item.created_at}}</text>
+    </button>
+  </form>
+</view>
