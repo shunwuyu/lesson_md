@@ -94,6 +94,7 @@ const Scroll = forwardRef((props, ref) => {
     return debounce(pullDown, 300)
   }, [pullDown]);
 
+  // didMount 生成 实例
   useEffect(() => {
     const scroll = new BScroll(scrollContaninerRef.current, {
       scrollX: direction === "horizental",
@@ -111,7 +112,7 @@ const Scroll = forwardRef((props, ref) => {
     }
     // eslint-disable-next-line
   }, []);
-
+  // onScroll
   useEffect(() => {
     if(!bScroll || !onScroll) return;
     bScroll.on('scroll', (scroll) => {
@@ -121,7 +122,7 @@ const Scroll = forwardRef((props, ref) => {
       bScroll.off('scroll');
     }
   }, [onScroll, bScroll]);
-
+  // pullUp
   useEffect(() => {
     if(!bScroll || !pullUp) return;
     bScroll.on('scrollEnd', () => {
@@ -135,6 +136,7 @@ const Scroll = forwardRef((props, ref) => {
     }
   }, [pullUp, pullUpDebounce, bScroll]);
 
+  // pullDown
   useEffect(() => {
     if(!bScroll || !pullDown) return;
     bScroll.on('touchEnd', (pos) => {
@@ -148,26 +150,26 @@ const Scroll = forwardRef((props, ref) => {
     }
   }, [pullDown, pullDownDebounce, bScroll]);
 
-
+  /**每次重新渲染都要刷新实例，防止无法滑动 */
   useEffect(() => {
     if(refresh && bScroll){
       bScroll.refresh();
     }
   });
 
-  useImperativeHandle(ref, () => ({
-    refresh() {
-      if(bScroll) {
-        bScroll.refresh();
-        bScroll.scrollTo(0, 0);
-      }
-    },
-    getBScroll() {
-      if(bScroll) {
-        return bScroll;
-      }
-    }
-  }));
+  // useImperativeHandle(ref, () => ({
+  //   refresh() {
+  //     if(bScroll) {
+  //       bScroll.refresh();
+  //       bScroll.scrollTo(0, 0);
+  //     }
+  //   },
+  //   getBScroll() {
+  //     if(bScroll) {
+  //       return bScroll;
+  //     }
+  //   }
+  // }));
 
   const PullUpdisplayStyle = pullUpLoading ? { display: "" } : { display: "none" };
   const PullDowndisplayStyle = pullDownLoading ? { display: "" } : { display: "none" };
@@ -175,9 +177,9 @@ const Scroll = forwardRef((props, ref) => {
     <ScrollContainer ref={scrollContaninerRef}>
       {props.children}
       {/* 滑到底部加载动画 */}
-      <PullUpLoading style={ PullUpdisplayStyle }><Loading></Loading></PullUpLoading>
+      {/* <PullUpLoading style={ PullUpdisplayStyle }><Loading></Loading></PullUpLoading> */}
       {/* 顶部下拉刷新动画 */}
-      <PullDownLoading style={ PullDowndisplayStyle }><Loading2></Loading2></PullDownLoading>
+      {/* <PullDownLoading style={ PullDowndisplayStyle }><Loading2></Loading2></PullDownLoading> */}
     </ScrollContainer>
   );
 })
@@ -197,7 +199,7 @@ Scroll.defaultProps = {
 
 Scroll.propTypes = {
   direction: PropTypes.oneOf(['vertical', 'horizental']),
-  refresh: PropTypes.bool,
+  refresh: PropTypes.bool,  // 是否刷新
   onScroll: PropTypes.func,
   pullUp: PropTypes.func,
   pullDown: PropTypes.func,

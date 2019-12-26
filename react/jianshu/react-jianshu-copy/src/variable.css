@@ -1,0 +1,23 @@
+/* root element selector (全域) */
+:root {
+  --main-color: #ff00ff;
+  --main-bg: rgb(200, 255, 255);
+  --block-font-size: 1rem;
+}
+
+.btn__active::after{
+  --btn-text: 'This is btn';
+
+  /* 相等於 --box-highlight-text:'This is btn been actived'; */
+  --btn-highlight-text: var(--btn-text)' been actived';
+
+  content: var(--btn-highlight-text);
+
+  /* 也能使用 calc 來做運算 */
+  font-size: calc(var(--block-font-size)*1.5);
+}
+
+body {
+  /* variable usage */
+  color: var(--main-color);
+}
