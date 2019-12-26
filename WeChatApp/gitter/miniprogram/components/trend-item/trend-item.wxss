@@ -1,0 +1,23 @@
+.repo {
+  padding: 12px;
+}
+
+.repo {
+  border-top: thin solid rgba(128, 128, 128, 0.3);
+}
+
+.repo .name {
+  word-break: break-all;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.repo .desc {
+  font-size: 12px;
+  margin: 12rpx 0;
+  word-break: break-all;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}

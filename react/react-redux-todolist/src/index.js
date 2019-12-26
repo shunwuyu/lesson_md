@@ -18,7 +18,7 @@ function createThunkMiddleware(extraArgument) {
     if (typeof action === 'function') {
       return action(dispatch, getState, extraArgument);
     }
-
+    console.log('thunk dispatch', next);
     return next(action);
   };
   // end
@@ -29,6 +29,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 const logger = ({ getState, dispatch }) => next => action => {
   console.log('【logger】即将执行:', action)
     // 调用 middleware 链中下一个 middleware 的 dispatch。
+  console.log('log dispatch', next);
   let returnValue = next(action)
   console.log('【logger】执行完成后 state:', getState())
   return returnValue
@@ -71,6 +72,7 @@ const logger = ({ getState, dispatch }) => next => action => {
 const store = createStore(
   rootReducer,
   applyMiddleware(thunk, logger)
+  // applyMiddleware(logger, thunk)
   )
 
 render(

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+     寻找模式串中最大长度的相同前缀和后缀
+     失配时，模式串向右移动的位数为：
+     已匹配字符数 - 失配字符的上一位字符所对应的最大长度值
+
+
+     根据《最大长度表》，失配时，模式串向右移动的位数 = 已经匹配的字符数 - 失配字符的上一位字符的最大长度值
+     而根据《next 数组》，失配时，模式串向右移动的位数 = 失配字符的位置 - 失配字符对应的next 值
+    */
+    function getNext(p, next) {
+      var pLen = p.length;
+      next[0] = -1;
+      var k = -1;
+      var j = 0;
+      while (j < pLen - 1) {
+        //p[k]表示前缀，p[j]表示后缀
+        if (k == -1 || p[k] == p[j]) {
+          // 当前这个字符 对应的公共前后缀长度
+          ++k;
+          ++j;
+          next[j] = k;
+        }
+        else {
+          // next 数组 上一个字符的最大公共前/后缀长度
+          k = next[k];
+        }
+      }
+    }
+
+    // function getLongSub(s) {
+    //   var sLen = s.length;
+    //   var p = s;
+    //   //存放最大前缀后缀数
+    //   var lNext = [];
+    //   //最大前后缀数（前缀指针）
+    //   var k = 0;
+    //   //后缀指针
+    //   var j = 1;
+
+    //   while (j < sLen - 1) {
+    //     if (p[k] == p[j]) {
+    //       //相等则将前一次比较的结果加上这次：k+1;然后继续加1比较。
+    //       lNext[j] = k + 1;
+    //       k++; j++;
+    //     } else {
+    //       //如果p[k] != p[j]则k是不是在初始位置，是的话，K不变，后缀指针加1;
+    //       if (k == 0) {
+    //         j++;
+    //       } else {
+    //         //k不为0，说明指针不在初始位置。根据lNext数组，找到上一个最大前后缀数的位置，继续判断。
+    //         k = lNext[k - 1];
+    //       }
+    //     }
+    //   }
+
+    //   return lNext;
+    // }
+
+
+    let next = [];
+    getNext('abcdabd', next)
+    // [-1, 0, 0, 0, 0, 0, 1, 2]
+    // console.log(getLongSub('abcdabd'))
+    console.log(next);
+
+  </script>
+</body>
+
+</html>

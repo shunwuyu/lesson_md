@@ -3,9 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import Memo from './Memo-callback';
 import Interval from './interVal';
+import LastProps from './lastProps';
 function App() {
   return (
     <div className="App">
+      <LastProps />
       <Interval />
       <Memo />
       <header className="App-header">

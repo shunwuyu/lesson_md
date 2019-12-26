@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function tArr(str) {
+      let arr = [];
+      arr[0] = 0;
+      let i = 0, j = 1;
+      while (j < str.length) {
+        if (str[i] === str[j]) {
+          arr[j] = arr[i] + 1;
+          j ++;
+          i ++;
+        } else {
+          if (i === 0) {
+            arr[j] = 0;
+            i = 0;
+            j ++;
+          } else {
+            i  = arr[i - 1];
+          }
+        }
+      }
+      return arr;
+    }
+    //aabaabaaa
+    //012345678
+    console.log(tArr('aabaabaaa'));
+  </script>
+</body>
+</html>

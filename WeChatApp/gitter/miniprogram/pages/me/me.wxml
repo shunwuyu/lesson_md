@@ -1,0 +1,13 @@
+<view class='page'>
+  <tabs active='{{tab}}' bind:change='changeTab'  sticky swipeable>
+    <tab title='Overview'>
+      <text>Overview</text>
+    </tab>
+    <tab title='Repositories'>
+      <text>Repo</text>
+    </tab>
+    <tab title='Repositories'>
+      <text>Starred</text>
+    </tab>
+  </tabs>
+</view>

@@ -54,7 +54,7 @@ module.exports = class Application extends Emitter {
     return context;
   }
   handleRequest(ctx, fnMiddleware) {
-    const res = ctx.res;
+    const res = ctx.response.res;
     res.statusCode = 404;
     // 错误处理
     const onerror = err => ctx.onerror(err);
@@ -70,7 +70,7 @@ module.exports = class Application extends Emitter {
   }
 }
 function respond(ctx) {
-  const res = ctx.res;
+  const res = ctx.response.res;
   let body = ctx.body;
   res.end(body);
 }
