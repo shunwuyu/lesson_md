@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: '127.0.0.1',
+  host: '192.168.1.143',
   user: 'root',
   password: '849072',
   database: 'koa_blog'
@@ -12,7 +12,7 @@ console.log(connection, '--------');
 
 var redis = require("redis"),
 client = redis.createClient({
-  host: '127.0.0.1'
+  host: '192.168.1.143'
 });
 
 app.get("/api/students", function (req, res) {
