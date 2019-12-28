@@ -1,4 +1,5 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react';
+import React, {useState, useEffect, useRef, useCallback, useMemo
+} from 'react';
 import SearchBox from './../../baseUI/search-box/index';
 import Scroll from './../../baseUI/scroll/index';
 import { Container, ShortcutWrapper, HotKey } from './style';
@@ -12,6 +13,7 @@ import MusicalNote from '../../baseUI/music-note';
 import { SongItem } from '../Album/style';
 import { getName } from '../../api/utils';
 import { getSongDetail } from './../Player/store/actionCreators';
+import { debounce } from './../../api/utils';
 
 
 const Search = (props) => {
@@ -79,11 +81,15 @@ const Search = (props) => {
   //     </ul>
   //   )
   // }
+  let handlesuggest = useMemo(() => {
+    return debounce(getSuggestListDispatch, 500);
+  }, [getSuggestListDispatch]);
+
   const handleQuery = (q) => {
     setQuery(q);
     if(!q) return;
     changeEnterLoadingDispatch(true);
-    getSuggestListDispatch(q);
+    handlesuggest(q);
   }
 
   const renderSingers = () => {
@@ -168,7 +174,7 @@ const Search = (props) => {
     <CSSTransition 
       in={show} 
       timeout={300} 
-      appear={true} 
+      // appear={true} 
       classNames="fly"  
       unmountOnExit
       onExited={() => props.history.goBack()}
@@ -177,6 +183,7 @@ const Search = (props) => {
         <div className="search_box_wrapper">
           <SearchBox back={searchBack} newQuery={query} handleQuery={handleQuery}></SearchBox>
         </div>
+        {/* 没有搜索结果 */}
         <ShortcutWrapper show={!query}>
           <Scroll>
             <div>
