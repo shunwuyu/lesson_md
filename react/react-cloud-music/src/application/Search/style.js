@@ -12,11 +12,11 @@ export const Container = styled.div`
   overflow: hidden;
   background: #f2f3f4;
   transform-origin: right bottom;
-  &.fly-enter, &.fly-appear{
+  &.fly-enter{
     opacity: 0;
     transform: translate3d(100%, 0, 0);
   }
-  &.fly-enter-active, &.fly-appear-active{
+  &.fly-enter-active{
     opacity: 1;
     transition: all .3s;
     transform: translate3d(0, 0, 0);
