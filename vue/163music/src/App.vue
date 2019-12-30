@@ -19,10 +19,13 @@
           </div>
         </scroll>
         <scroll ref="playList" class="list-scroll" v-if="currentIndex === 1" :data="playHistory">
-        <div class="list-inner">
-          <song-list @select="selectSong" :songs="playHistory"></song-list>
-        </div>
-      </scroll>
+          <div class="list-inner">
+            <song-list @select="selectSong" :songs="playHistory"></song-list>
+          </div>
+        </scroll>
+      </div>
+      <div class="no-result-wrapper" v-show="noResult">
+        <no-result :title="noResultDesc"></no-result>
       </div>
     </div>
   </div>
@@ -31,10 +34,12 @@
 <script>
 import Switches from './components/switches/switches'
 import SongList from './components/song-list/song-list'
+import noResult from './components/no-result/no-result'
 export default {
   name: 'app',
   data () {
     return {
+      noResult: true,
       currentIndex: 0,
       switches: [
         {name: '我的收藏'},
@@ -86,6 +91,15 @@ export default {
       ]
     }
   },
+  computed: {
+    noResultDesc () {
+      if (this.currentIndex === 0) {
+        return '去寻找属于你自己最爱的MUSIC吧~'
+      } else {
+        return '你还没有听过歌呀~'
+      }
+    }
+  },
   methods: {
     selectSong (song) {
       this.insertSong(song)
@@ -103,7 +117,8 @@ export default {
   },
   components: {
     switches: Switches,
-    'song-list': SongList
+    'song-list': SongList,
+    'no-result': noResult
   }
 }
 </script>
