@@ -1,5 +1,15 @@
-import { injectGlobal } from 'styled-components';
+// import {  } from 'styled-components';
+import styled, { css, injectGlobal } from 'styled-components'
 
+const complexMixin = css`
+  color: ${props => (props.whiteColor ? 'white' : 'black')};
+`
+console.log(complexMixin)
+export const StyledComp = styled.div`
+  /* This is an example of a nested interpolation */
+  ${props => (props.complex ? complexMixin : 'color: blue;')};
+`
+ 
 injectGlobal`
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
