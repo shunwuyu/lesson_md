@@ -69,8 +69,7 @@ function Album(props) {
         in={showStatus}  
         timeout={300} 
         classNames="fly" 
-        appear={true} 
-        unmountOnExit
+        appear={true}
         onExited={props.history.goBack}
       >
         <Container play={songsCount}>

@@ -4,11 +4,13 @@ import './App.css';
 import Memo from './Memo-callback';
 import Interval from './interVal';
 import LastProps from './lastProps';
+import SetinterVal from './setInterval';
 function App() {
   return (
     <div className="App">
+      <SetinterVal />
       <LastProps />
-      <Interval />
+      {/* <Interval /> */}
       <Memo />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
