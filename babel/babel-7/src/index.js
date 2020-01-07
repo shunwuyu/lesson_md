@@ -1,7 +1,7 @@
 // index.js
-import "@babel/polyfill";
-// import 'core-js/stable';
-// import 'regenerator-runtime/runtime';
+// import "@babel/polyfill";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 // import 'core-js/stable';
 
 const f = () => {};
