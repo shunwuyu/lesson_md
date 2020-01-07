@@ -13,3 +13,4 @@ RUN mv ./dist/* ./
 EXPOSE 8082
 
 CMD BUILD_ENV=docker node app.js
+
