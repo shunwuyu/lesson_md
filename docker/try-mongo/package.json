@@ -1,0 +1,16 @@
+{
+  "name": "try-mongo",
+  "version": "0.1.0",
+  "description": "[source](https://juejin.im/post/5db7b549f265da4d556cecbc)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.4"
+  }
+}
