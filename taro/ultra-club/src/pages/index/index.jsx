@@ -1,69 +1,44 @@
-import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import Taro, { useState } from '@tarojs/taro'
+import { View } from '@tarojs/components'
 import { PostCard, PostForm } from '../../components'
 import './index.css'
 
-export default class Index extends Component {
-  state = {
-    posts: [
-      {
-        title: '泰罗奥特曼',
-        content: '泰罗是奥特之父和奥特之母唯一的亲生儿子。',
-      },
-    ],
-    formTitle: '',
-    formContent: '',
-  }
 
-  config = {
-    navigationBarTitleText: '首页'
-  }
+export default function Index() {
+  const [posts, setPosts] = useState([
+    {
+      title: '泰罗奥特曼',
+      content: '泰罗是奥特之父和奥特之母唯一的亲生儿子。',
+    },
+  ]);
+  const [formTitle, setFormTitle] = useState('')
+  const [formContent, setFormContent] = useState('')
 
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-  handleTitleInput (e) {
-    this.setState({
-      formTitle: e.target.value,
-    })
-  }
-  handleContentInput(e) {
-    this.setState({
-      formContent: e.target.value,
-    })
-  }
-  handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault()
 
-    const { formTitle: title, formContent: content } = this.state
-    const newPosts = this.state.posts.concat({ title, content })
+    const newPosts = posts.concat({ title: formTitle, content: formContent })
+    setPosts(newPosts)
+    setFormTitle('')
+    setFormContent('')
+  }
 
-    this.setState({
-      posts: newPosts,
-      formTitle: '',
-      formContent: '',
-    })
-  }
-  render () {
-    return (
-      <View className='index'>
-        {this.state.posts.map((post, index) => (
-          <PostCard key={index} title={post.title} content={post.content} />
-        ))}
-        <PostForm
-          formTitle={this.state.formTitle}
-          formContent={this.state.formContent}
-          handleSubmit={e => this.handleSubmit(e)}
-          handleTitleInput={e => this.handleTitleInput(e)}
-          handleContentInput={e => this.handleContentInput(e)}
-        />
-      </View>
-    )
-  }
+  return (
+    <View className="index">
+      {posts.map((post, index) => (
+        <PostCard key={index} title={post.title} content={post.content} />
+      ))}
+      <PostForm
+        formTitle={formTitle}
+        formContent={formContent}
+        handleSubmit={e => handleSubmit(e)}
+        handleTitleInput={e => setFormTitle(e.target.value)}
+        handleContentInput={e => setFormContent(e.target.value)}
+      />
+    </View>
+  )
+}
+
+Index.config = {
+  navigationBarTitleText: '首页',
 }
