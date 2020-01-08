@@ -1,0 +1,26 @@
+.post-form {
+  border: 1rpx solid #ddd;
+  margin: 30rpx;
+  padding: 30rpx;
+}
+
+.input-title {
+  border: 1rpx solid #eee;
+  padding: 10rpx;
+  font-size: medium;
+}
+
+.input-content {
+  border: 1rpx solid #eee;
+  padding: 10rpx;
+  height: 200rpx;
+  font-size: medium;
+}
+
+.form-hint {
+  font-size: small;
+  color: gray;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+
