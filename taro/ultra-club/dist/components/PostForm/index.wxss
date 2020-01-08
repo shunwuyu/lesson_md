@@ -1,26 +1,24 @@
 .post-form {
-  border: 1rpx solid #ddd;
-  margin: 30rpx;
-  padding: 30rpx;
-}
+  margin: 0 30rpx;
+  padding: 30rpx; }
 
 .input-title {
   border: 1rpx solid #eee;
   padding: 10rpx;
   font-size: medium;
-}
+  width: 100%; }
 
 .input-content {
   border: 1rpx solid #eee;
   padding: 10rpx;
+  width: 100%;
   height: 200rpx;
   font-size: medium;
-}
+  margin-bottom: 40rpx; }
 
 .form-hint {
   font-size: small;
   color: gray;
   margin-top: 20rpx;
-  margin-bottom: 10rpx;
-}
+  margin-bottom: 10rpx; }
 

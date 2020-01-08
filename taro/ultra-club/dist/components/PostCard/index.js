@@ -1,16 +1,5 @@
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["components/PostCard/index"],{
 
-/***/ "./src/components/PostCard/index.css":
-/*!*******************************************!*\
-  !*** ./src/components/PostCard/index.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/components/PostCard/index.jsx":
 /*!*******************************************!*\
   !*** ./src/components/PostCard/index.jsx ***!
@@ -35,7 +24,7 @@ var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@
 
 var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
 
-__webpack_require__(/*! ./index.css */ "./src/components/PostCard/index.css");
+__webpack_require__(/*! ./index.scss */ "./src/components/PostCard/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -82,6 +71,7 @@ var PostCard = (_temp2 = _class = function (_Taro$Component) {
       var props = this.__props;
 
       var handleClick = function handleClick() {
+        // 如果是列表，那么就响应点击事件，跳转到帖子详情
         if (props.isList) {
           var _props = _this2.__props,
               title = _props.title,
@@ -92,6 +82,7 @@ var PostCard = (_temp2 = _class = function (_Taro$Component) {
           });
         }
       };
+
       this.anonymousFunc0 = handleClick;
       Object.assign(this.__state, {
         props: props
@@ -107,9 +98,25 @@ var PostCard = (_temp2 = _class = function (_Taro$Component) {
 
   return PostCard;
 }(_taroWeapp2.default.Component), _class.$$events = ["anonymousFunc0"], _class.$$componentPath = "components/PostCard/index", _temp2);
+
+
+PostCard.defaultProps = {
+  isList: ''
+};
 exports.default = PostCard;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(PostCard));
+
+/***/ }),
+
+/***/ "./src/components/PostCard/index.scss":
+/*!********************************************!*\
+  !*** ./src/components/PostCard/index.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 

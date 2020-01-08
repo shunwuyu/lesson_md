@@ -1,15 +1,15 @@
 .postcard {
   margin: 30rpx;
-  padding: 20rpx;
-  border: 1rpx solid #ddd;
-}
+  padding: 20rpx; }
+
+.postcard__isList {
+  border: 1rpx solid #ddd; }
 
 .post-title {
   font-weight: bolder;
-  margin-bottom: 10rpx;
-}
+  margin-bottom: 10rpx; }
 
 .post-content {
   font-size: medium;
-  color: #666;
-}
+  color: #666; }
+

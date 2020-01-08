@@ -15,29 +15,24 @@
           align-items: center;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
-          justify-content: space-between;
-}
+          justify-content: space-between; }
 
 .mine-avatar {
   width: 200rpx;
   height: 200rpx;
-  border-radius: 50%;
-}
+  border-radius: 50%; }
 
 .mine-nickName {
   font-size: 40;
-  margin-top: 20rpx;
-}
+  margin-top: 20rpx; }
 
 .mine-username {
   font-size: 32rpx;
   margin-top: 16rpx;
-  color: #777;
-}
+  color: #777; }
 
 .mine-footer {
   font-size: 28rpx;
   color: #777;
-  margin-bottom: 20rpx;
-}
+  margin-bottom: 20rpx; }
 

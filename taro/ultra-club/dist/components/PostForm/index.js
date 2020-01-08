@@ -1,16 +1,5 @@
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["components/PostForm/index"],{
 
-/***/ "./src/components/PostForm/index.css":
-/*!*******************************************!*\
-  !*** ./src/components/PostForm/index.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/components/PostForm/index.jsx":
 /*!*******************************************!*\
   !*** ./src/components/PostForm/index.jsx ***!
@@ -37,7 +26,7 @@ var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@
 
 var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
 
-__webpack_require__(/*! ./index.css */ "./src/components/PostForm/index.css");
+__webpack_require__(/*! ./index.scss */ "./src/components/PostForm/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118,6 +107,17 @@ var PostForm = (_temp2 = _class = function (_Taro$Component) {
 exports.default = PostForm;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(PostForm));
+
+/***/ }),
+
+/***/ "./src/components/PostForm/index.scss":
+/*!********************************************!*\
+  !*** ./src/components/PostForm/index.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 

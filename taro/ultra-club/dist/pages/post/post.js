@@ -1,16 +1,5 @@
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["pages/post/post"],{
 
-/***/ "./src/pages/post/post.css":
-/*!*********************************!*\
-  !*** ./src/pages/post/post.css ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/pages/post/post.jsx":
 /*!*********************************!*\
   !*** ./src/pages/post/post.jsx ***!
@@ -37,7 +26,7 @@ var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@
 
 var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
 
-__webpack_require__(/*! ./post.css */ "./src/pages/post/post.css");
+__webpack_require__(/*! ./post.scss */ "./src/pages/post/post.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -90,6 +79,7 @@ var Post = (_temp2 = _class = function (_Taro$Component) {
       var router = (0, _taroWeapp.useRouter)();
       var params = router.params;
 
+
       _taroWeapp.propsManager.set({
         "title": params.title,
         "content": params.content
@@ -109,6 +99,17 @@ Post.config = { navigationBarTitleText: '帖子详情' };
 exports.default = Post;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(Post, true));
+
+/***/ }),
+
+/***/ "./src/pages/post/post.scss":
+/*!**********************************!*\
+  !*** ./src/pages/post/post.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 

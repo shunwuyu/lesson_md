@@ -3,17 +3,6 @@ require("./vendors");
 
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["app"],{
 
-/***/ "./src/app.css":
-/*!*********************!*\
-  !*** ./src/app.css ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/@tarojs/mini-runner/node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/@tarojs/mini-runner/node_modules/mini-css-extract-plugin/dist/loader.js):\nError: Didn't get a result from child compiler\n    at childCompiler.runAsChild (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/mini-css-extract-plugin/dist/loader.js:144:23)\n    at compile (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compiler.js:343:11)\n    at hooks.afterCompile.callAsync.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compiler.js:681:15)\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:33:1)\n    at AsyncSeriesHook.lazyCompileHook (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/Hook.js:154:20)\n    at compilation.seal.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compiler.js:678:31)\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)\n    at AsyncSeriesHook.lazyCompileHook (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/Hook.js:154:20)\n    at hooks.optimizeAssets.callAsync.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compilation.js:1423:35)\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)\n    at AsyncSeriesHook.lazyCompileHook (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/Hook.js:154:20)\n    at hooks.optimizeChunkAssets.callAsync.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compilation.js:1414:32)\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)\n    at AsyncSeriesHook.lazyCompileHook (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/Hook.js:154:20)\n    at hooks.additionalAssets.callAsync.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compilation.js:1409:36)\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)\n    at runLoaders (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/NormalModule.js:316:20)\n    at /Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/loader-runner/lib/LoaderRunner.js:182:20\n    at context.callback (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at childCompiler.runAsChild (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/mini-css-extract-plugin/dist/loader.js:144:14)\n    at compile (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compiler.js:343:11)\n    at hooks.afterCompile.callAsync.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compiler.js:681:15)\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:33:1)\n    at AsyncSeriesHook.lazyCompileHook (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/Hook.js:154:20)\n    at compilation.seal.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compiler.js:678:31)\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)\n    at AsyncSeriesHook.lazyCompileHook (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/Hook.js:154:20)\n    at hooks.optimizeAssets.callAsync.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compilation.js:1423:35)\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)\n    at AsyncSeriesHook.lazyCompileHook (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/tapable/lib/Hook.js:154:20)\n    at hooks.optimizeChunkAssets.callAsync.err (/Users/shunwuyu/lesson/lesson_md/taro/ultra-club/node_modules/@tarojs/mini-runner/node_modules/webpack/lib/Compilation.js:1414:32)");
-
-/***/ }),
-
 /***/ "./src/app.jsx":
 /*!*********************!*\
   !*** ./src/app.jsx ***!
@@ -34,7 +23,7 @@ var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@
 
 var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
 
-__webpack_require__(/*! ./app.css */ "./src/app.css");
+__webpack_require__(/*! ./app.scss */ "./src/app.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -123,6 +112,17 @@ _taroWeapp2.default.initPxTransform({
     "828": 0.905
   }
 });
+
+/***/ }),
+
+/***/ "./src/app.scss":
+/*!**********************!*\
+  !*** ./src/app.scss ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 

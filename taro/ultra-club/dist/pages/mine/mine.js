@@ -11,17 +11,6 @@ module.exports = __webpack_require__.p + "static/images/avatar.png";
 
 /***/ }),
 
-/***/ "./src/pages/mine/index.css":
-/*!**********************************!*\
-  !*** ./src/pages/mine/index.css ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/pages/mine/mine.jsx":
 /*!*********************************!*\
   !*** ./src/pages/mine/mine.jsx ***!
@@ -46,7 +35,7 @@ var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@
 
 var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
 
-__webpack_require__(/*! ./index.css */ "./src/pages/mine/index.css");
+__webpack_require__(/*! ./mine.scss */ "./src/pages/mine/mine.scss");
 
 var _avatar = __webpack_require__(/*! ../../images/avatar.png */ "./src/images/avatar.png");
 
@@ -109,6 +98,17 @@ Mine.config = { navigationBarTitleText: '我的' };
 exports.default = Mine;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(Mine, true));
+
+/***/ }),
+
+/***/ "./src/pages/mine/mine.scss":
+/*!**********************************!*\
+  !*** ./src/pages/mine/mine.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 

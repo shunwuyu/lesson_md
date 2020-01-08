@@ -1,16 +1,5 @@
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["pages/index/index"],{
 
-/***/ "./src/pages/index/index.css":
-/*!***********************************!*\
-  !*** ./src/pages/index/index.css ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/pages/index/index.jsx":
 /*!***********************************!*\
   !*** ./src/pages/index/index.jsx ***!
@@ -37,7 +26,7 @@ var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@
 
 var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
 
-__webpack_require__(/*! ./index.css */ "./src/pages/index/index.css");
+__webpack_require__(/*! ./index.scss */ "./src/pages/index/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -128,6 +117,7 @@ var Index = (_temp2 = _class = function (_Taro$Component) {
         setFormTitle('');
         setFormContent('');
         setIsOpened(false);
+
         _taroWeapp2.default.atMessage({
           message: '发表文章成功',
           type: 'success'
@@ -221,6 +211,17 @@ Index.config = { navigationBarTitleText: '首页' };
 exports.default = Index;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(Index, true));
+
+/***/ }),
+
+/***/ "./src/pages/index/index.scss":
+/*!************************************!*\
+  !*** ./src/pages/index/index.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 
