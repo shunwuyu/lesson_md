@@ -4,30 +4,25 @@ function ListNode(val) {
 }
 
 var partition = function(head, x) {
-  const dummyHead1 = {
-    next: null
-  }
-  const dummyHead2 = {
-    next: null
-  }
-  let current = {
-    next: head
-  }
-  let currentL1 = dummyHead1;
-  let currentL2 = dummyHead2;
-  while(current.next) {
-    current = current.next;
-    if (current.val < x) {
-      currentL1.next = current;
-      currentL1 = current;
+  var dummySmaller = new ListNode(-1);
+  var dummyGreater = new ListNode(-1);
+  var smaller = dummySmaller,
+    greater =  dummyGreater;
+    // console.log(smaller);
+  while(head) {
+    if (head.val < x) {
+      smaller.next = head
+      smaller = smaller.next
     } else {
-      currentL2.next = current;
-      currentL2 = current;
+      greater.next = head
+      greater = greater.next
     }
+    head = head.next
   }
-  currentL2.next = null;
-  currentL1.next = dummyHead2.next;
-  return dummyHead1.next;
+  smaller.next = dummyGreater.next
+  greater.next = null
+    
+  return dummySmaller.next 
 }
 
 const n1 = new ListNode(1);
