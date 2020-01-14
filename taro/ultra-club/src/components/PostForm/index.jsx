@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Form, Input, Textarea, Button } from '@tarojs/components'
-
-import './index.css'
+import { AtButton } from 'taro-ui'
+import './index.scss'
 
 export default function PostForm(props) {
   return (
@@ -24,9 +24,9 @@ export default function PostForm(props) {
             value={props.formContent}
             onInput={props.handleContentInput}
           />
-          <Button className="form-button" formType="submit" type="primary">
+          <AtButton formType="submit" type="primary">
             提交
-          </Button>
+          </AtButton>
         </View>
       </Form>
     </View>

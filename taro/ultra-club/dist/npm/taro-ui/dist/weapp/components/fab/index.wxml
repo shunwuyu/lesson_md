@@ -1,0 +1,5 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{rootClass}}" bindtap="onClick" data-e-tap-so="this">
+        <slot></slot>
+    </view>
+</block>

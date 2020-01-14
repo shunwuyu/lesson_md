@@ -1,0 +1,1 @@
+{"usingComponents":{"at-message":"../../npm/taro-ui/dist/weapp/components/message/index","post-card":"../../components/PostCard/index","at-float-layout":"../../npm/taro-ui/dist/weapp/components/float-layout/index","post-form":"../../components/PostForm/index","at-fab":"../../npm/taro-ui/dist/weapp/components/fab/index"},"navigationBarTitleText":"首页"}

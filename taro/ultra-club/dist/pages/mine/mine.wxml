@@ -1,0 +1,10 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="mine">
+        <view>
+            <image src="{{avatar}}" class="mine-avatar"></image>
+            <view class="mine-nickName">图雀酱</view>
+            <view class="mine-username">tuture</view>
+        </view>
+        <view class="mine-footer">From 图雀社区 with Love ❤</view>
+    </view>
+</block>

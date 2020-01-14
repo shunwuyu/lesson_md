@@ -1,0 +1,25 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{anonymousState__temp}}" style="{{anonymousState__temp2}}" bindtap="onClick" data-e-tap-so="this">
+        <block wx:if="{{isWEB && !disabled}}">
+            <button class="at-button__wxbutton" lang="{{lang}}" type="{{formType === 'submit' || formType === 'reset' ? formType : 'button'}}"></button>
+        </block>
+        <block wx:if="{{isWEAPP && !disabled}}">
+            <form report-submit="{{true}}" bindsubmit="onSumit" bindreset="onReset" data-e-submit-so="this" data-e-reset-so="this">
+                <button class="at-button__wxbutton" form-type="{{formType}}" open-type="{{openType}}" lang="{{lang}}" session-from="{{sessionFrom}}" send-message-title="{{sendMessageTitle}}" send-message-path="{{sendMessagePath}}" send-message-img="{{sendMessageImg}}" show-message-card="{{showMessageCard}}" app-parameter="{{appParameter}}" bindgetuserinfo="onGetUserInfo" bindgetphonenumber="onGetPhoneNumber" bindopensetting="onOpenSetting" binderror="onError" bindcontact="onContact" data-e-getuserinfo-so="this" data-e-getphonenumber-so="this" data-e-opensetting-so="this" data-e-error-so="this" data-e-contact-so="this"></button>
+            </form>
+        </block>
+        <block wx:if="{{isALIPAY && !disabled}}">
+            <button class="at-button__wxbutton" form-type="{{formType}}" open-type="{{openType}}" lang="{{lang}}" session-from="{{sessionFrom}}" send-message-title="{{sendMessageTitle}}" send-message-path="{{sendMessagePath}}" send-message-img="{{sendMessageImg}}" show-message-card="{{showMessageCard}}" app-parameter="{{appParameter}}" bindgetuserinfo="onGetUserInfo" bindgetphonenumber="onGetPhoneNumber" bindopensetting="onOpenSetting" binderror="onError" bindcontact="onContact" data-e-getuserinfo-so="this" data-e-getphonenumber-so="this" data-e-opensetting-so="this" data-e-error-so="this" data-e-contact-so="this"></button>
+        </block>
+        <block>
+            <block wx:if="{{loading}}">
+                <view class="at-button__icon">
+                    <at-loading compid="{{$compid__5}}"></at-loading>
+                </view>
+            </block>
+        </block>
+        <view class="at-button__text">
+            <slot></slot>
+        </view>
+    </view>
+</block>

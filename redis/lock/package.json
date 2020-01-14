@@ -1,0 +1,15 @@
+{
+  "name": "lock",
+  "version": "0.1.0",
+  "description": "- 启动redis    docker run -d -p 6379:6379 3459037fcc3a   docker exec -it 29a6b559b23c /bin/bash   redis-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "ioredis": "^4.14.1"
+  }
+}
