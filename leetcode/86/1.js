@@ -4,10 +4,9 @@ function ListNode(val) {
 }
 
 var partition = function(head, x) {
-  var dummySmaller = new ListNode(-1);
-  var dummyGreater = new ListNode(-1);
-  var smaller = dummySmaller,
-    greater =  dummyGreater;
+  //
+  var smaller = dummySmaller = new ListNode(-1);
+  var greater = dummyGreater = new ListNode(-1);
     // console.log(smaller);
   while(head) {
     if (head.val < x) {
