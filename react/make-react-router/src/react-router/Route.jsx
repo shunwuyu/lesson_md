@@ -17,7 +17,7 @@ class Route extends React.Component {
       <RouterContext.Consumer>
         {context => {
           // 当前的 localtion 对象
-          const location = this.props.location || context.location;
+          const location = context.location;
           // 如果 <Switch> 走 <Switch>
           // 否则 走 matchPath 用当前的 location.pathname 和 <Route />配置的 props 去匹配
             //  否则 走 context 上的 match 
