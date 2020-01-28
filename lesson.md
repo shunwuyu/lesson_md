@@ -1,3 +1,5 @@
+- docker nginx 模拟
+- rabbitmq docker 安装及 hello world /rabbitmq/docker/hello_world
 - mongodb schema
 - docker mongodb node /docker/try-mondodb
 - 小程序 wechat/txl

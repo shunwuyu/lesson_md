@@ -1,0 +1,24 @@
+version: '2.3'
+
+services:
+
+  slb:
+      build:
+        context: ./build/slb
+      privileged: true
+      ports:
+        - "8080:80"
+      links:
+        - "lb1"
+  lb1:
+      build:
+        context: ./build/lb1
+      privileged: true
+      ports:
+        - "8081:80"
+  lb2:
+      build:
+        context: ./build/lb2
+      privileged: true
+      ports:
+        - "8082:80"
