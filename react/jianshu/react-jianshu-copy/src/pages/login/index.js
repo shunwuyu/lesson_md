@@ -24,6 +24,7 @@ class Login extends PureComponent {
 }
 
 const mapState = (state) => ({
+	
 	loginStatus: state.getIn(['login', 'login'])
 })
 
