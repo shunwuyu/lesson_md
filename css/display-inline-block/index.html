@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  }
+  ul {
+    font-size: 0;
+  }
+  /* 直接子元素 */
+  ul > li {
+    font-size: initial;
+    display: inline-block;
+    background-color: aqua;
+  }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+    <!-- 123 -->
+  </ul>
+  <script>
+  const ul = document.querySelector('ul');
+  console.log(ul.childNodes);
+  // 我当时
+  // i have
+  ul.childNodes.forEach(node => {
+    console.log(node, node.nodeType)
+  })
+  </script>
+</body>
+</html>

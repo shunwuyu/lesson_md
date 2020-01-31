@@ -1,3 +1,11 @@
+- docker mysql 主从模拟
+- docker nginx 模拟
+- rabbitmq docker 安装及 hello world /rabbitmq/docker/hello_world
+- mongodb schema
+- docker mongodb node /docker/try-mondodb
+- 小程序 wechat/txl
+- docker node /docker/node
+- meituan node/meituan
 - node js/duotai
 - node cluster /node/yh
 - mongodb 聚合查询

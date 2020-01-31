@@ -7,14 +7,14 @@ var reverseList = function(head) {
   //无头
   if (!head || !head.next) return head;
 
-  let cur = head;
-  let pre = null;
+  let cur = head; //当前结点
+  let pre = null; //前驱结点
 
   while(cur) {
-    const next = cur.next; //已拿下下一个结点
-    cur.next = pre; //改写next 指针 往回指
-    pre = cur; // pre 就成新的前一个结点
-    cur = next;
+    const next = cur.next; // 当前节点的下一个节点 后继结点
+    cur.next = pre; //将指针指向前一个节点， 如果是head, 那么就是null, 否则就是它的前趋结点
+    pre = cur; // 前驱前点变成当前结点
+    cur = next; // 后继结点变成当前节点
   }
 
   return pre;

@@ -314,7 +314,7 @@ amdefine@>=0.0.4:
 
 amqplib@^0.5.5:
   version "0.5.5"
-  resolved "https://registry.npm.taobao.org/amqplib/download/amqplib-0.5.5.tgz?cache=0&sync_timestamp=1564558316543&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Famqplib%2Fdownload%2Famqplib-0.5.5.tgz#698f0cb577e0591954a90572fcb3b8998a76fd40"
+  resolved "https://registry.npm.taobao.org/amqplib/download/amqplib-0.5.5.tgz#698f0cb577e0591954a90572fcb3b8998a76fd40"
   integrity sha1-aY8MtXfgWRlUqQVy/LO4mYp2/UA=
   dependencies:
     bitsyntax "~0.1.0"

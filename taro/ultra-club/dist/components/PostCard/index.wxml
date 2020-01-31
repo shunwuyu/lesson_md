@@ -1,0 +1,6 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="postcard" bindtap="anonymousFunc0">
+        <view class="post-title">{{props.title}}</view>
+        <view class="post-content">{{props.content}}</view>
+    </view>
+</block>

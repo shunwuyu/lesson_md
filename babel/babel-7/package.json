@@ -1,0 +1,23 @@
+{
+  "name": "babel-7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compiler": "rm -rf ./dist/ && babel src --out-dir dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.7",
+    "core-js": "^2.6.11",
+    "install": "^0.13.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.7.6"
+  }
+}
