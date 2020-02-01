@@ -7,3 +7,4 @@
   https://www.cnblogs.com/yuebo/p/11732769.html 解决
   docker exec -it rabbitmq sh
   rabbitmq-plugins enable rabbitmq_management
+- 用户名密码无法登录 https://blog.csdn.net/weixin_42697074/article/details/103532105
