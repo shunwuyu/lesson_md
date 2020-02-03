@@ -9,9 +9,31 @@
 <body>
   <input type="file" id="file" />
   <script>
+  function request({
+      url,
+      method = "post",
+      data,
+      headers = {},
+      requestList
+    }) {
+      return new Promise(resolve => {
+        const xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        Object.keys(headers).forEach(key =>
+          xhr.setRequestHeader(key, headers[key])
+        );
+        xhr.send(data);
+        xhr.onload = e => {
+          resolve({
+            data: e.target.response
+          });
+        };
+      });
+    }
+
   document
     .getElementById('file')
-    .addEventListener('change', (event) => {
+    .addEventListener('change', async (event) => {
       const file = event.target.files[0]; // 当前文件
       console.log(file);
       console.log(Object.prototype.toString.call(
@@ -25,8 +47,24 @@
         fileChunkList.push({file: file.slice(cur, cur + size )});
         cur += size;
       }
-      console.log(fileChunkList);
+
+      const requestList = fileChunkList
+        .map(({ file }, index) => {
+          const formData = new FormData();
+          formData.append("chunk", file);
+          formData.append("filename", `BlueDream_4k.jpg-${index}`);
+          return { formData };
+        })
+        .map(async ({ formData }) =>
+          request({
+            url: "http://localhost:3001",
+            data: formData
+          })
+        )
+      await Promise.all(requestList);
+      // console.log(fileChunkList);
     })
   </script>
 </body>
 </html>
+

@@ -1,79 +1,94 @@
 <template>
-  <div id="app">
-    <div>
-      <input
-        type="file"
-        @change="handleFileChange"
-      />
-      <el-button @click="handleUpload"
-        >上传</el-button>
-    </div>
+  <div>
+    <input type="file" @change="handleFileChange" />
+    <el-button @click="handleUpload">上传</el-button>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld'
 const SIZE = 1 * 1024 * 1024;
-const Status = {
-  wait: "wait",
-  pause: "pause",
-  uploading: "uploading"
-};
-
 export default {
-  name: 'App',
   data: () => ({
-    Status,
     container: {
-      file: null,
-    }
+      file: null
+    },
+    data: []
   }),
   methods: {
-    handleFileChange(e) {
+    handleFileChange (e) {
       const [file] = e.target.files;
       if (!file) return;
+      // console.log(file);  
       this.container.file = file;
     },
-    async handleUpload() {
-      if (!this.container.file) return;
-      this.status = Status.uploading;
-      const fileChunkList = this.createFileChunk(this.container.file);
-      this.container.hash = await this.calculateHash(fileChunkList);
-    },
-    calculateHash(fileChunkList) {
+    request({
+      url,
+      method = "post",
+      data,
+      headers = {},
+      requestList
+    }) {
       return new Promise(resolve => {
-        this.container.worker = new Worker("/hash.js");
-        this.container.worker.postMessage({ fileChunkList })
-        this.container.worker.onmessage = e => {
-          const { percentage, hash } = e.data;
-          this.hashPercentage = percentage;
-          if (hash) {
-            resolve(hash);
-          }
-        }
-      })
+        const xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        Object.keys(headers).forEach(key =>
+          xhr.setRequestHeader(key, headers[key])
+        );
+        xhr.send(data);
+        xhr.onload = e => {
+          resolve({
+            data: e.target.response
+          });
+        };
+      });
     },
     createFileChunk(file, size = SIZE) {
       const fileChunkList = [];
       let cur = 0;
       while (cur < file.size) {
-        fileChunkList.push({ file: file.slice(cur, cur + size) });
+         fileChunkList.push({ file: file.slice(cur, cur + size) });
         cur += size;
-      } 
+      }
       return fileChunkList;
+    },
+    async handleUpload () {
+      if (!this.container.file) return;
+      const fileChunkList = this.createFileChunk(this.container.file);
+      console.log(fileChunkList);
+      this.data = fileChunkList.map(({ file }, index) => ({
+        chunk: file,
+        hash: this.container.file.name + "-" + index
+      }));
+      await this.uploadChunks();
+    },
+    async uploadChunks () {
+      const requestList = this.data
+        .map(({ chunk, hash }) => {
+          const formData = new FormData();
+          formData.append("chunk", chunk);
+          formData.append("hash", hash);
+          formData.append("filename", this.container.file.name);
+          return { formData };
+        })
+        .map(async ({ formData }) =>
+          this.request({
+            url: "http://localhost:3000",
+            data: formData
+          })
+        );
+      await Promise.all(requestList);
+      await this.mergeRequest();
+    },
+    async mergeRequest () {
+      await this.request({
+        url: "http://localhost:3000/merge",
+        headers: {
+          "content-type": "application/json"
+        },
+        data: JSON.stringify({
+          filename: this.container.file.name
+        })
+      });
     }
-  },
-  
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
