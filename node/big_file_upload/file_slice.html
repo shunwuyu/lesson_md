@@ -31,17 +31,31 @@
       });
     }
 
+    const mergeRequest = async () => {
+      await this.request({
+        url: "http://localhost:3001/merge",
+        headers: {
+          "content-type": "application/json"
+        },
+        data: JSON.stringify({
+         
+        })
+      });
+      alert('上传成功');
+    }
+
   document
     .getElementById('file')
     .addEventListener('change', async (event) => {
       const file = event.target.files[0]; // 当前文件
-      console.log(file);
+      const file_name = file.name.split('.')[0]; // #文件名
+    
       console.log(Object.prototype.toString.call(
       file)) // [object file]
       console.log(Object.prototype.toString.call(
       file.slice(0, 102400)));
-      console.log(file.slice(0, 102400)); //创建一个文件切片
-      let cur = 0, size=1024 * 1024; 
+      // console.log(file.slice(0, 102400)); //创建一个文件切片
+      let cur = 0, size=0.5* 1024 * 1024; 
       const fileChunkList = []; // 将要上传
       while(cur < file.size) {
         fileChunkList.push({file: file.slice(cur, cur + size )});
@@ -50,9 +64,10 @@
 
       const requestList = fileChunkList
         .map(({ file }, index) => {
+          console.log(file.name);
           const formData = new FormData();
           formData.append("chunk", file);
-          formData.append("filename", `BlueDream_4k.jpg-${index}`);
+          formData.append("filename", `${file_name}-${index}`);
           return { formData };
         })
         .map(async ({ formData }) =>
@@ -62,6 +77,8 @@
           })
         )
       await Promise.all(requestList);
+      //等上传完后
+      // await mergeRequest();
       // console.log(fileChunkList);
     })
   </script>
