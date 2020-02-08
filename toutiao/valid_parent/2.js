@@ -18,7 +18,7 @@ var isValid = function(s) {
       stack.push(c);
     } else {
       // const peak = stack.pop(); //出栈
-      // if (v !== mapper[peak]) { //栈顶元素是否与当前元素匹配
+      // if (v !== mapper[pea k]) { //栈顶元素是否与当前元素匹配
       //   return false;
       // }
       if (stack.length < 1) {
