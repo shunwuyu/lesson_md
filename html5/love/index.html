@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="title">情人节抽抽乐</div>
+    <div class="box">
+      <div class="item">我爱你</div>
+      <div class="item">你爱我</div>
+      <div class="item">我不爱你</div>
+      <div class="item">你爱我</div>
+      <div class="item start">开始</div>
+      <div class="item">你爱我</div>
+      <div class="item">再见</div>
+      <div class="item">谢谢惠顾</div>
+      <div class="item">你爱我</div>
+      <div class="spin"></div>
+    </div>
+  </div>
+  <script>
+    // 原始事件模型  ie事件模型  onload DOM2事件模型  W3C制定的标准模型  IE6~8除外的浏览器   ie9以上
+  if (document.addEventListener) { //
+    window.addEventListener('load', function () {
+      document
+        .querySelector('.start')
+        // .addEventListener('click', () => {
+        //   run(document.querySelector('.spin'),  generateCirclePath(3, 100), 3)
+        // })
+        .addEventListener('click', 
+        debounce(() => { run(document.querySelector('.spin'), generateCirclePath(3, 100), 3) })
+        )
+
+        function debounce(fn, interval = 300) {
+          let timeout = null
+          return function () {
+              clearTimeout(timeout)
+              timeout = setTimeout(() => {
+                  fn.apply(this, arguments)
+              }, interval)
+          }
+        }
+      // 递归往下走
+        //匀速
+        // function run(el, path, n = 1, i = 0, len = path.length) {
+        //   setTimeout(() => {
+        //       if(n > 0) {
+        //         if(len <= i) {
+        //             i = n === 1 ? len : 0
+        //             n--
+        //         }
+        //         el.style.transform = `translate(${path[i][0]}px, ${path[i][1]}px)`
+        //         run(el, path, n, ++i, len)
+        //       }
+        //   }, 300)   
+        // }
+
+    //变速
+    //     function run(el, path, n = 1, speed = 60, i = 0, len = path.length) {
+    // setTimeout(() => {
+    //     if(n > 0) {
+    //       if(len <= i) {
+    //           i = n === 1 ? len : 0 // 最后一圈 设为0或len
+    //           n-- //圈数减少
+    //           speed += (300 - speed) / n //越来越慢
+    //       }
+    //       el.style.transform = `translate(${path[i][0]}px, ${path[i][1]}px)`;
+    //       run(el, path, n, speed, ++i, len)
+    //     }
+    // }, speed)   
+    // }
+
+    function run(el, path, n = 1, speed = 60, i = 0, len = path.length, random = Math.floor(Math.random() * len)) {
+    setTimeout(() => {
+        if(n > 0) {
+          // 如果n为1,则设置中奖数值 如果最后一圈
+          if(n === 1) {
+            len = random
+          }
+          if(len <= i) {
+              i = n === 1 ? len : 0
+              n--
+              speed += (300 - speed) / n
+          }
+          el.style.transform = `translate(${path[i][0]}px, ${path[i][1]}px)`;
+          run(el, path, n, speed, ++i, len, random)
+        }
+        }, speed)   
+      }
+
+
+      //问怎么算的
+      function generateCirclePath(n, cell) {
+        // console.log(n, cell); 3 100
+        let arr = []
+        for(let i=0; i< n; i++) {
+          arr.push([i*cell, 0])
+        }
+        //第二行
+        for(let i=0; i< n-1; i++) {
+          arr.push([(n-1)*cell, (i+1)*cell])
+        }
+        // console.log(arr);
+        for(let i=0; i< n-1; i++) {
+          arr.push([(n-i-2)*cell, (n-1)*cell])
+        }
+        for(let i=0; i< n-2; i++) {
+          arr.push([0, (n-i-2)*cell])
+        }
+        // console.log(arr);
+        return arr;
+      }
+    });
+  }
+  </script>
+</body>
+</html>
