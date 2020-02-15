@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hello React!</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+<div id="example"></div>
+<script type="text/babel">
+function Button(props) {
+  let { children, onClick, className, type, shape, block } = props
+  console.log(type);
+  return (
+    <div
+      // className={`xButton ripple`}
+      className={`xButton ripple ${type} ${shape} ${block?'block':''}`}
+      onClick={onClick}>
+      { children }
+    </div>
+  )
+}
+ReactDOM.render(
+  // <Button >default</Button>,
+  <div>
+    <Button>default</Button>
+    <Button type="warning">warning</Button>
+    <Button type="primary" shape="circle">circle</Button>
+    <Button type="primary" block>primary&block</Button> 
+    <Button type="warning" shape="circle" block onClick={() => { alert('block')}}>circle&block</Button> 
+  </div>,
+	// <h1>Hello, world!</h1>,
+	document.getElementById('example')
+);
+</script>
+
+</body>
+</html>

@@ -14,3 +14,14 @@
   mongo   show dbs;
 
 7. 编写schema
+
+
+vue电商全栈项目 准备工作
+1. 确定安装好vue-cli 命令行工具，
+  npm i -g @vue/cli
+  - vue-cli 3.0 向vue-cli2.0 兼容
+    npm install -g @vue/cli-init 请安装
+2. 安装好mongodb 
+  windows https://www.runoob.com/mongodb/mongodb-window-install.html
+  安装好了docker 可以用docker 启动 没有不要求
+3. postman 安装  
