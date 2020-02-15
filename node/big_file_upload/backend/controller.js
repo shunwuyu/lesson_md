@@ -47,4 +47,37 @@ module.exports = class {
 
     // console.log(fileHash, filename, '_______');
   }
+  async handleFormData(req, res) {
+    const multipart = new multiparty.Form();
+    multipart.parse(req, async (err, fields, files) => {
+      if (err) {
+        console.error(err);
+        res.status = 500; //500服务器内部错误（Internal server error
+        res.end("process file chunk failed");
+        return;
+      }
+
+      const [chunk] = files.chunk;
+      const [hash] = fields.hash;
+      const [fileHash] = fields.fileHash;
+      const [filename] = fields.filename;
+      const filePath = path.resolve(
+        UPLOAD_DIR,
+        `${fileHash}${extractExt(filename)}`
+      );
+      const chunkDir = path.resolve(UPLOAD_DIR, fileHash);
+
+      if (fse.existsSync(filePath)) {
+        res.end("file exist");
+        return;
+      }
+
+      if (!fse.existsSync(chunkDir)) {
+        await fse.mkdirs(chunkDir);
+      }
+
+      await fse.move(chunk.path, path.resolve(chunkDir, hash));
+      res.end("received file chunk");
+    })
+  }
 }
