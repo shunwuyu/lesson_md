@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#head {
+  position: relative;
+  text-align: center;
+  line-height: 1.066666666666667rem;
+  padding: 0 0.2rem;
+}
+#head .go-back,
+#head .more {
+  position: absolute;
+}
+#head .go-back i,
+#head .more i {
+  font-size: 0.7rem;
+}
+#head .go-back {
+  left: 10px;
+}
+#head .title {
+  flex: 1;
+  font-size: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+#head .more {
+  right: 15px;
+}
+.btn-save {
+  position: absolute;
+  right: 15px;
+  top: 2px;
+  font-size: 0.5rem;
+  font-weight: 600;
+}
+.edit {
+  position: absolute;
+  right: 15px;
+  top: 2px;
+  font-size: 0.4rem;
+  font-weight: 600;
+}
