@@ -1,0 +1,42 @@
+$baseFontSize = 75; //默认基准font-size
+px2rem(name, px)
+  {name} (px / $baseFontSize) * 1rem
+
+*
+  margin 0
+  padding 0
+
+#head
+  position relative
+  text-align center
+  px2rem(line-height, 80);
+  padding 0 0.2rem
+  .go-back, .more
+    position absolute
+    i
+      font-size 0.7rem
+  .go-back
+    left 10px
+  .title
+    flex 1
+    font-size 0.5rem
+    font-weight bold
+    text-align center
+  .more
+    right 15px
+
+
+.btn-save
+  position absolute
+  right 15px
+  top 2px
+  font-size 0.5rem
+  font-weight 600
+
+.edit
+  position absolute
+  right 15px
+  top 2px
+  font-size 0.4rem
+  font-weight 600
+  

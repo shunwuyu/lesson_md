@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pay</title>
+  <link rel="stylesheet" href="./index.css">
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div id="pay">
+      <v-head title="支付订单" goBack="true" bgColor="#f4f4f4">
+        <!-- <span slot="save-address" class="btn-save" @click="save();">保存</span> -->
+        <span slot="edit-cart" class="edit">编辑</span>
+      </v-head>
+    </div>
+  </div>
+  <script>
+  Vue.component(
+    'v-head',
+    {
+      props: {
+        title: {
+          type: String,
+          default: ''
+        },
+        goBack: {
+          default: false
+        },
+        color: {
+          type: String,
+          default: '#333'
+        },
+        bgColor: {
+          type: String,
+          default: '#f4f4f4'
+        },
+        more: {
+          default: false
+        }
+      },
+      template: `
+        <header id="head" :style="{color:color,background:bgColor}">
+          <span class="title">{{title}}</span>
+          <slot name="save-address"></slot>
+          <slot name="edit-cart"></slot>
+          <slot name="cancel-edit-cart"></slot>
+        </header>
+      `,
+      methods: {
+      }
+    }
+  );
+  new Vue({
+    el: '#root',
+    data: {
+    }
+  })
+  </script>
+</body>
+</html>
