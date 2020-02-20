@@ -8,5 +8,5 @@ import (
 func main() {
 	g := gin.New()
 
-	log.Printf(g);
+	// log.Printf(g);
 }
