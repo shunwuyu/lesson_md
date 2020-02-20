@@ -1,3 +1,4 @@
+- vue/ncov
 - interview/llq/etag.js
 - vue book /js/string_interview
 - vue/pay
