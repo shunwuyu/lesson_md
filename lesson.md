@@ -1,4 +1,4 @@
-- go email 
+- go email  
 - vue/ncov
 - interview/llq/etag.js
 - vue book /js/string_interview
