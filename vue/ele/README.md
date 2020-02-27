@@ -1,19 +1,5 @@
-# ele
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- components/common
+  基础通用组件 设计组件
+  1. AlertTip
+  $emit 由内向外通信
+  设备正则  created 

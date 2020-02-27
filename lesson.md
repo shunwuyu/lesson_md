@@ -1,3 +1,5 @@
+- go  go/log
+- vue ele  alertTip  + download 
 - vue ele https://github.com/bailicangdu/vue2-elm/blob/12587bebb50d0e6eda5da89e13cfcabf6af71649/src/page/home/home.vue
 - go email  
 - vue/ncov
