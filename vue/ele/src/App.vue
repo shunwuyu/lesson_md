@@ -8,9 +8,9 @@
       
       <span slot='logo' class="head_logo"  @click="reload">ele.me</span>
     </head-top> -->
-    <head-top head-title="编辑地址" go-back='true'>
+    <!-- <head-top head-title="编辑地址" go-back='true'>
       <span slot="edit" class="edit" @click="editThing">{{editText}}</span>
-    </head-top>
+    </head-top> -->
 
     <!-- <div style="width:16rem;height:2rem;background-color:green;"></div> -->
 
@@ -18,20 +18,26 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <!-- <router-view/> -->
+    <router-view/>
+    <!-- <alert-tip v-if="showAlert" @closeTip="showAlert = false" alertText="IOS用户请前往AppStore下载"/> -->
   </div>
 </template>
 <script>
-import Header from './components/header/head.vue'
-console.log(Header);
+// import Header from './components/header/head.vue';
+
+import AlertTip from '@/components/common/alertTip.vue';
+
+// console.log(Header);
 export default {
   data () {
     return {
-      editText: '编辑'
+      editText: '编辑',
+      showAlert: true
     }
   },
   components: {
-    'head-top': Header
+    // 'head-top': Header
+    'alert-tip': AlertTip
   },
   methods: {
     reload () {
