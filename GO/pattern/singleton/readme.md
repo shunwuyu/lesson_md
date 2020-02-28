@@ -1,0 +1,1 @@
+go test singleton_test.go  singleton.go
