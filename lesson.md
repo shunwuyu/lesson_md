@@ -1,3 +1,4 @@
+- go go/pattern
 - go  go/log
 - vue ele  alertTip  + download 
 - vue ele https://github.com/bailicangdu/vue2-elm/blob/12587bebb50d0e6eda5da89e13cfcabf6af71649/src/page/home/home.vue
@@ -7,6 +8,10 @@
 - vue book /js/string_interview
 - vue/pay
 - 面向对象钱包  wallet
+- vue  /vue/ele_unit
+- go time request
+- python/mongodb
+- geekbang/mongodb  聚合
 - 《精通react/vue组件设计》之用纯css打造类materialUI的按钮点击动画并封装成react组件 /react/materialUI
 - 情人节抽抽乐  h5/love
 - vue/vue-online-shop-frontend

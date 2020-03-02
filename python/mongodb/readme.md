@@ -1,0 +1,1 @@
+[source](https://github.com/geektime-geekbang/geektime-mongodb-course/blob/master/helloworld/lab-script.md)
