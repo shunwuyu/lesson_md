@@ -4,7 +4,7 @@
 1. Go 源设置  
   mac
     export GO111MODULE=on
-    export GOPROXY=https://mirrors.aliyun.com/goproxy/,direct 
+    export GOPROXY=https://mirrors.aliyun.com/goproxy/
   windows
     go env -w GO111MODULE=on
     go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
