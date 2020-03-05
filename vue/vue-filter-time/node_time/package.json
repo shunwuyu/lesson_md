@@ -1,0 +1,17 @@
+{
+  "name": "node_time",
+  "version": "0.1.0",
+  "description": "[source](https://www.cnblogs.com/kaituorensheng/p/5155955.html)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.3"
+  }
+}
