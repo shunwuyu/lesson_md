@@ -35,3 +35,16 @@ Node.js 是 Javascript 在服务端的运行环境，构建在 chrome 的 V8 引
 
 
 
+
+- Node.js 进程创建
+  child_process 是 Node.js 的内置模块 
+  child_process.spawn()  适用于返回大量数据 图像处理，二进制数据处理
+  child_process.exec() 小量数据，maxBuffer 默认值为 200 * 1024 超出这个默认值将会导致程序崩溃，数据量过大可采用 spawn。
+  child_process.execFile() 不能通过 shell 来执行，不支持像 I/O 重定向和文件查找这样的行为
+  child_process.fork()  衍生新的进程，进程之间是相互独立的，每个进程都有自己的 V8 实例、内存，系统资源是有限的，不建议衍生太多的子进程出来，通长根据系统** CPU 核心数**设置
+  const cpus = require('os').cpus();
+  两个cpu，每个cpu有4个核，那么总核数就是8。
+
+  无论是 child_process 模块还是 cluster 模块，为了解决 Node.js 实例单线程运行，无法利用多核 CPU 的问题而出现的
+
+  Inter-Process Communication,即进程间通信
