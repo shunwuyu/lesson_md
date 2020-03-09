@@ -6,3 +6,5 @@
 6. activeIndex: -1, initialIndex
   mounted
 7.  将slides 写出来
+8. watch items 出来计算  
+  watch active  出来计算
