@@ -1,5 +1,5 @@
 {
-  "name": "webp",
+  "name": "pics",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lqip": "^2.1.0"
+    "webp-converter": "^2.2.3"
   }
 }
