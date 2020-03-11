@@ -1,0 +1,2 @@
+- https://www.jd.com/   不同格式图片
+- webp webp ("weppy") 是一种文件格式, 在质量相同的情况下，WebP格式图像的体积要比JPEG格式图像小40%
