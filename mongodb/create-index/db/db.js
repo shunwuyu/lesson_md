@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://192.168.1.4:27017/elm', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set('useCreateIndex', true)
+mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 
