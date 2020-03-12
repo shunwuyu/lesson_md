@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
-const addressSchema = new Schema({
+const userSchema = new Schema({
   "address": {
     "city": {
       type: String, 
@@ -14,11 +14,11 @@ const addressSchema = new Schema({
     }
   },
   "tags": [
-    {type: String}
+    {type: String, index: true,}
   ],
   "name": { type: String }
 })
 
-addressSchema.index({tags: 1});
-const Address = mongoose.model('Address', addressSchema);
-module.exports = Address
+// userSchema.index({tags: 1});
+const User = mongoose.model('User', userSchema);
+module.exports = User

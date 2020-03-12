@@ -16,5 +16,11 @@
 
 db.users.ensureIndex({"tags":1})
 db.users.find({tags:"cricket"})
-db.users.find({tags:"cricket"}).explain()
+<!-- db.users.find({tags:"cricket"}).explain() -->
 db.users.getIndexes();
+
+db.users.find({tags: 'coding'}).explain("executionStats");
+
+[source](https://www.cnblogs.com/huangxincheng/p/5737222.html)
+
+hint 强制使用某个索引

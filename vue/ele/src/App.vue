@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <x-button >按扭</x-button>
     <!--home-->
     <!-- <head-top signin-up='home'>
       <span slot='logo' class="head_logo"  @click="reload">ele.me</span>

@@ -1,4 +1,5 @@
-- mongodb 索引
+- geekbang/design_pattern_beauty/queue
+- mongodb 索引 /mongodb/create-index
 - vue/vue-element-code 源码分析 carousel
 - node/todo
 - vue/vue-watch  
