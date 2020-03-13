@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <!-- <div v-for="(user, index) in $store.state.users" :key="index"> -->
+    <select @change="queryTag">
+      <option value="">请选择</option>
+      <option value="poem">诗歌</option>
+      <option value="coding">编程</option>
+      <option value="music">音乐</option>
+    </select>
     <div v-for="(user, index) in getUsers" :key="index">
       {{user.id}} {{user.name}}
     </div>
@@ -85,7 +91,17 @@ export default {
     // HelloWorld
   },
   methods:{  // vuex action
-    ...mapActions(['fetchUsers'])
+  // 抽象一点  UI
+    ...mapActions(['fetchUsers', 'queryTag']),
+    // 跟据tag, 把相应的用户找出来， 
+    // 1. tag change value 
+    // 2. users computed mapGetters 
+    //   actions  api   发出新的请求  vuex store 
+    // 3. api/
+    // 4. node router  /tag/:tag
+    // queryTag() {
+
+    // }
   },
   mounted() { //使用生命周期取数据
     this.fetchUsers();
