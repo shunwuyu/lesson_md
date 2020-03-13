@@ -20,6 +20,8 @@ db.users.find({tags:"cricket"})
 db.users.getIndexes();
 
 db.users.find({tags: 'coding'}).explain("executionStats");
+db.users.dropIndex("tags_1")
+db.users.getIndexSpecs();
 
 [source](https://www.cnblogs.com/huangxincheng/p/5737222.html)
 
