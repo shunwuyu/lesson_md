@@ -1,3 +1,4 @@
+- hashTable /geekbang/design_pattern_beauty/hash/
 - leetcode/169
 - geekbang/design_pattern_beauty/queue
 - mongodb 索引 /mongodb/create-index
