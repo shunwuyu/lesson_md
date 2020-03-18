@@ -21,6 +21,9 @@ const routes = [
   {
     path: '/order',
     name: 'Order',
+    meta:{
+      login: true
+    },
     component: () => import('@/pages/Order/Order.vue')
   },
   {
@@ -34,6 +37,28 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  console.log(to.meta.login);
+  // if (!router.app.$cookies.get('uid') && to.meta.login){
+  //   next({
+  //     path: '/login',
+  //     query: { redirect: to.fullPath } // 把要跳转的地址作为参数传到下一步
+  //   })
+  // } else {
+    next();
+  // }
+  
+  // if (!router.app.$cookies.get('uid')) {
+  //   next({
+  //     path: '/login',
+  //     query: { redirect: to.fullPath } // 把要跳转的地址作为参数传到下一步
+  //   })
+  // } else {
+  //   next(); 
+  // }
+  
 })
 
 export default router

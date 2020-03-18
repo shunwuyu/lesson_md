@@ -1,15 +1,19 @@
+import axios from 'axios';
+
 export default {
-  doLogin({account, password}, cb) {
-    fetch('/api/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        account,
-        password
-      })
+  doLogin({username, password}, cb) {
+    // console.log(username, password)
+    // const postData = JSON.stringify({
+    //   username,
+    //   password
+    // });
+    // console.log(postData)
+    axios.post(`api/login`, {
+      username: username,
+      password: password
     })
-    .then(response => response.json())
-    .then(data => {
-      cb(data)
+    .then(res=>{
+      cb(res.data)
     })
   }
 }

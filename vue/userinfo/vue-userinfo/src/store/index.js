@@ -9,13 +9,18 @@ export default new Vuex.Store({
     userInfo: null,
   },
   mutations: {
+    setUserInfo(state, payload) {
+      // console.log(payload, 'mutations');
+      state.userInfo = payload
+    }
   },
   actions: {
     accountLogin({commit}, payload) {
       // console.log(arguments);
       // console.log(payload)
       Api.doLogin(payload, (data) => {
-        console.log(data);
+        // console.log('api', data);
+        commit('setUserInfo', data)
       })
       // doLogin(payload, (data) => {
       //   console.log(data)        

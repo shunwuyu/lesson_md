@@ -9,10 +9,11 @@
 export default {
   computed: {
     userInfo() {
-      return this.$store.userInfo
+      return this.$store.state.userInfo
     }
   },
   mounted() {
+    // console.log(this.$store.state)
     if (!this.userInfo) {
       this.$router.push(`/login?url=/order`)
     }
