@@ -1,3 +1,4 @@
+- vue/chuizhi
 - /vuex/search
 - login /vue/userinfo
 - hashTable /geekbang/design_pattern_beauty/hash/
