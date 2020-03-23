@@ -1,5 +1,6 @@
 - vue/mixin
 - geekbang/design_pattern_beauty/10
+- vue/orders/table
 - vue/chuizhi
 - /vuex/search
 - login /vue/userinfo
