@@ -1,3 +1,4 @@
+- vue/orders/table
 - vue/chuizhi
 - /vuex/search
 - login /vue/userinfo
