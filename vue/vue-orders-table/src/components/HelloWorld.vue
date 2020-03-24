@@ -1,39 +1,64 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div class="app-container">
+      <div class="filter-container">
+        <el-checkbox-group v-model="checkboxVal">
+          <el-checkbox label="apple">
+            apple
+          </el-checkbox>
+          <el-checkbox label="banana">
+            banana
+          </el-checkbox>
+          <el-checkbox label="orange">
+            orange
+          </el-checkbox>
+        </el-checkbox-group>
+      </div>
+      <el-table :key="key" :data="tableData" border fit highlight-current-row style="width: 100%">
+        <el-table-column prop="name" label="fruitName" width="180" />
+        
+        <el-table-column v-for="fruit in formThead" :key="fruit" :label="fruit">
+          <template slot-scope="scope">
+            {{ scope.row[fruit] }}
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 
 <script>
+const defaultFormThead = ['apple', 'banana']
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  data() {
+    return {
+      tableData: [
+        {
+          name: 'fruit-1',
+          apple: 'apple-10',
+          banana: 'banana-10',
+          orange: 'orange-10'
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20'
+        }
+      ],
+      key: 1,
+      checkboxVal: defaultFormThead,
+      formTheadOptions: ['apple', 'banana', 'orange'],
+      formThead: defaultFormThead,
+    }
+  },
+  watch: {
+    checkboxVal(valArr) {
+      console.log(valArr);
+      this.formThead = this.formTheadOptions.filter(i => valArr.indexOf(i) >= 0)
+      this.key = this.key + 1 // 为了保证table 每次都会重渲 In order to ensure the table will be re-rendered each time
+    }
   }
 }
 </script>

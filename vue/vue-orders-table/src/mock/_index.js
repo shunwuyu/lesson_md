@@ -25,7 +25,7 @@ for (let i = 0; i < total; i++) {
 }
 
 // Mock.mock('/api/orders', 'post', dataList)
-Mock.mock('/api/orders', 'get', (params) => {
+Mock.mock('/api/orders', 'post', (params) => {
   console.log(params)
   var info = JSON.parse(params.body)
   // console.log(dataList);

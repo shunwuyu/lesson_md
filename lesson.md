@@ -1,3 +1,5 @@
+- vue/element-table-mock
+- vue/vue-orders-table
 - vue/mixin
 - geekbang/design_pattern_beauty/10
 - vue/orders/table

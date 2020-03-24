@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <About />
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
     
     <el-table
       v-loading="listLoading"
@@ -49,9 +50,10 @@
 </template>
 
 <script>
+import About from '@/components/About'
 import Axios from 'axios'
 // import api from '@/axios/api.js'
-// import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
   filters: {
@@ -76,7 +78,7 @@ export default {
     }
   },
   created() {
-    this.getList()
+    // this.getList()
   },
   methods: {
     getList() {
@@ -108,6 +110,10 @@ export default {
       console.log(this.page);
       this.getList();
     }
+  },
+  components: {
+    HelloWorld,
+    About
   }
 }
 </script>
