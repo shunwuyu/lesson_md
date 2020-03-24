@@ -1,3 +1,4 @@
+- leetcode/647
 - vue/element-table-mock
 - vue/vue-orders-table
 - vue/mixin
