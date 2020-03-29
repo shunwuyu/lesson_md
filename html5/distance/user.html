@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=47FQtS6XkphGqmZ5nSEj6WTSTwE8SGaT"></script>
+    <title>计算用户到商家的距离</title>
+</head>
+<body>
+  <script type="text/javascript">
+    //使用HTML5地理定位
+    function getLocation(){
+      
+        //检测浏览器是否支持地理定位
+      if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition,showError);
+            //如果getCurrentPosition()运行成功，则向参数showPosition中规定的函数返回一个coordinates对象
+            //getCurrentPosition()方法的第二个参数showError用于处理错误。它规定当获取用户位置失败时运行的函数
+        }else{
+            alert("该设备浏览器不支持地理定位");
+        }
+
+      }
+
+
+    function showPosition(position){
+        console.log(position);
+        var Longitude=position.coords.longitude;//HTML5定位获取的经度
+        var Latitude=position.coords.latitude;//HTML5定位获取的纬度
+
+        //将HTML5定位获取的经纬度，通过百度地图API转换成适应于百度定位的经纬度
+        var ggPoint = new BMap.Point(Longitude,Latitude);
+
+        //坐标转换完之后的回调函数
+        translateCallback = function (data){
+          if(data.status === 0) {
+            var map = new BMap.Map();
+            console.log(data.points[0]);//转换后新的用户经纬度
+            var pointA = new BMap.Point(data.points[0].lng,data.points[0].lat);//用户的经纬度
+            var pointB = new BMap.Point(商家经度,商家纬度);//从数据库中取出商家的经纬度
+            alert('您到商家的距离是：'+(map.getDistance(pointA,pointB)).toFixed(2)+' 米。');  //获取两点距离,保留小数点后两位
+          }
+        }
+
+        var convertor = new BMap.Convertor();
+        var pointArr = [];
+        pointArr.push(ggPoint);
+        convertor.translate(pointArr, 1, 5, translateCallback)
+
+    }
+
+    function showError(error){
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          alert("用户不允许地理定位")
+          break;
+        case error.POSITION_UNAVAILABLE:
+          alert("无法获取当前位置")
+          break;
+        case error.TIMEOUT:
+          alert("操作超时")
+          break;
+        case error.UNKNOWN_ERROR:
+          alert("未知错误")
+          break;
+        }
+      }
+    getLocation();
+</script>
+</body>
+</html>
+
