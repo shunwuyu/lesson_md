@@ -1,3 +1,8 @@
+1.  在电脑的非系统盘，  新建  workspace 目录，
+该目录为我们的工作目录
+workspace目录下 简历 lesson_xe 此目录为我们的学习目录 接着新建 algorithm/hongbao/
+
+
 ## 安装环境
 1.  vscode 编辑器  
 https://code.visualstudio.com/Download
