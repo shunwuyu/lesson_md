@@ -1,3 +1,4 @@
+https://blog.csdn.net/ns2250225/article/details/81222415
 -  修改host文件   
   C:\Windows\System32\drivers\etc 
   http://127.0.0.1:8080/   http://www.wolaiye.com:8080/
@@ -12,3 +13,7 @@
 8         }
 9     }
 
+- https
+- chrome 配置中导入证书 
+- moretools 
+- 拿到

@@ -39,7 +39,7 @@
             var map = new BMap.Map();
             console.log(data.points[0]);//转换后新的用户经纬度
             var pointA = new BMap.Point(data.points[0].lng,data.points[0].lat);//用户的经纬度
-            var pointB = new BMap.Point(商家经度,商家纬度);//从数据库中取出商家的经纬度
+            var pointB = new BMap.Point('115.950531','28.549066');//从数据库中取出商家的经纬度
             alert('您到商家的距离是：'+(map.getDistance(pointA,pointB)).toFixed(2)+' 米。');  //获取两点距离,保留小数点后两位
           }
         }
