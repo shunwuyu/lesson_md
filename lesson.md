@@ -1,3 +1,5 @@
+- vue/backtop
+- node/compose
 - node/middleware
 - go/tree/hello
 - vue/treenode
