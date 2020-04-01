@@ -1,0 +1,23 @@
+{
+  "name": "demo1",
+  "version": "1.0.0",
+  "description": "1. 从require css开始\r loader 将任意的文件转成 webpack 可以识别的文件",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack-chain": "^6.0.0",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "rimraf": "^3.0.0",
+    "webpack": "^4.41.2"
+  }
+}
