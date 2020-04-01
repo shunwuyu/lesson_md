@@ -1,0 +1,23 @@
+{
+  "name": "demo2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node build/dev.js",
+    "build": "cross-env NODE_ENV=production node build/build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "ora": "^4.0.3",
+    "rimraf": "^3.0.2",
+    "webpack-chain": "^6.4.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.1"
+  }
+}
