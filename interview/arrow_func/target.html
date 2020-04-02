@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+const Person = (name) => {
+  if (new.target !== undefined) {
+    this.name = name;
+  } else {
+    throw new Error('必须使用 new 命令生成实例');
+  }
+}
+// function Person(name) {
+//   if (new.target !== undefined) {
+//     this.name = name;
+//   } else {
+//     throw new Error('必须使用 new 命令生成实例');
+//   }
+// }
+var person = new Person('张三');
+// console.log(person.name);
+var notAPerson = Person.call(person, '张三'); 
+</script>
+</body>
+</html>

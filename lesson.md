@@ -1,3 +1,4 @@
+- interview/allow-func
 - vue/webpack
 - vue/backtop
 - node/compose
