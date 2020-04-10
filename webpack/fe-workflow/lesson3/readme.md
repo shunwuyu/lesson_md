@@ -8,3 +8,14 @@
 - babel.js
   targets chrome
 - 设计 const -> var 的编译
+
+
+1. dev  web-pack-dev-server
+
+
+1. css config 中
+  - 页面生成
+  - stylus 
+  - postcss
+  postcss  配置 postcss-px-to-viewport
+  vw vh   适配

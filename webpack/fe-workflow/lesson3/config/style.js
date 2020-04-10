@@ -9,11 +9,13 @@ module.exports = (config, resolve) => {
         hmr: process.env.NODE_ENV === 'development',
         publicPath: '/'
       })
-
     normalRule
       .use('css-loader')
       .loader(require.resolve('css-loader'))
       .options({})
+    normalRule
+      .use('postcss-loader')
+      .loader(require.resolve('postcss-loader'))
     if (loader) {
       const rs = require.resolve(loader)
       normalRule
@@ -21,10 +23,11 @@ module.exports = (config, resolve) => {
         .loader(rs)
         .options(options)
     }
-
   }
   
   return () => {
     createCSSRule('css', /\.css$/, 'css-loader', {});
+    createCSSRule('stylus', /\.styl$/, 'stylus-loader', {});
+    createCSSRule('postcss', /\.p(ost)?css$/);
   }
 }

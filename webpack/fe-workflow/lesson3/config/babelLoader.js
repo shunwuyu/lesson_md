@@ -1,5 +1,5 @@
 module.exports = (config, resolve) => {
-  const baseRule = config.module.rule('js').test(/.js?$/); // js jsx
+  const baseRule = config.module.rule('js').test(/.js|.tsx?$/); // js jsx
   const babelPath = resolve('babel.js')
   // console.log(babelPath, '??????????')
   const babelConf = require(babelPath);

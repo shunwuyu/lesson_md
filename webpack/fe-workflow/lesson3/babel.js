@@ -10,8 +10,17 @@ module.exports = function (api) {
             firefox: 50,
             safari: 8,
           },
-        },
+        }, 
+      ],
+      [
+        '@babel/preset-typescript',
+        {
+          allExtensions: true
+        }
       ]
+    ],
+    plugins: [
+      '@babel/plugin-transform-typescript'
     ]
   }
 }
