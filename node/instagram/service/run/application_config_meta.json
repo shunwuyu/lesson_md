@@ -1,0 +1,254 @@
+{
+  "session": {
+    "maxAge": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "type": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "maxAge": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-watcher\\config\\config.default.js",
+    "eventSources": {
+      "default": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "logrotator": {
+    "filesRotateByHour": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-static\\config\\config.prod.js",
+    "maxFiles": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-static\\config\\config.default.js",
+    "maxAge": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-static\\config\\config.prod.js"
+  },
+  "view": {
+    "root": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultExtension": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-view\\config\\config.default.js",
+    "mapping": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "env": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "name": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "keys": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "version": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "description": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "main": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "start": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+    },
+    "keywords": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "author": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "license": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "strict": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "depth": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "env": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "level": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "allowDebugAtProd": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "logging": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "port": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "D:\\lesson_md\\node\\instagram\\service\\node_modules\\egg\\config\\config.default.js"
+}

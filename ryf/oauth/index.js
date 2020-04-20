@@ -1,5 +1,5 @@
-const clientID = 'e550fbe0d2eead5f16b0';
-const clientSecret = '534903ec74cc5a9d63adb7a97ccf7018d7599e1f';
+const clientID = '55c3f63a24af079202f9';
+const clientSecret = '10c98e0094a71a4e19b51add4a27f2859f619b95';
 
 const Koa = require('koa');
 const serve = require('koa-static');
