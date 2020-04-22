@@ -1,3 +1,4 @@
+- react/r3r-sitepoint
 - react/lemon-hooks
 - webapck/pic
 - typescript/getUserInfo
