@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <P>我来了</P>
+  <!-- onClick="doClick()" onclick="doClick()" -->
+  <p id="ele">
+    html 不区分大小写
+  </p>
+  <script>
+    // https://blog.csdn.net/weixin_44198965/article/details/93341888
+  function doClick() {
+    alert('hahaha');
+  }
+
+  document
+    .getElementById('ele').onclick = doClick // 词法
+  
+  var a=1; //可选的分号  
+  b=2
+
+  typeof(a); // 保留字
+  </script>
+</body>
+</html>

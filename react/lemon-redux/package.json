@@ -1,15 +1,11 @@
 {
-  "name": "lemon-hooks",
+  "name": "lemon-redux",
   "version": "1.0.0",
-  "description": "[source](https://github.com/Lemoncode/react-typescript-samples/tree/master/hooks/00_BoilerPlate)",
-  "main": "webpack.config.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server  --mode development --inline --hot --open",
-    "build": "webpack  --mode production"
+    "start": "webpack-dev-server --mode development --inline --hot --open"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -29,14 +25,11 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "add": "^2.0.6",
-    "core-js": "3",
-    "lc-form-validation": "^2.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5",
-    "yarn": "^1.22.4"
-  }
+    "react-dom": "^16.13.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
