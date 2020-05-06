@@ -7,7 +7,6 @@ const defaultFormat = 'yyyy-mm-dd';
 
 class EasyDate {
   constructor(offset, options = {}) {
-
     this.base = new Date();
     this.base.setHours(0);
     this.base.setMinutes(0);

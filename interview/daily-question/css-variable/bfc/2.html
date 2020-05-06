@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  * {
+        margin: 0;
+        padding: 0;
+    }
+    .left{
+        background: #73DE80;    /* 绿色 */
+        opacity: 0.5;
+        border: 3px solid #F31264;
+        width: 200px;
+        height: 200px;
+        float: left;
+    }
+    .right{                        /* 粉色 */
+        background: #EF5BE2;
+        opacity: 0.5;
+        border: 3px solid #F31264;
+        width:400px;
+        min-height: 100px;
+    }
+    .box{
+        background:#888;
+        height: 100%;
+        margin-left: 50px;
+    }
+    .BFC{
+      overflow: hidden;
+    }
+    .little{
+        background: #fff;
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        float: left;
+    }
+  </style>
+</head>
+<body>
+  <!-- 特性4：BFC就是页面上的一个隔离的独立容器 -->
+  <div class='box BFC'>
+    <div class='left'> </div>
+    <div class='right BFC'>
+        <div class='little'></div>
+        <div class='little'></div>
+        <div class='little'></div>
+    </div>
+  </div>
+</body>
+</html>

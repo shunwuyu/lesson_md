@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  header,footer {height: 50px;}
+  .wrapper {padding: 0; overflow:hidden;}
+  .col {float: left;}
+  .main {width: 100%;}
+  .main-wrap {margin: 0 100px 0 100px;height: 200px;background:blue;}
+  .left {width: 100px; height: 200px; margin-left: -100%;background: #0c9;}
+  .right {width: 100px; height: 200px; margin-left: -100px;background: #0c9;}
+  </style>
+</head>
+<body>
+  <header>header</header>
+  <section class="wrapper">
+    <section class="col main">
+        <section class="main-wrap">main</section>
+    </section>
+    <aside class="col left">left</aside>
+    <aside class="col right">right</aside>
+  </section>
+  <footer>footer</footer>
+</body>
+</html>
