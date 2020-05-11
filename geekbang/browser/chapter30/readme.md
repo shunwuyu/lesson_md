@@ -1,7 +1,17 @@
 # 30｜HTTP/2：如何提升网络速度？
-- 浏览器和服务器的通信语言是？
-- 你能写出那些请求头信息？
+- 浏览器和服务器的通信语言是？ HTTP  腾讯基石
+- 准备HTTP面试 的最佳途径是？
+  历史课
+  HTTP 0.9  1991年  HTTP/1.0  1994年   http/1.1 2014 最新修改
+  即将完成使命的 HTTP/1、正在向我们走来的 HTTP/2，以及未来的 HTTP/3
+HTTP 0.9 -------------------
 - req  res  为什么？
+HTTP 1.0 支持多种类型的文件下载是 HTTP/1.0 的一个核心诉求----------------------------
+  请求头和响应头
+- 你能写出那些请求头信息？
+  accept: text/html accept-encoding: gzip, deflate, braccept-Charset: ISO-8859-1,utf-8accept-language: zh-CN,zh
+  响应头 content-encoding: brcontent-type: text/html; charset=UTF-8
+  
 - HTTP协议在第几层， TCP在第几层
 - 三次挥手  四次握手怎么回事
 - HTTP/1.0 如何处理多种文件的 html  css js   png
@@ -11,13 +21,8 @@
 - http/2是没必要用雪碧图了
   雪碧图在HTTP/2的环境下没太大用处，但还是有点用的
   多路复用
-历史 HTTP/1
-HTTP 0.9  1991年
-HTTP/1.0  1994年
-http/1.1 2014 最新修改
-HTTP/2 2015年5月
-HTTP/3
-即将完成使命的 HTTP/1、正在向我们走来的 HTTP/2，以及未来的 HTTP/3
+- 一般会带上Referer，告诉服务器该网页是从哪个页面链接过来的，服务器因此可以获得一些信息用于处理。
+
 
 浏览器的网络， 避不开HTTP.
 
