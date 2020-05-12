@@ -1,0 +1,21 @@
+{
+  "name": "egg-swagger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "egg-bin dev --port 7007"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "egg": "^2.26.0",
+    "egg-bin": "^4.14.1",
+    "egg-sequelize": "^5.2.1",
+    "egg-swagger-doc": "^2.3.2"
+  },
+  "devDependencies": {
+    "egg-sequelize-auto": "^0.1.1"
+  }
+}
