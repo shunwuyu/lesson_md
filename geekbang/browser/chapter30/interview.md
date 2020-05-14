@@ -14,13 +14,20 @@ HTTP
   - 响应码
     200，301，302，304，404，503
     1XX：信息状态码，例如100表示到目前为止都很正常，客户端可以继续发送请求或者忽略这个响应
+    
+    101 Switching Protocols。在HTTP升级为WebSocket的时候，如果服务器同意变更，就会发送状态码 101。
+
     2XX：成功状态码，例如200表OK，204表不包含实体;
     打个比方，如果一个表单提交后会跳到a.html，如果a.html的状态码是204，则页面就不会发生跳转，而是停留在当前页面。对于a标签而言，如果链接的响应码是204的话，页面也不会发生跳转。
     204---------
+    206 Partial Content顾名思义，表示部分内容，它的使用场景为 HTTP 分块下载和断点续传，当然也会带上相应的响应头字段Content-Range。
+
+
     3xx
     301 永久跳转 
     302临时重定向，HTTP1.0的状态码，HTTP1.1也有保留。
     www.baidu.com   https://www.baidu.com
+    比如你的网站从 HTTP 升级到了 HTTPS 了，以前的站点再也不用了，应当返回301，这个时候浏览器默认会做缓存优化，在第二次访问的时候自动访问重定向的那个地址。
     307临时重定向 请求的资源暂时地被移动到  Location 首部所指向的 URL 上
     当发送重定向请求的时候，307 状态码可以确保请求方法和消息主体不会发生变化。当响应状态码为 302 的时候，一些旧有的用户代理会错误地将请求方法转换为 GET：使用非 GET 请求方法而返回 302 状态码，Web 应用的运行状况是不可预测的；而返回 307 状态码时则是可预测的。对于 GET 请求来说，两种情况没有区别。
 
@@ -38,10 +45,24 @@ HTTP
       401 Unauthorized：表示发送的请求需要有认证信息
       403:请求被拒绝
       404：Not Found
+      405 Method Not Allowed: 请求方法不被服务器端允许。
+      406 Not Acceptable: 资源无法满足客户端的条件。
+      408 Request Timeout: 服务器等待了太长时间。
+      409 Conflict: 多个请求发生了冲突。
+      413 Request Entity Too Large: 请求体的数据过大。
+      414 Request-URI Too Long: 请求行里的 URI 太大。
+      429 Too Many Request: 客户端发送的请求过多。
+      431 Request Header Fields Too Large请求头的字段内容太大。
     503
+    500 Internal Server Error: 仅仅告诉你服务器出错了，出了啥错咱也不知道。
+    501 Not Implemented: 表示客户端请求的功能还不支持。
+    502 Bad Gateway: 服务器自身是正常的，但访问的时候出错了，啥错误咱也不知道。
+    503 Service Unavailable: 表示服务器当前很忙，暂时无法响应服务。
     503是一种HTTP状态码。英文名503 Service Unavailable与404（404 Not Found)是同属一种网页状态出错码
     前者是服务器出错的一种返回状态，后者是网页程序没有相关的结果后返回的一种状态，
     web服务器不能处理HTTP请求，可能是临时超载或者是服务器进行维护。
+
+
 
 - 头部 
   Cache-Control  
