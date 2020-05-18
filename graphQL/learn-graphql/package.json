@@ -1,0 +1,20 @@
+{
+  "name": "learn-graphql",
+  "version": "1.0.0",
+  "description": "- /posts/show/1  url 设计对吗?\r   /posts/1   GET 方法表示show \r   比如网上汇款，从账户1向账户2汇款500元，错误的URI是：\r   POST /accounts/1/transfer/500/to/2 把动词transfer改成名词transaction，资源不能是动词\r   POST /transaction HTTP/1.1  \r   from=1&to=2&amount=500.00\r -  接口服务有哪些呢?",
+  "main": "index.js",
+  "scripts": {
+    "json-server": "./node_modules/.bin/json-server --watch db.json --port 3300",
+    "dev": "nodemon index.js --exec babel-node --presets env,stage-0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "express": "^4.17.1",
+    "json-server": "^0.16.1"
+  }
+}
