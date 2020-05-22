@@ -42,6 +42,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+about-window@^1.13.2:
+  version "1.13.2"
+  resolved "https://registry.npm.taobao.org/about-window/download/about-window-1.13.2.tgz#299ac5f410468ecc54068b04c9be90f3ea311044"
+  integrity sha1-KZrF9BBGjsxUBosEyb6Q8+oxEEQ=
+
 ansi-regex@^4.1.0:
   version "4.1.0"
   resolved "http://r.cnpmjs.org/ansi-regex/download/ansi-regex-4.1.0.tgz#8b9f8f08cf1acb843756a839ca8c7e3168c51997"

@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "about-window": "^1.13.2",
     "concurrently": "^5.2.0",
     "electron-is-dev": "^1.2.0",
     "wait-on": "^5.0.0"

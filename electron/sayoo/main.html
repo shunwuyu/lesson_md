@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ninghao</title>
+</head>
+<body>
+  <h1>您好</h1>
+  <script>
+  const { ipcRenderer } = require('electron')
+
+  ipcRenderer.send('greet', {
+    message: 'hello main ~'
+  })
+
+  ipcRenderer.on('greet', (event, args) => {
+    console.log(args)
+  })
+  </script>
+</body>
+</html>
