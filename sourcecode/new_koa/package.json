@@ -1,0 +1,15 @@
+{
+  "name": "new_koa",
+  "version": "1.0.0",
+  "description": "https://juejin.im/post/5ba48fc4e51d450e704277fa 之事无巨细手写koa源码",
+  "main": "lib/application.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.12.0"
+  }
+}
