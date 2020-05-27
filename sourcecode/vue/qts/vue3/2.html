@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  Vue3.0基于Proxy来做数据大劫持代理，可以原生支持到数组的响应式，
+  不需要重写数组的原型，还可以直接支持新增和删除属性，
+   比Vue2.x的Object.defineProperty更加的清晰明了。
+  <script>
+  const data = {
+    name: "zhangsan",
+    age: 20,
+    info: {
+      address: "北京" // 需要深度监听
+    },
+    nums: [10, 20, 30]
+  };
+  const proxyData = new Proxy(data, {
+    get(target,key,receive){ 
+      // 只处理本身(非原型)的属性
+      // console.log(target);
+      const ownKeys = Reflect.ownKeys(target)
+      console.log(ownKeys);
+      if(ownKeys.includes(key)){
+        console.log('get',key) // 监听
+      }
+      // console.log(receive)
+      const result = Reflect.get(target,key,receive)
+      return result
+    },
+    set(target, key, val, reveive){
+      // 重复的数据，不处理
+      const oldVal = target[key]
+      if(val == oldVal){
+        return true
+      }
+      const result = Reflect.set(target, key, val,reveive)
+      console.log('set', key, val)
+      return result
+    },
+    deleteProperty(target, key){
+      const result = Reflect.deleteProperty(target,key)
+      console.log('delete property', key)
+      console.log('result',result)
+      return result
+    }
+  })
+  proxyData.name = 'lzm'
+  proxyData.nums.push(2);
+  // console.log(data.name)
+  console.log(data.nums);
+  // proxyData.info.address = '南昌';
+  // data.nums.push(13)
+  </script>
+</body>
+</html>

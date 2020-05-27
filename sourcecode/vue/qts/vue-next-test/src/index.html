@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script src="../node_modules/vue/dist/vue.global.prod.js"></script>
+  <script>
+  // import { createApp, reactive } from 'vue';
+// import App from './App.vue'
+// composition api 多个方法组合来使用的
+  // const App = {
+  //   setup() { //created  只执行一次
+  //     let state = reactive({name: "刘子明"})
+  //     console.log(state, '----------');
+  //     return { state }
+  //   },
+  //   template: `<div>{{state.name}}</div>`
+  // }
+
+  Vue.createApp().mount('#container')
+  </script>
+</body>
+</html>
