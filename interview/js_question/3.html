@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Object.defineProperty(window, 'a', {
+    // get: function() {
+    //   if (this.value) {
+    //       return this.value += 1
+    //   } else {
+    //       return this.value = 1;
+    //   }
+    //     }
+    // });
+    // if(a == 1 && a == 2 && a == 3) {
+    //   console.log('1');
+    // }
+    var a = Object.create({
+      count: 0,
+      valueOf: function() {
+          return ++this.count;
+      }
+    });
+
+    if (a == 1 && a == 2 && a == 3) {
+      console.log(1);
+    }
+  </script>
+</body>
+</html>

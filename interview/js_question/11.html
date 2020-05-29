@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+//   WeakSet成员只能是对象，不能是其它类型的数据。
+// WeakSet成员对象都是弱引用，即垃圾回收机制不会考虑WeakSet对象对该对象的引用。
+  // let dog1 = { name: 'Snickers', age: 3 };
+  // let dog2 = { name: 'sunny', age: 1 };
+
+  // const weakSauce = new WeakSet([dog1, dog2]);
+
+  // console.log(weakSauce);
+  // dog1 = null; // 释放
+  // console.log(weakSauce);
+
+  let ws = new WeakSet();
+// 类
+  class Demo {
+      // 构造函数
+      constructor(color) {
+          this.color = color;
+          // 存储实例对象
+          // ickt.push(this)
+          // 用ws存储this就避免了对实例的引用
+          ws.add(this)
+      }
+      // 获取颜色方法
+      getColor() {
+          // if (ickt.indexOf(this) === -1) {
+          //     // 抛出错误
+          //     throw new Error('该对象不是Demo的实例，不能使用该方法')
+          // }
+          if (!ws.has(this)) {
+              // 抛出错误
+              throw new Error('该对象不是Demo的实例，不能使用该方法')
+          }
+          return this.color;
+      }
+  }
+  let d1 = new Demo('red')
+  let d2 = new Demo('green')
+  let obj = { color: 'pink' }
+  // 删除d2, d2原来的实例就应该被内存处理。但是没有处理
+  d2 = null;
+  // 获取颜色
+  console.log(d1.getColor());
+  // 让this指向d2
+  console.log(d1.getColor.call(d2));
+  // 让this指向obj
+  console.log(d1.getColor.call(obj));
+
+
+
+  let arr = [1,3,4]
+  let ws2 = new WeakSet([[1,2],{color:"red"},()=>{},arr])
+  ws2.add(window).add(location)
+  console.log(ws2)
+  //删除
+  // let ws2 = new WeakSet([[1,2],{color:"red"},()=>{},arr])
+  console.log(ws2.delete(window))//true
+  console.log(ws2.delete(window))//false
+  //判断是否存在
+  console.log(ws2.has(window))//false
+  console.log(ws2.has(location))//true
+  console.log(ws2)
+
+
+  </script>
+</body>
+</html>
