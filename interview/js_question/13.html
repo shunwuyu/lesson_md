@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // 1. 递归写法
+  // 2. toString 「存在限制，对于存在多种类型的数组无法使用」
+  // 3. 使用数组的reduce累加方法
+  // 4. ES6扩展运算符
+  // 5. Generator函数
+  // https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/54
+  // flatten 函数   
+  var arr=[1,2,3,[4,5],[6,[7,[8]]]]
+  // function flatten(arr) {
+  //   return arr.toString().split(',').map(item => +item)
+  // }
+  // 递归
+  // function wrap(){
+  //   var ret=[];
+  //   return function flat(a){
+  //       for(var item of a){
+  //         // [].constructor
+  //           if(item.constructor===Array){ // 构造函数
+  //               ret.concat(flat(item))
+  //           }else{
+  //               ret.push(item) //退出条件
+  //           }
+  //       }
+  //       return ret
+  //   }
+  // }
+  // console.log(wrap()(arr));
+  // const flatten = function (arr) {
+  //   while (arr.some(item => Array.isArray(item))) {
+  //     console.log(arr, '++++');
+  //       arr = [].concat(...arr) // 把第一层展开
+  //   }
+  //   return arr
+  // }
+  // console.log(flatten(arr))
+
+  // function wrap(){
+  //   var ret=[];
+  //   return function flat(a){
+  //       for(var item of a){
+  //           if(item.constructor===Array){
+  //               ret.concat(flat(item))
+  //           }else{
+  //               ret.push(item)
+  //           }
+  //       }
+  //       return ret
+  //   }
+  // }
+  // console.log(wrap()(arr));
+  // es10
+  // console.log(arr.flat(Infinity));
+  // reduce  概念
+  // function flattenDeep(ary) { return Array.isArray(ary) ? ary.reduce((a,b) => [...a,...flattenDeep(b)],[]) : [ary]; }
+  console.log(flattenDeep(arr))
+  </script>
+</body>
+</html>

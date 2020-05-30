@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 1、什么是Reflect？ Reflect.get(target,property,receiver)
+为操作对象而提供的新API -->
+<script>
+  // let obj={
+  //   name:"chen",
+  // }
+  // let result=Reflect.get(obj,"name")
+  // console.log(result) //chen 
+  
+  // let obj={
+  //     //属性yu部署了getter读取函数
+  //     get yu(){
+  //       //this返回的是Reflect.get的receiver参数对象
+  //       return this.name+this.age
+  //     }
+  //   }
+
+  //   let receiver={
+  //     name:"shen",
+  //     age:"18",
+  //   }
+    
+  //   let result=Reflect.get(obj,"yu",receiver)
+  //   console.log(result) 
+
+  // let obj={
+  //   name:"chen"
+  // }
+
+  // let result=Reflect.set(obj,"name","shi")
+  // console.log(result) //true
+  // console.log(obj.name)
+  // let obj={
+  //   age:38,
+  //   set setAge(value){
+  //     return this.age=value
+  //   }
+  // }
+
+  // let receiver={
+  //   age:28
+  // }
+
+  // let result=Reflect.set(obj,"setAge",18,receiver)
+  // console.log(result) //true
+  // console.log(obj.age) //38
+  // console.log(receiver.age) //18
+
+  // let obj={
+  //     name:"chen"
+  //   }
+
+    let handler={
+      set(target,key,value,receiver){
+        console.log("Proxy拦截赋值操作")
+        //Reflect完成赋值操作
+        Reflect.set(target,key,value,receiver)
+      },
+      defineProperty(target,key,attribute){
+        console.log("Proxy拦截定义属性操作")
+        //Reflect完成定义属性操作
+        Reflect.defineProperty(target,key,attribute)
+      }
+    }
+
+    let proxy=new Proxy(obj,handler)
+    proxy.name="ya"
+
+    var obj= {
+      name: "chen",
+    };
+    Reflect.has(obj, 'name')
+</script>
+</body>
+</html>
