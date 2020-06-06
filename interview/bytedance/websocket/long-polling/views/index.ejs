@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+<p>EJS Welcome to <%= title %></p>
+<script>
+
+function checkQrcode() {
+  fetch('/qrcode/check')
+    .then((res) => res.json())
+    .then(data => {
+      console.log(data, '--------------');
+      checkQrcode();
+    })
+}
+checkQrcode();
+</script>
+</body>
+</html>
