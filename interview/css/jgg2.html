@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .table {
+      display: table;
+    }
+    .table li {
+      display: table-row;
+      background: #beffee;
+    }
+    .disTable li:nth-child(odd) {
+      background: #bec3ff;
+    }
+    .table li div {
+      width: 200px;
+      line-height: 200px;
+      display: table-cell;
+      
+      text-align: center;
+    }
+    .table li:nth-child(odd) div:nth-child(even) {
+      background: #beffee;
+    }
+    .table li:nth-child(even) div:nth-child(even) {
+      background: #bec3ff;
+    }
+  </style>
+</head>
+<body>
+  <ul class="table">
+    <li>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </li>
+    <li>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </li>
+    <li>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </li>
+  </ul>
+</body>
+</html>
