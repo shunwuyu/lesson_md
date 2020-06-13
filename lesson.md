@@ -1,4 +1,6 @@
 https://juejin.im/post/5c19c1b6e51d451d1e06c163
+- interview/call-apply-bind
+- interview/uniq
 - sourcecode/sanyuan_vue
 - node/scan_login/scan-qrcode-login
 - sourcecode/new_koa
