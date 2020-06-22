@@ -28,7 +28,8 @@ Nodejs 使用了一个事件驱动、非阻塞 IO 的模型。events模块是事
   - Node.js 中 Eventemitter 的 emit 是同步的
   - 
 
-- 代码执行区别
+- node 和前端event loop 区别？
+  代码执行区别
   setTimeout是宏任务
   Promise.then则是具有代表性的微任务
   同步(promise函数内) -> 微任务-> 宏任务
@@ -37,4 +38,25 @@ Nodejs 使用了一个事件驱动、非阻塞 IO 的模型。events模块是事
   不同的宏任务被推进不同的执行栈，setInterval、setTimeout被推进timer栈，io操作被推进poll，setImmediate则被推进check，基本执行顺序是timers => poll栈 => check栈。
   
   node端的运行方式为，每切换一次执行栈，就清空一次微任务，也就是说，将当前队列全部清空后，才会清空微任务。
+  v10 版本开始 就有区别了， 用nvm
 
+- Node.js 如何与底层操作系统交互呢，比如读取一个文件的时候，都发生了些啥  
+  https://juejin.im/post/5e6ed2fff265da57671bdbd2#heading-12
+
+  ![](https://user-gold-cdn.xitu.io/2020/3/18/170ec7828e3310d0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+  ![](https://user-gold-cdn.xitu.io/2020/3/18/170ec7828e3310d0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+  html css -> webkit 呈现到我们的屏幕上
+  JavaScript 交给 -> V8 引擎
+  本地的文件, 网络通信， 存储 -> 中间层
+
+  Electron = WebKit + Node 脱离浏览器开发带有 UI 处理的 Node 项目
+
+  ![](https://user-gold-cdn.xitu.io/2020/3/18/170ec7828d7bbb36?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+
+
+  编译原理  AST 抽象语法树
+
+  - Node.js 如何与底层操作系统交互呢，比如读取一个文件的时候，都发生了些啥
+  - Node.js 是如何处理高并发请求的，如何使得服务器性能被很好的利用的
+  - 事件驱动的优势，以及实现方式
