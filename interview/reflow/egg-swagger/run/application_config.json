@@ -17,7 +17,7 @@
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
       "csrf": {
-        "enable": true,
+        "enable": false,
         "type": "ctoken",
         "ignoreJSON": false,
         "useSession": false,
@@ -26,8 +26,7 @@
         "headerName": "x-csrf-token",
         "bodyName": "_csrf",
         "queryName": "_csrf",
-        "refererWhiteList": [],
-        "matching": "<Function anonymous>"
+        "refererWhiteList": []
       },
       "xframe": {
         "enable": true,
@@ -88,25 +87,27 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-onerror/lib/onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-session\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-security\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-jsonp\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-onerror\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-i18n\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-watcher\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-schedule\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-multipart\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-development\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-logrotator\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-static\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-view\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\locales",
-        "D:\\lesson_md\\interview\\reflow\\egg-swagger\\config\\locales"
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-session/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-security/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-jsonp/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-onerror/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-i18n/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-watcher/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-schedule/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-multipart/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-development/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-logrotator/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-static/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-view/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-swagger-doc/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-sequelize/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/locales",
+        "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/config/locales"
       ],
       "queryField": "locale",
       "cookieField": "locale",
@@ -117,8 +118,8 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-watcher\\lib\\event-sources\\default",
-        "development": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-watcher\\lib\\event-sources\\development"
+        "default": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-watcher/lib/event-sources/default",
+        "development": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-watcher/lib/event-sources/development"
       }
     },
     "customLogger": {
@@ -141,7 +142,7 @@
       "files": 10,
       "fileExtensions": [],
       "whitelist": null,
-      "tmpdir": "C:\\Users\\86199\\AppData\\Local\\Temp\\egg-multipart-tmp\\egg-swagger",
+      "tmpdir": "/var/folders/zr/_jvq2p2x6j3b6lpw9q2r25g80000gn/T/egg-multipart-tmp/egg-swagger",
       "cleanSchedule": {
         "cron": "0 30 4 * * *"
       }
@@ -164,18 +165,53 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\app\\public",
+      "dir": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/app/public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\app\\view",
+      "root": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/app/view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
       "mapping": {}
+    },
+    "swaggerdoc": {
+      "dirScanner": "./app/controller",
+      "basePath": "/",
+      "apiInfo": {
+        "title": "NAPI",
+        "description": "swagger-ui for NAPI document.",
+        "version": "1.0.0"
+      },
+      "schemes": [
+        "http",
+        "https"
+      ],
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "securityDefinitions": {},
+      "enableSecurity": false,
+      "routerMap": true,
+      "enable": true
+    },
+    "sequelize": {
+      "dialect": "mysql",
+      "database": "user",
+      "host": "localhost",
+      "port": 3306,
+      "username": "root",
+      "password": "<String len: 10>",
+      "define": {
+        "freezeTableName": true,
+        "timestamps": false
+      }
     },
     "env": "local",
     "name": "egg-swagger",
@@ -200,12 +236,17 @@
       "license": "ISC",
       "dependencies": {
         "egg": "^2.26.0",
-        "egg-bin": "^4.14.1"
+        "egg-bin": "^4.14.1",
+        "egg-sequelize": "^5.2.1",
+        "egg-swagger-doc": "^2.3.2"
+      },
+      "devDependencies": {
+        "egg-sequelize-auto": "^0.1.1"
       }
     },
-    "baseDir": "D:\\lesson_md\\interview\\reflow\\egg-swagger",
-    "HOME": "C:\\Users\\86199",
-    "rundir": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\run",
+    "baseDir": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger",
+    "HOME": "/Users/shunwuyu",
+    "rundir": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -237,7 +278,7 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\logs\\egg-swagger",
+      "dir": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/logs/egg-swagger",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -329,8 +370,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-session",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -342,8 +383,8 @@
         "session"
       ],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-security",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-security",
       "version": "2.8.0"
     },
     "jsonp": {
@@ -355,8 +396,8 @@
         "security"
       ],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-jsonp",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -368,8 +409,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-onerror",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -379,8 +420,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-i18n",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-i18n",
       "version": "2.1.1"
     },
     "watcher": {
@@ -390,8 +431,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-watcher",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-watcher",
       "version": "3.1.1"
     },
     "schedule": {
@@ -401,8 +442,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-schedule",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-schedule",
       "version": "3.6.4"
     },
     "multipart": {
@@ -414,8 +455,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-multipart",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-multipart",
       "version": "2.10.3"
     },
     "development": {
@@ -429,8 +470,8 @@
       "env": [
         "local"
       ],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-development",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-development",
       "version": "2.4.3"
     },
     "logrotator": {
@@ -442,8 +483,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-logrotator",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-logrotator",
       "version": "3.1.0"
     },
     "static": {
@@ -453,8 +494,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-static",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -464,9 +505,31 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\lesson_md\\interview\\reflow\\egg-swagger\\node_modules\\egg-view",
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-view",
       "version": "2.1.2"
+    },
+    "swaggerdoc": {
+      "enable": true,
+      "package": "egg-swagger-doc",
+      "name": "swaggerdoc",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-swagger-doc",
+      "version": "2.3.2"
+    },
+    "sequelize": {
+      "enable": true,
+      "package": "egg-sequelize",
+      "name": "sequelize",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/config/plugin.js",
+      "path": "/Users/shunwuyu/lesson/lesson_md/interview/reflow/egg-swagger/node_modules/egg-sequelize",
+      "version": "5.2.1"
     }
   }
 }
