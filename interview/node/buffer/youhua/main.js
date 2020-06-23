@@ -6,9 +6,9 @@ for (var i = 0; i < 10240; i++) {
 }
 
 console.log(`Hello：${hello.length}`)
-// hello = Buffer.from(hello);
+hello = Buffer.from(hello);
 
 http.createServer((req, res) => {
   res.writeHead(200);
   res.end(hello);
-}).listen(8001);
+}).listen(8002);
