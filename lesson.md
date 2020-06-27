@@ -1,3 +1,4 @@
+- js/v-show
 - mongodb schema
 - docker mongodb node /docker/try-mondodb
 - 小程序 wechat/txl
