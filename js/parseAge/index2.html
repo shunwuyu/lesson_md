@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+</head>
+<body>
+  <script>
+  function fail(thing) {
+    throw new Error(thing);
+  }
+  function warn(thing) {
+    console.log(["WARNING:", thing].join(' '));
+  }
+  function note(thing) {
+    console.log(["NOTE:", thing].join(' '));
+  }
+  function parseAge(age) {
+    console.log(age);
+    // console.log(!_.isString(age))
+    if (!_.isString(age)) fail("Expecting a string")
+    var a;
+    note("Attemping to parse an age");
+    a = parseInt(age, 10);
+    // console.log(a);
+    // console.log(_.isNaN(a));
+    if (_.isNaN(a)) {
+      warn(["Could not parse age:", age].join(" "))
+      a = 0;
+    }
+    return a;
+  }
+  parseAge(42);
+  parseAge("42");
+ 
+  </script>
+</body>
+</html>
