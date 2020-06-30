@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=750,user-scalable=no">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="win">
+    <div class="videowin1">
+      <video src="http://tmall.lpiii.cn/618/static/video/big3.mp4" class="video-box video1" style="transform:translateX(0px);"></video>
+      <div class="innerwin v-enter-to" >
+        <div class="innerwin wt">
+          <div class="vh" style="background: url(http://tmall.lpiii.cn/618/static/videobtn/1.png);"></div>
+        </div>
+        <div class="innerwin wt" style="height: 1206px; margin-top: -603px;">
+          <div class="change" style="background: url(http://tmall.lpiii.cn/618/static/videobtn/zbtn.png) center center no-repeat;">
+            <div class="change1" style="background: url(http://tmall.lpiii.cn/618/static/videobtn/zbtninfo.png) center center no-repeat;display:none;">
+            </div>
+            <div class="xlz2"></div>
+            <div class="xlz1"></div>
+          </div>
+        </div>
+      </div>
+      <div id="playVideo_con">
+        <div id="playVideo"></div>
+        <div class="full"></div>
+        <div class="innerwin wt">
+          <div class="helptit" style="background: url(&quot;http://tmall.lpiii.cn/618/static/help/tit.png&quot;) center center no-repeat;"></div>
+          <!-- <div class="sl sl1" style="background: url(&quot;http://tmall.lpiii.cn/618/static/help/1.png&quot;) center center no-repeat;"></div>
+          <div  class="sl sl2" style="background: url(&quot;http://tmall.lpiii.cn/618/static/help/2.png&quot;) center center no-repeat;"></div>
+          <div  class="sl sl3" style="background: url(&quot;http://tmall.lpiii.cn/618/static/help/3.png&quot;) center center no-repeat;"></div>
+          <div  class="sl sl6" style="background: url(&quot;http://tmall.lpiii.cn/618/static/help/3.png&quot;) center center no-repeat;"></div>
+          <div  class="sl sl5" style="background: url(&quot;http://tmall.lpiii.cn/618/static/help/2.png&quot;) center center no-repeat;"></div>
+          <div class="sl sl4" style="background: url(&quot;http://tmall.lpiii.cn/618/static/help/1.png&quot;) center center no-repeat;"></div> -->
+          <div class="helpbtn" style="background: url(&quot;http://tmall.lpiii.cn/618/static/help/but.png&quot;) center center no-repeat;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  // 小红书
+  let playNum = 0;
+  function ready(fn){
+    if(document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', function() {
+            // arguments.callee 对参数的引用
+            document.removeEventListener('DOMContentLoaded',arguments.callee, false);
+            fn();
+        }, false);
+    } 
+
+    // 如果IE
+    else if(document.attachEvent) {
+        // 确保当页面是在iframe中加载时，事件依旧会被安全触发
+        document.attachEvent('onreadystatechange', function() {
+            if(document.readyState == 'complete') {
+                document.detachEvent('onreadystatechange', arguments.callee);
+                fn();
+            }
+        });
+      }
+    };
+  
+  ready(function() {
+    const appEle = document.getElementById('app');
+    const winHeight = window.innerHeight;
+    const innerwinEles = document.querySelectorAll('.innerwin');
+    const win1Ele = document.querySelector('.videowin1');
+    const enterEle = document.querySelector('.v-enter-to');
+    // console.log(innerwinEle);
+    // appEle.style.background = 'rgb(0,0,0)';
+    // appEle.style.marginTop = `${0-winHeight/2}px`;
+    // appEle.style.height = `${winHeight}px`;
+    // appEle.style.transform = `scale(1, 1)`;
+    // 性能更好
+    appEle.style.cssText = `background:rgb(0,0,0);margin-top:${0-winHeight/2}px;height:${winHeight}px;transform:scale(1, 1)`;
+    win1Ele.style.cssText = `height:${winHeight}px;margin-top:${0-winHeight/2}px`;
+    innerwinEles.forEach(ele => {
+      ele.style.cssText = `height:${winHeight*0.9}px;margin-top:${0-winHeight*0.9/2}px`;
+    })
+    // innerwinEle.style.cssText = `height:${winHeight*0.9}px;margin-top:${0-winHeight*0.9/2}px`;
+    enterEle.style.cssText = `height:${winHeight*0.9}px;margin-top:${0-winHeight*0.9/2}px;display:none;`;
+    
+    document.querySelector('.helpbtn').addEventListener('click', function() {
+      document.querySelector('#playVideo_con').style.display = 'none';
+      document.querySelector('#playVideo_con').style.opacity = 0;
+      document.querySelector('.video-box').play();
+      enterEle.style.display = 'block';
+    });
+    document.querySelector('.change').addEventListener('click', function() {
+      document.querySelector('.change1').style.display = '';
+      document.querySelector('.xlz2').style.display = 'none';
+      document.querySelector('.xlz1').style.display = 'none';
+    }, false);
+
+    // document.querySelector('')
+
+    document.querySelector('.change1').addEventListener('click', function() {
+      playNum++;
+      if (playNum > 2) {
+        playNum = 0;
+      }
+      document.querySelector('.vh').style.background=`url("http://tmall.lpiii.cn/618/static/videobtn/${playNum + 1}.png")`
+      // console.log(document.querySelector('.video-box'))
+      document.querySelector('.video-box').style.transform = `translate(${0 - playNum * 750}px)`
+    }, false);
+
+  })
+  </script>
+</body>
+</html>
