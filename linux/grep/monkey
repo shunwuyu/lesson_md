@@ -1,12 +1,3 @@
-[source](https://time.geekbang.org/course/detail/193-118788)
-
-- 管道
-  进程间通信的主要工具， shell 方便两条命令可以通信
-  重定向，  标准输出输出到文件里
-  信号 进程通信方式的一种
-  第一个输出 输入
-  
-https://juejin.im/post/5efe8dc9f265da22aa0ef08f
 One day,a little monkey is playing by the well.一天,有只小猴子在井边玩儿.
 He looks in the well and shouts :它往井里一瞧,高喊道：
 “Oh!My god!The moon has fallen into the well!” “噢!我的天!月亮掉到井里头啦!”
@@ -29,10 +20,3 @@ Just before they reach the moon,the oldest monkey raises his head and happens to
 He yells excitedly “Don’t be so foolish!The moon is still in the sky!”
 它兴奋地大叫：“别蠢了!月亮还好好地挂在天上呢!
 
-- grep moon monkey  找出所有符合条件的行
-- grep -v  moon monkey   查找反向符合条件的行
-- grep -c  moon monkey 直接查找符合条件的行数
-- grep my monkey  grep -i my monkey 忽略大小写查看
-- grep -n monkey monkey 查找符合条件的行并输出行号
-- grep '^J' monkey 查找开头是J的行
-- grep "呢$" monkey 查找结尾是呢的行

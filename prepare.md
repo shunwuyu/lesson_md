@@ -1,28 +1,9 @@
-1.  在电脑的非系统盘，  新建  workspace 目录，
-该目录为我们的工作目录
-workspace目录下 简历 lesson_xe 此目录为我们的学习目录 接着新建 algorithm/hongbao/
-
-
-## 安装环境
-1.  vscode 编辑器  
-https://code.visualstudio.com/Download
-2.  git bash 
-https://gitforwindows.org/
-添加到全局
-3. 安装node 环境
-https://nodejs.org/en/
-
-## 注册账号
-在以下社区注册账号
-1. https://github.com/
-2. https://segmentfault.com/
-3. https://juejin.im/
-
-## 预习内容
-1. https://www.imooc.com/learn/9
-2. https://www.imooc.com/learn/36
-3. https://www.imooc.com/learn/931
-4. https://www.imooc.com/learn/710
-5. https://www.imooc.com/learn/680
-6. https://www.imooc.com/learn/488
-7. https://www.imooc.com/learn/10
+ <!-- g m,.,/ -->
+6515饿等法共
+ / 和Hm.7
+  7/
+  后面m
+  给 
+  】卖红酒面膜
+ 8该你  n6
+ ,0
