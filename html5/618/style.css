@@ -1,0 +1,345 @@
+#app {
+  font-family: Avenir,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  top: 50%;
+}
+
+#app, .win {
+  position: absolute;
+  width: 750px;
+  background-color: red;
+  height: 100%;
+  left: 50%;
+  overflow: hidden;
+  margin-left: -375px;
+}
+.videowin1 {
+  position: absolute;
+  width: 750px;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  margin-left: -375px;
+}
+#playVideo_con {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* display: none; */
+}
+#playVideo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.full {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.helptit {
+  position: absolute;
+  width: 750px;
+  left: 0;
+  height: 102px;
+  top: 50px;
+}
+
+.helpbtn {
+  position: absolute;
+  width: 750px;
+  left: 0;
+  height: 145px;
+  bottom: 50px;
+}
+.innerwin {
+  position: absolute;
+  width: 750px;
+  margin-left: -375px;
+  left: 50%;
+  top: 50%;
+}
+.wt {
+  -webkit-perspective: 300px;
+  perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.sl {
+  position: absolute;
+  width: 300px;
+  height: 800px;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -400px;
+  border: 3px solid #fff;
+}
+
+/* .sl1 {
+  animation-name: sl-data-v-317b8af1;
+  animation-duration: 2s;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes sl-data-v-317b8af1 {
+  0%, 14% {
+    transform: translate3d(-100px,0,-100px) rotateY(-20deg);
+  }
+  28%, 100% {
+    -webkit-transform: translate3d(-100px,0,-100px) rotateY(-20deg);
+    transform: translate3d(-100px,0,-100px) rotateY(-20deg);
+    opacity: 0;
+  }
+} */
+
+.vh {
+  position: absolute;
+  width: 140px;
+  height: 150px;
+  top: 30px;
+  left: 30px;
+}
+
+.change {
+  position: absolute;
+  width: 302px;
+  height: 200px;
+  bottom: 30px;
+  left: 224px;
+}
+
+.change1{
+  position: absolute;
+  width: 302px;
+  height: 200px;
+  bottom: -11px;
+  left: 0;
+}
+
+.xlz2 {
+  background-image: url(http://tmall.lpiii.cn/618/static/videobtn/btn_1.png);
+  position: absolute;
+  width: 477px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -238px;
+  animation-name: xl2;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-start;
+  animation-play-state: running;
+}
+
+@keyframes xl2 {
+  0%, 100% {
+    background-position-x: -0px;
+    background-position-y: -0px;
+  }
+  5% {
+      background-position-x: -477px;
+      background-position-y: -0px;
+  }
+  10% {
+      background-position-x: -954px;
+      background-position-y: -0px;
+  }
+  15% {
+      background-position-x: -1431px;
+      background-position-y: -0px;
+  }
+  20% {
+      background-position-x: -0px;
+      background-position-y: -300px;
+  }
+  25% {
+      background-position-x: -477px;
+      background-position-y: -300px;
+  }
+  30% {
+      background-position-x: -954px;
+      background-position-y: -300px;
+  }
+  35% {
+      background-position-x: -1431px;
+      background-position-y: -300px;
+  }
+  40% {
+      background-position-x: -0px;
+      background-position-y: -600px;
+  }
+  45% {
+      background-position-x: -477px;
+      background-position-y: -600px;
+  }
+  50% {
+      background-position-x: -954px;
+      background-position-y: -600px;
+  }
+  55% {
+      background-position-x: -1431px;
+      background-position-y: -600px;
+  }
+  60% {
+      background-position-x: -0px;
+      background-position-y: -900px;
+  }
+  65% {
+      background-position-x: -477px;
+      background-position-y: -900px;
+  }
+  70% {
+      background-position-x: -954px;
+      background-position-y: -900px;
+  }
+  75% {
+      background-position-x: -1431px;
+      background-position-y: -900px;
+  }
+  80% {
+      background-position-x: -0px;
+      background-position-y: -1200px;
+  }
+  85% {
+      background-position-x: -477px;
+      background-position-y: -1200px;
+  }
+  90% {
+      background-position-x: -954px;
+      background-position-y: -1200px;
+  }
+  95% {
+      background-position-x: -1431px;
+      background-position-y: -1200px;
+  }
+}
+
+.xlz1 {
+  background-image: url(http://tmall.lpiii.cn/618/static/videobtn/btn_0.png);
+  position: absolute;
+  width: 477px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -152px;
+  margin-left: -238px;
+  animation-name: xl1;
+  animation-duration: 4.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-start;
+  animation-play-state: running;
+}
+
+@keyframes xl1 {
+  0%, 26%, 89%, 100% {
+    background-position-x: -0px;
+    background-position-y: -0px;
+  }
+
+  27% {
+      background-position-x: -477px;
+      background-position-y: -0px;
+  }
+  28% {
+      background-position-x: -954px;
+      background-position-y: -0px;
+  }
+  29% {
+      background-position-x: -1431px;
+      background-position-y: -0px;
+  }
+  30% {
+      background-position-x: -1908px;
+      background-position-y: -0px;
+  }
+  31% {
+      background-position-x: -2385px;
+      background-position-y: -0px;
+  }
+  32% {
+      background-position-x: -0px;
+      background-position-y: -300px;
+  }
+  33% {
+      background-position-x: -477px;
+      background-position-y: -300px;
+  }
+  34% {
+      background-position-x: -954px;
+      background-position-y: -300px;
+  }
+  35% {
+      background-position-x: -1431px;
+      background-position-y: -300px;
+  }
+  36% {
+      background-position-x: -1908px;
+      background-position-y: -300px;
+  }
+  37% {
+      background-position-x: -2385px;
+      background-position-y: -300px;
+  }
+  38% {
+      background-position-x: -0px;
+      background-position-y: -600px;
+  }
+  39%, 78% {
+      background-position-x: -477px;
+      background-position-y: -600px;
+  }
+  79% {
+      background-position-x: -954px;
+      background-position-y: -600px;
+  }
+  80% {
+      background-position-x: -1431px;
+      background-position-y: -600px;
+  }
+  81% {
+      background-position-x: -1908px;
+      background-position-y: -600px;
+  }
+  82% {
+      background-position-x: -2385px;
+      background-position-y: -600px;
+  }
+  83% {
+      background-position-x: -0px;
+      background-position-y: -900px;
+  }
+  84% {
+      background-position-x: -477px;
+      background-position-y: -900px;
+  }
+  85% {
+      background-position-x: -954px;
+      background-position-y: -900px;
+  }
+  86% {
+      background-position-x: -1431px;
+      background-position-y: -900px;
+  }
+  87% {
+      background-position-x: -1908px;
+      background-position-y: -900px;
+  }
+  88% {
+      background-position-x: -2385px;
+      background-position-y: -900px;
+  }
+}

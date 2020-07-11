@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>.button {    display: inline-block;    outline: none;    cursor: pointer;    text-align: center;    text-decoration: none;    font: 14px/100% Arial, Helvetica, sans-serif;    padding: .5em 2em .55em;    text-shadow: 0 1px 1px rgba(0,0,0,.3);    border-radius: .5em;    box-shadow: 0 1px 2px rgba(0,0,0,.2);    color: white;    border: solid 1px ;}
+  #p1 {background-color:hsl(150,100%,60%);} 
+  </style>
+</head>
+<body>
+  <p id="p1">绿色</p>
+  <div class="button orange">123</div>
+  <script>
+  var btn = document.querySelector(".button");
+  var h = 25;
+  setInterval(function(){
+    h ++; h = h % 360; 
+    btn.style.borderColor=`hsl(${h}, 95%, 45%)`
+    btn.style.background=`linear-gradient(to bottom, hsl(${h},95%,54.1%), hsl(${h},95%,84.1%))`
+  },100);
+  </script>
+</body>
+</html>
