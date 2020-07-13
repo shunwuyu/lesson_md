@@ -6,6 +6,18 @@
   <title>Document</title>
 </head>
 <body>
-  <script src="./1.js"></script>
+  <!-- <script src="./1.js"></script> -->
+  <script>
+    'use strict'
+    var name = 'aa'
+    var b = {
+      name: 'bbb',
+      getName: () => {
+        console.log(this);
+        return this.name
+      }
+    }
+    console.log(b.getName());
+  </script>
 </body>
 </html>
