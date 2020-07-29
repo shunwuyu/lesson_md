@@ -1,3 +1,11 @@
+this是函数运行时指针， 指向对象由运行方式决定
+1. 作为对象的方法调用 this指向对象本身
+2. 作为普通函数调用 this指向全局, 严格模式下undefined
+3. 构造器调用， this指向实例化后的对象
+4. call, apply, bind 手动指定this调用
+5. 箭头函数没有自己的this值，箭头函数中所使用的this来自于函数作用域链
+
+
 [source](https://juejin.im/post/5d23e750f265da1b855c7bbe)
 
 不管是Vue，还是 React，都需要管理状态（state），比如组件之间都有共享状态的需要
