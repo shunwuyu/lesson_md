@@ -1,0 +1,10 @@
+mutation articleIsRead($id: Int!) {
+  articleIsRead(id: $id) {
+    id
+    title
+    date
+    introduction
+    category
+    isRead
+  }
+}

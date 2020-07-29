@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "将进酒君不见",
+      "content": "主人何为言少钱,径须沽取对君酌",
+      "author": 1
+    },
+    {
+      "id": 2,
+      "title": "长恨歌",
+      "content": "蜀山水碧蜀山青,圣主朝朝暮暮情",
+      "author": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "李白"
+    },
+    {
+      "id": 2,
+      "name": "白居易"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "author": 2,
+      "content": "好诗"
+    },
+    {
+      "id": 2,
+      "postId": 2,
+      "author": 1,
+      "content": "学习了"
+    }
+  ]
+}

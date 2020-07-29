@@ -22,6 +22,7 @@ class List extends PureComponent {
 									</ListInfo>
 								</ListItem>
 							</Link>
+							
 						);
 					})
 				}

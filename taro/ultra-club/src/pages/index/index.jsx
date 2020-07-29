@@ -1,69 +1,69 @@
-import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import Taro, { useState } from '@tarojs/taro'
+import { View } from '@tarojs/components'
+import { AtFab, AtFloatLayout, AtMessage } from 'taro-ui'
+
 import { PostCard, PostForm } from '../../components'
-import './index.css'
+import './index.scss'
 
-export default class Index extends Component {
-  state = {
-    posts: [
-      {
-        title: '泰罗奥特曼',
-        content: '泰罗是奥特之父和奥特之母唯一的亲生儿子。',
-      },
-    ],
-    formTitle: '',
-    formContent: '',
-  }
+export default function Index() {
+  const [posts, setPosts] = useState([
+    {
+      title: '泰罗奥特曼',
+      content: '泰罗是奥特之父和奥特之母唯一的亲生儿子。',
+    },
+  ])
+  const [formTitle, setFormTitle] = useState('')
+  const [formContent, setFormContent] = useState('')
+  const [isOpened, setIsOpened] = useState(false)
 
-  config = {
-    navigationBarTitleText: '首页'
-  }
-
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-  handleTitleInput (e) {
-    this.setState({
-      formTitle: e.target.value,
-    })
-  }
-  handleContentInput(e) {
-    this.setState({
-      formContent: e.target.value,
-    })
-  }
-  handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault()
 
-    const { formTitle: title, formContent: content } = this.state
-    const newPosts = this.state.posts.concat({ title, content })
+    const newPosts = posts.concat({ title: formTitle, content: formContent })
+    setPosts(newPosts)
+    setFormTitle('')
+    setFormContent('')
+    setIsOpened(false)
 
-    this.setState({
-      posts: newPosts,
-      formTitle: '',
-      formContent: '',
+    Taro.atMessage({
+      message: '发表文章成功',
+      type: 'success',
     })
   }
-  render () {
-    return (
-      <View className='index'>
-        {this.state.posts.map((post, index) => (
-          <PostCard key={index} title={post.title} content={post.content} />
-        ))}
-        <PostForm
-          formTitle={this.state.formTitle}
-          formContent={this.state.formContent}
-          handleSubmit={e => this.handleSubmit(e)}
-          handleTitleInput={e => this.handleTitleInput(e)}
-          handleContentInput={e => this.handleContentInput(e)}
+
+  return (
+    <View className="index">
+      <AtMessage />
+      {posts.map((post, index) => (
+        <PostCard
+          key={index}
+          title={post.title}
+          content={post.content}
+          isList
         />
+      ))}
+      <AtFloatLayout
+        isOpened={isOpened}
+        title="发表新文章"
+        onClose={() => setIsOpened(false)}
+      >
+        <PostForm
+          formTitle={formTitle}
+          formContent={formContent}
+          handleSubmit={e => handleSubmit(e)}
+          handleTitleInput={e => setFormTitle(e.target.value)}
+          handleContentInput={e => setFormContent(e.target.value)}
+        />
+      </AtFloatLayout>
+      <View className="post-button">
+        <AtFab onClick={() => setIsOpened(true)}>
+          <Text className="at-fab__icon at-icon at-icon-edit"></Text>
+        </AtFab>
       </View>
-    )
-  }
+    </View>
+  )
+}
+
+Index.config = {
+  navigationBarTitleText: '首页',
 }

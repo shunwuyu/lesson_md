@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .wrap {
+      width: 200px;
+      border: 1px solid #333;
+  }
+  .wrap:after {
+      content: 'after伪元素';
+      display: block;
+      /* clear: both; */
+  }
+  .left {
+      float: left;
+      background: blue;
+      height: 100px;
+      width: 100px;
+  }
+  .right {
+      float: left;
+      background: red;
+      height: 50px;
+      width: 100px;
+  }
+  </style>    
+</head>
+<body>
+  <div class='wrap'>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <p>fdfdfdf</p>
+</body>
+</html>

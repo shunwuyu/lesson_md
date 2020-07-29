@@ -1,0 +1,3 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{rootCls}}" style="{{anonymousState__temp}}">{{_message}}</view>
+</block>

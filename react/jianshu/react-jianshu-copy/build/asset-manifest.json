@@ -1,8 +1,20 @@
 {
+<<<<<<< HEAD
+<<<<<<< HEAD
+  "main.js": "static/js/main.84c5bd3e.js",
+  "main.js.map": "static/js/main.84c5bd3e.js.map",
+=======
+  "main.js": "static/js/main.9e9af4eb.js",
+  "main.js.map": "static/js/main.9e9af4eb.js.map",
+>>>>>>> 72ed56a10b9d6c4fd8d5edc36ee2b7e6498f79ef
+  "static/js/0.2b20cd8d.chunk.js": "static/js/0.2b20cd8d.chunk.js",
+  "static/js/0.2b20cd8d.chunk.js.map": "static/js/0.2b20cd8d.chunk.js.map"
+=======
   "main.css": "static/css/main.aba0d084.css",
   "main.css.map": "static/css/main.aba0d084.css.map",
   "main.js": "static/js/main.94e75a7b.js",
   "main.js.map": "static/js/main.94e75a7b.js.map",
   "static/js/0.c6f2bab7.chunk.js": "static/js/0.c6f2bab7.chunk.js",
   "static/js/0.c6f2bab7.chunk.js.map": "static/js/0.c6f2bab7.chunk.js.map"
+>>>>>>> 76d2b0d9ccd38640ae98d31de2506b8f36f3b6bf
 }

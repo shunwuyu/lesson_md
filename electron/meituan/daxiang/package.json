@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main/index.js",
+  "scripts": {
+    "start:main": "electron .",
+    "start:render": "cd app/renderer/src/main && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.1.8",
+    "electron-rebuild": "^1.8.8",
+  },
+  "dependencies": {
+    "about-window": "^1.13.2",
+    "electron-about-window": "^1.13.2",
+    "electron-is-dev": "^1.1.0",
+    "ws": "^7.2.1"
+  }
+}

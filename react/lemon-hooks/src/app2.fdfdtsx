@@ -1,0 +1,7 @@
+import * as React from "react";
+import { HelloComponent } from "./hello";
+
+export const App = () => {
+  const [name, setName] = React.useState('defaultUserName');
+  return <HelloComponent userName={name} />;
+};

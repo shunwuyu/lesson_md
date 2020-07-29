@@ -1,0 +1,11 @@
+const {app, BrowserWindow} = require('electron')
+const {create: createMainWindow, show: showMainWindow, close: closeMainWindow} = require('./windows/main')
+const handleIPC = require('./ipc')
+const {create: createControlWindow} = require('./windows/control')
+app.on('ready', () => {
+  createControlWindow()
+  createMainWindow()
+  handleIPC()
+  require('./trayAndMenu')
+  // require('./robot.js')()
+})

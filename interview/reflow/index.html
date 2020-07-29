@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 回流 -->
+  <ul id="list"></ul>
+  <script>
+  const items = ['coffee', 'tea', 'water'];
+  const list = document.getElementById('list');
+  let fragment = document.createDocumentFragment();
+  for (let item of items) { 
+    let oLi = document.createElement('li');
+    oLi.innerText = item;
+    fragment.appendChild(oLi)
+    // list.appendChild(oLi);
+  }
+  list.appendChild(fragment);
+  </script>
+</body>
+</html>

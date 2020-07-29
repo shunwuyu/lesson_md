@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .box {
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+  </style>
+</head>
+<body>
+  <!-- 补间动画，其实就是让小方块0px到300px平滑移动。其实就是固定的时间点，有固定的位置。
+   -->
+  <div class="box"></div>
+  <script>
+  /**
+ *  执行补间动画方法
+ *
+ * @param      {Number}    start     开始数值
+ * @param      {Number}    end       结束数值
+ * @param      {Number}    time      补间时间
+ * @param      {Function}  callback  每帧的回调函数
+ */
+  function animate(start, end, time, callback) {
+    // console.log(performance);
+    let startTime = performance.now();
+    let differ = end - start;
+    function loop() {
+        raf = requestAnimationFrame(loop) // 下一阵调用每帧之前要执行的函数
+        const passTime = performance.now() - startTime // 获取当前时间和开始时间差
+        let per = passTime / time // 计算当前已过百分比
+        if (per >= 1) { // 判读如果已经执行
+              per = 1 // 设置为最后的状态
+              cancelAnimationFrame(raf) // 停掉动画
+        }
+        const pass = differ * per // 通过已过时间百分比*开始结束数值差得出当前的数值
+        callback(pass) // 调用回调函数，把数值传递进去
+    }
+    let raf = requestAnimationFrame(loop)
+  }
+  let box = document.querySelector('.box');
+
+  animate(0, 400, 1000, value => {
+    box.style.transform = `translateX(${value}px)` // 将数值设置给 方块 的 css 属性 transform 属性可以控制元素在水平方向上的位移
+  });
+  </script>
+</body>
+</html>

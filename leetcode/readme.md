@@ -1,2 +1,1 @@
-[source](https://github.com/azl397985856/leetcode/blob/master/problems/875.koko-eating-bananas.md)
-
+珂珂来二分  慢吃有人爱

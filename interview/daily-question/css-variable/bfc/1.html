@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 用于决定块盒子的布局及浮动相互影响范围的一个区域 -->
+  <!-- https://juejin.im/post/59b73d5bf265da064618731d#heading-14 -->
+</head>
+<body>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .left{
+        background: #73DE80;    /* 绿色 */
+        opacity: 0.5;
+        border: 3px solid #F31264;
+        width: 200px;
+        height: 200px;
+        float: left;
+    }
+    .right{                        /* 粉色 */
+        background: #EF5BE2;
+        opacity: 0.5;
+        border: 3px solid #F31264;
+        width:400px;
+        min-height: 100px;
+    }
+    .box{
+        background:#888;
+        height: 100%;
+        margin-left: 50px;
+    }
+    .BFC{
+      overflow: hidden;
+    }
+</style>
+<!-- 绿色框（'#left'）向左浮动，它创建了一个新BFC，但暂时不讨论它所创建的BFC。由于绿色框浮动了，它脱离了原本normal flow的位置，因此，粉色框（'#right'）就被定位到灰色父元素的左上角（特性3：元素左边与容器左边相接触），与浮动绿色框发生了重叠。
+  特性6：浮动区域不叠加到BFC区域上 
+  灰色框创建了一个新的BFC后，高度发生了变化，计算高度时它将绿色框区域也考虑进去了（特性5：计算BFC的高度时，浮动元素也参与计算
+-->
+<div class='box BFC'>
+    <div class='left'> </div>
+    <div class='right'> </div>
+</div>
+</body>
+</html>

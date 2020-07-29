@@ -1,0 +1,19 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "description": "[source](https://files-static.segmentfault.com/205/705/2057056783-590c5cca66208.pdf?_upt=efe447541588730432)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha  test/mocha/date.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "mocha": "^7.1.2",
+    "should": "^13.2.3"
+  }
+}

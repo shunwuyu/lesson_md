@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>indexdb</title>
+</head>
+<body>
+  <script>
+  var request = window.indexedDB.open('blogs', '1.0');
+  var db;
+  request.onerror = function (event) {
+    console.log('数据库打开报错');
+  };
+
+  request.onsuccess = function (event) {
+    db = request.result;
+    console.log('数据库打开成功');
+  };
+
+  request.onupgradeneeded = function (event) {
+    db = event.target.result;
+    var objectStore;
+    if (!db.objectStoreNames.contains('person')) {
+      objectStore = db.createObjectStore('person', { keyPath: 'id' });
+    }
+  }
+
+  function add() {
+    var request = db.transaction(['person'], 'readwrite')
+    .objectStore('person')
+    .add({ id: 2, name: '张三', age: 24, email: 'zhangsan@example.com' });
+
+    request.onsuccess = function (event) {
+      console.log('数据写入成功');
+    };
+
+    request.onerror = function (event) {
+      console.log('数据写入失败');
+    }
+  }
+
+  setTimeout(add, 2000)
+
+  // add();
+  </script>
+</body>
+</html>

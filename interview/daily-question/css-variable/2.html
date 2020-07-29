@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .box {
+    --base-size: 10;
+    width: calc(var(--base-size)* 10px);
+    height: calc(var(--base-size)* 5px);
+    padding:calc(var(--base-size) * 1px);
+    background-color: red;
+  }
+
+  @media screen and (max-width: 800px) {
+    .box{
+      --base-size: 8;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <div class="box">
+    
+  </div>
+  <script>
+  setTimeout(() => {
+    console.log(document.querySelector(".box").style.setProperty('--base-size', 20))
+  }, 1000);
+  </script>
+</body>
+</html>

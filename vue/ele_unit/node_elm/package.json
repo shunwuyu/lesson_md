@@ -1,0 +1,28 @@
+{
+  "name": "node_elm",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/register": "^7.8.6",
+    "babel-preset-env": "^1.7.0",
+    "chalk": "^3.0.0",
+    "config-lite": "^2.1.0",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.4",
+    "dtime": "^0.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "formidable": "^1.2.2",
+    "mongoose": "^5.9.3",
+    "time-formater": "^1.1.3"
+  }
+}

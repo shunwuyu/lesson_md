@@ -1,0 +1,8 @@
+body {
+  background: pink; 
+}
+p {
+  /* xxxx 是故意写错的。 */
+  color: xxxx;
+}
+  

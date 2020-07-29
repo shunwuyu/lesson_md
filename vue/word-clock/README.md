@@ -1,21 +1,14 @@
-# word-clock
+1. 开源项目把它走通， 了解细节  实验楼的项目为例
 
-> A Vue.js project
+2. 组队 做什么项目？ 商业项目
+  - 旅梦的github 管理系统 
+  - 简历共享系统 
+  开源仿品 全栈 
+  林嘉豪   胡文凯
 
-## Build Setup
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+- Vue 全家桶实现网易云音乐 WebApp  https://juejin.im/post/5afb6ecef265da0b8070e726
+- Vue实现20+页面的复杂单页面应用（仿实验楼  https://juejin.im/post/5d8ec6f0e51d4577ef53de1e
+- element-ui https://juejin.im/post/59097cd7a22b9d0065fb61d2
+- https://github.com/bailicangdu/vue2-elm   基于 vue2 + vuex 构建一个具有 45 个页面的大型单页面应用

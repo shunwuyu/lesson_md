@@ -1,0 +1,28 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-service"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "egg": "^2.26.0",
+    "egg-scripts": "^2.13.0"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.5.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "style-loader": "^1.1.4",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

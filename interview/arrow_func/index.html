@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // let fun = (a, s) => {
+  //   console.log(arguments); //不可以用
+  // };
+  let fun = (...arg) => {
+    console.log(arg);
+  }
+  // console.dir(fun);
+  fun(1,2,3);
+  // new fun();    cannot new 
+  let func = function(a, s) {
+    console.log(arguments);
+  };
+  // console.dir(func);
+  func();
+  // Object函数
+  // new Object()
+  var o = {}
+  o.__proto__ === Object.prototype
+  </script>
+</body>
+</html>

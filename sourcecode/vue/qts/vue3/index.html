@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function defineReactive(target, key, value) {
+    observer(value);
+    Object.defineProperty(target, key, {
+      get() {
+        return value;
+      },
+      set(newValue) {
+        observer(value);
+        if (newValue !== value) {
+          value = newValue;
+          updateView();
+        }
+      }
+    })
+  }
+  function observer(target) {
+    if (typeof target !== "object" || target === null) { // null
+      return target;
+    }
+    
+    if (Array.isArray(target)) {
+      // console.log(target);
+      target.__proto__ = arrProto;
+    }
+
+    for (let key in target) {
+      defineReactive(target, key, target[key]);
+    }
+  }
+
+  const oldAddrayProperty = Array.prototype;
+  const arrProto = Object.create(oldAddrayProperty);
+  ["push", "pop", "shift", "unshift", "spluce"].forEach(
+  methodName =>
+    (arrProto[methodName] = function() {
+      // console.log('---------')
+      updateView();
+      oldAddrayProperty[methodName].call(this, ...arguments);
+    })
+  );
+  function updateView() {
+    console.log("视图更新");
+  }
+  
+  const data = {
+    name: "zhangsan",
+    info: {
+      address: "北京" // 需要深度监听
+    },
+    nums: [10, 20, 30]
+  };
+  observer(data);
+  // data.name = '刘子明';
+  // data.info.address = '南昌';
+  // data.nums.push(13)
+  // console.log(data.nums)
+  </script>
+</body>
+</html>

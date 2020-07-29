@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Javascript观察者模式
+    // let friend={}
+    // //那篇博客没有定义name，所以编译器会报错
+    // let age="jin"
+    // //定义 name 属性及 set 和 get 方法
+    // //存取描述符（get，set）
+    // //数据描述符（value，writable）
+    // //Object.defineProperty(obj, prop, descriptor)
+    // Object.defineProperty(friend,"age",{
+    //   //当且仅当该属性的enumerable为true时，
+    //   // 该属性才能够出现在对象的枚举属性中。默认为 false。
+    //   enumerable:true,
+    //   //当且仅当该属性的 configurable 为 true 时，
+    //   // 该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除。
+    //   // 默认为 false。
+    //   configurable:true,
+
+    //   get:function () {
+    //     return age
+    //   },
+
+    //   set:function (newValue) {
+    //     //调用改变时的函数
+    //     // 当对象的属性改变时，会执行 set 方法
+    //     console.log("age属性从"+age+"转变为"+newValue)
+    //     age=newValue
+    //   }
+
+    // })
+
+    // friend.age="chen"
+    // friend.age="yu"
+    // console.log('friend',friend)
+
+
+    // let age="ccc"
+    
+    // class Friend{
+    //   constructor(age){
+    //     this.age=age
+    //   }
+
+    //   set age(newValue){
+    //     console.log("age属性从"+age+"转变为"+newValue)
+    //     age=newValue
+    //   }
+    // }
+
+    // let friend=new Friend("aaa")
+    // friend.age="bbb"
+    // console.log(friend)
+
+
+    class Friend{
+      constructor(age){
+        this.age=age
+      }
+    }
+
+    let friend=new Friend("chen")
+    //proxy 代理
+    let changeValueProxy=new Proxy(friend,{
+      // set(target,property,value,receiver){
+      set(target,property,value,receiver){
+        if(property==="age"){
+          console.log(`age从${target[property]}转变成${value}`)
+        }
+        // Reflect.set方法设置target对象的name属性等于value。
+        //如本例是 age，则设置 friend（target） 的 age 属性（property）
+        //为 value
+        //如果不写这个，则 friend 的 age 值依然是 chen
+        Reflect.set(target,property,value,receiver)
+        //这样写也可以
+        // Reflect.set(friend,"age",value,receiver)
+
+      }
+    })
+    
+    changeValueProxy.age="jin"
+    console.log(friend)
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/main/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

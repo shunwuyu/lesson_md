@@ -1,0 +1,15 @@
+{
+  "name": "file-upload-backend",
+  "version": "1.0.0",
+  "description": "[字节跳动面试官：请你实现一个大文件上传和断点续传](https://juejin.im/post/5dff8a26e51d4558105420ed)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  }
+}

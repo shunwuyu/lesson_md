@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    position: relative;
+  }
+  </style>
+  
+</head>
+<body>
+  <div class="box">
+
+  </div>
+  <script>
+  // offsetLeft，offsetTop clientTop
+  // 这种属性时，会冲破浏览器自有的优化,
+  // 过队列化修改和批量运行的方法，减少重排/重绘版次
+  // 布局信息的查询次数 将其赋值给局部变量，使用局部变量参与计算
+  const ele = document.querySelector('.box');
+  // ele.style.left = 100 + ele.offsetLeft + 'px';
+  // ele.style.top = 100 + ele.offsetTop + 'px';
+  const currentLeft = ele.offsetLeft,
+    currentTop = ele.offsetTop;
+  ele.style.left = 100 + currentLeft + 'px';
+  ele.style.top = 100 + currentTop + 'px';
+  </script>
+</body>
+</html>

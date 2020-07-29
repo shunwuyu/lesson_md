@@ -8,3 +8,7 @@ N piles of bananas   i-th pile piles [i] bananas  K
 
 最大的堆的香蕉数， 试一下能不能行？ 不行则返回上次计算的结果， 
 【3， 6， 7， 11】
+
+1. 最大值 Math.max
+2. 中间值
+3. 代码注释

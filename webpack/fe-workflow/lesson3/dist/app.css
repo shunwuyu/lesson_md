@@ -1,0 +1,17 @@
+.test {
+  width: 26.66667vw;
+  height: 26.66667vw;
+  color: red;
+  background-color: orange;
+}
+.test {
+  width: 40vw;
+}
+
+.test {
+  background: green;
+  height: 26.66667vw;
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+}

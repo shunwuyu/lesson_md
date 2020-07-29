@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <style>
+    .search-form .form-group {
+        float: right !important;
+        transition: all 0.35s, border-radius 0s;
+        width: 32px;
+        height: 32px;
+        background-color: #fff;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        border-radius: 25px;
+        border: 1px solid #ccc;
+    }
+
+    .search-form .form-group input.form-control {
+        padding-right: 20px;
+        border: 0 none;
+        background: transparent;
+        box-shadow: none;
+        display: block;
+    }
+
+    .search-form .form-group input.form-control::-webkit-input-placeholder {
+        display: none;
+    }
+
+    .search-form .form-group input.form-control:-moz-placeholder {
+        /* Firefox 18- */
+        display: none;
+    }
+
+    .search-form .form-group input.form-control::-moz-placeholder {
+        /* Firefox 19+ */
+        display: none;
+    }
+
+    .search-form .form-group input.form-control:-ms-input-placeholder {
+        display: none;
+    }
+
+    .search-form .form-group:hover,
+    .search-form .form-group.hover {
+        width: 100%;
+        border-radius: 4px 25px 25px 4px;
+    }
+
+    .search-form .form-group span.form-control-feedback {
+        position: absolute;
+        top: -1px;
+        right: -2px;
+        z-index: 2;
+        display: block;
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        color: #3596e0;
+        left: initial;
+        font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <div>
+        <div>
+            <h1>Search Cities around the world</h1>
+        </div>
+    </div>
+    <div>
+        <div>
+            <form action="" class="search-form">
+                <div>
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" name="search" id="search" placeholder="search" v-model="query" >
+                    <span></span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div v-for="(result, index) in results" :key="index">
+                <div>
+
+                    {{ result._source.name }}, {{ result._source.country }} 
+                </div>
+                <div>
+
+                    <p>lat:{{ result._source.lat }}, long: {{ result._source.lng }}.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+        results: [],
+        query: ''
+    },
+    methods: {
+        search: function() {
+            axios.get("http://127.0.0.1:3001/search?q=" + this.query)
+            .then(response => {
+                this.results = response.data;
+
+            })
+        }
+    },
+    watch: {
+        // 注意查询字符串中的更改并调用搜索方法
+        query: function() {
+            this.search();
+        }
+    }
+  })
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{{define "index.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品列表页</title>
+</head>
+<tbody>
+
+<div><a href="#">商品列表页</a></div>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>商品名称</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range .allproduct}}
+    <tr>
+        <td>{{.Id}}</td>
+        <td>{{.Name}}</td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+</html>
+{{end}}

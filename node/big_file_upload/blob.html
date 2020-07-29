@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img id="pic" alt="" width="300"/>
+  <input type="file" id="file" />
+  <script>
+  document.getElementById('file').addEventListener('change', 
+  (e) => {
+    const file = e.target.files[0]; //文件对象
+    console.log(Object.prototype.toString.call(
+      file)) // [object file]
+    console.log(Object.prototype.toString.call(
+      file.slice(0, 102400))); // [objct blob]
+    const URL = window.URL;  // 创建和管理URL的静态方法
+    var objectUrl = URL.createObjectURL(file); // 浏览器支持的可访问的对象URL
+    document.getElementById('pic').src = objectUrl;
+    document.getElementById('pic').onload = function() {
+      URL.revokeObjectURL(objectUrl);
+      console.log('为了获得最佳性能和内存使用状况，释放对象');
+    }
+  })
+  </script>
+</body>
+</html>

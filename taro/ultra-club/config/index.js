@@ -1,6 +1,6 @@
 const config = {
   projectName: 'ultra-club',
-  date: '2020-1-7',
+  date: '2020-1-8',
   designWidth: 750,
   deviceRatio: {
     '640': 2.34 / 2,
@@ -67,7 +67,8 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
+    esnextModules: ['taro-ui']
   }
 }
 

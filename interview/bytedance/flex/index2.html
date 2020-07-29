@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    width: 600px;
+    height: 300px;
+    display: flex;
+  }
+  .left {
+    width: 500px;
+    padding: 40px;
+    flex-shrink: 2;
+    background: red;
+  }
+  .right {
+    width: 400px;
+    padding: 20px;
+    flex-shrink: 1;
+    background: blue;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>

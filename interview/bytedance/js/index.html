@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // for (var i = 0; i < 5; i++) {
+  //   setTimeout(function() {
+  //       console.log(new Date, i);
+  //   }, 1000);
+  // }
+
+  // console.log(new Date, i); //同步
+  // 用箭头表示其前后的两次输出之间有 1 秒的时间间隔，而逗号表示其前后的两次输出之间的时间间隔可以忽略
+  // 5 -> 5,5,5,5,5
+  // 5 -> 0,1,2,3,4
+  // for (var i = 0; i < 5; i++) {
+  //   (function(j) {  // j = i
+  //       setTimeout(function() {
+  //           console.log(new Date, j);
+  //       }, 1000);
+  //   })(i);
+  // }
+
+  // console.log(new Date, i);
+
+  // var output = function (i) {
+  //   setTimeout(function() {
+  //       console.log(new Date, i);
+  //   }, 1000);
+  // };
+
+  // for (var i = 0; i < 5; i++) {
+  //     output(i);  // 这里传过去的 i 值被复制了
+  // }
+
+  // console.log(new Date, i);
+
+  // for (let i = 0; i < 5; i++) {
+  //   setTimeout(function() {
+  //       console.log(new Date, i);
+  //   }, 1000);
+  // }
+
+  // for (var i = 0; i < 5; i++) {
+  //   (function(j) {
+  //       setTimeout(function() {
+  //           console.log(new Date, j);
+  //       }, 1000 * j);  // 这里修改 0~4 的定时器时间
+  //   })(i);
+  // }
+
+  // setTimeout(function() { // 这里增加定时器，超时设置为 5 秒
+  //     console.log(new Date, i);
+  // }, 1000 * i);
+//   const tasks = [];
+// for (var i = 0; i < 5; i++) {   // 这里 i 的声明不能改成 let，如果要改该怎么做？
+//     ((j) => {
+//         tasks.push(new Promise((resolve) => {
+//             setTimeout(() => {
+//                 console.log(new Date, j);
+//                 resolve();  // 这里一定要 resolve，否则代码不会按预期 work
+//             }, 1000 * j);   // 定时器的超时时间逐步增加
+//         }));
+//     })(i);
+// }
+
+// Promise.all(tasks).then(() => {
+//   setTimeout(() => {
+//       console.log(new Date, i);
+//   }, 1000);   // 注意这里只需要把超时设置为 1 秒
+// });
+// sleep 函数 
+  // const sleep = (timeountMS) => new Promise((resolve) => {
+  //     setTimeout(resolve, timeountMS);
+  // });
+
+  // (async () => {  // 声明即执行的 async 函数表达式
+  //     for (var i = 0; i < 5; i++) {
+  //         await sleep(1000);
+  //         console.log(new Date, i);
+  //     }
+
+  //     await sleep(1000);
+  //     console.log(new Date, i);
+  // })();
+
+  </script>
+</body>
+</html>

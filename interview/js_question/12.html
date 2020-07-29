@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div><p>你好</p><div><a href="">来了啊</a></div></div>
+  <script>
+    // 作用域  执行上下文中包含作用于链
+    // 作用域可以理解为执行上下文中申明的变量和作用的范围
+    // 块级作用域/函数作用域
+    // 一个声明在函数体内都是可见的，函数声明优先于变量声明；
+    // 函数表达式与函数声明不同，函数名只在该函数内部有效，并且此绑定是常量绑定
+    // 非匿名自执行函数，函数名只读。
+    // 'use strict';
+    // var b = 10;
+    // (function b() {
+    //   b = 20;
+    //   console.log(b)
+    // })()
+
+    // 立即执行函数不命名也可以的
+    // 匿名函数如何实现递归
+    // (function(counter) {
+    //   if (counter) {
+		//     return;
+	  //   }
+    //   return arguments.callee(1);
+    // })()
+    
+    var charsInBody = (function counter(elm) {
+      if (elm.nodeType == 3) { // 文本节点
+        // console.log(elm.nodeValue.trim())
+        return elm.nodeValue.trim().length;
+      }
+      var count = 0;
+      for (var i = 0, child; child = elm.childNodes[i]; i++) {
+        if (child.nodeName == 'SCRIPT') {
+          break;
+        }
+        count += counter(child);
+      }
+      return count;
+    })(document.body);
+    console.log(charsInBody);
+  </script>
+</body>
+</html>

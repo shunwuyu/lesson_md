@@ -10,4 +10,5 @@ Number.prototype.add = function(num) {
 }
 
 var c = 11;
-console.log(c.add(12)); 
+console.log(c.add(5).multiply(2))
+// console.log(c.add(12)); 

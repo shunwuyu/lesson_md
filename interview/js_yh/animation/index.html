@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .box {
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+  .box-running {
+    animation: run-around 4s 1;
+  }
+
+  @keyframes run-around {
+    0%{
+      transform: translateX(0px);
+    }
+
+    25% {
+      transform: translateX(200px);
+    }
+
+    50% {
+      transform: translateX(400px);
+    }
+
+    75% {
+      transform: translateX(800px);
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+  const box = document.querySelector('.box') // JS 优化， 缓存DOM元素
+  let value = 0;
+  // 复杂
+  // css3 GPU 
+  // 不占用JS主线程；
+  // 可以利用硬件加速；
+  // 浏览器可对动画做优化
+  // let _interval = setInterval(() => {
+  //   if (value > 500) {
+  //     clearInterval(_interval);
+  //   } 
+  //   value += 5;
+  //   console.log(value);
+  //   box.style.transform = `translateX(${value}px)`
+  // },17)
+  // 优化1
+  // const add = () => {
+  //   requestAnimationFrame(add) // 下一帧渲染之前继续执行 add 方法
+  //   value += 5 // 每帧加数值增加5
+  //   box.style.transform = `translateX(${value}px)` // 将数值设置给 方块 的 css 属性 transform 属性可以控制元素在水平方向上的位移
+  // }
+  // requestAnimationFrame(add) 
+  // 优化2
+  
+  box.classList.add('box-running')
+  </script>
+</body>
+</html>

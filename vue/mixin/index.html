@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    {{user.name}}
+    <Modal />
+    <Tooltip />
+  </div>
+  <script>
+  
+  // const Modal = {
+  //   template: `
+  //   <div>
+  //     <div v-if="isShowing">will show</div>
+  //     <button @click="toggleShow">toggle</button>
+  //   </div>
+  //   `,
+  //   data() {
+  //     return {
+  //       isShowing: false
+  //     }
+  //   },
+  //   methods: {
+  //     toggleShow() {
+  //       this.isShowing = !this.isShowing;
+  //     }
+  //   }
+  // }
+  
+  // const Tooltip = {
+  //   template: `<div>ToolTip
+  //     <div v-if="isShowing">will show</div>
+  //     <button @click="toggleShow">toggle</button>
+  //   </div>`,
+  //   data() {
+  //     return {
+  //       isShowing: false
+  //     }
+  //   },
+  //   methods: {
+  //     toggleShow() {
+  //       this.isShowing = !this.isShowing;
+  //     }
+  //   }
+  // }
+  
+  // Vue.component('Modal', Modal)
+  // Vue.component('Tooltip', Tooltip)
+
+  const toggle = {
+    data() {
+      return {
+        isShowing: false
+      }
+    },
+    methods: {
+      toggleShow() {
+        this.isShowing = !this.isShowing;
+      }
+    }
+  }
+
+  const Modal = {
+    template: `<div><div v-if="isShowing">will show</div><button @click="toggleShow">toggle</button></div>`,
+    mixins: [toggle],
+  };
+
+  Vue.component('Modal', Modal)
+
+  new Vue({
+    el: '#root',
+    data() {
+      return {
+        user: {
+          name: '马车'
+        }
+      }
+    }
+  })
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // alert("你是个傻逼");
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function(event) {
+    if (xmlhttp.readyState==4) {
+      // console.log(typeof event.target.response)
+      // const data = JSON.parse(event.target.response)
+      // 性能  
+      const data = eval(event.target.response);
+      console.log(data);
+    }
+  };
+  xmlhttp.open("GET",'./post.json',true);
+  xmlhttp.send(null);
+  // xhr.send();
+  </script>
+</body>
+</html>
