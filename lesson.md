@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+- react/my-app
+- js/v-show
+=======
 https://juejin.im/post/5c19c1b6e51d451d1e06c163
+- /book/js-you-dont-know/chapter  作用域链
 - /leetcode/547
 - /interview/100/7 6 5 4 3 1
 - /interview/100
@@ -80,6 +85,7 @@ https://juejin.im/post/5c19c1b6e51d451d1e06c163
 - docker mysql 主从模拟
 - docker nginx 模拟
 - rabbitmq docker 安装及 hello world /rabbitmq/docker/hello_world
+>>>>>>> e6b7500cf710a2b00bf2ea2373e05444267c219e
 - mongodb schema
 - docker mongodb node /docker/try-mondodb
 - 小程序 wechat/txl

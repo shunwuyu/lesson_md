@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onClick="model.isShow = true">显示</button>
+    <button onClick="model.isShow = false">隐藏</button>
+    <div v-show="isShow" id="helloDiv">Hello World！</div>
+    <script>
+    var model = {
+        isShow: false
+    }
+    var view = document.querySelector('#helloDiv')
+    var updateView = function(value) {
+        view.style.display = value ? '' : 'none'
+    }
+
+    var directiveKey = view.getAttribute('v-show')
+    updateView(model[directiveKey])
+    
+    Object.defineProperty(model, 'isShow', {
+        set: function(val) {
+            updateView(val)
+        }
+    })
+    </script>
+</body>
+</html>
