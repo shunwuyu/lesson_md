@@ -1,3 +1,4 @@
+- go/hello-go
 - react/react-hooks-by-example
 - react/my-app
 - js/v-show
