@@ -1,0 +1,20 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "egg-bin dev -r egg-ts-helper/register"
+  },
+  "dependencies": {
+    "egg": "^2.6.1",
+    "egg-bin": "^4.15.0",
+    "egg-scripts": "^2.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

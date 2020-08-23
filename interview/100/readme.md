@@ -1,4 +1,14 @@
+- 最方便的继承的写法是？
+- Object.create()、new Object()和{}的区别
+  https://juejin.im/post/6844903917835436045#heading-1
+  - 直接字面量创建 {}
+  - new 关键字创建
+  - 继承  Object.create()
+    - 字面量和new关键字创建的对象是Object的实例，原型指向Object.prototype，继承内置对象Object
+    - Object.create(arg, pro)创建的对象的原型取决于arg，arg为null，新对象是空对象，没有原型，不继承任何对象；arg为指定对象，新对象的原型指向指定对象，继承指定对象
+- Object.assign 
 this是函数运行时指针， 指向对象由运行方式决定
+- es6 有哪些数据(数据描述符)属性 几个enable ？ 
 1. 作为对象的方法调用 this指向对象本身
 2. 作为普通函数调用 this指向全局, 严格模式下undefined
 3. 构造器调用， this指向实例化后的对象
