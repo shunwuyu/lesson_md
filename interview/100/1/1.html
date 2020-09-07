@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div @click="changeData">切换数据</div>
+    <li v-for="item in list" :key="item.id">{{item.text}}</li>
+  </div>
+  <script>
+  var app = new Vue({
+    el: '#root',
+    data: {
+      list: [],
+      list1: [],
+      list2: [],
+      nowDate: '',
+      updateTime: ''
+    },
+    created() {
+      for (let i = 0; i <= 100000; i++) {
+          this.list1.push({
+              id: i,
+              text: i
+          })
+          this.list2.push({
+              id: i * 2,
+              text: 100000 - i
+          })
+      }
+      this.list = this.list1
+    },
+    updated() {
+      const date = Date.now();
+      console.log(`updateTime: ${date - this.nowDate}`);
+    },
+    methods: {
+      changeData() {
+        this.nowDate = Date.now();
+        this.list = this.list2;
+      }
+    }
+  })
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  /* 使用 margin与padding的百分比是相对于父元素宽度 */
+  .fang{
+    width:50%;
+    padding-top:50%;
+    border:1px solid;
+  }
+
+  .fang2{
+    width:100px;
+    border:1px solid;
+    background:red;
+  }
+  .fang2:after{
+    content: '';
+    display: block;
+    margin-top: 100%; /* margin 百分比相对父元素宽度计算 */
+  }
+  .fang3 {
+    width: 10vw;
+    height: 10vw;
+    background-color: green;
+  }
+  </style>
+</head>
+<body>
+  <!-- 不定宽，如何让高使之跟随着宽 -->
+  <div>
+    <div class="fang"></div>
+  </div>
+  <div>
+    <div class="fang2"></div>
+  </div>
+  <div>
+    <div class="fang3"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p class="t1">dddd</p>
+  <p class="t1">dddd</p>
+  <p class="t1">dddd</p>
+  <script>
+  const eles = document.querySelectorAll('.t1');
+  eles.length;
+  for(let ele of eles) {
+    console.log(ele)
+  }
+
+  eles.forEach(ele => {
+    console.log(ele)
+  })
+
+  // eles.map(ele => ele.innerHTML)
+  console.log(Array.from(eles).map(ele => ele.innerHTML))
+  console.log([...eles].map(ele => ele.innerHTML))
+  </script>
+</body>
+</html>

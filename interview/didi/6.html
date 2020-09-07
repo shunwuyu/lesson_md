@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .box {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
+  .innerBox {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="innerBox"></div>
+  </div>
+  <div class="contDiv">
+    <input type="text" class="testInput" placeholder="请输入文字" />
+    <span class="show"></span>
+  </div>
+  <script>
+  // target 是指向被触发（点击）的那个node
+	// this === currentTarget 绑定的node
+  document
+    .querySelector('.innerBox')
+    .addEventListener('click', function(event) {
+      event.stopPropagation ()
+      console.log(this, event.target, event.currentTarget);
+      console.log('----------')
+    }, false); // true
+  
+  document
+    .querySelector('.box')
+    .addEventListener('click', function() {
+      console.log(this, event.target, event.currentTarget);
+      console.log('++++++++')
+    }, false);
+
+    window.onload = function(){
+      document.querySelector(".testInput").addEventListener('keyup', function(e){
+        console.log('111111111111')
+        // document.querySelector(".show").innerHTML = "1111111";
+        //比较注释和不注释这一行的区别，stopImmediatePropagation可以阻止在这之后绑定的事件
+        // e.stopPropagation();
+        // stopImmediatePropagation可以阻止在这之后绑定的事件
+        e.stopImmediatePropagation();
+      }, false);
+      document.querySelector(".testInput").addEventListener('keyup',function(e){
+        // document.querySelector(".show").innerHTML = "2222222";
+        console.log('2222222')
+      }, false);
+	  };
+  </script>
+</body>
+</html>

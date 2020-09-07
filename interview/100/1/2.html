@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div  v-for="(item, index) in list">
+      <component-a></component-a>
+      <button @click="deleteInput(index)">删除</button>
+    </div>
+  </div>
+  <script>
+  var ComponentA = {
+    data: function () {
+      return {
+          input: 0
+      }
+    },
+    template: '<input v-model="input" />'
+  }
+  new Vue({
+    el: '#root',
+    data: {
+      list: ['1', '2', '3']
+    },
+    methods: {
+      changeData() {
+        this.nowDate = Date.now();
+        this.list = this.list2;
+      },
+      deleteInput(index) {
+        this.list.splice(index, 1);
+      }
+    },
+    components: {
+      ComponentA
+    }
+  })
+  </script>
+</body>
+</html>

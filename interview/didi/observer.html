@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="https://upload-images.jianshu.io/upload_images/8878633-d573d1c60a244f37.png?imageMogr2/auto-orient/strip|imageView2/2/w/1174/format/webp" alt="">
+  <script>
+  // 看UML 图  - 代表什么？
+  // 私有属性
+  class Subject {
+    constructor() {
+        this.state = 0
+        this.observers = []
+    }
+    getState() {
+        return this.state
+    }
+    setState(state) {
+        this.state = state
+        this.notifyAllObservers()
+    }
+    attach(observer) {
+        this.observers.push(observer)
+    }
+    notifyAllObservers() {
+        this.observers.forEach(observer => {
+            observer.update()
+        })
+    }
+  }
+
+  // 观察者，等待被触发
+  class Observer {
+    constructor(name, subject) {
+        this.name = name
+        this.subject = subject
+        this.subject.attach(this)
+    }
+    update() {
+        console.log(`${this.name} update, state: ${this.subject.getState()}`)
+    }
+  }
+
+  // 测试代码
+  let s = new Subject()
+  let o1 = new Observer('o1', s)
+  let o2 = new Observer('o2', s)
+  let o3 = new Observer('o3', s)
+
+  s.setState(1)
+  s.setState(2)
+  s.setState(3)
+  </script>
+</body>
+</html>
