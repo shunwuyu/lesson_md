@@ -24,7 +24,7 @@ const userSchema = new Schema({
 
 const User = mongoose.model('User', userSchema);
 
-mongoose.connect('mongodb://192.168.31.128:27017/test')
+mongoose.connect('mongodb://127.0.0.1:27017/test')
 mongoose.set('debug', true)
 var db = mongoose.connection
 db.on('error', function () {
@@ -47,26 +47,26 @@ db.once('open', function () {
 
 // })
 // 查询
-// User.findOne({ email: 'shunwu2001@163.com' }, function(err, doc) {
-//   if (err) {
-//       return console.log(err)
-//   } 
-//   console.log(doc);
-// })
+User.findOne({ email: 'shunwu2001@163.com' }, function(err, doc) {
+  if (err) {
+      return console.log(err)
+  } 
+  console.log(doc);
+})
 
-// User.findOne({ name: 'tmp' }, function(err, doc) {
-//   if (err) {
-//     return console.log(err)
-//   } else if (doc) {
-//     var newArticleJSON = {
-//       title: '格局',
-//       date: new Date(),
-//       content: '一本好书'
-//     }
-//     doc.articles.push(newArticleJSON)
-//   }
-//   doc.save(function (err) {
-//     if (err) return console.log(err)
-//     console.log('OK');
-//   })
-// });
+User.findOne({ name: 'tmp' }, function(err, doc) {
+  if (err) {
+    return console.log(err)
+  } else if (doc) {
+    var newArticleJSON = {
+      title: '格局',
+      date: new Date(),
+      content: '一本好书'
+    }
+    doc.articles.push(newArticleJSON)
+  }
+  doc.save(function (err) {
+    if (err) return console.log(err)
+    console.log('OK');
+  })
+});
