@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  const cat = {
+    name: 'cat',
+    run() {
+      console.log(`${this.name} can run`);
+    },
+    jump() {
+      console.log(`${this.name} can jump`)
+    }
+  }
+  const dog = {
+    name: 'dog',
+    run() {
+        console.log(`${this.name} can run`)
+    },
+    bark() {
+        console.log(`${this.name} bark loudly`)
+    },
+    // 马戏团的🐶, 还会做算数
+    count(a, b) {
+        console.log(`${a} + ${b} = ${a + b}`)
+    }
+  }
+  // cat.jump()
+  // 狗急跳墙
+  cat.jump.apply(dog);
+  dog.bark.apply(cat);
+  dog.count.apply(cat);
+  dog.count.apply(cat, [1,3]);
+  dog.count.call(cat, 1, 3);
+  </script>
+</body>
+</html>
