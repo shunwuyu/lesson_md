@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>设备像素、css 像素、设备独立像素、dpr、ppi 之间的区别？</title>
+</head>
+<body>
+  <p>设备像素指的是物理像素，一般手机的分辨率指的就是设备像素，一个设备的设备像素是不可变的。</p>
+  <p>
+    css像素和设备独立像素是等价的，不管在何种分辨率的设备上，css像素的大小应该是一致的，css像素是一个相对单位，它是相
+对于设备像素的，一个css像素的大小取决于页面缩放程度和dpr的大小。
+  </p>
+  <p>
+    dpr指的是设备像素和设备独立像素的比值，一般的pc屏幕，dpr=1。在iphone4时，苹果推出了retina屏幕，它的dpr
+    为2。屏幕的缩放会改变dpr的值。
+  </p>
+  <p>
+    ppi指的是每英寸的物理像素的密度，ppi越大，屏幕的分辨率越大。
+  </p>
+</body>
+</html>
