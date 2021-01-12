@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="users"></div>
+  <hr>
+  <div>
+    <form name="userForm" action="/addUser">
+      <div>
+        <input type="text" name="name" />
+      </div>
+      <div>
+        <input type="submit" value="添加" />
+      </div>
+
+    </form>
+  </div>
+  <script>
+  const oUsers = document.getElementById('users');
+  let httpRequest; // 客户端主动拉， 新浪长轮询
+  if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+    httpRequest = new XMLHttpRequest();
+  } else if (window.ActiveXObject) { // IE 6 and older
+    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  httpRequest.onreadystatechange = function(){
+    // Process the server response here.
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+        console.log(httpRequest.responseText);
+        let users = JSON.parse(httpRequest.responseText);
+        console.log(users);
+        oUsers.innerHTML = users.map(user => `
+          <li>${user.id} - ${user.name}</li>
+        `)
+      } else {
+        console.log('There was a problem with the request.');
+      }
+    }
+  };
+  httpRequest.open('GET', 'http://localhost:3001/users', true);
+  httpRequest.send();
+
+  const oForm = document.forms['userForm'];
+  oForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = oForm["name"].value;
+    let formHttpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function(){
+    // Process the server response here.
+      if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      }
+    };
+    httpRequest.open('POST', 'http://localhost:3001/users');
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send('name=' + encodeURIComponent(name));
+
+  })
+    // .addEventListener('submit', function(event) {
+    //   event.prenveDefault();
+    // }, false);
+  </script>
+</body>
+</html>

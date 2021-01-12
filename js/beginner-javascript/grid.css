@@ -1,0 +1,27 @@
+.box:nth-child(1) {
+  background-color: #140509;
+}
+.box:nth-child(2) {
+  background-color: #280a12;
+}
+.box:nth-child(3) {
+  background-color: #3c0f1b;
+}
+.box:nth-child(4) {
+  background-color: #501424;
+}
+.box:nth-child(5) {
+  background-color: #64192d;
+}
+.box:nth-child(6) {
+  background-color: #781e36;
+}
+.box:nth-child(7) {
+  background-color: #8c233f;
+}
+.box:nth-child(8) {
+  background-color: #a02848;
+}
+.box:nth-child(9) {
+  background-color: #b42d51;
+}

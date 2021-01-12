@@ -2,7 +2,7 @@ docker pull daocloud.io/library/mongo:2.7.6
 docker run -p 27017:27017 --name mongo -d 18400f87db91  
 docker restart mongo
 docker exec -it mongo mongo
-
+ 
 - use tutorial;
 - db.users.insert({username: 'smith'});
 - show collections;
