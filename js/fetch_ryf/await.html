@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+async function getJSON() {
+  let url = 'https://api.github.com/users/ruanyf';
+  try {
+    let response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    console.log('Request Failed', error);
+  }
+}
+// 如何拿到结果？
+getJSON()
+  .then(data => console.log(data))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" id="btnDa" value="dada">
+<script>
+var btnDa = document.getElementById("btnDa");
+btnDa.onClick=function() {
+ console.log(this); // this指向的是btnDa对象
+}
+var show = function() {
+ this.myName="jeskson"; /// this指向的是obj对象
+}
+var obj = new show();
+</script>
+</body>
+</html>

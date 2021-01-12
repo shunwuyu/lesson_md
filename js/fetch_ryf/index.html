@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  fetch('https://api.github.com/users/ruanyf')
+  // promise 简化了写法  response 是一个Stream 对象， 
+  // json() 异步操作
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(err => console.log('Request Failed', err)); 
+  </script>
+</body>
+</html>

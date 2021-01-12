@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  #e{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+    zoom: 1;
+  }
+  </style>
+</head>
+<body>
+  <div id="e"></div>
+  <script>
+  var e = document.getElementById("e");
+    var flag = true;
+    var left = 0;
+
+    function render() {
+        if(flag == true){
+            if(left>=100){
+                flag = false
+            }
+            e.style.left = ` ${left++}px`
+        }else{
+            if(left<=0){
+                flag = true
+            }
+            e.style.left = ` ${left--}px`
+        }
+    }
+    // setInterval(function(){
+    //      render()
+    // },1000/60) // 大多数屏幕渲染的时间间隔是每秒60帧
+    // 1、requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的的cpu，gpu和内存使用量。
+    (function animloop() {
+        render();
+        window.requestAnimationFrame(animloop);
+    })();
+  </script>
+</body>
+</html>

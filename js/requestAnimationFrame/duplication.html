@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+function duplicateCount(text) {
+  var str = text.toLowerCase().split('').sort().join('-');
+  // console.log(str);
+  var arr = str.match(/(\w-)\1/g);
+  console.log(arr)
+  // return arr.length;
+  // console.log(arr);
+}
+console.log(duplicateCount('aadsdjfwuhh'))
+</script>
+</body>
+</html>
