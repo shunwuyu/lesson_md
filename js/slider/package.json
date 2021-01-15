@@ -1,0 +1,19 @@
+{
+  "name": "slider",
+  "version": "1.0.0",
+  "description": "[source](https://github.com/wesbos/beginner-javascript/blob/master/exercises/59%20-%20Slider/package.json)",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^1.12.4"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.8",
+    "sass": "^1.32.4"
+  }
+}

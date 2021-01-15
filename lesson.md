@@ -1,3 +1,4 @@
+- js/slider
 - typescript/datastruct/queue
 - interview/didi
 - go/hello-go
