@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    async function getJSON() {
+      let url = 'https://api.github.com/users/ruanyf';
+      const response = await fetch(url);
+      // for (let [key, value] of response.headers) { 
+      //   console.log(`${key} : ${value}`);  
+      // }
+      console.log(response.headers.get('Content-Type'))
+      response.headers.forEach(
+        (value, key) => console.log(key, ':', value)
+      );
+      console.log(response.status); // 状态码
+      console.log(response.statusText);
+      const body = await response.json(); // 异步
+    }
+    getJSON();
+  
+  </script>
+</body>
+</html>

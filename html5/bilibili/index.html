@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .img-list {
+      width: 100%;
+      min-width: 1000px;
+      height: 155px;
+      position: relative;
+      overflow: hidden;
+    }
+    .img-list .layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <section class="img-list">
+      <div class="layer">
+        <img width="3000" height="250" src="./assets/1.png" alt="" />
+      </div>
+      <div class="layer">
+        <img width="1800" height="165" src="./assets/2_1.png" alt="" />
+      </div>
+      <div class="layer">
+        <img width="3000" height="250" src="./assets/3.png" alt="" />
+      </div>
+      <div class="layer">
+        <img width="1800" height="150" src="./assets/4.png" alt="" />
+      </div>
+      <div class="layer">
+        <img width="1800" height="165" src="./assets/5.png" alt="" />
+      </div>
+      <div class="layer">
+        <img width="1950" height="178" src="./assets/6.png" alt="" />
+      </div>
+    </section>
+    <script>
+    const width = document.body.clientWidth;
+    const imgList = document.querySelectorAll(".img-list .layer img");
+    const defaultStyles = [
+      { translateX: 0, translateY: 0, blur: 4 },
+      { translateX: 0, translateY: 0, blur: 0 },
+      { translateX: -50, translateY: 0, blur: 1 },
+      { translateX: 0, translateY: 4.2, blur: 4 },
+      { translateX: 0, translateY: -1.8, blur: 5 },
+      { translateX: 0, translateY: 0, blur: 6 },
+    ];
+    function setDefaultImgStyle() {
+      for (let i = 0; i < imgList.length; i++) {
+        const imgItem = imgList[i];
+        const defaultStyle = defaultStyles[i];
+        const { translateX, translateY, blur } = defaultStyle;
+        // 设置位置偏移以及高斯模糊
+          imgItem.style.transform = `translate(${translateX}px, ${translateY}px)`;
+          imgItem.style.filter = `blur(${blur}px)`
+        }
+      }
+      setDefaultImgStyle();
+      function setShakeAnimation() {
+    // 第二张小女孩图片
+        const imgGirl = document.querySelector(".img-list .layer:nth-child(2) img");
+
+        // 每 3 秒眨一次眼睛
+        setInterval(() => {
+          // 半闭眼
+          imgGirl.src = "./assets/2_2.png";
+
+          // 100 毫秒后完全闭上眼眼睛
+          setTimeout(() => {
+            imgGirl.src = "./assets/2_3.png";
+          }, 100);
+
+          // 300 毫秒后半睁开眼睛
+          setTimeout(() => {
+            imgGirl.src = "./assets/2_2.png";
+          }, 300);
+
+          // 400 毫秒后完全睁开眼睛
+          setTimeout(() => {
+            imgGirl.src = "./assets/2_1.png";
+          }, 400);
+        }, 3000);
+      }
+    setShakeAnimation();
+    </script>
+  </body>
+</html>

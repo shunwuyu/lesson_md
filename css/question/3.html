@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body {
+    min-width: 550px;
+  }
+
+  #container {
+    padding-left: 200px; 
+    padding-right: 150px;
+  }
+
+  #container .column {
+    float: left;
+    height: 400px;
+  }
+
+  #center {
+    width: 100%;
+    background-color:red;
+  }
+
+  #left {
+    width: 200px; 
+    margin-left: -100%;
+    position: relative;
+    right: 200px;
+    background-color: yellow;
+  }
+
+  #right {
+    width: 150px; 
+    margin-right: -150px; 
+    background-color: green;
+  }
+
+  #footer {
+    clear: both;
+  }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <div id="container">
+    <div id="center" class="column" style="word-break: break-all;">dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</div>
+    <div id="left" class="column"></div>
+    <div id="right" class="column"></div>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

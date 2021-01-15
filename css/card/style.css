@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: '微软雅黑', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #131313;
+}
+.container {
+  position: relative;
+}
+.container .card {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background: #232323;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.container .card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #9bdc28;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card:hover:before {
+  clip-path: circle(300px at 80% -20%);
+}
+
+.container .card .imgBx {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: 100%;
+  transition: 0.5s; 
+}
+
+.container .card:hover .imgBx {
+  top: 0%;
+  transform: translateY(0);
+}
+
+.container .card:hover .imgBx img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  width: 270px;
+}
+
+.container .card .contentBox {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  transition: 1s;
+  z-index:0;
+}
+.container .card:hover .contentBox {
+  height: 210px;
+}
+.container .card .contentBox h2 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.container .card .contentBox .size,
+.container .card .contentBox .color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+}
+/*后面的版本*/
+.container .card .contentBox .size,
+.container .card .contentBox .color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+/*后面的版本*/
+.container .card:hover .contentBox .size {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+}
+.container .card:hover .contentBox .color {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.6s;
+}
+
+.container .card .contentBox .size h3,
+.container .card .contentBox .color h3 {
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+.container .card .contentBox .size span {
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  display: inline-block;
+  color: #111111;
+  background: #ffffff;
+  margin: 0 5px;
+  color: #111111;
+  border-radius:4px;
+  cursor: pointer;
+}
+.container .card .contentBox .size span:hover{
+  background: #9bdc28;
+}
+.container .card .contentBox .color span {
+  width: 20px;
+  height: 20px;
+  background-color: #ffff00;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer
+}
+
+.container .card .contentBox .color span:nth-child(2) {
+  background-color: #9bdc28;
+}
+
+.container .card .contentBox .color span:nth-child(3) {
+  background-color: #03a9f4;
+}
+
+.container .card .contentBox .color span:nth-child(4) {
+  background-color: #e91e63;
+}
+
+.container .card .contentBox a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #111111;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+}
+
+.container .card:hover .contentBox a {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.75s;
+}
