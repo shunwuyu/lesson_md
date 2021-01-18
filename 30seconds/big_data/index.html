@@ -27,14 +27,18 @@
       { length: 10000 },
       (v, k) => ({ content: `新闻${k}` })
     )
+    // console.log(originNews);
     let pageNum = Math.ceil(window.innerHeight / 50)
+    // console.log(Math.ceil(pageNum))
+    // console.log(originNews.length/pageNum)
     let page = 0 // 当前显示了第几页的数据
     let news = chunk(originNews, pageNum)
+    // console.log(news);
 
     const element = document.querySelector('.news');
     const loadObserver = new IntersectionObserver((entries) => {
       // 如果不可见，就返回
-      console.log(entries[0].intersectionRatio, '-------');
+      // console.log(entries[0], '-------');
       if (entries[0].intersectionRatio <= 0) {
         return;
       }
