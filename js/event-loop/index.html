@@ -8,19 +8,20 @@
 </head>
 <body>
 <script>
+console.log('event-loop');
 setTimeout(() => {
     console.log('setTimeout1');
     Promise.resolve().then(data => {
         console.log(222);
     })
-});
+},0);
 setTimeout(() => {
     console.log('setTimeout2');
-});
+}, 0);
 Promise.resolve().then(data => {
     console.log(111);
 })
-
+console.log('event-loop again');
 </script>
 </body>
 </html>

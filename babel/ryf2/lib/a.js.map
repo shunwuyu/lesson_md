@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/a.js"],"names":["func"],"mappings":";;AAAA,IAAMA,OAAO,SAAPA,IAAO,GAAM,CAAE,CAArB","file":"a.js","sourcesContent":["const func = () => {}"]}

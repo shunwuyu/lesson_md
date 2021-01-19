@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/b.js"],"names":["set"],"mappings":";;;;;;AAAA;;;;AAAyB;;AAEzB,IAAMA,MAAM,kBAAQ,CAAC,CAAD,EAAG,CAAH,EAAK,CAAL,EAAO,CAAP,CAAR,CAAZ","file":"b.js","sourcesContent":["import 'babel-polyfill'; // 后放\r\n\r\nconst set = new Set([1,2,3,2]);"]}
