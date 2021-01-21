@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+  let container = document.getElementById('container')
+  container.style.width = '100px'
+  container.style.height = '200px'
+  container.style.border = '10px solid red'
+  container.style.color = 'red'
+
+  // flush 队列
+  // 触发的回流与重绘任务都塞进去，
+  // 待到队列里的任务多起来、
+  // 或者达到了一定的时间间隔，
+  // 或者“不得已”的时候，
+  // 再将这些任务一口气出队
+
+  // 也只触发了一次 Layout 和一次 Paint。
+  </script>
+</body>
+</html>

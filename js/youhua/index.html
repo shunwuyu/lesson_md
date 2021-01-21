@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  #el {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+  }
+  .basic_style {
+    width: 100px;
+    height: 200px;
+    border: 10px solid red;
+    color: red;
+  }
+  </style>
+</head>
+<body>
+  <div id="el"></div>
+  <div id="container"></div>
+  <script>
+
+  // 回流：当我们对 DOM 的修改引发了
+  //  DOM 几何尺寸的变化（比如修改元素的宽、高或隐藏元素等）
+  //  时，浏览器需要重新计算元素的几何属性
+  //  （其他元素的几何属性和位置也会因此受到影响），
+  //  然后再将计算的结果绘制出来。这个过程就是回流
+
+  // 重绘：当我们对 DOM 的修改导致了样式的变化、
+  // 却并未影响其几何属性（比如修改了颜色或背景色）时，
+  // 浏览器不需重新计算元素的几何属性、
+  // 直接为该元素绘制新的样式
+  // （跳过了上图所示的回流环节）。这个过程叫做重绘。
+  // 重绘不一定导致回流，回流一定会导致重绘。
+    // 获取el元素
+    // 每次循环都需要获取多次“敏感属性”,是比较糟糕的
+    // JS 变量的形式缓存起来，待计算完毕再提交给浏览器发出重计算请求：
+  const el = document.getElementById('el')
+  // console.log(el)
+  // for(let i=0;i<10;i++) {
+  //     el.style.top  = el.offsetTop  + 10 + "px";
+  //     el.style.left = el.offsetLeft + 10 + "px";
+  // }
+  
+  let offLeft = el.offsetLeft, offTop = el.offsetTop
+
+  // 在JS层面进行计算
+  for(let i=0;i<10;i++) {
+    offLeft += 10
+    offTop  += 10
+  }
+
+  // 一次性将计算结果应用到DOM上
+  el.style.left = offLeft + "px"
+  el.style.top = offTop  + "px"
+
+  // 避免逐条改变样式，使用类名去合并样式
+  const container = document.getElementById('container')
+  // 将 DOM “离线”
+  // container.style.display = 'none' //后续 
+  // container.style.width = '100px'
+  // container.style.height = '200px'
+  // container.style.border = '10px solid red'
+  // container.style.color = 'red'
+  container.classList.add('basic_style')
+  // container.style.display = 'none' block
+
+  </script>
+</body>
+</html>

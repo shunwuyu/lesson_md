@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM操作测试</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+  // for(var count=0;count<10000;count++){ 
+  //   document.getElementById('container').innerHTML+='<span>我是一个小测试</span>'
+  // }
+  
+  // 2
+  // 只获取一次container
+  // let container = document.getElementById('container')
+  // for(let count=0;count<10000;count++){ 
+  //   container.innerHTML += '<span>我是一个小测试</span>'
+  // }
+
+
+  //3
+  // let container = document.getElementById('container')
+  // let content = ''
+  // for(let count=0;count<10000;count++){ 
+  //   // 先对内容进行操作
+  //   content += '<span>我是一个小测试</span>'
+  // } 
+  // // 内容处理好了,最后再触发DOM的更改
+  // container.innerHTML = content
+
+  // 4
+  let container = document.getElementById('container')
+  // 创建一个DOM Fragment对象作为容器
+  let content = document.createDocumentFragment()
+  for(let count=0;count<10000;count++){
+    // span此时可以通过DOM API去创建
+    let oSpan = document.createElement("span")
+    oSpan.innerHTML = '我是一个小测试'
+    // 像操作真实DOM一样操作DOM Fragment对象
+    content.appendChild(oSpan)
+  }
+  // 内容处理好了,最后再触发真实DOM的更改
+  container.appendChild(content)
+  </script>
+</body>
+</html>

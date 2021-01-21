@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .img {
+    width: 200px;
+    height:200px;
+    background-color: gray;
+  }
+  .pic {
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c48fd82765204d1e8b8115ef8b57f245~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+    <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e59c4ab386c147cc94b09536da188eda~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+    <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d8c4dbf0a0140f38b3195733f3b07d0~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+    <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79b420b7a0314ffa8f296587171e2084~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+    <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ed94daec50c4927b60587bb85c42a42~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+     <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b355af56bedb410b9285b1e38193f4c9~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+     <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13211afa057d4f18a9ab09752f97e79f~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+     <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8e8c784480144bc871bff3c689a3e50~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+     <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/627e7631a03d408dbc6ef70c0fa9bfba~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+     <div class="img">
+      <img class="pic" alt="加载中" data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6b7a181789a4e69b47bf439104a5620~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:120:120.awebp">
+    </div>
+  </div>
+  <script>
+  const imgs = document.getElementsByTagName('img')
+  // 获取可视区域的高度
+  const viewHeight = window.innerHeight || document.documentElement.clientHeight
+  let num = 0
+  function lazyload(){
+    for(let i=num; i<imgs.length; i++) {
+      // console.log(imgs[i].getBoundingClientRect())
+      let distance = viewHeight - imgs[i].getBoundingClientRect().top
+      if(distance >= 0 ){
+        // 给元素写入真实的src，展示图片
+        imgs[i].src = imgs[i].getAttribute('data-src')
+        // 前i张图片已经加载完毕，下次从第i+1张开始检查是否露出
+        num = i + 1
+      }
+    }
+  }
+  window.addEventListener('scroll', lazyload, false);
+  window.addEventListener('load', lazyload, false);
+  </script>
+</body>
+</html>
