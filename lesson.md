@@ -1,3 +1,4 @@
+- js/beginner_javascript
 - js/youhua
 - linux/ls
 - ryf/this
