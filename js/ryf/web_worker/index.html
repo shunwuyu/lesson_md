@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 主线程采用new命令，调用Worker()构造函数，新建一个 Worker 线程。 -->
+  <script>
+  let worker = new Worker('work.js');
+  worker.postMessage('Hello World');
+  worker.onmessage = function(event) {
+    console.log('Received message ' + event.data);
+  }
+  </script>
+</body>
+</html>
