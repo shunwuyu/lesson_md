@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function ajax (url, fn) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState==4 && xhr.status==200) {
+        fn(JSON.parse(xhr.responseText));
+      }
+    };
+    xhr.send()
+  }
+  ajax('https://api.github.com/users/wesbos', function (result) {
+    console.log('wesbos', result)
+    ajax('http://api.react.beer/v2/search?q=hops&type=beer', function(result) {
+      console.log(result, 'beer')
+      ajax('https://api.discogs.com/artists/51988', function(result) {
+        console.log('artists', result)
+      })
+    })
+  })
+  </script>
+</body>
+</html>
