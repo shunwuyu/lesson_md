@@ -1,4 +1,10 @@
 - js/async_await
+- react/antd/antd-demo
+- webpack/react-demo
+- js/react-demo
+- js/44/
+- js/ryf/web_worker
+- js/beginner_javascript
 - js/youhua
 - linux/ls
 - ryf/this

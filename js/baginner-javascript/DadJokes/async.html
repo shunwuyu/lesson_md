@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <body>
+    <button class="button" id="btn">点击</button>
+    <script>
+    setTimeout(() => {
+      console.log('timeout');
+    }, 100)
+    console.log('hello');
+
+    document
+      .getElementById('btn')
+      .addEventListener('click', () => {
+        console.log('btn')
+      }, false);
+    
+    let xhr = new XMLHttpRequest;
+
+    function loadAjaxContent(url, callback) {
+      xhr.open('GET', url);
+      xhr.setRequestHeader('content-type', 'application/json')
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState==4 && xhr.status==200) {
+          callback(xhr.responseText)
+        }
+      }
+      xhr.send();
+    }
+
+    loadAjaxContent('https://api.github.com/users/ruanyf', (userInfo) => {
+      loadAjaxContent('https://api.github.com/users/ruanyf/repos', (repos) => {
+        loadAjaxContent('https://api.github.com/search/issues?q=react', (results) => {
+          console.log(userInfo, repos, results);
+        })
+      })
+    });
+
+    let p1 = new Promise((resolve, reject) => {
+      xhr.open('GET', 'https://api.github.com/users/ruanyf');
+      xhr.setRequestHeader('content-type', 'application/json')
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState==4 && xhr.status==200) {
+          resolve(xhr.responseText)
+        }
+      }
+      xhr.send();
+    })
+
+    p1
+      .then(data => {
+        console.log(data);
+      })
+
+    fetch('https://api.github.com/users/ruanyf')
+      .then(data => {
+        console.log('fetch ruanyf');
+        return fetch('https://api.github.com/users/ruanyf/repos')
+      })
+      .then(data => {
+        console.log('ruanyf repos');
+        return fetch('https://api.github.com/search/issues?q=react')
+      })
+      .then(data => {
+        console.log('fetch react')
+      })
+
+    let func = async () => {
+      let a = await fetch('https://api.github.com/users/ruanyf')
+      a = await a.json()
+      let b = await fetch('https://api.github.com/users/ruanyf/repos')
+      b = await b.json()
+      let c = await fetch('https://api.github.com/search/issues?q=react')
+      c = await c.json()
+      console.log(a, b, c);
+    } 
+    func();
+    </script>
+    
+  </body>
+</html>
