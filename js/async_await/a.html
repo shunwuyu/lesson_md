@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // function foo(x) {
+  //   return x + x;
+  // }
+
+  // var r = foo(1); 
+  // 返回多次
+  function* foo(x) {
+    console.log('1');
+    yield x + 1;
+    console.log('2');
+    yield x + 2;
+    console.log('3');
+    return x + 3;
+  }
+  let steps = foo(1);
+  // console.log(steps.next());
+  // console.log(steps.next());
+  // console.log(steps.next());
+  for (var x of steps) {
+    console.log(x); // 依次输出0, 1, 1, 2, 3, ...
+  }
+  // 斐波那契数列为例
+
+  </script>
+</body>
+</html>
