@@ -1,1 +1,7 @@
 因为generator可以在执行过程中多次返回，所以它看上去就像一个可以记住执行状态的函数
+
+async函数是generator函数的语法糖
+generator函数何必还要实现async
+
+async和generator之间到底是如何相互协作，管理异步的
+

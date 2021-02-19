@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  const getData = () => new Promise(resolve => setTimeout(() => resolve("data"), 1000))
+  // async function test() {
+  //   const data = await getData()
+  //   console.log('data: ', data);
+  //   const data2 = await getData()
+  //   console.log('data2: ', data2);
+  //   return 'success'
+  // }
+
+  // test().then(res => console.log(res));
+
+  function* testG() {
+  // await被编译成了yield
+    const data = yield getData()
+    console.log('data: ', data);
+    const data2 = yield getData()
+    console.log('data2: ', data2);
+    return 'success'
+  }
+  // const gen = testG();
+  // gen.next();
+  // gen.next();
+  // gen.next();
+
+  var test = asyncToGenerator(
+    function* testG() {
+      // await被编译成了yield
+      const data = yield getData()
+      console.log('data: ', data);
+      const data2 = yield getData()
+      console.log('data2: ', data2);
+      return 'success'
+    }
+  )
+
+  test().then(res => console.log(res))
+
+
+  </script>
+</body>
+</html>
