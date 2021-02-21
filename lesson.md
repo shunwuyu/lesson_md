@@ -1,3 +1,5 @@
+- serverless/tecent
+- yun/putty/readme.md
 - gin/GinHello
 - js/async_await
 - react/antd/antd-demo

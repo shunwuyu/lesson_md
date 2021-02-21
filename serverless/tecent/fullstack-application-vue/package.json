@@ -1,0 +1,31 @@
+{
+  "name": "fullstack-application-vue",
+  "version": "0.1.0",
+  "scripts": {
+    "bootstrap": "node scripts/bootstrap.js",
+    "dev": "cd frontend && npm run serve"
+  },
+  "dependencies": {
+    "@serverless/tencent-express": "^2.0.0",
+    "@serverless/tencent-website": "^1.2.11"
+  },
+  "devDependencies": {
+    "@serverless/eslint-config": "^1.2.1",
+    "eslint": "^6.6.0",
+    "eslint-plugin-import": "^2.18.2",
+    "lerna": "^3.18.3",
+    "ora": "^4.0.3",
+    "prettier": "^1.18.2"
+  },
+  "eslintConfig": {
+    "extends": "@serverless/eslint-config/node",
+    "root": true,
+    "parserOptions": {
+      "ecmaVersion": 2018
+    }
+  },
+  "eslintIgnore": [
+    "node_modules"
+  ],
+  "license": "MIT"
+}

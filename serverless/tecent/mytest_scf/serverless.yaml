@@ -1,0 +1,5 @@
+myFunction2:
+  component: "@serverless/tencent-scf"
+  inputs:
+    name: myFunction2
+    codeUri: ./code 

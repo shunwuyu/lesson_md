@@ -1,15 +1,16 @@
 package test
 
 import (
+	"GinHello/initRouter"
 	"bytes"
+	"github.com/gin-gonic/gin"
 	"gopkg.in/go-playground/assert.v1"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
-	// "strconv"
+	"strings"
 	"testing"
-	"GinHello/initRouter"
-	"github.com/gin-gonic/gin"
+	"fmt"
 )
 
 var router *gin.Engine
@@ -18,35 +19,6 @@ func init() {
 	gin.SetMode(gin.TestMode)
 	router = initRouter.SetupRouter()
 }
-
-
-// func TestUserSave(t *testing.T) {
-// 	username := "lisi"
-// 	w := httptest.NewRecorder()
-// 	req, _ := http.NewRequest(http.MethodGet, "/user/"+username, nil)
-// 	router.ServeHTTP(w, req)
-// 	assert.Equal(t, http.StatusOK, w.Code)
-// 	assert.Equal(t, "用户"+username+"已经保存", w.Body.String())
-// }
-
-// func TestUserSaveQuery(t *testing.T) {
-// 	username := "lisi"
-// 	age := 18
-// 	w := httptest.NewRecorder()
-// 	req, _ := http.NewRequest(http.MethodGet, "/user?name="+username+"&age="+strconv.Itoa(age), nil)
-// 	router.ServeHTTP(w, req)
-// 	assert.Equal(t, http.StatusOK, w.Code)
-// 	assert.Equal(t, "用户:"+username+",年龄:"+strconv.Itoa(age)+"已经保存", w.Body.String())
-// }
-
-// func TestUserSaveWithNotAge(t *testing.T) {
-// 	username := "lisi"
-// 	w := httptest.NewRecorder()
-// 	req, _ := http.NewRequest(http.MethodGet, "/user?name="+username, nil)
-// 	router.ServeHTTP(w, req)
-// 	assert.Equal(t, http.StatusOK, w.Code)
-// 	assert.Equal(t, "用户:"+username+",年龄:20已经保存", w.Body.String())
-// }
 
 // func TestUserPostForm(t *testing.T) {
 // 	value := url.Values{}
@@ -60,14 +32,29 @@ func init() {
 // 	assert.Equal(t, http.StatusMovedPermanently, w.Code)
 // }
 
-func TestUserPostFormEmailErrorAndPasswordError(t *testing.T) {
+// func TestUserPostFormEmailErrorAndPasswordError(t *testing.T) {
+// 	value := url.Values{}
+// 	value.Add("email", "youngxhui")
+// 	value.Add("password", "1234")
+// 	value.Add("password-again", "qwer")
+// 	w := httptest.NewRecorder()
+// 	req, _ := http.NewRequest(http.MethodPost, "/user/register", bytes.NewBufferString(value.Encode()))
+// 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded; param=value")
+// 	router.ServeHTTP(w, req)
+// 	assert.Equal(t, http.StatusBadRequest, w.Code)
+// 	assert.Equal(t, w.Body.String(), "输入的数据不合法")
+// }
+
+func TestUserLogin(t *testing.T) {
+	email := "shunwu2001@163.com"
 	value := url.Values{}
-	value.Add("email", "youngxhui")
-	value.Add("password", "1234")
-	value.Add("password-again", "qwer")
+	value.Add("email", email)
+	value.Add("password", "123456")
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest(http.MethodPost, "/user/register", bytes.NewBufferString(value.Encode()))
+	req, _ := http.NewRequest(http.MethodPost, "/user/login", bytes.NewBufferString(value.Encode()))
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded; param=value")
 	router.ServeHTTP(w, req)
-	assert.Equal(t, http.StatusBadRequest, w.Code)
+	assert.Equal(t, http.StatusOK, w.Code)
+	fmt.Print(w.Body.String())
+	assert.Equal(t, strings.Contains(w.Body.String(), email), true)
 }

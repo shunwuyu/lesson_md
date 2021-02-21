@@ -1,0 +1,41 @@
+name: fullstack-application-vue-pro
+
+frontend:
+  component: '@serverless/tencent-website'
+  # more configuration for @serverless/tencent-website,
+  # refer to: https://github.com/serverless-components/tencent-website/blob/master/docs/configure.md
+  inputs:
+    code:
+      src: dist
+      root: frontend
+      hook: npm run build
+    env:
+      # get api url after below api service deployed.
+      apiUrl: ${api.url}
+    protocol: https
+    hosts:
+      - host: serverless.yugasun.com
+        https:
+          certId: ZV99hYOj
+          http2: off
+          httpsType: 4
+          # when https on, default should be -2
+          # if http2 on, should be 2
+          forceSwitch: -2
+
+api:
+  component: '@serverless/tencent-express'
+  # more configuration for @serverless/tencent-website,
+  # refer to: https://github.com/serverless-components/tencent-express/blob/master/docs/configure.md
+  inputs:
+    code: ./api
+    functionName: fullstack-vue-api-pro
+    role: QCS_SCFFull # You must add a role who can connect to your clound mysql
+    functionConf:
+      # you must set vpc config for mysql connnect
+      vpcConfig:
+        vpcId: vpc-6n5x55kb
+        subnetId: subnet-4cvr91js
+    apigatewayConf:
+      protocols:
+        - https

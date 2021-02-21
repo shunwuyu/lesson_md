@@ -1,0 +1,9 @@
+aWebsite:
+  component: "@serverless/tencent-website"
+  inputs:
+    code:
+      src: ./code
+      index: index.html
+      error: error.html
+    region: ap-guanzhou
+    bucketName: a-bucket
