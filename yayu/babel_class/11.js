@@ -19,7 +19,7 @@ function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
   }
-}
+}  
 
 var Person = function() {
   function Person(name) {
@@ -29,7 +29,9 @@ var Person = function() {
   _createClass(Person, [{
     key: 'sayHello',
     value: function sayHello() {
-      return 'hello, I am ' + this.name;
+      return 'h   46
+      
+      mnello, I am ' + this.name;
     }
   }, {
     key: 'name',

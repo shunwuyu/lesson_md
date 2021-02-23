@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="nav">
+    <a href="#/page1">page1</a>
+    <a href="#/page2">page2</a>
+    <a href="#/page3">page3</a>
+  </div>
+  <div id="container"></div>
+  <script>
+  window.location.hash = 'hash字符串'; // 用于设置 hash 值
+
+  let hash = window.location.hash; // 获取当前 hash 值
+
+  // 监听hash变化，点击浏览器的前进后退会触发
+  window.addEventListener('hashchange', function(event){ 
+      let newURL = event.newURL; // hash 改变后的新 url
+      let oldURL = event.oldURL; // hash 改变前的旧 url
+      console.log(newURL, oldURL);
+  },false)
+
+  </script>
+</body>
+</html>

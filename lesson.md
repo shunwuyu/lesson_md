@@ -1,3 +1,5 @@
+- js/xhw_history
+- shanyuan/cloud_music
 - shanyue/http_code
 - yayu/babel_class
 - serverless/tecent
