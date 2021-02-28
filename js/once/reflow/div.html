@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .active {
+    padding: 5px;
+    border-left: 1px;
+    border-right: 2px;
+  }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="el"></div>
+  <script>
+  // 2次重排 1次重绘
+  // 现代 现在流行的MVVM框架使用的虚拟DOM，对改变的DOM节点进行依赖收集 ，只构成一次重排
+
+  var div = document.querySelector('.div');
+  div.style.width = '200px';
+  div.style.background = 'red';
+  div.style.height = '300px';
+
+  var el = document.querySelector('.el');
+  el.style.borderLeft = '1px';
+  el.style.borderRight = '2px';
+  el.style.padding = '5px';
+
+  var el = document.querySelector('.el');
+  el.style.cssText = 'border-left: 1px; border-right: 2px; padding: 5px';
+  
+  // css 
+
+  // javascript
+  var el = document.querySelector('.el');
+  el.className = 'active';
+
+
+  </script>
+</body>
+</html>

@@ -1,3 +1,6 @@
+- js/once
+- typescript/question
+- babel/ninghao/babel
 - js/xhw_history
 - shanyuan/cloud_music
 - shanyue/http_code

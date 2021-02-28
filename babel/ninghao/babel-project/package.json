@@ -1,0 +1,24 @@
+{
+  "name": "babel-project",
+  "version": "1.0.0",
+  "description": "- npm init -y",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --watch --out-dir lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.1",
+    "@babel/plugin-transform-runtime": "^7.13.6",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.13.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/runtime": "^7.13.6",
+    "core-js": "^3.9.0"
+  }
+}

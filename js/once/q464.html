@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  https://juejin.cn/post/6844904083212468238#heading-13
+  <!-- 1.HTML 被 HTML 解析器解析成 DOM 树； render
+    2.CSS 被 CSS 解析器解析成 CSSOM 树
+    3.结合 DOM 树和 CSSOM 树，生成一棵渲染树(Render Tree)，这一过程称为 Attachment；
+    4.生成布局(flow)，浏览器在屏幕上“画”出渲染树中的所有节点；
+    5.将布5.将布局绘制(paint)在屏幕上，显示出整个页面。局绘制(paint)在屏幕上，显示出整个页面。
+
+    第四步和第五步是最耗时的部分
+    渲染：
+    在页面的生命周期中，网页生成的时候，至少会渲染一次。在用户访问的过程中，还会不断触发重排(reflow)和重绘(repaint)，
+    不管页面发生了重绘还是重排，都会影响性能，最可怕的是重排，会使我们付出高额的性能代价，所以我们应尽量避免。
+    重绘：某些元素的外观被改变，例如：元素的填充颜色
+    重排：重新生成布局，重新排列元素。
+
+    重排(reflow)：
+    - 页面初始渲染，这是开销最大的一次重排
+    - 添加/删除可见的DOM元素
+    - 改变元素位置
+    - 改变元素尺寸，比如边距、填充、边框、宽度和高度等
+    - 改变元素内容，比如文字数量，图片大小等
+    - 改变元素字体大小
+    - 改变浏览器窗口尺寸，比如resize事件发生时
+    - 激活CSS伪类（例如：:hover）
+    - 设置 style 属性的值，因为通过设置style属性改变结点样式的话，每一次设置都会触发一次reflow
+    - 查询某些属性或调用某些计算方法：offsetWidth、offsetHeight等，除此之外，当我们调用 getComputedStyle方法，或者IE里的 currentStyle 时，也会触发重排，原理是一样的，都为求一个“即时性”和“准确性”。
+    全局范围：从根节点html开始对整个渲染树进行重新布局。
+    局部范围：对渲染树的某部分或某一个渲染对象进行重新布局
+  -->
+</body>
+</html>

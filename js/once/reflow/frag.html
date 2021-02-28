@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="mylist">
+    <li><a href="https://www.mi.com">xiaomi</a></li>
+    <li><a href="https://www.miui.com">miui</a></li>
+  </ul>
+  <script>
+    // javascript 现在需要添加带有如下信息的li节点
+    let data = [
+      {
+        name: 'tom',
+        url: 'https://www.baidu.com',
+      },
+      {
+        name: 'ann',
+        url: 'https://www.techFE.com'
+      }
+    ]
+    
+    function appendNode($node, data) {
+    var a, li;
+  
+  for(let i = 0, max = data.length; i < max; i++) {
+      a = document.createElement('a');
+      li = document.createElement('li');
+      a.href = data[i].url;
+      
+      a.appendChild(document.createTextNode(data[i].name));
+      li.appendChild(a);
+      $node.appendChild(li);
+    }
+  }
+
+
+  let ul = document.querySelector('#mylist');
+  appendNode(ul, data);
+
+//   1. 隐藏元素，进行修改后，然后再显示该元素
+//   let ul = document.querySelector('#mylist');
+// ul.style.display = 'none';
+// appendNode(ul, data);
+// ul.style.display = 'block';
+// 2）使用文档片段创建一个子树，然后再拷贝到文档中
+// let fragment = document.createDocumentFragment();
+// appendNode(fragment, data);
+// ul.appendChild(fragment);
+
+// 3）将原始元素拷贝到一个独立的节点中，操作这个节点，然后覆盖原始元素
+let old = document.querySelector('#mylist');
+let clone = old.cloneNode(true);
+appendNode(clone, data);
+old.parentNode.replaceChild(clone, old);
+
+// 作者：一杯咖啡豆儿
+// 链接：https://juejin.cn/post/6844903712540852231
+// 来源：掘金
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+  </script>
+</body>
+</html>
