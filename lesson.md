@@ -1,3 +1,4 @@
+- react/music2
 - sanyuan/basic_js
 - interview/css-clock
 - react/antd-todolist
