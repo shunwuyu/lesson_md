@@ -6,6 +6,7 @@
 - typescript/question
 - babel/ninghao/babel
 - js/xhw_history
+- yun/node
 - shanyuan/cloud_music
 - shanyue/http_code
 - yayu/babel_class
