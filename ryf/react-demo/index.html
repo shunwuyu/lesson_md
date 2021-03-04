@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../build/react.js"></script>
+  <script src="../build/react-dom.js"></script>
+  <script src="../build/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+  <script type="text/babel">
+  // ReactDOM.render(
+  //   <h1>Hello, world!</h1>,
+  //   document.getElementById('example')
+  // );
+  // var arr = [
+  //   <h1>Hello world!</h1>,
+  //   <h2>React is awesome</h2>,
+  // ];
+  // ReactDOM.render(
+  //   <div>{arr}</div>,
+  //   document.getElementById('example')
+  // );
+  // var names = ['Alice', 'Emily', 'Kate'];
+  // ReactDOM.render(
+  // <div>
+  //   {
+  //     names.map(function (name) {
+  //       return <div>Hello, {name}!</div>
+  //     })
+  //   }
+  // </div>,
+  // document.getElementById('example')
+  // );
+  // var HelloMessage = React.createClass({
+  //   render: function() {
+  //     return <h1>Hello {this.props.name}</h1>;
+  //   }
+  // });
+
+  // ReactDOM.render(
+  //   <HelloMessage name="John" />,
+  //   document.getElementById('example')
+  // );
+
+  var NotesList = React.createClass({
+    render: function() {
+      // console.log(this.props.children[0]);
+      return (
+        <ol>
+        {
+          React.Children.map(this.props.children, function (child) {
+            return <li>{child}</li>;
+          })
+        }
+        </ol>
+      );
+    }
+  });
+
+  ReactDOM.render(
+    <NotesList>
+      <span>hello</span>
+      <span>world</span>
+    </NotesList>,
+    document.getElementById('example')
+  );
+  </script>
+</body>
+</html>

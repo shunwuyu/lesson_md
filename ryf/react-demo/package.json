@@ -1,0 +1,17 @@
+{
+  "name": "react-demo",
+  "version": "1.0.0",
+  "description": "[source](https://gitee.com/losidk/react-demos/tree/master)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser": "^0.2.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
