@@ -1,3 +1,5 @@
+- sanyuan/browser/2-1
+- sanyuan/basic_js/que_4_1
 - react/music2
 - sanyuan/basic_js
 - interview/css-clock

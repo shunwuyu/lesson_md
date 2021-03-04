@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // var name = 'jerry';   
+  // var obj = {  
+  //     name : 'tom',  
+  //     sayName(){  
+  //         return function(){  
+  //             console.log(this.name);  
+  //         };
+  //     }   
+  // };  
+  // obj.sayName()();
+  // 5.2 计算缓存
+  var square = (function () {
+      var cache = {};
+      return function(n) {
+          if (!cache[n]) {
+              cache[n] = n * n;
+          }
+          return cache[n];
+      }
+  })();
+  函数防抖和函数节流都是防止某一时间频繁触发
+  但是这两兄弟之间的原理却不一样。
+  // https://juejin.cn/post/6844903669389885453
+  debounce  防抖 某一段时间内只执行一次  最后执行
+    指定间隔内没有输入时
+    search搜索联想，用户在不断输入值时，用防抖来节约请求资源。
+    resize
+  throttle 节流 间隔时间执行 不一样
+    鼠标不断点击触发，mousedown 单位时间内只触发一次
+    监听滚动事件，比如是否滑到底部自动加载更多，用throttle来判断
+
+
+  </script>
+</body>
+</html>
