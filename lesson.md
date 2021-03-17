@@ -1,3 +1,4 @@
+- react/reacthooks-mock
 - js/everywhere
 - js/decorator
 - taro/ninghao-taro
