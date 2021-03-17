@@ -1,15 +1,15 @@
 package main
 
 import (
+	_ "chatservice/routers"
+
 	"github.com/astaxie/beego"
 )
 
-func init() {
-	// fmt.Println("hello")
-	sqlconn := beego.AppConfig.String("sqlconn")
-
-}
-
 func main() {
-
+	if beego.BConfig.RunMode == "dev" {
+		beego.BConfig.WebConfig.DirectoryIndex = true
+		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
+	}
+	beego.Run()
 }

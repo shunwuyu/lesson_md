@@ -1,3 +1,4 @@
+- js/everywhere
 - js/decorator
 - taro/ninghao-taro
 - sanyuan/browser/2-1

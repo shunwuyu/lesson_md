@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Cars</h2>
+        <button style="margin-bottom:20px;" class="btn btn-primary float-right" id="loadcars">Load cars</button>
+        
+        <table id="cars-table" class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Year Release</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br />
+        <h3>Edit car by Id</h3>
+            <div class="form-group">
+                <label for="carid">Car Id</label>
+                <input type="text" class="form-control" id="carid">
+            </div>
+            <button class="btn btn-primary" id="loadcar">Load car</button>
+        <h3>Edit car</h3>
+        <form>
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="brand">brand</label>
+                <input type="text" class="form-control" id="brand">
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" class="form-control" id="year">
+            </div>
+            <button class="btn btn-primary" id="add" type="submit">add</button>
+        </form>
+    </div>
+    <script src="./src/app.js"></script>
+</body>
+
+</html>
