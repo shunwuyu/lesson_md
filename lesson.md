@@ -1,3 +1,4 @@
+- interview/auto-day
 - react/reacthooks-mock
 - js/everywhere
 - js/decorator

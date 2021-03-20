@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- sum(1, 2, 3).valueOf() //6
+sum(2, 3)(2).valueOf() //7
+sum(1)(2)(3)(4).valueOf() //10
+sum(2)(4, 1)(2).valueOf() //9
+sum(1)(2)(3)(4)(5)(6).valueOf() // 21 -->
+<!-- 懒计算的函数 -->
+<!-- sum 返回一个函数，收集所有的累加项，使用递归实现
+  返回函数带有 valueOf 属性，用于统一计算
+-->
+  <script>
+  // 引用式赋值
+  function sum (...args) {
+    const f = (...rest) => sum(...args, ...rest)
+    f.valueOf = () => args.reduce((x, y) => x + y, 0)
+    return f
+  }
+  console.log(sum(1, 2, 3)(3).valueOf());
+  </script>
+</body>
+</html>

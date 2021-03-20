@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .flex__container {
+    display: inline-flex;
+    min-width: 200px;
+    height: 60px;
+    border: 1px solid rgba(255, 0, 54, 1);
+    background-color: rgba(255, 0, 54, 0.1);
+    border-radius: 4px;
+    color: #ff0036;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .flex__container > span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .divider {
+    border-right: 1px dashed currentColor;
+  }
+
+  .coupon {
+    min-width: 50px;
+  }
+  .price {
+    flex: 1;
+    min-width: 0;
+    padding: 0 10px;
+  }
+  </style>
+</head>
+<body>
+  <div class="flex__container">
+    <span class="coupon">券</span>
+    <span class="divider"></span>
+    <span class="price">&yen;1000</div>
+  </div>
+</body>
+</html>

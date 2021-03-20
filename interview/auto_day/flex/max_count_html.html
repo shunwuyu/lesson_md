@@ -1,0 +1,25 @@
+ <script>
+  // document.querySelectorAll('*')
+  const maxBy = (list, keyBy) => list.reduce((x, y) => keyBy(x) > keyBy(y) ? x : y)
+    // const maxBy = (list, keyBy) => {
+    //   console.log(list, keyBy);
+    // }
+
+  function getFrequentTag () {
+    // 先得到标签数组  
+    // console.log([...document.querySelectorAll('*')].map(x => x.tagName));
+    const tags = [...document.querySelectorAll('*')].map(x => x.tagName).reduce((o, tag) => {
+      // console.log(o, tag, '----------------------');
+      o[tag] = o[tag] ? o[tag] + 1 : 1;
+      return o
+    }, {})
+    // console.log(tags, '+++++++++++++++++++');
+    // console.log(Object.entries(tags));
+    
+    return maxBy(Object.entries(tags), tag => tag[1])
+  }
+
+  console.log(getFrequentTag());
+  </script>
+  </body>
+</html>
