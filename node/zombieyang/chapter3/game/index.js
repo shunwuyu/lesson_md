@@ -7,7 +7,7 @@ process.stdin.on('data', (buffer) => {
     const action = buffer.toString().trim();
     const result = game(action);
     if (result == 1) { 
-        winCount++ 
+        winCount++    
         if (winCount == 3) {
             console.log('我不玩儿了！哼！');
             process.exit()

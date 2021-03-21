@@ -1,0 +1,25 @@
+{
+  "name": "react-starter-website",
+  "version": "0.0.2",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "antd": "^4.14.0",
+    "axios": "^0.21.1",
+    "jsonp": "^0.2.1",
+    "react": ">=15",
+    "react-dom": "^16.5.2",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "less": "^4.1.1",
+    "mockjs": "^1.1.0",
+    "parcel-bundler": "1.12.3"
+  }
+}

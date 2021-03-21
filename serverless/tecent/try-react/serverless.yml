@@ -1,0 +1,9 @@
+app: try-react
+component: website
+name: react-starter
+inputs:
+  src:
+    hook: npm run build
+    dist: ./dist
+  bucketName: my-react-starter
+  protocol: https
