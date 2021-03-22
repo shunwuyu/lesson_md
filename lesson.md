@@ -1,3 +1,4 @@
+- interview/react
 - interview/auto-day
 - react/reacthooks-mock
 - js/everywhere
