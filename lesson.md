@@ -1,6 +1,6 @@
 - interview/react
 - interview/auto-day
-- react/reacthooks-mock
+- react/reacthooks-mockn
 - js/everywhere
 - js/decorator
 - taro/ninghao-taro

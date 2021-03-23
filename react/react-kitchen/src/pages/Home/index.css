@@ -1,0 +1,7 @@
+.home-wrap{}
+.home-wrap .home-swiper {
+  height: 120px;
+}
+.home-wrap .home-swiper img {
+  max-width: 100%;
+}

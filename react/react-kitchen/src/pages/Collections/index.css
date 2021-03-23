@@ -1,0 +1,44 @@
+
+.user-header{
+  overflow: hidden;
+}
+.avatar{
+  display: flex;
+  align-items: center;
+  float: left;
+  margin: 15px 0 0 15px;
+  line-height: 100px!important;
+}
+  
+.info{
+  float: left;
+  margin-left: 35px;
+}  
+
+h1{
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.statistic-item{
+  margin-left: 10px;
+  display: inline-block;
+  margin-right: 60px;
+}
+  
+.collection-content{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ECECEC;
+}
+.card{
+  width: 180px;
+  margin: 20px 15px;
+}
+.ant-card-meta-description {
+  color: rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
