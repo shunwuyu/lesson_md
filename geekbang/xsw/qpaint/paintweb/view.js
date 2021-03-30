@@ -1,0 +1,5 @@
+class QPaintView {
+  constructor(drawingID) {
+    
+  }
+}

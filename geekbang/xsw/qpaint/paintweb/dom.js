@@ -1,0 +1,7 @@
+class QPaintDoc {
+  
+}
+
+class QLineStyle {
+
+}

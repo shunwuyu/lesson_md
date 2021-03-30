@@ -1,0 +1,4 @@
+- npx @umijs/create-umi-app
+- .env 配置
+- index =》 login
+- login 的写法
