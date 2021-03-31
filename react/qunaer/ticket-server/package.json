@@ -1,0 +1,17 @@
+{
+  "name": "ticket-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.10.4",
+    "express": "^4.17.1",
+    "mocker-api": "^2.8.3"
+  }
+}
