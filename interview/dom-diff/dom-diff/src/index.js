@@ -1,17 +1,14 @@
-import { createElement, render, renderDom } from './element';
+import { createElement, render, renderDom } from './element2';
 import diff from './diff';
-import patch from './patch';
-
-
 let virtualDom = createElement('ul', { class:'list' }, [
   createElement('li', { class: 'item' }, ['周杰伦']),
   createElement('li', { class: 'item' }, ['林俊杰']),
   createElement('li', { class: 'item' }, ['王力宏']),
 ])
 
-console.log(virtualDom);
-
+// console.log(virtualDom);
 let el = render(virtualDom);
+// console.log(el);
 renderDom(el, document.getElementById('root'));
 
 let virtualDom2 = createElement('ul', { class: 'list-group'}, [
@@ -22,4 +19,3 @@ let virtualDom2 = createElement('ul', { class: 'list-group'}, [
 
 let patches = diff(virtualDom, virtualDom2);
 console.log(patches);
-patch(el, patches);

@@ -1,15 +1,15 @@
 class Element {
-  /**
+   /**
    * 
    * @param {string} type li  
    * @param {string} props class 
    * @param {array} children  
    */
-  constructor(type, props, children) {
-    this.type = type;
-    this.props = props;
-    this.children = children;
-  }
+    constructor(type, props, children) {
+      this.type = type;
+      this.props = props;
+      this.children = children;
+    }
 }
 
 function createElement(type, props, children) {
@@ -57,6 +57,5 @@ export {
   Element,
   createElement,
   render,
-  setAttr,
   renderDom
 }

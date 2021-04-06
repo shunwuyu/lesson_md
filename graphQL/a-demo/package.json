@@ -1,0 +1,16 @@
+{
+  "name": "a-demo",
+  "version": "1.0.0",
+  "description": "[source](https://juejin.cn/post/6844903728537927694#heading-1)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "json-server --watch --port 3001 data.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}

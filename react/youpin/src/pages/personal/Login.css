@@ -1,0 +1,146 @@
+@C1: #666;
+@C2: #D3D3D3;
+
+.loginBox {
+    padding-top: 1.2rem;
+    height: 100%;
+    font-size: .28rem;
+    background: url('../../assets/images/loginBg.png') no-repeat;
+    background-size: 100%;
+}
+.header,
+.main,
+.register,
+.other {
+    margin: 0 auto;
+    width: 75%;
+}
+
+.header {
+  margin-bottom: .2rem;
+}
+.header h4 {
+  line-height: 1.26rem;
+  font-size: .48rem;
+  text-align: center;
+  font-weight: normal;
+}
+
+.main .inpBox {
+  position: relative;
+  font-size: .28rem;
+  height: 1.12rem;
+  border-bottom: .02rem;
+}
+.main input {
+  border: none;
+  width: 100%;
+  height: 1.1rem;
+}
+
+.main input.short {
+  width: 60%;
+}
+          
+
+.main  a{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #C49C63;
+}
+
+.main  a.noClick {
+  color:#666;
+}
+            
+        
+
+.main .submit {
+  display: block;
+  margin-top: .48rem;
+  width: 100%;
+  height: .7rem;
+  line-height: .7rem;
+  text-align: center;
+  font-size: .32rem;
+  color:#FFF;
+  border: none;
+  border-radius: .7rem;
+  background: linear-gradient(to right,#E4BB7E, #D1A96E);
+  box-shadow: 0 .08rem .04rem #D3D3D3;
+}
+
+.changeBtn {
+  line-height: 1.2rem;
+  color: #666;
+}
+    
+
+.register {
+  line-height: 1rem;
+  font-size: .3rem;
+  text-align: center;
+}
+.register a {
+  padding: 0 .2rem;
+  color: #666;
+}
+
+.other {
+  margin-top: .4rem;
+}
+.other span {
+  display: flex;
+  justify-content: space-between;
+}
+.other span:before,
+.other span:after {
+  content: '';
+  height: 0;
+  width: 20%;
+  border: .01rem solid #D3D3D3;
+}
+      
+
+.other  div {
+  margin-top: .3rem;
+  text-align: center;
+  font-size: 0;
+}
+
+.other a {
+  display: inline-block;
+  margin: 0 .15rem;
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  background: url('../../assets/images/icons_type.png') no-repeat;
+  background-size: 2.8rem;
+}
+
+.other a:nth-child(1) {
+  background-color: #ED9090;
+  background-position: -.92rem .03rem;
+}
+
+.other a:nth-child(2) {
+  background-color: #6BB6EA;
+  background-position: -1.5rem .03rem;
+}
+
+.other a:nth-child(3) {
+  background-color: #00BE00;
+  background-position: -2.2rem .03rem;
+}
+
+.footer {
+  margin-top: .8rem;
+  line-height: .5rem;
+  text-align: center;
+  color: #666;
+}
+.footer span {
+  margin: 0 .15rem;
+}

@@ -1,0 +1,10 @@
+var app = require('../app');
+var http = require('http');
+
+var server = http.createServer(app);
+server.listen(3003);
+server.on('listening', onListening);
+
+function onListening() {
+  console.log('服务器启动了')
+}
