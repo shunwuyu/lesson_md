@@ -28,6 +28,7 @@ class Koa extends EventEmitter {
   }
 
   handleRequest(req,res){ 
+    
     let ctx = this.createContext(req, res) 
     this.fn(ctx)
     res.end(ctx.body)
