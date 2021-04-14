@@ -1,5 +1,5 @@
 [source](https://eggjs.org/zh-cn/tutorials/sequelize.html)
-
+https://github.com/freebyron/egg-graphql-boilerplate/blob/master/app/graphql/user/resolver.js
 https://zhuanlan.zhihu.com/p/30822951
 
 

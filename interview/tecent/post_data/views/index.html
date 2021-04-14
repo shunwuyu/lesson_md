@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.9.6/qs.min.js"></script>
+  <script>
+  // applicaiton/json
+  // let data = {"code":"1234","name":"yyyy"};
+  // axios.post('/api',data)
+  // .then(res=>{
+  //     console.log('res=>',res);            
+  // })
+
+  console.log(axios);
+  // application/x-www-form-urlencoded
+  let data = {"code":"1234","name":"yyyy"};
+  axios.post('/api', Qs.stringify(data))
+    .then(res => {
+      console.log(res)
+    }) 
+
+  // let data = new FormData();
+  // data.append('code','1234');
+  // data.append('name','yyyy');
+  // // Content-Type: multipart/form-data; boundary=----WebKitFormBoundarygpUqzJwSlwkbVbzf
+  // axios.post('/api', data)
+  //   .then(res=>{
+  //     console.log('res=>',res);            
+  //   })
+
+  
+  </script>
+</body>
+</html>

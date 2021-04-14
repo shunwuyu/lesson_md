@@ -1,0 +1,19 @@
+{
+  "name": "post_data",
+  "version": "1.0.0",
+  "description": "[source](https://juejin.cn/post/6844904100035821575#heading-36)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.0.0",
+    "koa-views": "^7.0.1"
+  }
+}

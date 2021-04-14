@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .list { display: flex; overflow-y: hidden;}
+  .content { 
+    padding: .5rem 1rem;
+    line-height: 1.5;
+    flex: 0 0 calc(100vw - 2rem);
+    font-size: 1rem;
+    color: inherit;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 1px #fff, 0 -1px #fff;
+  }
+  .space { flex: 0 0 4rem; }
+  .button { width: 4rem;  position: absolute; right: 0; }
+  </style>
+</head>
+<body>
+  <div class="list">
+    <button class="button" data-type="danger">删除</button>
+    <a href="javascript:" class="content">我是列表，试试左滑我</a>
+    <s class="space"></s>
+  </div>
+</body>
+</html>

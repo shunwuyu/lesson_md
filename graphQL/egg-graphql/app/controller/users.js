@@ -48,7 +48,7 @@ class UserController extends Controller {
       ctx.status = 404;
       return;
     }
-
+/J
     await user.destroy();
     ctx.status = 200;
   }
