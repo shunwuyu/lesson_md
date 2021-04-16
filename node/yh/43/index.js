@@ -1,5 +1,6 @@
 const cluster = require('cluster');
 const os = require('os');
+// console.log(os.cpus().length, '-------------');
 if (cluster.isMaster) { //主进程
   for (let i = 0; i < os.cpus().length / 2; i++) {
     cluster.fork();

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+</ul>
+<script>
+/**---------全局变量会挂载到 window 对象上  关上这扇窗------------**/
+// var testValue = 123;
+// var testFunc = function () { console.log('just test') };
+// console.log(window.testFunc)
+// console.log(window.testValue)
+
+// 不带有声明关键字的变量，JS 会默认帮你声明一个全局变量！！！
+// function foo(value) {
+
+//   result = value + 1;	 // 没有用 var 修饰
+
+//   return result;
+// };
+
+// foo(123);				// 124
+
+// console.log(window.result);	
+
+// 函数作用域
+// function bar() {
+//   var testValueFunctionScope = 'inner';
+// }
+// bar(); // 随着函数生命周期结束而销毁
+// console.log(testValueFunctionScope);
+
+// 通过return 访问函数内部变量
+// 函数就像一个工厂，我们输入一些东西，它在内部加工，然后给我们一个加工产物；
+// function bar(value) {
+//   var testValue = 'inner';
+  
+//   return testValue + value;
+// }
+
+// console.log(bar('fun'));
+
+// 通过 闭包 访问函数内部变量：
+// 会销毁吗？  
+// function bar(value) {
+//   var testValue = 'inner';
+//   // 生命得以永生
+//   var rusult = testValue + value;
+  
+//   function innser() {
+//      return rusult;
+//   };
+  
+//   return innser();
+// }
+
+// console.log(bar('fun'));
+// 立即形成作用域 不受外界影响
+// (function() {
+
+// var testValue = 123;
+
+// var testFunc = function () { console.log('just test'); };
+
+// })();
+
+// console.log(window.testValue);		// undefined
+
+// console.log(window.testFunc);
+
+
+// 块级作用域:
+const lis = document.querySelectorAll('ul li');
+// console.log(lis.length);
+// lis.addEventListener('click', () => {
+//   console.log('-----------------');
+// }, false);
+// 1. 函数作用域
+function addClickListener(i) {
+  lis[i].addEventListener('click', () => {
+    console.log(i+1);
+  }, false);
+}
+
+for (var i = 0 ; i < lis.length; i++) {
+  // 块级作用域
+// for (let i = 0 ; i < lis.length; i++) {
+  // lis[i].addEventListener('click', () => {
+  //   console.log(i);
+  // }, false);
+  addClickListener(i);
+  // 闭包
+  // (function(i) {
+  //   lis[i].addEventListener('click', () => {
+  //     console.log(i+1);
+  //   })
+  // })(i)
+}
+
+if (true) {
+  let b ;
+  const a = 'inner';
+}
+// console.log(b);
+// console.log(a); // a is not defined
+</script>
+</body>
+</html>

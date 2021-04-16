@@ -6,6 +6,6 @@ http.createServer((req, res) => {
   // 低效
   res.end(fs.readFileSync(__dirname + '/index.html', 'utf-8'));
 })
-.listen(1234, () => {
-  console.log('listened 1234');
+.listen(1236, () => {
+  console.log('listened 1236');
 })
