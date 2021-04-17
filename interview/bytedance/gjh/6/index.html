@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./1.js"></script>
+  <script src="./2.js"></script>
+  <a href="javascript:void(0);" onclick="addOne();">add one</a>
+  <script>
+  // ajaxGet('http://localhost:3001/posts', function(data) {
+  //   console.log(data);
+  // }, {})
+  function addOne() {
+    ajaxPost('http://localhost:3001/posts', function(data) {
+
+    }, {
+      id: 3,
+      title: 'sjs',
+      author: 'ysw'
+    })
+  }
+  
+  </script>
+</body>
+</html>

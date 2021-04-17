@@ -1,0 +1,16 @@
+{
+  "name": "6",
+  "version": "1.0.0",
+  "description": "实现原生ajax\r ajax 的全称是Asynchronous JavaScript and XML\r ajax就是异步的js和服务端的数据",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "json-server --watch --port 3001 db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}

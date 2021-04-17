@@ -1,0 +1,19 @@
+你觉得typescript和javascript有什么区别
+在我看来 TypeScript 相对于 JavaScript ，除了静态类型外没带来任何东西。
+
+杜绝手误导致的变量名写错。
+自动完成。  解放脑容量
+函数上的类型约束外加尽量主动写纯函数让我在写函数实现的时候不需要关注函数之外的任何东西，注意力聚焦在当前函数。
+重构支持。
+类型可以一定程度上充当文档
+
+JavaScript是一种弱类型语言
+弱类型也就是动态类型，弱类型语言多余小项目来说比较灵活，但是对于大项目来说，过于灵活会增加项目的复杂度，程序员维护起来比较困难
+
+Typescript语言则是JavaScript的超集
+可以编译成JavaScript执行，他的最大特点就是支持强类型，有编译类型检查，这为程序员编写程序带来了极大方便
+
+typescript完全兼容javascript，它可以编译成javascript
+typescript有编译时类型检查，这为程序的编写带来了极大的方便
+javascript是一门动态语言，而typescript添加了可选的静态类型
+typescript在javascript的基础上增加了不少特性
