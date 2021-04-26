@@ -1,3 +1,4 @@
+- interview/lifecycle
 - interview/bytedance/layout
 - node/fenye
 - js/var_let_const
