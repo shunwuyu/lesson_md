@@ -41,3 +41,12 @@
 // interface Bar {
 //   c: string
 // }
+ /*
+ 实际的Bar 接口为 {
+  a: string
+  b: number
+  c: string 
+ }
+ */
+
+ 

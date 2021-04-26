@@ -1,0 +1,16 @@
+{
+  "name": "vue-source",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "start": "parcel index.html --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "snabbdom": "^3.0.1"
+  }
+}

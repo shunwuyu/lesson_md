@@ -186,10 +186,10 @@ var printNode = function(val) {
   console.log(val);
 };
 
-tree.inOrderTraverse(printNode);
-console.log('-------------\n');
-// tree.preOrderTraverse(printNode);
+// tree.inOrderTraverse(printNode);
 // console.log('-------------\n');
+tree.preOrderTraverse(printNode);
+console.log('-------------\n');
 // tree.postOrderTraverse(printNode);
 // console.log('----------\n');
 // console.log(tree.max());

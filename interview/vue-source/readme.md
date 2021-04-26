@@ -1,0 +1,1 @@
+http://hcysun.me/vue-design/zh/renderer-diff.html#%E5%87%8F%E5%B0%8Fdom%E6%93%8D%E4%BD%9C%E7%9A%84%E6%80%A7%E8%83%BD%E5%BC%80%E9%94%80
