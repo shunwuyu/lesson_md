@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  div{
+    width: 200px;
+    height: 200px;
+    border:1px solid #09f;
+    box-shadow: 2px 2px 1px #666;
+    position: absolute;
+   }
+  </style>
+</head>
+<body>
+  <input type="button" value="弹窗1">
+  <input type="button" value="弹窗2">
+  <script>
+  var aBtn = document.querySelectorAll("input"),
+    offset = 20, index = 1;
+  function Module( pos ){
+    this.offset = pos || 20;
+    this.hide = false;
+  }
+  Module.prototype.create = function(){
+    // var oDiv = document.createElement( "div" );
+    // oDiv.style.left = ( ++index ) * offset + 'px';
+    // oDiv.style.top = ( ++index ) * offset + 'px';
+    // oDiv.innerHTML = 'ghostwu教你用设计模式实战';
+    // return oDiv;
+    this.oDiv = document.createElement( "div" );
+    this.oDiv.addEventListener('click', () => {
+      this.hide = true;
+      this.oDiv.style.display = 'none';
+    })
+    this.oDiv.style.left = ( ++index ) * offset + 'px';
+    this.oDiv.style.top = ( ++index ) * offset + 'px';
+    this.oDiv.innerHTML = 'ghostwu教你用设计模式实战';
+    return this.oDiv;
+  }
+  Module.getInstance = (function(){
+   var ins = null, isExist = false;
+   return function( pos ){
+    if ( !ins ) ins = new Module( pos );
+    if ( !isExist ) {
+     document.body.appendChild( ins.create() );
+     isExist = true;
+    }
+    if (ins && ins.hide) {
+      ins.oDiv.style.display = 'block';
+    }
+   }
+  })();
+  aBtn[0].onclick = function(){
+   Module.getInstance( 10 );
+  }
+  aBtn[1].onclick = function(){
+   Module.getInstance( 10 );
+  }
+  </script>
+</body>
+</html>
