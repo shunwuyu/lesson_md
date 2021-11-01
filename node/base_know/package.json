@@ -1,0 +1,17 @@
+{
+  "name": "base_know",
+  "version": "1.0.0",
+  "description": "[source](https://mp.weixin.qq.com/s/N9JPqe5WDhuB0cfxcS_reA)",
+  "main": "1.js",
+  "scripts": {
+    "prod": "cross-env NODE_ENV=production node  2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "multer": "^1.4.3"
+  }
+}

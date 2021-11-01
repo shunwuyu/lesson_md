@@ -1,0 +1,1 @@
+select username, realname from users where username='zhangsan'-- and password="123";
