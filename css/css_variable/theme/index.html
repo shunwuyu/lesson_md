@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+
+</head>
+
+<body>
+	<div class="toolbar">
+		<button value="dark">dark</button>
+		<button value="calm">calm</button>
+		<button value="light">light</button>
+	</div>
+
+<h2>Stackoverflow Question</h2>
+	I would like to use an external javascript file in another javascript file. For example, I could store all my global variables
+in a globals.js file and then call then from the website logic logic.js. Then in the index.html, i would insert the tag.
+How do I use the globals.js inside the logic.js?
+
+<h2>Stackoverflow Answer</h2>
+Javascript doesn't have any implicit "include this other file" mechanisms, like css's @include. You just have to list your
+globals file before the logic file in the tags:
+
+<pre><code>
+script type="text/javascript" src="globals.js"
+</code></pre>
+If guaranteeing that the globals are available before anything in the logic file fires up, you can do a slow polling loop
+to see if some particular variable is available before calling an init() or whatever function.
+</body>
+<script type="text/javascript" src="./scripts.js"></script>
+</html>

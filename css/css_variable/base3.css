@@ -1,0 +1,17 @@
+html {
+  background-color: green;
+}
+ul {
+  padding: 20px;
+  list-style: none;
+  width: 300px;
+}
+li {
+  font: normal 18px sans-serif;
+  padding: 20px;
+  transition: 0.4s;
+  margin: 10px;
+  color: #444;
+  cursor: pointer;
+  background-color: yellow;
+}

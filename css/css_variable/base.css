@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  padding: 30px;
+  font: normal 13px/1.5 sans-serif;
+  color: #546567;
+  background-color: var(--primary-color);
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+}
+
+h3 {
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+p {
+  background-color: #fff;
+  margin: 15px 0;
+}
+
+button {
+  font-size: 13px;
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.8;
+  outline: 0;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.center {
+  text-align: center;
+}

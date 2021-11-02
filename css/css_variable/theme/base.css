@@ -1,0 +1,10 @@
+body {
+  background-color: var(--bg, #b3e5fc);
+  color: var(--bg-text, #37474f);
+  font-family: sans-serif;
+  line-height: 1.3;
+}
+
+.toolbar {
+  text-align: center;
+}

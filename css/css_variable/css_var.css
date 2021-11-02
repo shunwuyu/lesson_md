@@ -1,0 +1,21 @@
+:root {
+  --primary-color: #ed6564;
+  --accent-color: #388287;
+}
+
+html {
+  background-color: var(--primary-color);
+}
+
+h3 {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+button {
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+p {
+  color: var(--accent-color);
+}

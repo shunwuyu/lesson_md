@@ -1,0 +1,10 @@
+:root {
+  --tiny-shadow: 4px 4px 2px 0 rgba(0, 0, 0, 0.8);
+  --animate-right: translateX(20px);
+}
+li {
+  box-shadow: var(--tiny-shadow);
+}
+li:hover {
+  transform: var(--animate-right);
+}
