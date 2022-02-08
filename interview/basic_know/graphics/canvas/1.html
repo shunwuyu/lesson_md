@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c1" width="300" height="300"></canvas>
+    <script>
+    var canvas = document.getElementById('c1');  
+    var ctx1 = canvas.getContext('2d');
+    var image1 = new Image(); 
+    image1.onload = function() {
+        var xpos = canvas.width/2;
+        var ypos = canvas.height/2; 
+        // 尽量中央  裁剪起始x, y 位置 
+        // https://www.w3school.com.cn/tags/canvas_drawimage.asp
+        ctx1.drawImage(image1, xpos - image1.width / 2, ypos - image1.height / 2);
+        ctx1.save();
+        ctx1.translate(xpos, ypos); 
+        //旋转47度
+        ctx1.rotate(47 * Math.PI / 180);
+        ctx1.translate(-xpos, -ypos);   
+        ctx1.drawImage(image1, xpos - image1.width / 2, ypos - image1.height / 2);  
+        ctx1.restore(); 
+    }
+    image1.src="https://img.36krcdn.com/20220208/v2_bb923a0789dc4894a4e6c569cfa53f22_img_000"
+    </script>
+</body>
+</html>

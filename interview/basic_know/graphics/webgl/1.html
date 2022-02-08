@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+    var canvas = document.getElementById("canvas");
+    var gl = canvas.getContext("webgl");
+    // vertext 顶点  vec4 思维变量 
+    // 着色器(shader)分为顶点着色器(vertex shader)和片元着色器(fragment shader）
+    const vertexShader = `
+        attribute vec4 a_position;
+        void main () {
+            // gl_Position为内置变量，表示当前点的位置
+            gl_Position = a_position;
+            // gl_Position为内置变量，表示当前点的大小，为浮点类型，如果赋值是整数类型会报错
+            gl_PointSize = 10.0;
+        }  
+    `;
+    const fragmentShader = `
+        void main () {
+            // vec4是表示四维向量，这里用来表示RGBA的值[0~1]，均为浮点数，如为整数则会报错
+            gl_FragColor = vec4(0.2, 0.5, 0.3, 1.0);
+        }
+    `;
+
+        /**
+     * 
+     * @param {WebGLRenderingContext} gl 
+     * @param {string} vertexSource 
+     * @param {string} fragmentSource 
+     * vertext 顶点  
+     */
+    function initWebGL(gl, vertexSource, fragmentSource) {
+        // 根据源代码创建顶点着色器
+        let vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexSource);
+        // 根据源代码创建片元着色器
+        let fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentSource);
+        // 创建 WebGLProgram 程序
+        let program = createProgram(gl, vertexShader, fragmentShader);
+        return program;
+    }
+
+    /**
+     * 
+     * @param {WebGLRenderingContext} gl 
+     * @param {string} type 
+     * @param {string} source 
+     */
+    function createShader(gl, type, source) {
+        // 创建 shader 对象
+        let shader = gl.createShader(type);
+        // 往 shader 中传入源代码
+        gl.shaderSource(shader, source);
+        // 编译 shader
+        gl.compileShader(shader);
+        // 判断 shader 是否编译成功
+        let success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+        if (success) {
+            return shader;
+        }
+        // 如果编译失败，则打印错误信息
+        // console.log(gl.getShaderInfoLog(shader));
+        // gl.deleteShader(shader);
+    }
+    /**
+     * 
+     * @param {WebGLRenderingContext} gl 
+     * @param {WebGLShader} vertexShader 
+     * @param {WebGLShader} fragmentShader 
+     */
+    function createProgram(gl, vertexShader, fragmentShader) {
+        // 创建 program 对象
+        let program = gl.createProgram();
+        // 往 program 对象中传入 WebGLShader 对象
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        // 链接 program
+        gl.linkProgram(program);
+        // 判断 program 是否链接成功
+        let success = gl.getProgramParameter(program, gl.LINK_STATUS);
+        if (success) {
+            return program;
+        }
+        // // 如果 program 链接失败，则打印错误信息
+        // console.log(gl.getProgramInfoLog(program));
+        // gl.deleteProgram(program);
+    }
+
+    // console.log(gl)
+    if (gl) {
+        // 告诉WebGL怎样把提供的gl_Position裁剪空间坐标对应到画布像素坐标（屏幕空间）
+        gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+        // 清空画布  红绿配  黄
+        // RGBA的值不是0～255，而是0～1
+        gl.clearColor(1.0, 1.0, 0.0, 1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        const program = initWebGL(gl, vertexShader, fragmentShader);
+        // 告诉WebGL使用我们刚刚初始化的这个程序
+        gl.useProgram(program);
+        // 获取shader中a_position的地址
+        const a_position = gl.getAttribLocation(program, "a_position");
+        // 往a_position这个地址中传值
+        gl.vertexAttrib3f(a_position, 0.0, 0.6, 0.0);
+        // 开始绘制，绘制类型是gl.POINTS绘制点，0表示第一个点的索引，1表示共绘制几个点
+        gl.drawArrays(gl.POINTS, 0, 1);
+    }
+    </script>
+</body>
+</html>
