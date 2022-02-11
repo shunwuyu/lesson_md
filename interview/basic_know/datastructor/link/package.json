@@ -1,0 +1,19 @@
+{
+  "name": "link",
+  "version": "1.0.0",
+  "description": "[source](https://cloud.tencent.com/developer/article/1687729)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  }
+}
