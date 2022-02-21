@@ -1,0 +1,19 @@
+{
+  "name": "heap",
+  "version": "1.0.0",
+  "description": "[source](https://github.com/likaia/JavaScript-test/blob/master/src/Heap/lib/Heap.ts) [source](https://juejin.cn/post/7007610680891146271)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  }
+}

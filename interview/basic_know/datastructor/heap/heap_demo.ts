@@ -1,0 +1,28 @@
+import { MinHeap, MaxHeap } from "./lib/heap";
+
+const minHeap = new MinHeap();
+minHeap.insert(13);
+minHeap.insert(10);
+minHeap.insert(5);
+minHeap.insert(7);
+minHeap.insert(4);
+minHeap.insert(17);
+console.log("堆(min)的所有元素", minHeap.getIsArray());
+console.log("堆(min)的最小值", minHeap.findMinimum());
+console.log(minHeap.extract());
+console.log(minHeap.getIsArray());
+console.log("---------------------------------------");
+const maxHeap = new MaxHeap();
+maxHeap.insert(13);
+maxHeap.insert(10);
+maxHeap.insert(5);
+maxHeap.insert(7);
+maxHeap.insert(4);
+maxHeap.insert(17);
+console.log("堆(max)的所有元素", maxHeap.getIsArray());
+console.log(maxHeap.extract());
+console.log("堆(max)的最大值", maxHeap.findMinimum());
+console.log("---------------------------------------");
+const arrayTest = [12, 15, 17, 18, 4, 5, 1, 7, 19, 20];
+minHeap.heapSort(arrayTest);
+console.log(arrayTest);
