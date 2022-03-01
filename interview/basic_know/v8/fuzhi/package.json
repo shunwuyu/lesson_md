@@ -1,0 +1,15 @@
+{
+  "name": "fuzhi",
+  "version": "1.0.0",
+  "description": "[source](https://juejin.cn/post/7062258342546620423) - ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43b0a7d962744ea89f77543044a7336d~tplv-k3u1fbpfcp-watermark.awebp?)   这张图表示什么？  JS 引擎4部分",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/parser": "^7.17.3"
+  }
+}

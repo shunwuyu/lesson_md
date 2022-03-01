@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bt3 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        #bt2 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        #bt1 {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="bt1">
+        <div id="bt2">
+            <div id="bt3"></div>
+        </div>
+    </div>
+    <script>
+    var bt3 = document.getElementById('bt3')
+    var bt1 = document.getElementById('bt1')
+    var bt2 = document.getElementById('bt2')
+    bt3.onclick = function(event) {
+        if (event.target == event.currentTarget) {
+            console.log(3)
+        }
+    }
+    bt2.onclick = function(event) {
+        if (event.target == event.currentTarget) {
+            console.log(2)
+        }
+    }
+    bt1.onclick = function(event) {
+        if (event.target == event.currentTarget) {
+            console.log(1)
+        }
+    }
+    </script>
+</body>
+</html>

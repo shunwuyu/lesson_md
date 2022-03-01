@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="height:1000px"></div>
+  <img id="myDiv" data-src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/4/165a252b4b69aab5~tplv-t2oaga2asx-watermark.awebp" style="background-color: red; border: 1px solid black" />
+  <div style="height:1000px"></div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  <script>
+  function isElView(el) {
+    var top = el.getBoundingClientRect().top // 元素顶端到可见区域顶端的距离
+    var bottom = el.getBoundingClientRect().bottom // 元素底部端到可见区域顶端的距离
+    var se = document.documentElement.clientHeight // 浏览器可见区域高度。
+    console.log(top, se );
+    if (top < se && bottom > 0) {
+      return true
+    } else if (top >= se || bottom <= 0) {
+      // 不可见
+    }
+    return false
+  }
+
+
+  const img = document.getElementById('myDiv');
+    // 单位时间内只触发一次 节流
+  function scrollCheck() {
+    console.log('-------')
+    console.log(isElView(img), '-----');
+    if (isElView(img)) {
+      let src = img.dataset.src
+      if (src) {
+        img.src = src
+        img.removeAttribute('data-src')
+      }
+      // window.removeEventListener('scroll', )
+    } else {
+
+    }
+  } 
+
+  window.onscroll = _.throttle(scrollCheck, 200)
+
+  </script>
+</body>
+</html>

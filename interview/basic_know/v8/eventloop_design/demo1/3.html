@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      #myDiv {
+        background-color: blue;
+        width: 100px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myDiv" style="background-color: red; border: 1px solid black"></div>
+  </body>
+  <script>
+    function getStyleByAttr(obj, name) {
+      return window.getComputedStyle ? window.getComputedStyle(obj, null)[name] : obj.currentStyle[name]
+    }
+    let node = document.getElementById('myDiv')
+    console.log(getStyleByAttr(node, 'backgroundColor'))
+    console.log(getStyleByAttr(node, 'width'))
+    console.log(getStyleByAttr(node, 'height'))
+    console.log(getStyleByAttr(node, 'border'))
+  </script>
+</html>

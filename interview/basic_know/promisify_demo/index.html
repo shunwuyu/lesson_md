@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- https://juejin.cn/post/7028731182216904740#heading-9 -->
+  <script>
+  const imageSrc = 'https://www.themealdb.com/images/ingredients/Lime.png';
+
+  function loadImage(src, callback) {
+      const image = document.createElement('img');
+      image.src = src;
+      image.alt = '公众号若川视野专用图？';
+      image.style = 'width: 200px;height: 200px';
+      image.onload = () => callback(null, image);
+      image.onerror = () => callback(new Error('加载失败'));
+      document.body.append(image);
+  }
+  // 怎么写这个函数
+  loadImage(imageSrc, function(err, content){
+  if(err){
+    console.log(err);
+    return;
+  }
+  console.log(content);
+  })
+  // 但这个不通用
+  // const loadImagePromise = function(src){
+  //   return new Promise(function(resolve, reject){
+  //       loadImage(src, function (err, image) {
+  //           if(err){
+  //               reject(err);
+  //               return;
+  //           }
+  //           resolve(image);
+  //       });
+  //   });
+  // };
+
+  // loadImagePromise(imageSrc).then(res => {
+  //   console.log(res);
+  // })
+  // .catch(err => {
+  //     console.log(err);
+  // });
+
+  function promisify(original){
+    function fn(...args){
+        return new Promise((resolve, reject) => {
+            args.push((err, ...values) => {
+                if(err){
+                    return reject(err);
+                }
+                resolve(values);
+            });
+            // original.apply(this, args);
+            Reflect.apply(original, this, args);
+        });
+    }
+    return fn;
+  }
+  const loadImagePromise = promisify(loadImage);
+  async function load(){
+      try{
+          const res = await loadImagePromise(imageSrc);
+          console.log(res);
+      }
+      catch(err){
+          console.log(err);
+      }
+  }
+  load();
+
+ </script>
+</body>
+</html>

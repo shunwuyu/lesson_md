@@ -1,3 +1,6 @@
+- basic_know/js
+- basic_know/event
+- basic_know/dns
 - basic_know/mj/bfc
 - algorithm/sort
 - css/css_variable

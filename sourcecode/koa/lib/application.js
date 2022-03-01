@@ -8,10 +8,10 @@ const compose = require('./compose');
 module.exports = class Application extends Emitter {
   constructor() {
     super()
-    this.middleware = [];
-    this.context = Object.create(context);
-    this.request = Object.create(request);
-    this.response = Object.create(response);
+    // this.middleware = [];
+    // this.context = Object.create(context);
+    // this.request = Object.create(request);
+    // this.response = Object.create(response);
   }
   use(fn) {
     if (typeof fn !== 'function') throw new TypeError('middleware must be a function!');

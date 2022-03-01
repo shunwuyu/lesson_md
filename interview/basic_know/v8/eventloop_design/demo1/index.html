@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    var targetNode = document.getElementById('root')
+    // 设置observer的配置选项
+    var config = { attributes: true, childList: true, subtree: true }
+    // 当节点发生变化时的需要执行的函数
+    var callback = function (mutationsList, observer) {
+      for (var mutation of mutationsList) {
+        if (mutation.type == 'childList') {
+          console.log('A child node has been added or removed.')
+        } else if (mutation.type == 'attributes') {
+          console.log('The ' + mutation.attributeName + ' attribute was modified.')
+        }
+      }
+    }
+    // 创建一个observer示例与回调函数相关联
+    var observer = new MutationObserver(callback)
+    //使用配置文件对目标节点进行观测
+    observer.observe(targetNode, config)
+    targetNode.setAttribute('data-a', 'ddd')
+    targetNode.appendChild(
+      document.createElement('li')
+    )
+    setTimeout(() => {
+      observer.disconnect()
+    }, 100000)
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      #div1 {
+        position: sticky;
+        top: 0;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        background: black;
+        color: #ffffff;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="div1">首页</div>
+    <div style="height: 1000px;"></div>
+    <div id="div2" style="height: 100px; background: red;"></div>
+    <script>
+      var div2 = document.getElementById('div2')
+      let observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (element, index) {
+            console.log(element)
+            if (element.isIntersecting) {
+              div1.innerText = '我出来了'
+            } else {
+              div1.innerText = '首页'
+            }
+          })
+        },
+        {
+          root: null,
+          threshold: [0, 1]
+        }
+      )
+
+      observer.observe(div2)
+    </script>
+  </body>
+</html>

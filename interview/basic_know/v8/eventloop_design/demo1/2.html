@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="height: 1000px;"></div>
+  <img src=""  data-src="https://img.36krcdn.com/20220301/v2_7df3b40f662d4051bfdde780da968840_img_000" alt="">
+  <script>
+  const imgs = document.querySelectorAll('img[data-src]')
+  const config = {
+    rootMargin: '0px',
+    threshold: 0
+  }
+  let observer = new IntersectionObserver((entries, self) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        let img = entry.target
+        let src = img.dataset.src
+        if (src) {
+          img.src = src
+          img.removeAttribute('data-src')
+        }
+        // 解除观察
+        self.unobserve(entry.target)
+      }
+    })
+  }, config)
+
+  imgs.forEach((image) => {
+    observer.observe(image)
+  })
+  </script>
+</body>
+</html>
