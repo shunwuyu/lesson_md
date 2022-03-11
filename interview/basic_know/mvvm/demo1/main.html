@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  const student = {
+    'first-name': 'Jessica',
+    'last-name': 'Bre',
+    'height': 180,
+    'weight': 70,
+  }
+  const createListItem = function (label, content) {
+    const li = document.createElement('li')
+    const labelSpan = document.createElement('span')
+    labelSpan.textContent = label
+    const contentSpan = document.createElement('span')
+    contentSpan.textContent = content
+    li.appendChild(labelSpan)
+    li.appendChild(contentSpan)
+    return li
+  }
+  const root = document.createElement('ul')
+  const nameLi = createListItem('Name: ', student['first-name'] + ' ' + student['last-name'])
+  const heightLi = createListItem('Height: ', student['height'] / 100 + 'm')
+  const weightLi = createListItem('Weight: ', student['weight'] + 'kg')
+  root.appendChild(nameLi)
+  root.appendChild(heightLi)
+  root.appendChild(weightLi)
+  document.body.appendChild(root)
+  </script>
+</body>
+</html>

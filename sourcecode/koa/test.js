@@ -5,9 +5,9 @@ const app = new Koa();
 //   console.log('method', ctx.request && ctx.request.method);
 //   ctx.body = '123>';
 //   await next();
-//   await next();
+//   await next();`
 //   console.log(1);
-// })
+// })`
 // app.use(async (ctx, next) => {
 //   await next();
 //   console.log(2);

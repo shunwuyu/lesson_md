@@ -1,0 +1,15 @@
+{
+  "name": "senddata",
+  "version": "1.0.0",
+  "description": "[](https://juejin.cn/post/7050430220632850440)",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "query-string": "^7.1.1"
+  }
+}

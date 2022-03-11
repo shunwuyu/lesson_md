@@ -1,0 +1,15 @@
+{
+  "name": "h_function",
+  "version": "1.0.0",
+  "description": "- 看ts代码   1. snabbdom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "snabbdom": "^3.3.1"
+  }
+}

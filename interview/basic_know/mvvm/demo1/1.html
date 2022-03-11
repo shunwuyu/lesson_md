@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+// Model
+const tk = {
+    'first-name': 'Jessica',
+    'last-name': 'Bre',
+    'height': 180,
+    'weight': 70,
+}
+
+//View
+const createList = function(kvPairs){
+  const createListItem = function (label, content) {
+    const li = document.createElement('li')
+    const labelSpan = document.createElement('span')
+    labelSpan.textContent = label
+    const contentSpan = document.createElement('span')
+    contentSpan.textContent = content
+    li.appendChild(labelSpan)
+    li.appendChild(contentSpan)
+    return li
+  }
+  const root = document.createElement('ul')
+  kvPairs.forEach(function (x) {
+    root.appendChild(createListItem(x.key, x.value))
+  })
+  return root
+}
+
+//ViewModel
+const formatStudent = function (student) {
+  return [
+    {
+      key: 'Name: ',
+      value: student['first-name'] + ' ' + student['last-name']
+    },
+    {
+      key: 'Height: ',
+      value: student['height'] / 100 + 'm'
+    },
+    {
+      key: 'Weight: ',
+      value: student['weight'] + 'kg'
+    }]
+}
+// const ul = createList(formatStudent(tk))
+// document.body.appendChild(ul)
+const run = function (root, {model, view, vm}) {
+  const rendered = view(vm(model))
+  root.appendChild(rendered)
+}
+run(document.body, {
+      model: tk, 
+      view: createList, 
+      vm: formatStudent
+})
+
+</script>
+</body>
+</html>

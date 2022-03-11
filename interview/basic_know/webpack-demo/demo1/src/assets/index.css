@@ -1,0 +1,5 @@
+body {
+  background-color: rgb(185, 97, 97);
+  display: flex;
+  backface-visibility: hidden;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  const student = {
+    'first-name': 'Jessica',
+    'last-name': 'Bre',
+    'height': 180,
+    'weight': 70,
+  }
+  const root = document.createElement('ul')
+  const nameLi = document.createElement('li')
+  const nameLabel = document.createElement('span')
+  nameLabel.textContent = 'Name: '
+  const name_ = document.createElement('span')
+  name_.textContent = student['first-name'] + ' ' + student['last-name']
+  nameLi.appendChild(nameLabel)
+  nameLi.appendChild(name_)
+  const heightLi = document.createElement('li')
+  const heightLabel = document.createElement('span')
+  heightLabel.textContent = 'Height: '
+  const height = document.createElement('span')
+  height.textContent = '' + student['height'] / 100 + 'm'
+  heightLi.appendChild(heightLabel)
+  heightLi.appendChild(height)
+  const weightLi = document.createElement('li')
+  const weightLabel = document.createElement('span')
+  weightLabel.textContent = 'Weight: '
+  const weight = document.createElement('span')
+  weight.textContent = '' + student['weight'] + 'kg'
+  weightLi.appendChild(weightLabel)
+  weightLi.appendChild(weight)
+  root.appendChild(nameLi)
+  root.appendChild(heightLi)
+  root.appendChild(weightLi)
+  document.body.appendChild(root)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+const student = {
+  'first-name': 'Jessica',
+  'last-name': 'Bre',
+  'height': 180,
+  'weight': 70,
+}
+const createList = function(kvPairs){
+  const createListItem = function (label, content) {
+    const li = document.createElement('li')
+    const labelSpan = document.createElement('span')
+    labelSpan.textContent = label
+    const contentSpan = document.createElement('span')
+    contentSpan.textContent = content
+    li.appendChild(labelSpan)
+    li.appendChild(contentSpan)
+    return li
+  }
+  const root = document.createElement('ul')
+  kvPairs.forEach(function (x) {
+    root.appendChild(createListItem(x.key, x.value))
+  })
+  return root
+}
+
+const ul = createList([
+  {
+    key: 'Name: ',
+    value: student['first-name'] + ' ' + student['last-name']
+  },
+  {
+    key: 'Height: ',
+    value: student['height'] / 100 + 'm'
+  },
+  {
+    key: 'Weight: ',
+    value: student['weight'] + 'kg'
+  }])
+  
+document.body.appendChild(ul)
+
+</script>
+</body>
+</html>

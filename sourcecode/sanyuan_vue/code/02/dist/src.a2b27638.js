@@ -319,71 +319,42 @@ var _h = require("./h");
 
 var _component = require("./component");
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 var elementVNode = (0, _h.h)('div', null, (0, _h.h)('span'));
-console.log(elementVNode);
-var elementWithTextVNode = (0, _h.h)('div', null, '我是文本');
-console.log(elementWithTextVNode);
-var fragmentVNode = (0, _h.h)(_h.Fragment, null, [(0, _h.h)('h1'), (0, _h.h)('h1')]);
-console.log(fragmentVNode);
-var portalVNode = (0, _h.h)(_h.Portal, {
-  target: '#box'
-}, (0, _h.h)('h1'));
-console.log(portalVNode); // 一个函数式组件
-
-function MyFunctionalComponent() {} // 传递给 h 函数的第一个参数就是组件函数本身
-
-
-var functionalComponentVNode = (0, _h.h)(MyFunctionalComponent, null, (0, _h.h)('div'));
-console.log(functionalComponentVNode); // 有状态组件
-
-var MyStatefulComponent = /*#__PURE__*/function (_Component) {
-  _inherits(MyStatefulComponent, _Component);
-
-  var _super = _createSuper(MyStatefulComponent);
-
-  function MyStatefulComponent() {
-    _classCallCheck(this, MyStatefulComponent);
-
-    return _super.apply(this, arguments);
-  }
-
-  return MyStatefulComponent;
-}(_component.Component);
-
-var statefulComponentVNode = (0, _h.h)(MyStatefulComponent, null, (0, _h.h)('div'));
-console.log(JSON.stringify(statefulComponentVNode));
-var a = {
-  _isVNode: true,
-  flags: 4,
-  data: null,
-  children: {
-    _isVNode: true,
-    flags: 1,
-    tag: 'div',
-    data: null,
-    children: null,
-    childFlags: 1
-  },
-  childFlags: 2
-};
+console.log(elementVNode); // const elementWithTextVNode = h('div', null, '我是文本')
+// console.log(elementWithTextVNode)
+// const fragmentVNode = h(Fragment, null, [h('h1'), h('h1')])
+// console.log(fragmentVNode)
+// const portalVNode = h(
+//   Portal,
+//   {
+//     target: '#box'
+//   },
+//   h('h1')
+// )
+// console.log(portalVNode)
+// // 一个函数式组件
+// function MyFunctionalComponent() {}
+// // 传递给 h 函数的第一个参数就是组件函数本身
+// const functionalComponentVNode = h(MyFunctionalComponent, null, h('div'))
+// console.log(functionalComponentVNode)
+// // 有状态组件
+// class MyStatefulComponent extends Component {}
+// const statefulComponentVNode = h(MyStatefulComponent, null, h('div'))
+// console.log(JSON.stringify(statefulComponentVNode))
+// const a = {
+//   _isVNode: true,
+//   flags: 4,
+//   data: null,
+//   children: {
+//     _isVNode: true,
+//     flags: 1,
+//     tag: 'div',
+//     data: null,
+//     children: null,
+//     childFlags: 1
+//   },
+//   childFlags: 2
+// }
 },{"./h":"src/h.js","./component":"src/component.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -412,7 +383,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59229" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52758" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

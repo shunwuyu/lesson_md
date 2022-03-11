@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script>
+const tk = {
+    'first-name': 'Jessica',
+    'last-name': 'Bre',
+    'height': 180,
+    'weight': 70,
+}
+const measurement = 'cm'
+const createList = function(kvPairs){
+  const createListItem = function (label, content) {
+    const li = document.createElement('li')
+    const labelSpan = document.createElement('span')
+    labelSpan.textContent = label
+    const contentSpan = document.createElement('span')
+    contentSpan.textContent = content
+    li.appendChild(labelSpan)
+    li.appendChild(contentSpan)
+    return li
+  }
+  const root = document.createElement('ul')
+  kvPairs.forEach(function (x) {
+    root.appendChild(createListItem(x.key, x.value))
+  })
+  return root
+}
+
+const createToggle = function (options) {
+  const createRadio = function (name, opt){
+    const radio = document.createElement('input')
+    radio.name = name
+    radio.value = opt.value
+    radio.type = 'radio'
+    radio.textContent = opt.value
+    radio.addEventListener('click', opt.onclick)
+    radio.checked = opt.checked
+    return radio
+  }
+  const root = document.createElement('form')
+  options.opts.forEach(function (x) {
+    root.appendChild(createRadio(options.name, x))
+    root.appendChild(document.createTextNode(x.value))
+  })
+  return root
+}
+const createToggleableList = function(vm){
+  const listView = createList(vm.kvPairs)
+  const toggle = createToggle(vm.options)
+  const root = document.createElement('div')
+  root.appendChild(toggle)
+  root.appendChild(listView)
+  return root
+}
+const createVm = function (model) {
+  const calcHeight = function (measurement, cms) {
+    if (measurement === 'm'){
+      return cms / 100 + 'm'
+    }else{
+      return cms + 'cm'
+    }
+  }
+  const options = {
+    name: 'measurement',
+    opts: [
+      {
+        value: 'cm',
+        checked: model.measurement === 'cm',
+        onclick: () => model.measurement = 'cm'
+      },
+      {
+        value: 'm',
+        checked: model.measurement === 'm',
+        onclick: () => model.measurement = 'm'
+      }
+    ]
+  }
+  const kvPairs = [
+    {
+      key: 'Name: ',
+      value: model.student['first-name'] + ' ' + model.student['last-name']
+    },
+    {
+      key: 'Height: ',
+      value: calcHeight(model.measurement, model.student['height'])
+    },
+    {
+      key: 'Weight: ',
+      value: model.student['weight'] + 'kg'
+    },
+    {
+      key: 'BMI: ',
+      value:  model.student['weight'] / (model.student['height'] * model.student['height'] / 10000)
+    }]
+  return {kvPairs, options}
+}
+
+const run = function (root, {model, view, vm}) {
+  let m = {...model}
+  let m_old = {}
+  setInterval( function (){
+    if(!_.isEqual(m, m_old)){
+      const rendered = view(vm(m))
+      root.innerHTML = ''
+      root.appendChild(rendered)
+      m_old = {...m}
+    }
+  },1000)
+}
+run(document.body, {
+      model: {student:tk, measurement}, 
+      view: createToggleableList, 
+      vm: createVm 
+})
+
+</script>
+</body>
+</html>

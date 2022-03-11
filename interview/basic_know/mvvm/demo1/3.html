@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  /**
+* @param {Node} root
+* @param {Object} model
+* @param {Function} view
+* @param {Function} vm
+*/
+const run = function (root, {model, view, vm}) {
+  let m = {...model}
+  let m_old = {}
+  setInterval( function (){
+    if(!_.isEqual(m, m_old)){
+      const rendered = view(vm(m))
+      root.innerHTML = ''
+      root.appendChild(rendered)
+      m_old = {...m}
+    }
+  },1000)
+}
+  </script>
+</body>
+</html>
