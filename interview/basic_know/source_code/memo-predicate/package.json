@@ -1,0 +1,33 @@
+{
+  "name": "memo-predicate",
+  "version": "1.0.0",
+  "description": "[source](https://github.com/Lemoncode/react-hooks-by-example/tree/master/16-memo-predicate/src)",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "webpack-dev-server --mode development --open"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/react": "^17.0.41",
+    "@types/react-dom": "^17.0.14",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.7.1",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
