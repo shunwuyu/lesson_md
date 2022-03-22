@@ -1,3 +1,5 @@
+- basic_know/security
+- basic_know/recursion
 - basic_know/algorithm/sort/heap_sort2
 - basic_know/http/sendData
 - basic_know/js
