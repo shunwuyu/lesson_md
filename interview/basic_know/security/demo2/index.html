@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XSS-demo</title>
+    <style>
+        .login-wrap {
+            height: 180px;
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 300px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="login-wrap">
+        <input type="text" placeholder="用户名" class="userName">
+        <br>
+        <input type="password" placeholder="密码" class="password">
+        <br>
+        <br>
+        <button class="btn">登陆</button>
+    </div>
+</body>
+<script>
+    var btn = document.querySelector('.btn');
+    
+    btn.onclick = function () {
+        var userName = document.querySelector('.userName').value;
+        var password = document.querySelector('.password').value;
+        
+        fetch('http://localhost:3200/login', {
+            method: 'POST', 
+            body: JSON.stringify({
+                userName,
+                password
+            }),
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors'
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (res) {
+                alert(res.msg);
+                window.location.href= "http://localhost:3200/home";
+            })
+            .catch(err => {
+                message.error(`本地测试错误 ${err.message}`);
+                console.error('本地测试错误', err);
+            });
+    }
+</script>
+ 
+</html>

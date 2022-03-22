@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-wrap">
+        <input type="text" placeholder="输入url" class="url">
+        <br>
+        <br>
+        <button class="btn">提交</button>
+        <div class="content"></div>
+    </div>
+    <script>
+        // '' onclick=alert('哈哈，你被攻击了')
+        var btn = document.querySelector('.btn');
+        var content = document.querySelector('.content');
+        
+        btn.onclick = function () {
+            var url = document.querySelector('.url').value;
+            content.innerHTML = `<a href=${url}>跳转到输入的url</a>`
+        }
+    </script>
+</body>
+</html>
