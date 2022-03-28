@@ -1,3 +1,5 @@
+- basic_know/algorithm/str_match
+- basic_know/https
 - basic_know/datastructor/spiralOrder/dfs
 - basic_know/security/yayu
 - basic_know/security
