@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .box {
+        height: 50px;
+        background-color: red;
+        margin: 10px;
+    }
+    /* 如何让他间隔颜色？ 选择器 */
+    .box:nth-child(2n+1) {
+        background-color: green;
+    }
+    .floatBoxes .box{
+        float: left; /*没了宽度？  */
+        width: 50px;
+    }
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="floatBoxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <p>浮动后的p</p>
+</body>
+</html>
