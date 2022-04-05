@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .specified-scope {
+	    width: 300px;
+    }
+    .specified-scope li {
+        padding: 0 20px;
+		height: 40px;
+		line-height: 40px;
+		color: #fff;
+    }
+    .specified-scope li:nth-child(odd) {
+        background-color: #f66;
+    }
+    .specified-scope li:nth-child(even) {
+        background-color: #66f;
+    }
+    </style>
+</head>
+<body>
+    <div class="bruce flex-ct-x" data-title="使用:nth-child()选择指定元素">
+        <ul class="specified-scope">
+            <li>10001</li>
+            <li>10002</li>
+            <li>10003</li>
+            <li>10004</li>
+            <li>10005</li>
+            <li>10006</li>
+            <li>10007</li>
+            <li>10008</li>
+            <li>10009</li>
+            <li>10010</li>
+        </ul>
+    </div>
+</body>
+</html>

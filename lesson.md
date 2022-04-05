@@ -1,3 +1,5 @@
+- css/new_question
+- js/xi_this
 - basic_know/algorithm/str_match
 - basic_know/https
 - basic_know/datastructor/spiralOrder/dfs
