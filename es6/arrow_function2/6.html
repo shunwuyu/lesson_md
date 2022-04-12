@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 'use strict';
+    function Cat(type) {
+        this.type = type
+    }
+    Cat('短尾');
+    console.log(window.type);
+    // console.log(Cat);
+    let zr = new Cat('折耳');
+    console.log(zr.type);
+    // 为什么同一个函数可以有不同的表现呢?
+    // JavaScript 函数有两个内部方法：[[Call]] 和 [[Construct]]。
+    // 当通过 new 调用函数时，执行 [[Construct]] 方法，创建一个实例对象，然后再执行函数体，将 this 绑定到实例上。
+    // 最后返回对象
+    // 当直接调用的时候，执行 [[Call]] 方法，直接执行函数体。
+    // var Foo = () => {};
+    // var foo = new Foo();// TypeError: Foo is not a constructor
+    // 大家还能猜到没有什么吗?
+    // 没有原型
+    // var Foo = () => {};
+    // console.log(Foo.prototype); // undefined
+
+    
+    </script>
+</body>
+</html>

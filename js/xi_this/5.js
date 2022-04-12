@@ -8,3 +8,4 @@ var person = {
 var name = 'Wiliam';
 var Hi = person.sayHi;
 Hi.call(person); //Hi.apply(person)
+Hi.apply(person);
