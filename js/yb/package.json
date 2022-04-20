@@ -1,0 +1,15 @@
+{
+  "name": "yb",
+  "version": "1.0.0",
+  "description": "[Javascript异步编程的4种方法](https://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)",
+  "main": "1.js",
+  "scripts": {
+    "dev": "json-server --watch db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

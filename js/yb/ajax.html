@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <table class="table">
+        <caption>文章表</caption>
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>标题</td>
+                <td>作者</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <form name="postForm">
+        <div class="form-group">
+          <label for="titleInput">标题</label>
+          <input type="text" class="form-control" id="titleInput" placeholder="请输入标题">
+        </div>
+        <div class="form-group">
+            <label for="authorInput">作者</label>
+            <input type="text" class="form-control" id="authorInput" placeholder="请输入作者">
+        </div>
+        <button type="submit" class="btn btn-default">添加</button>
+    </form>
+    
+    <script>
+    const oBody = document.querySelector('table tbody');
+    const oForm = document.forms['postForm']; 
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:3000/posts", true);
+    xhr.send();
+    xhr.onreadystatechange = function(event) {
+        // if (state)
+        if (event.target.readyState == 4) {
+            // console.log();
+            let data = JSON.parse(xhr.responseText);
+            oBody.innerHTML = data.map(post => `
+                <tr>
+                    <td>${post.id}</td>
+                    <td>${post.title}</td>
+                    <td>${post.author}</td>
+                </tr>
+            `).join('');
+        }
+    }
+    oForm.addEventListener('submit', function(event) {
+        console.log('-----------------')
+        event.preventDefault();
+        const title = document.getElementById('titleInput').value;
+        const author = document.getElementById('authorInput').value;
+        oBody.innerHTML += `
+            <tr>
+                <td>3</td>
+                <td>${title}</td>
+                <td>${author}</td>
+            </tr>
+        `
+    }, false);
+    </script>
+</body>
+</html>

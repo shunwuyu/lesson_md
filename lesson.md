@@ -1,3 +1,4 @@
+- js/yb
 - css/bfc
 - html5/weui_mall
 - ryf/oo
