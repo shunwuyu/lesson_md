@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 乍一看，你是不是觉得这肯定undefined啊!但是它还是输出了a，究其原因，就是当函数声明与其他声明一起出现的时候，函数声明高于一切，因为函数是JS的“第一公民”。
+    // a();
+
+    // function a() {
+    //     console.log('a');
+    // }
+    // var a = 1;
+
+    // showName()
+    // var showName = function() {
+    //     console.log(2);
+    // }
+    // function showName() {
+    //     console.log(1);
+    // }
+    // showName();
+
+    showName();
+
+    function showName() {
+        console.log('a');
+    }
+
+    function showName() {
+        console.log('b');
+    }
+    </script>
+</body>
+</html>

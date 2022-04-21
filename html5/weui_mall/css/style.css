@@ -355,3 +355,7 @@
     max-width: 100%; }
 .product-nav{position: fixed;bottom:0;left:0;right:0;height: 55px;background: #fff;}
 .product-nav .weui-btn{height: 55px;line-height: 55px;border-radius: 0;}
+
+.mine-top{text-align: center;padding: 34px 10px;background: url(../images/user_bg.jpg);color: #fff;}
+.mine-top .weui-avatar-circle{margin: 0 auto;margin-bottom: 5px;width: 65px;height: 65px;}
+.mine-top .weui-avatar-circle img{width: 65px;height: 65px;}
