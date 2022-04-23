@@ -63,3 +63,30 @@
 链接：https://juejin.cn/post/6951223024053911560
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## 对象
+- 创建对象的方法有哪些？
+    1. 直接字面量创建
+        6.js
+    2. new关键字创建
+        7.js
+    3. Object.create()
+        请尝试使用Person -》  创建自己
+        8.js
+        Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__
+        proto必填参数，是新对象的原型对象，如上面代码里新对象me的__proto__指向person。注意，如果这个参数是null，那新对象就彻彻底底是个空对象，没有继承Object.prototype上的任何属性和方法，如hasOwnProperty()、toString()等。
+        不填会怎样？
+        proto  null怎样？
+
+        propertiesObject是可选参数，指定要添加到新对象上的可枚举的属性（即其自定义的属性和方法，可用hasOwnProperty()获取的，而不是原型对象上的）的描述符及相应的属性名称
+        10.js
+
+        - 手写Object.create
+        11.js
+
+    总结
+        1. 字面量和new关键字创建的对象是Object的实例，原型指向Object.prototype，继承内置对象Object
+        2. Object.create(arg, pro)创建的对象的原型取决于arg，arg为null，新对象是空对象，没有原型，不继承任何对象；arg为指定对象，新对象的原型指向指定对象，继承指定对象
+
+    - 解决疑问
+        12.js

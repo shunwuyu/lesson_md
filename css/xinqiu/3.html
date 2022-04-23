@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .wrap {
+        display: flex;
+        background-image: linear-gradient(180deg, #020205 0%, #170f39 51%, #35247a 95%);
+        width: 600px;
+        height: 600px;
+        align-items: center;
+        justify-content: center;
+    }
+    @keyframes planet-rotate {
+        0% {
+            transform:  rotate(45deg) scaleY(0.5) rotate(0);
+        }
+        100% {
+            transform:  rotate(45deg) scaleY(0.5) rotate(360deg);
+        }
+    }
+
+    .planet {
+        position: absolute;
+        border: 2px solid #fff;
+        transform-style: preserve-3d;
+        width: 200px;
+        height: 200px;
+        transform: scaleY(0.5) rotateZ(45deg);
+        border-radius: 50%;
+        animation: planet-rotate 20s linear infinite;
+    }
+    @keyframes self-rotate {
+        0% {
+            transform: rotate(0) scaleY(2) rotate(-45deg);
+        }
+        100% {
+            transform: rotate(-360deg) scaleY(2) rotate(-45deg);
+        }
+    }
+
+    .ball {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        border-radius: 50%;
+        background-color: yellowgreen;
+        left: calc(50% - 25px);
+        top: -25px;
+        transform: rotateZ(-45deg) scaleY(2); 
+        animation: self-rotate 20s linear infinite;
+    }
+    </style>
+</head>
+<body>
+    <div class='wrap'>
+        <div class='planet'>
+            <div class='ball' />
+        </div>
+    </div>
+</body>
+</html>
