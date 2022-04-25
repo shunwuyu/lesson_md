@@ -1,3 +1,4 @@
+- book/xy/algorithm
 - css/xinqiu
 - js/shouxie/对象
 - js/shouxie
