@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container {
+        width: 300px;
+        background-color: black;
+        overflow: hidden;
+        /* display: flex;
+        flex-direction: column; */
+    }
+
+    p {
+        background-color: white;
+        margin: 10px 0;
+        text-align: center;
+    }
+    /* 前后去除类名展示下 */
+    .newBFC {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>条目 1</p>
+        <p>条目 2</p>
+        <div class="newBFC">  
+            <!-- 同一个BFC中时, 满足条件才是不同的BFC -->
+            <p>条目 3</p>
+        </div>
+    </div>
+</body>
+</html>

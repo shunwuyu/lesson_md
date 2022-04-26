@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .div1{
+        padding: 10px;
+        border: 3px solid black;
+    }
+    .div2 {
+        overflow: hidden;/*计算BFC的高度时，浮动元素也参与计算*/
+        border: 3px solid red;
+    }
+    .div2 img {
+        float: left;
+        padding:10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="div1">
+		<img src="https://img.36krcdn.com/20220426/v2_107adb302cde451989999ebebccb14dd_img_000">
+	</div>
+	<div class="div2">
+		<img src="https://img.36krcdn.com/20220426/v2_a91d7771e93945ad9505ae7d4f2e9542_img_jpeg?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center">
+        <!-- 方法二 清楚浮动 -->
+        <div style="clear: both"></div>
+    </div>
+</body>
+</html>

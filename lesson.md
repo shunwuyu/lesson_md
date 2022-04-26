@@ -1,3 +1,4 @@
+- css/float_xg
 - book/xy/algorithm
 - css/xinqiu
 - js/shouxie/对象
