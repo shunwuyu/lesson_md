@@ -1,0 +1,1 @@
+[source](https://github.com/xieyezi/vuepress-blog/blob/master/docs/front-end/ES6-20%E4%B8%AA%E7%BB%8F%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7.md)
