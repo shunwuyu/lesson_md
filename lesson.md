@@ -1,6 +1,9 @@
+- book/xy/algorithm
+- babel/ryf
+- es6/Symbol
+- html5/history_api
 - book/mianshi
 - css/float_xg
-- book/xy/algorithm
 - css/xinqiu
 - js/shouxie/对象
 - js/shouxie

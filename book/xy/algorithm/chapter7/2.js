@@ -28,4 +28,7 @@
         k-- 
         j--
     }
+    return nums1;
 };
+
+console.log(merge([1,2,3], 3, [2,5,6], 3));

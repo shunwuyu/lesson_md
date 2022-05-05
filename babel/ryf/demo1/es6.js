@@ -1,5 +1,6 @@
 const a = 1;
-let b = 2;
+const b = 2;
+
 const func = () => {
   console.log(a);
-}
+};
