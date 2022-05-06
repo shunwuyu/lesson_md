@@ -1,6 +1,8 @@
-- book/xy/algorithm
-- babel/ryf
 - es6/Symbol
+- book/xy/algorithm
+- js/instanceof
+- shouxie/dahai
+- babel/ryf
 - html5/history_api
 - book/mianshi
 - css/float_xg
