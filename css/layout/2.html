@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+    .layout {
+        color: #fff;
+        padding: 0 100px;
+        min-width: 500px;
+    }
+    h4 {
+  position: relative;
+  color: #333;
+  margin: 20px 0 10px;
+}
+h4::before {
+  content: '#';
+  position: absolute;
+  left: -20px;
+  top: -1px;
+  font-size: 18px;
+  color: #38ab89;
+}
+section {
+  margin-bottom: 50px;
+}
+.w150 {
+  width: 150px;
+  height: 50px;
+}
+main {
+  height: 100px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.hidden {
+  overflow: hidden;
+}
+.orange {
+  background-color: orange;
+}
+.green {
+  background-color: #38ab89;
+}
+.grail {
+  padding: 0 150px;
+}
+.grail main {
+  width: 100%;
+  float: left;
+}
+.grail .left {
+  position: relative;
+  left: -150px;
+  margin-left: -100%;
+}
+.grail .right {
+  float: left;
+  position: relative;
+  right: -150px;
+  margin-left: -150px;
+}
+        .wings main {
+        float: left;
+        width: 100%;
+        }
+        .wings .inner {
+        margin: 0 150px;
+        height: 100px;
+        }
+        .wings .left {
+        margin-left: -100%;
+        }
+        .wings .right {
+        float: left;
+        margin-left: -150px;
+        }
+        .flex {
+        display: flex;
+        }
+        .flex main {
+        flex: 1;
+        }
+        .grid {
+  display: grid;
+  grid-template-columns: 150px auto 150px;
+}
+.grid aside {
+  height: 50px;
+}
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <h4>方法一：圣杯(grail)布局 </h4>
+        <!-- 浮动+定位 -->
+        <section class="grail clearfix">
+            <main class="green">main</main>
+            <aside class="w150 left orange">aside</aside>
+            <aside class="w150 right orange">aside</aside>
+        </section>
+        <h4>方法二：双飞翼布局</h4>
+        <section class="wings clearfix">
+            以内margin 代替定位， 多了个元素
+            <main><div class="green inner">main</div></main>
+            <aside class="w150 left orange">aside</aside>
+            <aside class="w150 right orange">aside</aside>
+        </section>
+        <h4>方法三：float + overflow (BFC原理)</h4>
+        <section>
+            <!-- BFC的区域不会与float的元素区域重叠 规则4 -->
+            <aside class="w150 left orange">aside</aside>
+            <aside class="w150 right orange">aside</aside>
+            <main class="green hidden">main</main>
+        </section>
+        <h4>方法四：flex</h4>
+        <section class="flex">
+            <aside class="w150  orange">aside</aside>
+            <main class="green">main</main>
+            <aside class="w150  orange">aside</aside>
+        </section>
+        <h4>方法五：grid</h4>
+        <section class="grid">
+            <aside class=" orange">aside</aside>
+            <main class="green">main</main>
+            <aside class=" orange">aside</aside>
+        </section>
+    </div>
+</body>
+</html>

@@ -6,6 +6,7 @@
 - html5/history_api
 - book/mianshi
 - css/float_xg
+- css/layout
 - css/xinqiu
 - js/shouxie/对象
 - js/shouxie

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .layout {
+        color: #fff;
+        padding: 0 100px;
+        min-width: 500px;
+    }
+    h4 {
+        position: relative;
+        color: #333;
+        margin: 20px 0 10px;
+    }
+    h4::before {
+        content: '#';
+        position: absolute;
+        left: -20px;
+        top: -1px;
+        font-size: 18px;
+        color: #38ab89;
+    }
+    section {
+        margin-bottom: 50px;
+    }
+    aside {
+        width: 200px;
+        height: 50px;
+    }
+    main {
+        height: 100px;
+    }
+    .hidden {
+        overflow: hidden;
+    }
+    .float {
+        float: left;
+    }
+    .orange {
+        background-color: orange;
+    }
+    .green {
+        background-color: #38ab89;
+    }
+    .margin {
+        margin-left: 200px;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex main {
+        flex: 1;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 200px auto;
+    }
+    </style>
+</head>
+<body>
+    <!-- 看到了什么？ -->
+    <div class="layout">
+        <!-- BFC的区域不会与float的元素区域重叠 规则4 -->
+        <h4>方法一：float + overflow (BFC原理)</h4>
+        <section>
+            <aside class="orange float">aside</aside>
+            <main class="green hidden">main</main>
+        </section>
+        <h4>方法二：float + margin</h4>
+        <section>
+          <aside class="orange float">aside</aside>
+          <main class="green margin">main</main>
+        </section>
+        <h4>方法三：flex</h4>
+        <section class="flex">
+            <aside class="orange">aside</aside>
+            <main class="green">main</main>
+        </section>
+        <h4>方法四：grid</h4>
+        <section class="grid">
+            <aside class="orange">aside</aside>
+            <main class="green">main</main>
+        </section>
+    </div>
+</body>
+</html>
