@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ，
+        而不是合，为了解决此问题可以使用BFC规则 
+
+        */
+        .box {
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            background: #000;
+        }
+        .box2 {
+            /* 这时margin边距的结果为最大值 */
+            margin:20px
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <!-- 没有创建BFC -->
+        <!-- <div>  -->
+        <div style="overflow:hidden">
+            <div class="box"></div>
+        </div>
+        <!-- <div class="box box2"></div> -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    ul, li {
+        list-style: none;
+    }
+    ul {
+        display: flex;
+    }
+    ul li {
+        width: 50%;
+        flex: 1;
+    }
+    a {
+        text-decoration: none;
+    }
+    li a {
+        width: 100%;
+        height: 50px;
+        display: block;
+        line-height: 50px;
+        text-align: center;
+        color: inherit;
+        box-sizing: border-box;
+        border-bottom: 1px solid #ccc;
+    }
+    li a:first-child {
+        border-right: 1px solid #ccc;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" data-type="basic">basic</a></li>
+        <li><a href="#" data-type="super">super</a></li>
+    </ul>
+    <div id="content"></div>
+    <script>
+    const content = document.getElementById('content');
+    const links = document.querySelectorAll('ul li a');
+    links.forEach((link) => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const type = this.dataset.type;
+            if (type == 'basic') {
+                content.innerHTML = 'basic';
+            }
+            if (type == 'super') {
+                content.innerHTML = 'super';
+            }
+        })
+    })
+    links[0].click();
+    </script>
+</body>
+</html>

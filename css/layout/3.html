@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        color: orange;
+    }
+    h1 {
+        /* color: inherit;  */
+        color: initial;  /*nb   控制继承行为*/
+    }
+    .flex {
+        display: flex;
+    }
+    p { 
+	    /* word-spacing:30px; normal inherit */
+    }
+    .nowrap {
+        white-space:nowrap;
+    }
+    </style>
+</head>
+<body>
+    <h1>css继承</h1>
+    <!-- 一定是那些不会影响到页面布局的属性
+        布局属性不会被继承
+    -->
+    <section class="flex">
+        <aside>
+            <div>1</div>
+            <div>2</div>
+        </aside>
+        <aside>
+            <div>3</div>
+            <div>4</div>
+        </aside>
+    </section>
+    <p>
+        This is some text. This is some text.
+    </p>
+    <p class="nowrap">
+        This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text.
+    </p>
+</body>
+</html>

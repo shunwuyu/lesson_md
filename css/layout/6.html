@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 浮动造成的问题就是父元素高度坍塌
+        计算 BFC 的高度时，浮动元素也参与计算 规则6 */
+    .parent {
+        overflow: hidden;
+    }
+    .fl {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+    }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="fl"></div>
+    </div>
+</body>
+</html>
