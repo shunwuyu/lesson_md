@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+    }
+    #box {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -250px;
+        margin-top: -250px;
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <!-- <a href="#" id="cancel">cancel</a> -->
+    <script>
+    
+    function debounce(func, wait, immediate) {
+        var timeout;
+        var debounced = function () {
+            // console.log('--------')
+            var context = this;
+            var args = arguments;
+            if (timeout) clearTimeout(timeout);
+            if (immediate) {
+                // 如果已经执行过，不再执行
+                var callNow = !timeout;
+                timeout = setTimeout(function(){
+                    timeout = null; // 最后再执行一次
+                }, wait)
+                if (callNow) func.apply(context, args)
+            }
+            timeout = setTimeout(function(){
+                // console.log('/////')
+                // func();
+                func.apply(context, args)
+            }, wait);
+        }
+        debounced.cancel = function() {
+            clearTimeout(timeout);
+            timeout = null;
+        };
+        return debounced;
+    }
+
+    function getUserAction(e) {
+        console.log(this, e)  // 分别打印：node 这个节点 和 MouseEvent
+        node.innerHTML = count++;
+    };
+
+    let count = 1;
+    var node = document.getElementById('box');
+    var setUseAction = debounce(getUserAction, 1000, true);
+    node.onmousemove = setUseAction
+    const cancelLink = document.getElementById('cancel');
+   
+    </script>
+</body>
+</html>

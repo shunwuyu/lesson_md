@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+    }
+    #box {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -250px;
+        margin-top: -250px;
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    // 防抖
+    // 触发高频事件 N 秒后只会执行一次，
+    // 如果 N 秒内事件再次触发，则会重新计时
+    let count = 1;
+    var node = document.getElementById('box');
+    // node.addEventListener('mousemove', function() {
+    //     node.innerHTML = count++;
+    // });
+    function debounce(func, wait) {
+        var timeout;
+        return function () {
+            var context = this; // 支持this
+            var args = arguments; // 支持event 
+            clearTimeout(timeout)
+            timeout = setTimeout(function(){
+                func.apply(context, args)
+            }, wait);
+        }
+    }
+
+
+    function getUserAction(e) {
+        // 要拿到this怎么办？   要拿到event对象怎么办？
+        console.log(this, e)  // 分别打印：node 这个节点 和 MouseEvent
+        node.innerHTML = count++;
+    };
+    node.addEventListener('mousemove', debounce(getUserAction, 1000));
+    </script>
+</body>
+</html>
