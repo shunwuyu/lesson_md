@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="searchInput">
+    <span id="searchSpan"></span>
+    <script>
+    const searchInput = document.getElementById('searchInput');
+    const searchSpan = document.getElementById('searchSpan');
+    const obj = {};
+    Object.defineProperty(obj, 'text', {
+        set: function(newVal) {
+            console.log('set val:' + newVal);
+            searchInput.value = newVal;
+            searchSpan.innerText = newVal;
+        }
+    });
+    
+    searchInput.addEventListener('keyup', function(e){
+        obj.text = e.target.value;
+    })
+    </script>
+</body>
+</html>

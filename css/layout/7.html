@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 下面这段代码的格式化上下文是怎么样的？ -->
+    <p>It can get <strong>very complicated</storng> once you start looking into it.</p>
+    1. 位于html 顶级BFC中
+    2. p 标签是一个 block container，对内将产生一个 IFC
+    3. 由于一行没办法显示完全，所以产生了 2 个线盒（line box）；
+        线盒的宽度就继承了 p 的宽度；
+        高度是由里面的内联盒子的 line-height 决定；
+    4. It can get：匿名的内联盒子；
+    5. very complicated：strong 标签产生的内联盒子；
+    6. once you start：匿名的内联盒子；
+    7. looking into it.：匿名的内联盒子。
+</body>
+</html>
