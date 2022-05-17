@@ -4,7 +4,7 @@ function ListNode(val) {
 }
 
 var reverseList = function(head) {
-  //无头
+  //空链表  或 只有一个节点  
   if (!head || !head.next) return head;
 
   let cur = head; //当前结点
