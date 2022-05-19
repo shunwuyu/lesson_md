@@ -1,0 +1,15 @@
+{
+  "name": "rollup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "babel-node m2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-node": "0.0.1-security"
+  }
+}
