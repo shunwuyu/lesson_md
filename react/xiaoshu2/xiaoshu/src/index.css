@@ -1,0 +1,28 @@
+.comment-list {
+  background-color: #fff;
+  border: 1px solid #f1f1f1;
+  padding: 20px;
+}
+
+/* 评论组件样式 */
+.comment {
+  display: flex;
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  min-height: 50px;
+}
+
+.comment .comment-user {
+  flex-shrink: 0;
+}
+
+.comment span {
+  color: #00a3cf;
+  font-style: italic;
+}
+
+.comment p {
+  margin: 0;
+  /*text-indent: 2em;*/
+}
