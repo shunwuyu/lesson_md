@@ -1,3 +1,4 @@
+- book/react-high
 - workflow/rollup/demo
 - js/shouxie/typeof js/shouxie/flat
 - react/dog

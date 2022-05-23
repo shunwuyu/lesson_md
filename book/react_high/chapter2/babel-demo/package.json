@@ -1,0 +1,21 @@
+{
+  "name": "babel-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "es6_build": "babel 1.js -o 1.es5.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.0",
+    "@babel/plugin-syntax-jsx": "^7.17.12",
+    "@babel/preset-env": "^7.18.0",
+    "@babel/preset-react": "^7.17.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
