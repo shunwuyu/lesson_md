@@ -1,3 +1,5 @@
+- react/effect-demo
+- ryf/async
 - book/react-high
 - workflow/rollup/demo
 - js/shouxie/typeof js/shouxie/flat

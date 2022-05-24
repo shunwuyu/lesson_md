@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const songsPromise = fetch('https://www.fastmock.site/mock/4f8c468ae7202f91850147535d932340/sbt/api/songs');
+    // songsPromise
+    //     .then(data => data.json())
+    //     .then(data => {
+    //         console.log(data)
+    //     })
+
+    const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris');
+    // streetCarsPromise
+    //     .then(data => data.json())
+    //     .then(data => {
+    //         console.log(data)
+    //     })
+
+    songsPromise
+        .then(data => data.json())
+        .then(data => {
+            console.log(data)
+            return streetCarsPromise
+        })
+        .then(data => data.json())
+        .then(data => {
+            console.log(data);
+        })
+
+    // Promise
+    // .all([songsPromise, streetCarsPromise])
+    // .then(responses => {
+    //   return Promise.all(responses.map(res => res.json()))
+    // })
+    // .then(responses => {
+    //   console.log(responses);
+    // });
+    </script>
+    
+</body>
+</html>
