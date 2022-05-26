@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+    }
+    #box {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -250px;
+        margin-top: -250px;
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <a href="javascript:;" id="btn">取消</a>
+    <script>
+    let count = 1;
+    var node = document.getElementById('box');
+    var btn = document.getElementById('btn');
+    
+    function throttle(func, wait, options) {
+        var timeout, // 定时器  超过wait 才会执行 
+            context, // 上下文环境   func.apply
+            args;  // 参数
+        var previous = 0; // 上次执行时间
+        if (!options) options = {}; // 配置对象  
+        // leading 先执行， tailing  最后执行一次， 默认都为true
+
+        var later = function() {
+            previous = options.leading === false ? 0 : new Date().getTime();
+            timeout = null;
+            func.apply(context, args);
+            if (!timeout) context = args = null;
+        };
+
+
+        var throttled = function() {
+            var now = new Date().getTime(); // 当前时间
+            // previous 为0 且  不先执行
+            // previos  设置为now , 剩余的时间就不够了， 所以不会执行
+            // 是否执行由previous 计算
+            // 第一次才会执行
+            if (!previous && options.leading === false) previous = now;
+            var remaining = wait - (now - previous); // <=0 立即执行， 
+            context = this;
+            args = arguments;
+            // console.log(remaining, '-----------')
+            if (remaining <= 0 || remaining > wait) {
+                console.log('|||||||||||||||||||||||||')
+                if (timeout) { // 取消频繁执行
+                    clearTimeout(timeout);
+                    timeout = null;
+                }
+                previous = now;
+                func.apply(context, args);
+                if (!timeout) context = args = null;
+            } else if (!timeout && options.trailing !== false) {
+                console.log('---------------')
+                timeout = setTimeout(later, remaining);
+            } else {
+                clearTimeout(timeout);
+                previous = 0;
+                timeout = null;
+            }
+        }
+        throttled.cancel = function() {
+        }
+        return throttled;
+    }
+
+
+
+    function getUserAction(e) {
+        // 要拿到this怎么办？   要拿到event对象怎么办？
+        console.log(this, e, '////')  // 分别打印：node 这个节点 和 MouseEvent
+        node.innerHTML = count++;
+    };
+    const setUserAction = throttle(getUserAction, 3000, {leading:false});
+    node.addEventListener('mousemove', setUserAction);
+    btn.addEventListener('click', function() {
+        setUserAction.cancel()
+    })
+    </script>
+</body>
+</html>

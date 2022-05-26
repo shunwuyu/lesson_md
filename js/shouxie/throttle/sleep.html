@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function sleep (time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
+    // 用法
+    // sleep(500).then(() => {
+    //     // 这里写sleep之后需要去做的事情
+    // })
+    (async function() {
+        console.log('Do some thing, ' + new Date());
+        await sleep(3000);
+        console.log('Do other things, ' + new Date());
+    })();
+
+    </script>
+</body>
+</html>

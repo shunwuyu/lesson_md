@@ -1,3 +1,5 @@
+- react/react-demo2/react-notes
+- js/shouxie/throttle
 - react/effect-demo
 - ryf/async
 - book/react-high
