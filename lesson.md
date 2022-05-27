@@ -1,3 +1,4 @@
+- js/promise_test
 - react/react-demo2/react-notes
 - js/shouxie/throttle
 - react/effect-demo

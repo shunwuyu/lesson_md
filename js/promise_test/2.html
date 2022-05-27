@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 一开始整个脚本作为一个宏任务执行
+// 执行过程中同步代码直接执行  promise.then进入微任务
+// 当前宏任务执行完出队，检查微任务列表，有则依次执行，直到全部执行完
+
+// 从上至下，先遇到new Promise，执行其中的同步代码1
+// 再遇到resolve('success')， 将promise的状态改为了resolved
+// 并且将值保存下来
+// 继续执行同步代码2
+// 跳出promise，往下执行，碰到promise.then这个微任务， event loop 
+// 将其加入微任务队列
+// 执行同步代码4
+// 本轮宏任务全部执行完毕，检查微任务队列，
+// 发现promise.then这个微任务且状态为resolved，执行它。
+// 1  2  4  3
+const promise = new Promise((resolve, reject) => {
+  console.log(1);
+  resolve('success')
+  console.log(2);
+});
+promise.then(() => {
+  console.log(3);
+});
+console.log(4);
+</script>
+</body>
+</html>

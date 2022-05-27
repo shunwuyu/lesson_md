@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    html,
+    body,
+    .layout {
+    height: 100%;
+    }
+    body {
+        margin: 0;
+    }
+    .layout {
+        color: #fff;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+    }
+    main {
+        overflow-y: auto;
+    }
+    section {
+        width: 20%;
+        margin: 20px 0;
+    }
+    .h50 {
+        height: 50px;
+        line-height: 50px;
+    }
+    .orange {
+        background-color: orange;
+    }
+    .blue {
+        background-color: #31aff9;
+    }
+    .black {
+        background-color: black;
+    }
+    .demo1 main {
+        height: calc(100% - 100px);
+        overflow: auto;
+    }
+    .h400 {
+        height: 400px;
+    }
+    .demo2 {
+        position: relative;
+    }
+    .demo2 header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .demo2 main {
+    height: 100%;
+    padding: 50px 0;
+    box-sizing: border-box;
+    }
+    .demo2 footer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    .flex {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex main {
+        flex: 1;
+    }
+    .grid {
+        display: grid;
+        grid-template-rows: 50px 1fr 50px;
+    }
+    .grid header {
+        line-height: 50px;
+    }
+    .grid footer {
+        line-height: 50px;
+    }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <section class="demo1">
+            <header class="h50 orange">方法一：calc</header>
+            <main><div class="blue h400">main</div></main>
+            <footer class="h50 black">footer</footer>
+        </section>
+        <section class="demo2">
+            <header class="h50 orange">方法二：absolute</header>
+            <main><div class="blue h400">main</div></main>
+            <footer class="h50 black">footer</footer>
+        </section>
+        <section class="flex">
+            <header class="h50 orange">方法三：flex</header>
+            <main><div class="blue h400">main</div></main>
+            <footer class="black h50">footer</footer>
+        </section>
+        <section class="grid">
+            <header class="orange">方法四：grid</header>
+            <main><div class="blue h400">main</div></main>
+            <footer class="black">footer</footer>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 1 2 4
+// 和题目二相似，只不过在promise中并没有resolve或者reject
+// 因此promise.then并不会执行，它只有在被改变了状态之后才会执行。
+const promise = new Promise((resolve, reject) => {
+  console.log(1);
+  console.log(2);
+});
+promise.then(() => {
+  console.log(3); // 不会执行
+});
+console.log(4);
+
+</script>
+</body>
+</html>
