@@ -1,3 +1,5 @@
+- react/react-weui-demo
+- zxx/promise
 - react/react-router-v6/
 - react/router-v6/
 - js/promise_test
