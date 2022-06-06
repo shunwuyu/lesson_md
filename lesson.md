@@ -1,3 +1,5 @@
+- react/router-v6-demo
+- es6/es6_demo
 - react/react-weui-demo
 - zxx/promise
 - react/react-router-v6/
