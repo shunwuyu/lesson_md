@@ -1,0 +1,53 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .app-wrap {
+    padding: 20px;
+  }
+  
+  .app-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .input-wrap {
+    display: flex;
+  }
+  
+  .input {
+    width: 50%;
+  }
+  
+  .input-confirm-btn {
+    margin-left: 8px;
+  }
+  
+  .list-wrap {
+    margin-top: 12px;
+    min-height: 50vh;
+  }
+  
+  .list-item {
+    cursor: pointer;
+    padding: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .list-item-wrap {
+    width: 100%;
+    padding-right: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .list-item__finished {
+    text-decoration: line-through;
+  }
+  
+  .list-item-text {
+    font-size: 16px;
+  }
+  
