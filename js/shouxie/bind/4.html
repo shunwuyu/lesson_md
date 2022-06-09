@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="demo" ></canvas>
+    <script>
+    let canvas = document.getElementById('demo')
+    // function initCanvas() {
+    //     let img = new Image();
+    //     img.src = 'https://img2.baidu.com/it/u=3590113950,3364353300&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=360';
+
+    //     let gd = canvas.getContext('2d');
+    //     gd.drawImage(img,0,0); //为了简化代码，没有加onload
+
+    //     //问题出现！
+    //     canvas.onclick = function() {
+    //         // 一些操作
+    //     };
+    // }
+    // initCanvas()
+    // onclick会延长img变量的生存周期，而img属于很占资源的东西，所以会导致大量内存浪费
+    function initCanvas() {
+        let img = new Image();
+        img.src = 'https://img2.baidu.com/it/u=3590113950,3364353300&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=360';
+
+        let gd = canvas.getContext('2d');
+        gd.drawImage(img, 0, 0);
+    }
+    function initEvent() {
+        canvas.onclick = function() {
+            // 一些操作
+        };
+    }
+    initCanvas();
+    initEvent()
+    </script>
+</body>
+</html>

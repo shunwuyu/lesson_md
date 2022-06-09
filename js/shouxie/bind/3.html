@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function fn1() {
+  let a = 12; //保留
+
+  function fn2() {
+    let b = 5; //保留
+
+    document.onclick = function() {
+      //a和b在onclick中都有可能被用到，所以，都延长
+    };
+  }
+  fn2();
+}
+
+fn1();
+</script>
+</body>
+</html>

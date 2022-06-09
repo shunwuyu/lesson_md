@@ -1,3 +1,5 @@
+- js/shouxie/bind
+- react/react-transition
 - react/hooks-todos
 - react/router-v6-demo
 - es6/es6_demo

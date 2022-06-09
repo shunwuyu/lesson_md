@@ -1,0 +1,35 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blanchedalmond;
+}
+
+
+/* //进场前的瞬间 */
+.test-enter, .test-appear{
+    opacity: 0;
+}
+/* //进场过程中 */
+.test-enter-active, .test-appear-active{
+    opacity: 1;
+    transition: opacity 2000ms;
+}
+/* //进场之后 */
+.test-enter-done{
+    opacity: 1;
+}
+/* //离开前的瞬间 */
+.test-exit{
+    opacity: 1;
+}
+/* //离开过程中 */
+.test-exit-active{
+    opacity: 0;
+    transition: opacity 2000ms;
+}
+/* //离开后 */
+.test-exit-done{
+    opacity: 0;
+}
+
+

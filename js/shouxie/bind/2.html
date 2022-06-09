@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let a = { name: "blue", age: 18 };//{json}被a引用，所以json的引用计数加1
+//引用计数=1
+let b = a; //{json}又被b引用，引用计数为2
+//引用计数=2
+a = null; //a不再引用{json}，引用计数减1，还剩1个
+//引用计数=1
+//此时依然有b在引用{json}，所以并不回收
+
+b = null; //引用计数又减1
+//引用计数=0
+
+//至此，{json}被标记为“可回收”
+</script>
+<script>
+function show() {
+  let a = 12; //引用计数：1
+
+  document.onclick = function() {}; //引用计数：2
+}
+
+show();  //show运行中，引用计数：2
+//函数结束，let a相关的引用消失，但并不为零，因为onclick还在引用自己的父级变量
+//引用计数：1
+
+
+
+
+
+
+//直到有一天...
+document.onclick = null; //function没了，所以引用计数减1
+//引用计数：0
+//a标记为“可回收”
+</script>
+</body>
+</html>
