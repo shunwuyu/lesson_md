@@ -1,3 +1,4 @@
+- react/cart_demo
 - react/clouse-music-design
 - js/shouxie/bind
 - react/react-transition
