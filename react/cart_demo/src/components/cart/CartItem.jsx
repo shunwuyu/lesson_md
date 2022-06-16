@@ -1,7 +1,7 @@
 import React from "react"
 import { Typography } from "antd"
 
-const ItemCard = (props) => {
+const CartItem = (props) => {
     const { item, onCheckedChange } = props
     const { name, price, checked } = item
     const onWrapCheckedChange = (e) => {
@@ -24,4 +24,4 @@ const ItemCard = (props) => {
     )
 }
 
-export default ItemCard
+export default CartItem

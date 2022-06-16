@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import "./index.css"
 import { List, Typography } from "antd"
-import ItemCard from "./ItemCard"
+import CartItem from "./CartItem"
 
 // const cartData = Array(5)
 //   .fill(undefined)
@@ -80,7 +80,7 @@ export default function Cart() {
                     const checked = false
                     return (
                         <List.Item>
-                            <ItemCard item={item}  onCheckedChange={onCheckedChange}/>
+                            <CartItem item={item}  onCheckedChange={onCheckedChange}/>
                         </List.Item>
                     )
                 }}
