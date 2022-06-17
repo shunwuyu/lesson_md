@@ -26,6 +26,7 @@ const Home = () => {
             <SetMeal />
             <StoreList />
             <StoreInfo restaurants={restaurants}/>
+            
         </div>
     )
 }
