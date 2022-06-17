@@ -3,7 +3,7 @@ import HomeDetailBanner from "../../../../components/common/HomeDetailBanner"
 import { getHomeDetailOrder } from '../../../../api/request'
 // import SaleDetail from "./SaleDetail"
 
-const HomeDetail = () => {
+const Order = () => {
     const [banners, setBanners] = useState([])
     useEffect(() => {
         (async() => {
@@ -20,4 +20,4 @@ const HomeDetail = () => {
     )
 }
 
-export default HomeDetail
+export default Order

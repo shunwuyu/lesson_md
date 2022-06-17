@@ -9,11 +9,10 @@ import Order from "./HPage/Order"
 
 const HomeDetail = () => {
     const navigate = useNavigate()
-    // useEffect(() => {
-    //     navigate('/homedetail/order')
-    // })
+    useEffect(() => {
+        navigate('/homedetail/order')
+    }, [])
     return (
-        
         <Wrapper>
             <div className = "detail-top">
                 <NavBar 
