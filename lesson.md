@@ -1,3 +1,4 @@
+- book/wz/readme.md
 - react/cart_demo
 - react/clouse-music-design
 - js/shouxie/bind
