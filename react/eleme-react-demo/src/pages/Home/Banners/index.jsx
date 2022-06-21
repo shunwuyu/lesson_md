@@ -11,7 +11,7 @@ const Banners = ({banners}) => {
                 el:".swiper-pagination",
             }
         })
-    })
+    }, [])
 
     const renderBtnBannerspage1 = () => {
         let items = banners.slice(0, 10);
