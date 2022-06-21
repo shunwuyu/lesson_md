@@ -10,7 +10,7 @@ const StoreInfo = ({restaurants}) => {
            {restaurants.map(
             item =>  (
                 
-                <Link to= '/homedetail' key={item.restaurant.authentic_id} className="homelist">
+                <Link to= {`/homedetail/${item.restaurant.authentic_id}`} key={item.restaurant.authentic_id} className="homelist">
                     <div className="home_outBox">
                         <div className="home_outBox_">
                             <div className="home_insideBox-top">

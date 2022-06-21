@@ -6,14 +6,14 @@ const HomeDetailNav = ({banners}) => {
     useEffect(() => {
         new Swiper(".detail-banners",{
             slidePreView:"auto"
-        })
+        }, [])
     })
     const renderSlide = () => {
-        // console.log(banners, '//////')
+        console.log(banners, '//////')
         return (
             banners.map((item)=>(
                 <div className="swiper-slide food-item" key={item.id}>
-                    <img className="food-img" src={item.image_path} alt=""/>
+                    <img className="food-img" src={item.img} alt=""/>
                     <p className="food-card">{item.name}</p>
                     <p className="food-card-desc">{item.tips}</p>
                     <div className="food-sale">

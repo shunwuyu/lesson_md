@@ -1,25 +1,36 @@
 import React, {useEffect} from 'react'
 import {Wrapper} from './style'
-import { NavBar,Icon } from 'antd-mobile';
+import { NavBar } from 'antd-mobile';
 import { useNavigate, Outlet } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom'
 import bg from '../../asserts/images/b1.jpg'
 import HomeDetailNav from '../../components/common/HomeDetailNav';
 import Order from "./HPage/Order"
 
 const HomeDetail = () => {
     const navigate = useNavigate()
+    // const [params] = useParams()
+    let { id } = useParams()
+    if (!id) {
+        navigate('/home')
+        return;
+    }
+    
     useEffect(() => {
-        navigate('/homedetail/order')
+        navigate(`/homedetail/${id}/order`)
     }, [])
+    const back = () => {
+        // console.log('-----------')
+        navigate('/home')
+    }
     return (
         <Wrapper>
             <div className = "detail-top">
                 <NavBar 
-                    className="detail-left"
+                    back="返回"
                         // mode="light"
-                    onLeftClick={() => navigate(-1)}
-                    icon={<Icon type="left" />}>
+                    onBack={back}
+                >
                 </NavBar>
                 <div className = "detail-title-box">
                     {/* <div className="detail-title-img">
@@ -49,7 +60,7 @@ const HomeDetail = () => {
                     <p>公告：本店香锅不单炒，套餐必点！单加菜品需与套餐同时点！</p>
                 </div>
             </div>
-            <HomeDetailNav></HomeDetailNav>
+            <HomeDetailNav id={id}></HomeDetailNav>
             <Outlet />
         </Wrapper>
     )
