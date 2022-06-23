@@ -1,0 +1,3 @@
+const message = "hello!";
+ 
+message();
