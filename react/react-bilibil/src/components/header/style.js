@@ -15,6 +15,9 @@ export const Wrapper = styled.div`
         display: inline-block;
         width: ${px2rem(24)};
         height: ${px2rem(24)};
+        svg {
+            border-radius: 50%;
+        }
     }
     
     .search-icon{
