@@ -1,3 +1,4 @@
+- react/vite-js
 - react/typescript/hook
 - webpack/simply-demo
 - book/wz/readme.md
