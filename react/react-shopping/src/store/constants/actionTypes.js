@@ -1,0 +1,2 @@
+export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS'
+export const SET_PRODUCT = 'SET_PRODUCT'

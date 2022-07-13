@@ -1,0 +1,3 @@
+export const CHECK_GOODS = 'CHECK_GOODS';
+export const CHANGE_GOODS_NUM = 'CHANGE_GOODS_NUM';
+export const CHECK_ALL_GOODS = 'CHECK_ALL_GOODS'

@@ -1,3 +1,4 @@
+- react/shopping-cart-react
 - react/vite-js
 - react/typescript/hook
 - webpack/simply-demo
