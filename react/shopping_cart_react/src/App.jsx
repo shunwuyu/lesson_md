@@ -87,10 +87,12 @@ function App(props) {
   )
 }
 function mapStateToProps(state) {
-  let price = state.goods.list.reduce((total,item) => total + (item.check ? parseFloat(item.goodsPrice*item.goodsNum) : 0),0)
+  let price = state.goods.list.reduce((total,item) => total + (item.check ? 
+    parseFloat(item.goodsPrice*item.goodsNum) : 0),0)
   return {
     goodsList:state.goods.list,
-    checkAll: state.goods.list.filter(item => item.check).length == state.goods.list.length,
+    checkAll: state.goods.list.filter(item => item.check).length == 
+    state.goods.list.length,
     price:price
   }
 }
