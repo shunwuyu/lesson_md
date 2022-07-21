@@ -1,0 +1,26 @@
+{
+  "name": "bilibili-ts",
+  "version": "0.0.0",
+  "scripts": {
+    "dev:sit": "vite --mode dev-sit",
+    "dev:prod": "vite --mode dev-prod",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@types/react-router": "^5.1.18",
+    "cross-fetch": "^3.1.5",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.6",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  }
+}

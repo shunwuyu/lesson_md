@@ -51,7 +51,8 @@ const LoginBox = props => {
     }
     return (
         <div className='loginBox'>
-            <img src={avatarUrl} className='avatar' alt='avatar' />
+            <img src={avatarUrl} className='avatar' 
+            alt='avatar' />
             <div className='EmailBox'>
                 <div className='Email'>邮箱</div>
                 <input

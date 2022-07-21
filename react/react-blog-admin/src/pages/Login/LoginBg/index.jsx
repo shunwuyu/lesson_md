@@ -13,7 +13,8 @@ const LoginBg = () => {
         const cvs = document.createElement('canvas');
         cvs.width = window.innerWidth;
         cvs.height = window.innerHeight;
-        cvs.style.cssText = 'position:fixed;top:0px;left:0px;z-index:-1;opacity:1.0;';
+        cvs.style.cssText = 'position:fixed;top:0px;
+        left:0px;z-index:-1;opacity:1.0;';
         document.body.appendChild(cvs);
         const ctx = cvs.getContext('2d');
         function randomFloat(min, max) {
