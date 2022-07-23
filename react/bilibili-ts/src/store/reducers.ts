@@ -6,7 +6,8 @@ const initialState = {
     oneLevelPartitions: [],
 }
 
-function combineBanners(banners = initialState.banners, action: AnyAction) {
+function combineBanners(banners = initialState.banners, 
+    action: AnyAction) {
     switch (action.type) {
         case ActionTypes.SET_BANNERS:
             return action.banners;
@@ -15,7 +16,8 @@ function combineBanners(banners = initialState.banners, action: AnyAction) {
     }
 }
 
-function combineOneLevelPartitions(oneLevelPartitions = initialState.oneLevelPartitions,
+function combineOneLevelPartitions(oneLevelPartitions = 
+    initialState.oneLevelPartitions,
     action: AnyAction) {
     switch (action.type) {
         case ActionTypes.SET_ONE_LEVEL_PARTITIONS:

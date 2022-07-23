@@ -2,7 +2,8 @@ const fetch = require("node-fetch");
 // 搜索推荐
 const URL_SUGGEST = "https://s.search.bilibili.com/main/suggest";
 // 首页轮播
-const URL_ROUND_SOWING = "https://api.bilibili.com/x/web-show/res/loc?pf=7&id=1695";
+const URL_ROUND_SOWING = 
+"https://api.bilibili.com/x/web-show/res/loc?pf=7&id=1695";
 
 const fetchSuggest = (w) => {
     const params = [

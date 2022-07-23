@@ -2,7 +2,8 @@
  * 分类
  */
 class PartitionType {
-    constructor(public id: number, public name: string, public children: PartitionType[] = []) {}
+    constructor(public id: number, public name: string, 
+        public children: PartitionType[] = []) {}
 }
 
 function createPartitionTypes(data: any[]): PartitionType[] {
