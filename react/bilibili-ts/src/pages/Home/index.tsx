@@ -10,7 +10,7 @@ import { Dispatch, AnyAction } from 'redux';
 interface HomeProps {
   oneLevelPartitions: PartitionType[];
   getIndexContentDispatch: () => void;
-}cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc                                                                                                                   
+}                                                                                                                  
 
 const Index: React.FC<HomeProps> = (props) => {
   const { oneLevelPartitions } = props
