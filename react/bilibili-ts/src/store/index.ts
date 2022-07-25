@@ -1,9 +1,13 @@
 import { createStore, compose, applyMiddleware  } from 'redux';
 import reducers from './reducers';
-import thunk from "redux-thunk";
+import thunk, { ThunkMiddleware } from "redux-thunk";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = 
+    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, 
+    composeEnhancers(applyMiddleware(thunk as ThunkMiddleware)));
+// Infer the `RootState` and `AppDispatch` types from the store itself
 
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+export type rootState = ReturnType<typeof reducers>
 
 export default store;

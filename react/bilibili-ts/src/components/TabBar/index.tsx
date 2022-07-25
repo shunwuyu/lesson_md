@@ -13,7 +13,7 @@ const TabBar:React.FC<TabBarProps> = (props) => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const { data, type } = props;
     const { onClick } = props
-    const ref = useRef();
+    const ref = useRef<HTMLDivElement>(null);
     const tabs = data.map((tab, i) => {
         const tabClassnames = classNames('tab', 
             {indicate: type=="indicate" && currentIndex == i}, 
@@ -24,7 +24,8 @@ const TabBar:React.FC<TabBarProps> = (props) => {
             onClick(tab)
         }
         return  (
-            <div className={tabClassnames} key={tab.id} onClick={handleClick.bind(null, tab, i)}>
+            <div className={tabClassnames} key={tab.id} 
+            onClick={handleClick.bind(null, tab, i)}>
                 <span>{tab.name}</span>
             </div>
         )
