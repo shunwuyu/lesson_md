@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { px2rem } from '@/assets/global-style'
 
 export const TopWrapper = styled.div`
     position: fixed;
@@ -11,7 +12,21 @@ export const TopWrapper = styled.div`
     .partition{
         position: relative;
         .tab-bar {
-            margin-right: 2.8rem;
+            margin-right: 1.0rem;
         }
+        .switch {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: ${px2rem(22)};
+            line-height: ${px2rem(40)};
+            font-size: ${px2rem(18)};
+        }
+    }
+    .drawer-position {
+        position: absolute;
+        width: 100%;
+        top: ${px2rem(44)};
+        z-index: 2;
     }
 `

@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import { TopWrapper } from './style'
 import Header from '@/components/Header'
 import TabBar from '@/components/TabBar'
+import Drawer from "@/components/Drawer";
 import { PartitionType } from "@/models";
 import getIndexContent  from '@/store/async-actions';
 import { setShouldLoad } from '@/store/actions'
@@ -17,23 +18,28 @@ interface HomeProps {
 }                                                                                                                  
 
 const Index: React.FC<HomeProps> = (props) => {
+  const [showDrawer, setShowDrawer] = useState(false);
   const { oneLevelPartitions, shouldLoad } = props
   const { 
     getIndexContentDispatch,
     setShouldLoadDispatch
   } = props
-  console.log(shouldLoad, '////////');
-  const tabBarData = [{ id: 0, name: "首页"} 
-  as PartitionType]
+  
+  const tabBarData = [{ id: 0, name: "首页"} as PartitionType]
       .concat(oneLevelPartitions);
   tabBarData.push(new PartitionType(-1, "直播"));
 
   const handleClick = (tab: any) => {
-    console.log(tab, '-------------');
+    setShowDrawer(false)
+  }
+  const handleSwitchClick = () => {
+    setShowDrawer(!showDrawer)
   }
   useEffect(() => {
+    getIndexContentDispatch()
     setTimeout(() => {
       setShouldLoadDispatch(false)
+      
     }, 5000)
   }, [])
   return (
@@ -42,9 +48,16 @@ const Index: React.FC<HomeProps> = (props) => {
         <Header />
         <div className="partition">
           <div className="tab-bar">
-          <TabBar data={tabBarData} type={"indicate"} 
+            <TabBar data={tabBarData} type={"indicate"} 
           onClick={handleClick} />
           </div>
+          <div className="switch" onClick={handleSwitchClick}>
+            <i className="icon-arrow-down" />
+          </div>
+        </div>
+        <div className="drawer-position">
+          <Drawer 
+          show={showDrawer} data={tabBarData} onClick={handleClick} />
         </div>
         {shouldLoad && <div className="loading">
           加载中...
