@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<button id="start">start</button><button id="stop">stop</button>
+<div id="result"></div>
+<script src="webworker.js"></script>
+<body>
+    <script>
+        var startBtn = document.getElementById('start');
+        var stopBtn = document.getElementById('stop');
+        startBtn.addEventListener('click', startWorker)
+        stopBtn.addEventListener('click', stopWorker)
+        var w;
+        
+        function startWorker() {
+          if (typeof (Worker) !== "undefined") {
+            if (typeof (w) == "undefined") {
+              w = new Worker("webworker.js");
+            }
+            w.onmessage = function (event) {
+              document.getElementById("result").innerHTML = event.data;
+            };
+          }
+          else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+          }
+        }
+        
+        function stopWorker() {
+          w.terminate();
+        }
+    </script>
+</body>
+</html>

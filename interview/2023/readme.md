@@ -26,3 +26,70 @@
         text/plain：无需编码，直接发送
 
         
+什么是 HTML5?
+    - HTML产生于1990年    
+    - 1997年 HTML4 出现，成为互联网开发的标准
+    - 2008年，HTML5正式出现，2012年趋于稳定
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+哪些和html5 相关？
+<!DOCTYPE html>  使用 HTML5 标准来解析
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+HTML4.01 是基于 SGML，需要声明 DTD 标记语言规则，浏览器才可以正常解析页面代码。而 HTML5 不是基于 SGML 标准，所以不需要声明 DTD，直接` 即可
+
+- HTML5有哪些“新”特性？
+    1. 语义化标签
+        想到哪张图？ 
+    2. 两种写法有啥优点？
+        - 比所有布局全部采用 div 标签阅读起来更清晰
+        - 利于 SEO，方便搜索引擎识别页面结构 - 这也是非常重要的
+        - 方便设备解析，比如盲人阅读，语义化标签比 div 标签要好很多
+    3. 还能说出哪些html5标签
+        video audio  canvas   
+
+- html5 哪些功能？
+    表单功能增强
+     <form action="" method="get">
+    <p>邮箱标签: <input type="email"></p>
+    <p>数字标签: <input type="number"></p>
+    <p>滑动条标签: <input type="range"></p>
+    <p>搜索框标签: <input type="search"></p>
+    <p>日期框: <input type="date"></p>
+    <p>星期框: <input type="week"></p>
+    <p>月份框: <input type="month"></p>
+    <p>颜色框: <input type="color"></p>
+    <p>网址框: <input type="url"></p>
+    <div>
+      <input type="submit">
+      <input type="reset">
+    </div>
+</form>
+    还有什么属性？ placeholder  autofocus  number 类型，则可以设置 min 和 max 属性  是 password 类型，则可以设置 minLength 和 maxLength 属性
+    - 音频/视频
+        在 HTML5 之前，浏览器支持音视频方案都是通过 Flash 来实现的
+        <audio controls="controls">
+            <source src="./media/luffy.ogg"></source>
+            <source src="./media/luffy.mp3"></source>
+            本网页不支持媒体标签
+        </audio>
+        兼容 
+
+    - 画布 — Canvas
+    - 拖放
+    - 本地存储
+        Storage 数据库
+        manifest 离线缓存。之前前端本地存储都是通过 cookie 来进行的。
+    - Storage
+        LocalStorage 和 SessionStorage
+    - Cache Manifest
+        

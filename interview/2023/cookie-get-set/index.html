@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function setCookie(name, value, day=0) {
+    if (day !== 0) { // 当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+      var expires = day * 24 * 60 * 60 * 1000
+      var date = new Date(+new Date() + expires)
+    //   escape是对字符串(string)进行编码
+    // 都是编码URL
+    // encodeURI方法不会对下列字符编码  ASCII字母、数字、~!@#$&*()=:/,;?+'
+    // encodeURIComponent方法不会对下列字符编码 ASCII字母、数字、~!*()'
+    // 所以encodeURIComponent比encodeURI编码的范围更大。
+    // encodeURIComponent会把 http://  编码成  http%3A%2F%2F 而encodeURI却不会
+      document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()}`
+    } else {
+      document.cookie = `${name}=${escape(value)}`
+    }
+}
+
+function getCookie(name) { // 获取cookies
+    let strCookie = document.cookie
+    let arrCookie = strCookie.split('; ')
+    for (var i = 0; i < arrCookie.length; i++) {
+      let arr = arrCookie[i].split('=')
+      if (name == arr[0]) {
+        return arr[1]
+      }
+    }
+    return ''
+  }
+
+</script>
+</body>
+</html>
