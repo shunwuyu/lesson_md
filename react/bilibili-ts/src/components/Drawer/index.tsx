@@ -23,7 +23,8 @@ const Drawer: React.FC<DrawerProps> = (props) => {
     ));
     useEffect(() => {
         // drawerWrapperRef.current.
-        const drawerWrapperDOM = drawerWrapperRef.current as HTMLDivElement;
+        const drawerWrapperDOM = 
+            drawerWrapperRef.current as HTMLDivElement;
         if (show) {
             drawerWrapperDOM.style.display = "block";
             setTimeout(() => {

@@ -1,10 +1,8 @@
-const PREFIX = 'http://localhost:3011'
-const URL_SEARCH_SUGGEST = PREFIX + "/search/suggest";
-const URL_ROUND_SOWING = PREFIX + "/round-sowing";
-const URL_PARTITION = PREFIX + "/partitions"
-
+const URL_PARTITION = "/partitions"
+const URL_RANKING = "/ranking"
+const URL_RANKING_PARTITION = "/ranking/partitions";
 export {
-    URL_SEARCH_SUGGEST,
-    URL_ROUND_SOWING,
-    URL_PARTITION
+    URL_PARTITION,
+    URL_RANKING,
+    URL_RANKING_PARTITION
 }

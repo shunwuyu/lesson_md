@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
-import { TopWrapper } from './style'
+import { TopWrapper, ContentWrapper } from './style'
 import Header from '@/components/Header'
 import TabBar from '@/components/TabBar'
 import Drawer from "@/components/Drawer";
-import { PartitionType } from "@/models";
-import getIndexContent  from '@/store/async-actions';
-import { setShouldLoad } from '@/store/actions'
-import { Dispatch, AnyAction } from 'redux';
+import { PartitionType,  Video } from "@/models";
+import { getPartitions, getRankingVideoList }  
+from '@/store/async-actions';
+import { Dispatch } from 'redux';
 import { rootState } from '@/store/index';
-
+import VideoItem from '@/components/VideoItem'
+import { baseUrl} from '@/api/config'
 interface HomeProps {
+  rankingVideos: Video[];
   oneLevelPartitions: PartitionType[];
-  shouldLoad: Boolean;
-  getIndexContentDispatch: () => void;
-  setShouldLoadDispatch: (load: Boolean) => void;
+  getPartitionsDispatch: () => void;
+  getRankingVideoListDispatch: (rId: number) => void;
 }                                                                                                                  
 
 const Index: React.FC<HomeProps> = (props) => {
   const [showDrawer, setShowDrawer] = useState(false);
-  const { oneLevelPartitions, shouldLoad } = props
   const { 
-    getIndexContentDispatch,
-    setShouldLoadDispatch
+    oneLevelPartitions,
+    rankingVideos
   } = props
+  const { 
+    getPartitionsDispatch, 
+    getRankingVideoListDispatch
+  } = props
+  
   
   const tabBarData = [{ id: 0, name: "首页"} as PartitionType]
       .concat(oneLevelPartitions);
@@ -35,13 +40,19 @@ const Index: React.FC<HomeProps> = (props) => {
   const handleSwitchClick = () => {
     setShowDrawer(!showDrawer)
   }
+
+  const videoElements = rankingVideos.map((video) => {
+    video.pic = `${baseUrl}/transfer/image?pic=${video.pic}@320w_200h.jpg`;
+    console.log(video.pic)
+    return <VideoItem video={video} key={video.aId} 
+    showStatistics={true} />
+  })
+
   useEffect(() => {
-    getIndexContentDispatch()
-    setTimeout(() => {
-      setShouldLoadDispatch(false)
-      
-    }, 5000)
+    getPartitionsDispatch()
+    getRankingVideoListDispatch(1)
   }, [])
+ 
   return (
     <div className="index">
       <TopWrapper>
@@ -59,24 +70,29 @@ const Index: React.FC<HomeProps> = (props) => {
           <Drawer 
           show={showDrawer} data={tabBarData} onClick={handleClick} />
         </div>
-        {shouldLoad && <div className="loading">
-          加载中...
-        </div>}
       </TopWrapper>
+      <ContentWrapper>
+        <div className="video-list clear">
+          {videoElements}
+        {/* {videoElements} */}
+        </div>
+      </ContentWrapper>
     </div>
   )
 }
 const mapStateToProps = (state: rootState) => ({
   oneLevelPartitions: state.oneLevelPartitions,
-  shouldLoad: state.shouldLoad
+  rankingVideos: state.ranking.rankingVideos,
+  rankingPartitions: state.ranking.rankingPartitions
 })
 
 const mapDispatchToProps = (dispatch :Dispatch) => ({
-  getIndexContentDispatch(){
-    dispatch(getIndexContent() as any)
+  getPartitionsDispatch(){
+    dispatch(getPartitions() as any)
   },
-  setShouldLoadDispatch() {
-    dispatch(setShouldLoad(false))
+  getRankingVideoListDispatch(rId: number) {
+    console.log(rId, '///')
+    dispatch(getRankingVideoList(rId) as any)
   }
 })
 

@@ -4,6 +4,9 @@ const URL_SUGGEST = "https://s.search.bilibili.com/main/suggest";
 // 首页轮播
 const URL_ROUND_SOWING = 
 "https://api.bilibili.com/x/web-show/res/loc?pf=7&id=1695";
+// 排行榜
+const URL_RANKING =
+ "https://api.bilibili.com/x/web-interface/ranking?rid={rid}&day=3";
 
 const fetchSuggest = (w) => {
     const params = [
@@ -27,7 +30,15 @@ const fetchRoundSowing = () => {
       .then(res => res.json())
       .then(json => json);
 }
+
+const fetchRankingById = (rId) => {
+    return fetch(URL_RANKING.replace("{rid}", rId))
+      .then(res => res.json())
+      .then(json => json);
+}
+
 module.exports = {
     fetchSuggest,
-    fetchRoundSowing
+    fetchRoundSowing,
+    fetchRankingById
 }

@@ -30,3 +30,12 @@ export const TopWrapper = styled.div`
         z-index: 2;
     }
 `
+
+export const ContentWrapper = styled.div`
+padding-top: ${px2rem(86) };
+.video-list {
+    padding-top: ${px2rem(12)};
+    padding-left: ${px2rem(6)};
+    padding-right: ${px2rem(6)};
+}
+`

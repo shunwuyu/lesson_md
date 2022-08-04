@@ -1,32 +1,46 @@
 import { AnyAction, Dispatch } from "redux";
-import { getBanner } from "@/api/index";
-import { getPartitions } from "@/api/partitions"
-import { createPartitionTypes } from '@/models'
+import { getPartitionsRequest } from "@/api/request"
+import { createPartitionTypes, createVideoByRanking } from "../../models";
+import { setRankingPartitions, setRankingVideos } from "../actions";
 import {
     setOneLevelPartitions,
 } from "../actions";
+import { 
+    getRankingRequest,     
+    getRankingPartitionsRequest
+} from "@/api/request";
 
-export const getBanners = () => {
-    return (dispatch:Dispatch<AnyAction>) => {
-
+export const getPartitions = () => {
+    return (dispatch: Dispatch<AnyAction>) => {
+        try {
+            getPartitionsRequest().then(data => {
+                dispatch(setOneLevelPartitions(data))
+            })   
+        } catch(e) {
+            console.log(e)
+        }
     }
 }
 
-export default function getIndexContent() {
-    // dispatch由thunkMiddleware传入
+export function getRankingVideoList(rId: number) {
     return (dispatch: Dispatch<AnyAction>) => {
-        const promises = [
-            getPartitions()
-        ]
-        return Promise.all(promises).then(([result1,
-             result2, result3]) => {
-            if (result1.code === "1") {
-                const partitions = result1.data["0"];
-                let oneLevels =  createPartitionTypes(partitions);
-                oneLevels = oneLevels.filter((partition) => 
-                [13, 23, 11, 177].indexOf(partition.id) === -1);
-                console.log(oneLevels)
-                dispatch(setOneLevelPartitions(oneLevels));
+        return Promise.all([
+            getRankingPartitionsRequest(),
+            getRankingRequest(rId)
+        ]).then(([result1, result2]) => {
+            console.log(result1.code, '/////');
+            if (result1.code == 1) {
+                // console.log(result1.data)
+                let partitions = createPartitionTypes(result1.data);
+                // 过滤掉 番剧，电影，电视剧，纪录片
+                partitions = partitions.filter((partition) => [13, 23, 11
+                    , 177].indexOf(partition.id) === -1);
+                dispatch(setRankingPartitions(partitions));
+            }
+            if (result2.code === "1") {
+                const list = result2.data.list;
+                const rankingVideos = list.map((data) => createVideoByRanking(data));
+                dispatch(setRankingVideos(rankingVideos.splice(0, 30)));
             }
         })
     }

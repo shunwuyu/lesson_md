@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id= "uploadForm" action= "http://localhost:8080/upload" method="post" enctype ="multipart/form-data">    
+        <h1 >测试通过接口上传文件 </h1>    
+        <p >指定文件名： <input type ="text" name="filename" /></p>    
+        <p >上传文件： <input type ="file" name="file" /></p>     
+        <input type ="submit" value="上传"/>    
+    </form>  
+    <script>
+    const uploadForm = document.getElementById('uploadForm');
+    uploadForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        var formData = new FormData();
+        // 利用append的内置方式
+        formData.append("filename", uploadForm["filename"].value);
+        formData.append("file", uploadForm["file"].files[0]);
+        // uploadForm.submit();
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8080/upload", true);
+        xhr.send(formData);
+        // xhr.onreadystatechange = function(event) {
+        //     // if (this.readyState == 4 ) {
+        //     //     console.log(event.responseText);
+        //     // }
+        // }
+    })
+    </script>  
+</body>
+</html>

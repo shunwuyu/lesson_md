@@ -2,19 +2,11 @@ import { combineReducers, AnyAction } from 'redux';
 import * as ActionTypes from "./action-types";
 
 const initialState = {
-    banners: [],  // 轮播图
     oneLevelPartitions: [],
-    shouldLoad: true,  // 客户端是否加载数据
-}
-
-function combineBanners(banners = initialState.banners, 
-    action: AnyAction) {
-    switch (action.type) {
-        case ActionTypes.SET_BANNERS:
-            return action.banners;
-        default:
-            return banners;
-    }
+    ranking: {
+        rankingPartitions: [], // 排行榜分类列表
+        rankingVideos: [], // 排行榜视频
+    } // 排行榜
 }
 
 function combineOneLevelPartitions(oneLevelPartitions = 
@@ -28,18 +20,27 @@ function combineOneLevelPartitions(oneLevelPartitions =
     }
 }
 
-function combineShouldLoad(shouldLoad = initialState.shouldLoad,
-    action: AnyAction) {
-   switch (action.type) {
-       case ActionTypes.SET_SHOULD_LOAD:
-           return action.shouldLoad;
-       default:
-           return shouldLoad;
-   }
+function combineRanking(state = initialState.ranking, action: AnyAction) {
+    switch (action.type) {
+        case ActionTypes.SET_RANKING_VIDEOS:
+        return {
+            ...state,
+            rankingVideos: action.data
+        }
+        break;
+        case ActionTypes.SET_RANKING_PARTITIONS:
+            console.log('????????????????', action)
+            return {
+                ...state,
+                rankingPartitions: action.data
+            } 
+        break;
+        default:
+        return state;
+    }
 }
 
 export default combineReducers({
-    banners: combineBanners,
     oneLevelPartitions: combineOneLevelPartitions,
-    shouldLoad: combineShouldLoad
+    ranking: combineRanking
 })
