@@ -91,5 +91,12 @@ HTML4.01 是基于 SGML，需要声明 DTD 标记语言规则，浏览器才可�
         manifest 离线缓存。之前前端本地存储都是通过 cookie 来进行的。
     - Storage
         LocalStorage 和 SessionStorage
+        localStorage 存储的键值采用什么字符编码
+        UTF-16 每个字符使用两个字节 小于0xFFFF(65535)， 大于这个码点的是四个字节
+        - 10M
+        写个方法统计一个localStorage已使用空间
+        function sieOfLS() {
+            return Object.entries(localStorage).map(v => v.join('')).join('').length;
+        }
     - Cache Manifest
         
