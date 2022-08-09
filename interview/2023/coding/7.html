@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 使用ES6 的Proxy实现数组负索引。
+//  （负索引：例如，可以简单地使用
+//  arr[-1]替代arr[arr.length-1]访问最后一个元素，
+//  [-2]访问倒数第二个元素，以此类推）
+let arr=[1,2,4,6,8,10];
+function NegativeArray (arr){
+    let proxy=new Proxy(arr,{
+        set(){},
+        get(arr,property){          
+            if(property>=0){
+                return arr[property]
+            }else{
+                return arr[(arr.length+property*1)]
+            }
+        }
+    }); 
+    return proxy; 
+}  
+let brr=new NegativeArray (arr);
+console.log(brr[-1]);
+</script>
+</body>
+</html>

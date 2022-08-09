@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 这里的 yideng 通过 prototype 继承了 company的 address。
+// yideng自己并没有address属性。所以delete操作符的作用是无效的。
+var company = {
+    address: 'beijing'
+}
+var yideng = Object.create(company);
+delete yideng.address
+console.log(yideng.address);
+</script>
+</body>
+</html>

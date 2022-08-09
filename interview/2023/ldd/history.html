@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="btn">跳转</button>
+        <button id="goBack">返回</button>
+    </div>
+    <script>
+    const btn = document.querySelector('#btn')
+    const goBack = document.querySelector('#goBack')
+    goBack.addEventListener('click', (event) => {
+        history.back()
+    })
+    btn.addEventListener('click', (event) => {
+        const state = {name: 'home'}
+        // 第二个参数没用，只是留着，以后做扩展
+        window.history.pushState(state, '', 'page1')
+    })
+
+    window.onpopstate = (event) => {
+        const stete = event.state //获取跳转的时候传递过来的state，只有在state有的时候
+        //，才返回有的值
+        // 改变的时候，显示当前页面的state
+        console.log('前进后退', event)
+    }
+    // 服务端都返回默认的index.html给前端，前端自己处理路由的变化
+    // onpopstate 是在浏览器前进后退的时候触发 
+    // onhashchange 是在hash改变的时候触发，一般来说，onhashchange触发的条件广一些
+    </script>
+</body>
+</html>

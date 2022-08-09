@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     let jsonp=(url,data={},callback='callback')=>{
+            //准备好带有padding的请求url
+        let dataStr=url.indexOf('?')=== -1?'?':'&'
+        // console.log(dataStr);
+        for(let key in data){
+            dataStr +=`${key}=${data[key]}&`
+        }
+        dataStr +=`callback=`+callback
+
+        //构造 script
+        let oScript=document.createElement('script')
+        oScript.src=url+dataStr
+        //appendChild () 方法可向节点的子节点列表的末尾添加新的子节点
+        document.body.appendChild(oScript)
+
+        window[callback]=(data)=>{
+            console.log(data);
+        }
+    }
+
+    jsonp('http://localhost:8888/?a=1',{
+            page:1,
+            cate:'recommend'
+        })  
+    </script>
+</body>
+</html>

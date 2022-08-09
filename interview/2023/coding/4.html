@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+var fullname = 'a';
+var obj = {
+   fullname: 'b',
+   prop: {
+      fullname: 'c',
+      getFullname: function() {
+         return this.fullname;
+      }
+   }
+};
+ 
+console.log(obj.prop.getFullname()); // c
+var test = obj.prop.getFullname;
+console.log(test()); 
+</script>
+</body>
+</html>

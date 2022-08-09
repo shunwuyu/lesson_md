@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="btn">跳转</button>
+    </div>
+    <script>
+    const btn = document.querySelector('#btn')
+    window.onhashchange = (event) => {
+            /* 当浏览器前进后退也会触发hash的变法 */
+        const newURL = event.newURL
+        const oldURL = event.oldURL
+        console.log('event', event)
+        console.log('newURL', newURL)
+        console.log('oldURL', oldURL)
+    }
+
+    btn.addEventListener('click', (event) => {
+            window.location.href = '#/user'
+    })
+    </script> 
+</body>
+</html>
