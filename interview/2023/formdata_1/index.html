@@ -18,7 +18,7 @@
     uploadForm.addEventListener('submit', (event) => {
         event.preventDefault();
         var formData = new FormData();
-        // 利用append的内置方式
+        // 利用append的内置方式  
         formData.append("filename", uploadForm["filename"].value);
         formData.append("file", uploadForm["file"].files[0]);
         // uploadForm.submit();

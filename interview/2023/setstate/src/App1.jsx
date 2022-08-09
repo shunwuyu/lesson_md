@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setCount(1)
-      console.log(count);
+      console.log(count);   
       setCount(2)
       console.log(count);
     }, 0);
