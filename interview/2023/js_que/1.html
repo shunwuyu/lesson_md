@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 组件通信，一个触发与监听的过程
+class EventEmitter {
+    constructor () {
+    // 存储事件
+        this.events = this.events || new Map()
+    }
+     // 监听事件
+    addListener (type, fn) {
+        if (!this.events.get(type)) {
+            this.events.set(type, fn)
+        }
+    }
+     // 触发事件
+    emit (type) {
+        let handle = this.events.get(type)
+        handle.apply(this, [...arguments].slice(1))
+    }
+}
+// 测试
+let emitter = new EventEmitter()
+// 监听事件
+emitter.addListener('ages', age => {
+  console.log(age)
+})
+// 触发事件
+emitter.emit('ages', 18)  // 18
+</script>
+</body>
+</html>
