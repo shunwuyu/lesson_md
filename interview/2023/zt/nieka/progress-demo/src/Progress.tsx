@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './progressbar.css'
 export interface IProgressProps {
     step?: number;
     total?: number;
