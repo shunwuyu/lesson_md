@@ -1,5 +1,5 @@
 {
-  "name": "progressbar",
+  "name": "progress-demo",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
