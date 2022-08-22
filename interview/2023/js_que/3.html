@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const obj = {
+  name: "_island",
+  age: 18
+};
+Object.keys(obj).forEach((key) => {
+  let val = obj[key];
+  Object.defineProperty(obj, key, {
+    get: function () {
+      console.log(key + "调用了get方法");
+      return val;
+    },
+    set: function (newVal) {
+      console.log(key + "调用了set方法");
+      val = newVal;
+    }
+  });
+});
+
+// 操作obj对象
+obj.name = "QC2125";
+// name调用了set方法
+obj.age = 30;
+// age调用了set方法
+console.log(obj.name); 
+
+</script> 
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            /* 占用了盒子内容 */
+            /* padding: 25% 0;  */
+            /* 如果A容器是视窗ViewPort，可以说使用 "vw" 
+            单位来设置B容器的高度：50vw 即表示视窗宽度的一半 */
+            /* width: 100%;
+            height: 50vw; */
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+    //  js语法
+    const oBox = document.querySelector('.box');
+    window.onload = function() {
+        console.log(oBox.offsetWidth)
+        oBox.style.height = ( oBox.offsetWidth / 2 ) + 'px' ;
+        // window.onresize = 
+    }
+    </script>
+</body>
+</html>
