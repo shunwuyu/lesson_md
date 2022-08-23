@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>webkitAnimationEnd</title>
+<style type="text/css">
+#div1{
+    margin: 200px auto 0;
+    width: 200px;
+    height: 200px;
+    color: #fff;
+    background-color: #000;
+    -webkit-animation: transform 3s 2 ease;
+}
+@-webkit-keyframes transform {
+    0%{
+        -webkit-transform: scale(1) rotate(50deg);
+    }
+    30%{
+        -webkit-transform: scale(2) rotate(100deg);
+    }
+    6%{
+        -webkit-transform: scale(0.5) rotate(-100deg);
+    }
+    100%{
+        -webkit-transform: scale(1) rotate(0);
+
+    }
+}
+</style>
+</head>
+<body>
+<div id="div1"></div>
+<script type="text/javascript">
+var o = document.getElementById("div1");
+// 动画开始时事件
+o.addEventListener("webkitAnimationStart", function() {
+    console.log("动画开始");
+})
+// 动画重复运动时事件
+o.addEventListener("webkitAnimationIteration", function() {
+    console.log("动画重复运动");
+})
+// 动画结束时事件
+o.addEventListener("webkitAnimationEnd", function() {
+    this.className = "";
+    console.log("动画结束");
+})
+</script>
+</body>
+</html>
