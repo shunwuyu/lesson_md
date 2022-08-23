@@ -1,0 +1,27 @@
+<html>
+<head>
+<style>
+.square {
+  /* width: 10%;
+  height: 10vw;
+  background: tomato; */
+  /* width: 20%;
+  height: 0;
+  padding-top: 20%;
+  background: orange; */
+  /* 利用子元素的margin-top的值来实现 */
+  width: 30%;
+  overflow: hidden;
+  background: yellow;
+}    
+.square::after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+</style>
+</head>
+<body>
+<div class="square"></div>
+</body>
+</html>

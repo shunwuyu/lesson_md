@@ -1,0 +1,13 @@
+<html>
+<head>
+<style>
+/* window.devicePixelRatio = 设备的物理像素 / CSS像素。 */
+#container[data-device="2"] {
+  border:10px solid #333
+}
+</style>
+</head>
+<body>
+<div class="box" data-device={{window.devicePixelRatio}}></div>
+</body>
+</html>
