@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container {
+        width: 450px;
+        height: 450px;
+        display: flex;
+    }
+    .box {
+        flex: 1;
+        text-align: center;
+        line-height: 450px;
+        background-color: green;
+        color: white;
+    }
+    .box:nth-child(odd) {
+        background-color: yellow;
+    }
+    .item1 {
+	    order: 99;
+        flex-basis: 50px;
+        /* width: 100px; */
+    }
+    .item3 {
+	    order: -1;
+    }
+    .item4 {
+	    order: -2;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box item1">item1</div>
+        <div class="box">item2</div>
+        <div class="box item3">item3</div>
+        <div class="box item4">item4</div>
+        <div class="box">item5</div>
+    </div>
+</body>
+</html>
