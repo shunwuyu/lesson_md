@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .wrapper {
+        border: 1px solid #000;
+        display: flex;
+    }
+    .left {
+        width: 200px;
+        height: 200px;
+        background-color: rgb(97, 143, 204);
+        /* float: left; 1*/
+        /* position: absolute; 2*/
+        /* float: left; 3*/
+    }
+    .right {
+        height: 300px;
+        background-color: rgb(165, 103, 207);
+        /* margin-left: 200px;1 */
+        /* margin-left: 200px; 2*/
+        /* overflow: hidden; 3*/
+        flex: 1 1 auto;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left">左边，宽度固定</div>
+        <div class="right">右边，宽度自适应</div>
+    </div>
+</body>
+</html>

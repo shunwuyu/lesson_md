@@ -119,3 +119,102 @@
             只不过import导入语句和import()函数动态模块加载是两个东西
         - Es Module混合导出，单个导出，默认导出，完全互不影响
         - Es Module导出是引用值之前都存在映射关系，并且值都是可读的，不能修改
+
+- 左侧固定  右侧自适应  
+    四种  2column
+
+- css 污染
+    - 组件样式类名污染   styled-components  css  module  css-module-demo
+    - BEM 命名规范
+
+- css 之优先级（6大类） 权重（4等级）
+
+    - 第一优先级：无条件优先的属性只需要在属性后面使用！important。它会覆盖页面内任何位置定义的元素样式。
+    - 第二优先级：在html中给元素标签加style，即内联样式。该方法会造成css难以管理，所以不推荐使用。
+    - 第三优先级：由一个或多个id选择器来定义。例如，#id{margin:0;}会覆盖.classname{margin:3pxl}
+    - 第四优先级：由一个或多个类选择器、属性选择器、伪类选择器定义。如.classname{margin:3px}会覆盖div{margin:6px;}
+    - 第五优先级：由一个或多个类型选择器定义
+    - 通配选择器
+
+- css优先级 的 优先顺序
+    行内样式（style="…"）>ID 选择器(#box{…})>类选择器(.con{…})>标签选择器(dic{…})>通用选择器(*{…})
+
+- 权重计算
+    UL#NAV LI.ACTIVE A  113 
+
+- 权重 的 4个等级定义
+    第一等级：代表内联样式，如style=""，权值为 1000
+    第二等级：代表id选择器，如#content，权值为100
+    第三等级：代表类，伪类和属性选择器，如.content，权值为10
+    第四等级：代表标签选择器和伪元素选择器，如div p，权值为1
+
+- 权重 的 优先顺序
+    行内样式（1000）>ID选择器（100）>类选择器（10）>标签选择器（1）>通用选择器（0）
+
+- js 类型
+    https://juejin.cn/post/7056029948749807629
+    Object.prototype.toString.call('null') === '[object Null]'  
+    在JS实现这些子类型时候为它们增加了一个内部属性[[Class]，我们可以通过Object.prototype.toString()进行查看
+    Object.prototype.toString.call(Date.now())   // "[object Date]"
+    Object.prototype.toString应该只用来区分已经判定了Object的类型：
+    toString_demo
+    Null和undefined
+    在 JavaScript 中有两种表达“无”的方式，那就是使用undefined和null
+    - undefined
+        如果您创建一个变量并且不对其进行任何设置，它将是undefined
+        undefined是已经创建（变量）但尚未定义（给定值）的东西。
+        let dog;
+        console.log(dog)
+        对象的属性也是如此
+            let person={  //一个不具有任何属性的person对象
+            }
+        person.dog  undefined
+        为什么？因为person什么都没有。这就是undefined的
+        如果在控制台中输入test，您会看到返回的错误消息说*“test is not defined”*，这意味着您没有创建名为test的变量.
+        对于我们上面使用的狗示例，我们已经创建了变量，但我们没有设置值。这就是区别。
+    - null
+        Null 是空值，而 undefined 是尚未设置值的变量。
+        let somethingUndefined;
+        const somethingNull = null; 您不能在不设置值的情况下使用 const 变量。
+
+        somethingUndefined是未定义的，因为它没有设置值，而somethingNull具有 null 的值，它什么都没有。它们都什么都不是，只是方式不同。
+
+        undefined 表示一个变量自然的、最原始的状态值，而 null 则表示一个变量被人为的设置为空对象，而不是原始状态。所以，在实际使用过程中，为了保证变量所代表的语义，不要对一个变量显式的赋值 undefined，当需要释放一个对象时，直接赋值为 null 即可。
+
+- 类型转换
+    隐式转化的过程
+    0 + '1' === '01'   // true
+    true + true === 2       // true
+    false === 0          // false
+    false + false === 0  // true
+    {} + [] === 0  // true
+    [] + {} === 0  // false
+
+    - 深入理解JavaScript的基础类型和引用类型
+    - JavaScript的隐式转换内部机制
+    - 在社区中谈及相关话题的时候，彰显自己的实力
+
+    JavaScript的类型系统
+    JS中一共有6种基础类型：Symbol、Bigint、null、undefined、number、string、boolean；加上Object，JS种一共有八种内置类型。
+    typeof操作符去判断内置类型：
+    typeof Symbol() === 'symbol'          // true
+typeof undefined === 'undefined'      // true
+typeof true === 'boolean'             // true
+typeof 42 === 'number'                // true
+typeof '42' === 'string'              // true
+typeof { bar: 42 } === 'object'       // true
+
+// 但还有一个例外
+typeof null === 'object'              // t// 这个bug是由于typeof的底层实现，和null的底层表示有关系这里就不展开了
+
+区分Object的子类型
+
+类型之间的强制类型转换
+    所有的隐式转换都是基于强制类型转换的，所以我们要搞清楚JS中强制转换是如何运作的
+
+抽象操作ToString
+    
+
+
+
+

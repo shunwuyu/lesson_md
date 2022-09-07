@@ -1,0 +1,21 @@
+{
+  "name": "px2rem-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "postcss": "^8.4.16",
+    "postcss-loader": "^7.0.1",
+    "postcss-px2rem": "^0.3.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.1"
+  }
+}
