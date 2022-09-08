@@ -41,64 +41,64 @@ import usePow from './usePow';
 //     } : undefined}>{props.title}</button>
 // })
 
-// function App() {
-//   const scrollRef = useRef(null);
-//   const [clientHeight, setClientHeight ] = useState(0);
-//   const [scrollTop, setScrollTop ] = useState(0)
-//   const [scrollHeight, setScrollHeight ] = useState(0)
-
-//   const onScroll = () => {
-//     if(scrollRef?.current){
-//       let clientHeight = scrollRef?.current.clientHeight; //可视区域高度
-//       let scrollTop  = scrollRef?.current.scrollTop;  //滚动条滚动高度
-//       let scrollHeight = scrollRef?.current.scrollHeight; //滚动内容高度
-//       setClientHeight(clientHeight)
-//       setScrollTop(scrollTop)
-//       setScrollHeight(scrollHeight)
-//     }
-//   }
-
-//   return (
-//     <div >
-//       <div >
-//         <p>可视区域高度：{clientHeight}</p>
-//         <p>滚动条滚动高度：{scrollTop}</p>
-//         <p>滚动内容高度：{scrollHeight}</p>
-//       </div>
-//       <div style={{height: 200, overflowY: 'auto'}} ref={scrollRef} onScroll={onScroll} >
-//         <div style={{height: 2000}}></div>
-//       </div>
-//     </div>
-//   )
-// }
-
 function App() {
-  const prefv = useRef(null);
-  console.log("pre", prefv);
-  const [counter, setCounter] = useState(0);
+  const scrollRef = useRef(null);
+  const [clientHeight, setClientHeight ] = useState(0);
+  const [scrollTop, setScrollTop ] = useState(0)
+  const [scrollHeight, setScrollHeight ] = useState(0)
+
+  const onScroll = () => {
+    if(scrollRef?.current){
+      let clientHeight = scrollRef?.current.clientHeight; //可视区域高度
+      let scrollTop  = scrollRef?.current.scrollTop;  //滚动条滚动高度
+      let scrollHeight = scrollRef?.current.scrollHeight; //滚动内容高度
+      setClientHeight(clientHeight)
+      setScrollTop(scrollTop)
+      setScrollHeight(scrollHeight)
+    }
+  }
 
   return (
-    <div>
-      <p>当前的值:{counter}</p>
-      <p>之前的值:{prefv.current ? prefv.current : "没设置过"}</p>
-      <button
-        onClick={() => {
-          prefv.current = counter;
-          setCounter((x) => x + 1);
-        }}
-      >
-        Click me to Add
-      </button>
-      <button
-        onClick={() => {
-          prefv.current = counter;
-          setCounter((x) => x - 1);
-        }}
-      >
-        Click me to remove
-      </button>
+    <div >
+      <div >
+        <p>可视区域高度：{clientHeight}</p>
+        <p>滚动条滚动高度：{scrollTop}</p>
+        <p>滚动内容高度：{scrollHeight}</p>
+      </div>
+      <div style={{height: 200, overflowY: 'auto'}} ref={scrollRef} onScroll={onScroll} >
+        <div style={{height: 2000}}></div>
+      </div>
     </div>
-  );
+  )
 }
+
+// function App() {
+//   const prefv = useRef(null);
+//   console.log("pre", prefv);
+//   const [counter, setCounter] = useState(0);
+
+//   return (
+//     <div>
+//       <p>当前的值:{counter}</p>
+//       <p>之前的值:{prefv.current ? prefv.current : "没设置过"}</p>
+//       <button
+//         onClick={() => {
+//           prefv.current = counter;
+//           setCounter((x) => x + 1);
+//         }}
+//       >
+//         Click me to Add
+//       </button>
+//       <button
+//         onClick={() => {
+//           prefv.current = counter;
+//           setCounter((x) => x - 1);
+//         }}
+//       >
+//         Click me to remove
+//       </button>
+//     </div>
+//   );
+// }
 
 export default App
