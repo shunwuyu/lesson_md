@@ -1,0 +1,20 @@
+{
+  "name": "module_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/register": "^7.18.9"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.18.10"
+  }
+}

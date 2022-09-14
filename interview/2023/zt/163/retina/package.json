@@ -1,0 +1,12 @@
+{
+  "name": "retina",
+  "version": "1.0.0",
+  "description": "移动端图片格式化\r - webp \r     首先从图片格式方面着手，webp（google官方网址）是谷歌推出的一种图片格式，优点在于同等画面质量下，体积比jpg、png少了25%以上\r     https://www.upyun.com/webp?utm_source=baidu&utm_medium=ppc&utm_campaign=%E4%BA%91%E5%A4%84%E7%90%86&utm_term=webp&utm_content=webp004&bd_vid=5076062760060222092\r     在全球范围只达到了70%\r - srcset 配合 1x 2x 像素密度描述符\r     srcset 可以根据不同的 dpr 拉取对应尺寸的图片：\r     <div class='illustration'>\r         <img src='illustration-small.png'\r         srcset='images/illustration-small.png 1x,\r                 images/illustration-big.png 2x,\r                 images/illustration-large.png 3x'\r         style='max-width: 500px'/>\r     </div>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

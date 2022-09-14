@@ -1,0 +1,24 @@
+{
+  "name": "lazy-scroll-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@types/react-virtualized": "^9.21.21",
+    "ant-mobile": "0.0.0",
+    "antd-mobile": "^5.22.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-virtualized": "^9.22.3"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  }
+}

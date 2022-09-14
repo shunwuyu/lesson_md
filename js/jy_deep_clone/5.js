@@ -43,4 +43,5 @@ function clone(target, map = new WeakMap()) {
 
 console.time();
 const result = clone(target);
+console.log(result);
 console.timeEnd();

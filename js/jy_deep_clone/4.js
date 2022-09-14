@@ -15,9 +15,9 @@ const target = {
 
 function clone(target) {
   if (typeof target === 'object') {
-      let cloneTarget = {};
+    //   let cloneTarget = {};
       // 兼容数组
-      // let cloneTarget = Array.isArray(target) ? [] : {};
+      let cloneTarget = Array.isArray(target) ? [] : {};
       for (const key in target) {
           cloneTarget[key] = clone(target[key]);
       }
