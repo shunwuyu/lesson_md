@@ -2,6 +2,7 @@
   <div>
     <!-- {{count}} -->
     <v-header :seller="seller"></v-header>
+    <router-view />
   </div>
 </template>
 <script>

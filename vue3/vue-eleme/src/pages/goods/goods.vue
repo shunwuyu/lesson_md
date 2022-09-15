@@ -1,3 +1,3 @@
 <template>
-    <div>star</div>
+    Goods
 </template>
