@@ -13,6 +13,9 @@
     const arr = [
         [key, 1]
     ];
+    // 使用这种方式，我们其实建立了 arr 对 key 所引用的对象(我们假设这个真正的对象叫 Obj)的强引用。
+    // 所以当你设置 key = null 时，只是去掉了 key 对 Obj 的强引用，并没有去除 arr 对 Obj 的强引用，所以 Obj 还是不会被回收掉。
+    
     </script>
     </body>
 </html>
