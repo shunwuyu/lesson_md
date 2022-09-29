@@ -1,0 +1,28 @@
+{
+  "name": "test-vite-v3",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@vueuse/core": "^9.3.0",
+    "ant-design-vue": "^3.2.12",
+    "axios": "^0.27.2",
+    "less": "^4.1.3",
+    "mockjs": "^1.1.0",
+    "pinia": "^2.0.22",
+    "sanitize.css": "^13.0.0",
+    "scss": "^0.2.4",
+    "vite-plugin-mock": "^2.9.6",
+    "vue": "^3.2.16",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "typescript": "^4.4.3",
+    "vite": "^2.6.4",
+    "vue-tsc": "^0.3.0"
+  }
+}
