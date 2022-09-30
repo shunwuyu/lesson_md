@@ -39,6 +39,8 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import { useUserStore } from '../../store/modules/user';
+import { useRouter } from 'vue-router'
+const router = useRouter();
 const userStore = useUserStore();
 const loading = ref(false);
 const checked = ref(true);
@@ -55,6 +57,10 @@ const handleFinish = async (values) => {
     loading.value = true;
     const res = await userStore.login(values);
     loading.value = false;
+    if (res) {
+      // message.success('成功');
+      // router.replace('/');
+    }
 }
 </script>
 
