@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- bind 的实现对比其他两个函数略微地复杂了一点，因为 bind 需要返回一个函数，
+    需要判断一些边界问题，以下是 bind 的实现     -->
+<script>
+Function.prototype.myBind = function (context) {
+    if (typeof context === undefined || typeof context === null) {
+        context = window
+    }
+    const _this = this
+    const args = [...arguments].slice(1)
+    return function F() {
+        // bind 返回了一个函数，对于函数来说有两种方式调用
+        // 一种是直接调用，一种是通过 new 的方式，
+        if (this instanceof F) {
+            // 对于 new 的情况来说，不会被任何方式改变 this，
+            // 所以对于这种情况我们需要忽略传入的
+            return new _this(...args, ...arguments)
+        }
+        // 这里选择了 apply 的方式实现  将两边的参数拼接起来
+        return _this.apply(context, args.concat(...arguments))
+    }
+}
+</script>
+</body>
+</html>

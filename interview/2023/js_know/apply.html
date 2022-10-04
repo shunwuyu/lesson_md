@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+Function.prototype.myApply = function(context) {
+  if (typeof context === undefined || typeof context === null) {
+    context = window
+  }
+  const symbol = Symbol()
+  context[symbol] = this
+  let result
+  // 处理参数和 call 有区别
+  if (arguments[1]) {
+    result = context[symbol](...arguments[1])
+  } else {
+    result = context[symbol]()
+  }
+  delete context[symbol]
+  return result
+}
+</script>
+</body>
+</html>

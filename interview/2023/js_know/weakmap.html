@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// WeakMap 只接受对象作为键名
+// const map = new WeakMap();
+// map.set(1, 2);
+// map.set(null, 2);
+// WeakMap 的键名所引用的对象是弱引用
+var obj = new Object();  //强引用
+// 如何回收？ obj
+obj = null
+var obj = new WeakObject(); // 弱引用
+// 我们什么都不用做，只用静静的等待垃圾回收机制执行，
+// obj 所引用的对象就会被回收
+// WeakMaps 保持了对键名所引用的对象的弱引用
+const key = new Array(5 * 1024 * 1024);
+const arr = [
+  [key, 1]  // 强引用
+];
+key = null  
+// 只是去掉了 key 对 Obj 的强引用
+// 并没有去除 arr 对 Obj 的强引用，所以 Obj 还是不会被回收掉。
+let map = new Map();
+let key = new Array(5 * 1024 * 1024);
+
+// 建立了 map 对 key 所引用对象的强引用
+map.set(key, 1);
+// key = null 不会导致 key 的原引用对象被回收
+key = null;
+</script>  
+</body>
+</html>

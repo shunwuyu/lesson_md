@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// https://juejin.cn/book/6844733763675488269/section/6844733763767762952
+// 0.100000000000000002 === 0.1 
+// 0.30000000004
+// console.log(0.1 + 0.2); 如何解决？
+// console.log(parseFloat((0.1 + 0.2).toFixed(10)))
+// JS 采用 IEEE 754 双精度版本
+// 计算机是通过二进制来存储东西的 在二进制中是无限循环的一些数字
+// 无限循环的JS 采用的浮点数标准却会裁剪掉我们的数字
+// 第一位用来表示符号 接下去的 11 位用来表示指数   其他的位数用来表示有效位，
+// 也就是用二进制表示 0.1 中的 10011(0011)
+</script>
+</body>
+</html>

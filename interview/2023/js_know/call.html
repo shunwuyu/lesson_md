@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+Function.prototype.myCall = function(context) {
+    // 首先 context 为可选参数，如果不传的话默认上下文为 window
+  if (typeof context === undefined || typeof context === null) {
+    context = window
+  }
+//   接下来我们通过 Symbol 为 context 创建一个属性，
+  const symbol = Symbol()
+//   并将值设置为需要调用的函数
+  context[symbol] = this
+//   因为 call 可以传入多个参数作为调用函数的参数，所以需要将参数剥离出来
+  const args = [...arguments].slice(1)
+//   然后调用函数
+  const result = context[symbol](...args)
+//   并将对象上的函数删除
+  delete context[symbol]
+  return result
+}
+const obj1 = {
+    name: 'joy',
+    getName() {
+        console.log(this); 
+        console.log(this.name); 
+    }
+};
+const obj2 = {
+    name: 'sam'
+};
+
+obj1.getName.call(obj2);
+
+</script>
+</body>
+</html>
