@@ -1,0 +1,12 @@
+{
+  "name": "react_youhua",
+  "version": "1.0.0",
+  "description": "- 性能对于网站留存率的影响\r - 代码组织优化则关系到后续的维护成本",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
