@@ -1,0 +1,28 @@
+{
+  "name": "base64_wepback",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode=development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.19.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.19.1",
+    "@babel/runtime": "^7.19.4",
+    "@babel/runtime-corejs3": "^7.19.4",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0"
+  }
+}
