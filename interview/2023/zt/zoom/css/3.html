@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>empty伪类</title>
+    <style>
+        body {
+            /* 开启flex布局 */
+            display: flex;
+        }
+
+        .box {
+            background: pink;
+            height: 80px;
+            width: 80px;
+            margin: 0 20px;
+        }
+
+        .box:empty {
+            background: lime;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box">这个元素的背景是粉色的</div>
+    <div class="box">
+        <!-- 这是一个注释 -->
+    </div>
+</body>
+</html>
