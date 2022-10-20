@@ -2,7 +2,10 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        main: './src/index.js',
+        vendor: ['react', 'react-dom', 'redux']
+    },
     output: {
         path: path.resolve(__dirname, 'dist'), //必须是绝对路径
         filename: 'bundle.js',
