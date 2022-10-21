@@ -128,4 +128,76 @@
         Object.prototype.toString.call(arr)
     - 通过Array.isArray( )函数来判断
 
+- 闭包
+    - LHS 和 RHS 查询  
+        查询目的是 变量赋值 还是 查询
+        LHS 可以理解为变量在赋值操作符(=)的左侧
+        RHS 可以理解为变量在赋值操作符(=)的右侧
+        var a = 2;    // LHS 查询
+        引擎做了一个 LHS 查询，找到 a ，并把新值 2 赋给它
+    - function foo(a) { // LHS 查询
+        console.log( a ); // RHS 查询 引擎对变量a的查找目的就是 查询
+    }
 
+    foo( 2 ); // RHS 查询
+
+    引擎想对变量进行获取 / 赋值，就离不开 LHS 和 RHS ，然而这两个操作只是手段，到哪里去获取变量才是关键。LHS 和 RHS 获取变量的位置就是 作用域。
+
+    作用域 指程序中定义变量的区域，它决定了当前执行代码对变量的访问权限。
+
+    作用域链    7.js
+        词法作用域
+            静态作用域
+        
+
+
+    - 全局作用域：
+    - 函数作用域：
+    - 跨级作用域
+
+    闭包
+        能够访问其他函数内部变量的函数，被称为 闭包。
+        简化 
+            闭包就是函数内部定义的函数，被返回了出去并在外部调用
+        应用场景
+            闭包的应用，大多数是在需要维护内部变量的场景下。
+            1. 单例模式
+
+- this 箭头函数和普通函数
+    - 普通函数中this
+        指向它的直接调用者
+    - 默认情况下，没有直接调用者，this指向window
+    - 严格模式下（设置了’use strict’），this为undefined
+    - 当使用call，apply，bind（ES5新增）绑定的，this指向绑定对象
+
+- ES6箭头函数中this
+    简化了函数的定义
+    1）默认指向定义它时，所处上下文的对象的this指向
+    2）即使是call，apply，bind等方法也不能改变箭头函数this的指向
+
+- 原型和原型链
+    [source](https://juejin.cn/post/6934498361475072014)
+    引用类型 四个规则
+    1. 引用类型，都具有对象特性，即可自由扩展属性
+    2. 引用类型，都有一个隐式原型 __proto__ 属性，属性值是一个普通的对象
+    3. 引用类型，隐式原型 __proto__ 的属性值指向它的构造函数的显式原型 prototype 属性值。
+    4. 当你试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么它会去它的隐式原型 __proto__（也就是它的构造函数的显式原型 prototype）中寻找。
+
+规则一
+    引用类型，都具有对象特性，即可自由扩展属性：
+
+- css 垂直居中
+    - 仅居中元素定宽高适用
+        absolute + 负margin
+        absolute + margin auto
+        absolute + calc
+    - 居中元素不定宽高
+        absolute + transform
+        lineheight
+        writing-mode
+        table
+        css-table
+        flex
+        grid
+
+        
