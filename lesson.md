@@ -1,4 +1,6 @@
 - interview/2023/zt/hzcsdn
+- react/login_ts_react
+- interview/2023/build_your_own_react
 - interview/2023/zt/zoom
 - interview/yck/base64_webpack
 - interview/2023/zt/hb
