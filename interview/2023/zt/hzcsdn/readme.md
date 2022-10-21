@@ -94,5 +94,38 @@
     inline-block
         width,height,margin,padding,border都起作用，但是不会换行
         是上述两种类型的综合
+    display:inline-block带来的问题
+    1. 一、inline-block的元素放在一起会产生间隙
+        包裹inline-block的父元素指定font-size:0
+        标签不换行
+    二、inline-block元素放在一起垂直方向对齐问题
+    三、内部包含文本、图片的inline-block会与周围inline-block元素产生垂直方向偏移
 
-    
+- 判断一个对象是不是数组？  
+    https://juejin.cn/post/7075928358088867871
+    1. typeof 不能满足需求  object
+    2. instanceof
+        通过查找原型链来检查某个变量是否为某个类型数据的实例
+
+    - instanceof底层是如何工作的
+        1. 运算符
+        2 instanceof 运算符用于测试构造函数的 prototype 属性是否出现在对象原型链中的任何位置
+            如果A instanceof B，那么 A 必须是一个对象，而 B 必须是一个合法的 JavaScript 函数
+        - instanceof 的作用
+            用于判断一个引用类型是否属于某构造函数；
+            还可以在继承关系中用来判断一个实例是否属于它的父类型。
+            和typeof的区别：
+            typeof在对值类型number, string, object, boolean, function, undefined, symbol 这七种类型是精准的；但是，对于对象{ } 、数组[ ] 、null 都会返回object，
+            为了弥补这一点，instanceof 从原型的角度，来判断某引用属于哪个构造函数，从而判定它的数据类型
+
+            通过构造函数来判断
+             var a = [1, 2, 3];
+      console.log(a.__proto__.constructor === Array); //true
+      console.log(a.__proto__.constructor === Object);
+
+
+    - 通过toString( )函数来判断
+        Object.prototype.toString.call(arr)
+    - 通过Array.isArray( )函数来判断
+
+
