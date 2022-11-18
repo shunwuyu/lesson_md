@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    font-size: 16px;
+}
+.music-btn {
+    top: 0.66667rem;
+    left: 0.66667rem;
+    z-index: 3;
+    position: fixed;
+    width: 1.06667rem;
+    height: 1.06667rem;
+    background: url(./assert/close.png) no-repeat center;
+    background-size: cover;
+}
+.music-btn.off {
+    background-image: url(./assert/music.png);
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide:nth-child(odd) {
+    background-color: green;
+}
+.next-view-c {
+    z-index: 99999;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/gx.4ae36e08269404412ecdb99e9453ca17.svg);
+    background-size: 100%;
+    left: 50%;
+    bottom: 0.26667rem;
+    width: 0.34667rem;
+    height: 2.29333rem;
+    position: fixed;
+    transform: translate3d(-50%, 0 ,0);
+}
+.view {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.view.index {
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/bgg.d78404cec29e5275598b87d1716f0592.png);
+    background-size: cover;
+    position: absolute;
+}
+.logo-c {
+    position: absolute;
+    top: 5.6%;
+    right: 15%;
+    width: 4.96rem;
+    height: 5.81333rem;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/title@2x.7c87506dfb012b9dfac5fdd39e2ccb06.png) no-repeat;
+    /* background-size: 186px auto; */
+    background-size: 100%;
+}
+.view.special {
+    position: absolute;
+    background-image: 
+    linear-gradient(60deg,#f8ddd1,#faece5 73%,#fad2c0);
+}
+.sun {
+    position: absolute;
+    top: 45%;
+    width: 7.54667rem;
+    height: 7.54667rem;
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/sun.a3f575ae2fef2cfdae15011e6081a094.png) no-repeat;
+    background-size: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.art {
+    position: absolute;
+    top: -3.7333rem;
+    right: 0;
+    width: 20rem;
+    height: 35.57333rem;
+    transform: scale(.5);
+    transform-origin: top right;
+}
+.swing {
+    display: block;
+    position: absolute;
+    left: 6.02667rem;
+    top: -4.80667rem;
+    width: 12.74667rem;
+    height: 27.68rem;
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/swing.88545d6c8e1ac798465e367f8e5357ab.png) no-repeat;
+    transform-origin: -16.10878661% -29.76878613%;
+    animation: ani4_qiuqian 6s cubic-bezier(.455,.03,.515,.955) infinite;
+  }
+
+@keyframes ani4_qiuqian {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(31.99359208deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+.swing .leg2 {
+    display: block;
+    position: absolute;
+    left: 4.94333rem;
+    top: 25.54667rem;
+    width: 3.46667rem;
+    height: 0.85333rem;
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/leg2.d7bc44a91b6974450f2ccc430846c63d.png) no-repeat;
+    transform-origin: 91.1538461538462% 33.59375%;
+    animation: ani7_leg2 8s ease infinite;
+}
+
+@keyframes ani7_leg2 {
+    0% {
+      transform: rotate(0deg);
+  }
+  25% {
+      transform: rotate(-86.98199658deg);
+  }
+  50% {
+      transform: rotate(0deg);
+  }
+  75% {
+      transform: rotate(-86.98199658deg);
+  }
+  100% {
+      transform: rotate(0deg);
+  }
+}
+
+.swing .leg2 .jiojio {
+    display: block;
+    position: absolute;
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/leg2-part.8f70bb7fc789a70bc78c48aa7718a765.png) no-repeat;
+    left: -0.75rem;
+    top: -0.28rem;
+    width: 1.52rem;
+    height: 1.17333rem;
+}
+
+.swing .leg1 {        
+    display: block; 
+    position: absolute;
+    left: 7.74333rem;
+    top: 25.47333rem;
+    width: 1.68rem;
+    height: 3.46667rem;
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/leg1.b1df6a7d1a794d36fbd0e1277733e1cf.png) no-repeat;
+    transform-origin: 17.8571428571429% 13.3653846153846%;
+    animation: ani5_leg1 8s ease infinite;
+}
+@keyframes ani5_leg1 {
+    0% {
+      transform: rotate(0deg);
+  }
+  25% {
+      transform: rotate(108.97744399deg);
+  }
+  50% {
+      transform: rotate(0deg);
+  }
+  75% {
+      transform: rotate(108.97744399deg);
+  }
+  100% {
+      transform: rotate(0deg);
+  }
+  }
+  .leg1 .jiojio {
+    display: block;
+    position: absolute;
+    left: 0.7rem;
+    top: 2.73333rem;
+    width: 1.04rem;
+    height: 1.65333rem;
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/leg1-part.f2f17703a6af8fd2af5e0f5a9f320623.png) no-repeat;
+  }
+
+  .swing .neck, .swing .head  {
+    position: absolute;
+    left: 12.03rem;
+    top: 22.81333rem;
+    width: 1.36rem;
+    height: 1.12rem;
+}
+.swing .neck {
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/neck.07a0013beff9796ed79c2cea542e5af2.png) no-repeat;
+}
+.swing .head {
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/head.90bf892023d7df0522a4b53fc07e38df.png) no-repeat;
+    animation: ani2_head 8s ease infinite;
+}
+.swing .head .part {
+    background: url(//s5.music.126.net/static_public/5c21db8d4684556c72180904/head-part.22d4381c4bd6cb1c3afd2b1bfcfe22f1.png) no-repeat;
+    left: 0.53333rem;
+    top: 0.05333rem;
+    width: 1.06667rem;
+    height: 1.25333rem;
+    position: absolute;
+}
+@keyframes ani2_head {
+    0% {
+      transform: rotate(0deg);
+  }
+  25% {
+      transform: rotate(-55deg);
+  }
+  62.5% {
+      transform: rotate(-55deg);
+  }
+  87.92% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(0deg);
+  }
+}
+.paras {
+    bottom: 2.93333rem;
+    left: 10.67%;
+    position: absolute;
+    line-height: 1.6667;
+    letter-spacing: 1px;
+    color: #333;
+}
+.s-fcRed {
+    color: #df493a;
+  }
+  .z-enter .f-animLineUp {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.2s,transform 1s;
+  }
+  .f-animLineUp {
+    opacity: 0;
+    transform: translateY(0.16rem);
+  }
+  em, i {
+    font-style: normal;
+    text-align: left;
+  }

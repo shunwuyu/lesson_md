@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "layouts",
+  "info": {
+    "singularName": "layout",
+    "pluralName": "layouts",
+    "displayName": "layout",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Demo"
+    },
+    "link_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::link-list.link-list"
+    },
+    "copy_right": {
+      "type": "string"
+    },
+    "site_number": {
+      "type": "string"
+    },
+    "public_number": {
+      "type": "string"
+    },
+    "qrcode": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::qrcode.qrcode"
+    }
+  }
+}
