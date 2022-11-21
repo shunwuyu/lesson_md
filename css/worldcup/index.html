@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>招商银行特约世界杯赛程魔方</title>
+    <meta name="format-detection" content="telephone=no">
+    <script>
+    function responsive() {
+        const w = window.innerWidth / 10
+        // console.log(w);
+        // DOM 编程
+        // 动态的设置html 字体大小为 1rem , 宽度的1/10 
+        document.documentElement.style.fontSize = w + 'px';
+        
+    }
+    responsive();
+    window.addEventListener('resize', responsive);
+    </script>
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="load" style="display:none;">
+            <div class="loadImg">
+                <div class="loadTxt">loading</div>
+                <div class="circle"></div>
+                <div class="circle1"></div>
+            </div>
+        </div> -->
+        <div class="global" style="transform: translateZ(-8.893333rem);">
+            <div class="screen ease">
+                <section class="layer layer1">
+                    <div class="inner animate">
+                        <div class="ft">
+                            <div class="btn btn1">淘汰赛赛程</div>
+                            <div class="btn btn2">分组赛程</div>
+                            <div class="btn btn3">完全赛程</div>
+                            <div class="btn btn4">招行网银7.0交易送足彩</div>
+                        </div>
+                    </div>
+                </section>
+                <section id="layer2" class="layer layer2">
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- 19979113182 -->
+<script>
+window.onload = function() {
+    // const oLoad = document.querySelector('.load');
+    // oLoad.style.display = 'block';
+    // setTimeout(function() {
+    //     oLoad.style.display = 'none';
+    // }, 2000)
+    const screen = document.querySelector('.screen');
+    const btn1 = document.querySelector('.btn1');
+    const btn2 = document.querySelector('.btn2');
+    const btn3 = document.querySelector('.btn3');
+    [btn1, btn2, btn3].forEach(
+        function(btn) {
+            btn.addEventListener('click', function() {
+                this.classList.add('btnAnimate')
+            })
+        }
+    )
+
+    btn1.addEventListener('click', function() {
+        screen.classList.add('screen_x90')
+    })
+}
+</script> 
+</body>
+</html>
