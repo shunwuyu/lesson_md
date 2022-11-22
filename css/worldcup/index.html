@@ -22,17 +22,32 @@
 </head>
 <body>
     <div class="container">
-        <!-- <div class="load" style="display:none;">
+        <div class="load">
             <div class="loadImg">
                 <div class="loadTxt">loading</div>
                 <div class="circle"></div>
                 <div class="circle1"></div>
             </div>
-        </div> -->
+        </div>
         <div class="global" style="transform: translateZ(-8.893333rem);">
             <div class="screen ease">
                 <section class="layer layer1">
-                    <div class="inner animate">
+                    <div class="inner">
+                        <div class="hd cf f12 yh">
+                            <span class="fl">出品:腾讯体育</span>
+                            <span class="fr">创意:腾讯网设计中心</span>
+                        </div>
+                        <div class="bd">
+                            <div class="zh_logo">
+                                <img src="http://mat1.gtimg.com/sports/worldcup2014/match/zh_logo.png" alt="">
+                            </div>
+                            <h1 class="log">
+                                <img src="http://mat1.gtimg.com/sports/worldcup2014/match/top_logo3.png" alt="赛程魔方">
+                            </h1>
+                            <div class="mofang">
+                                <img src="http://mat1.gtimg.com/sports/worldcup2014/match/mofang2.png" alt="魔方">
+                            </div>
+                        </div>
                         <div class="ft">
                             <div class="btn btn1">淘汰赛赛程</div>
                             <div class="btn btn2">分组赛程</div>
@@ -47,13 +62,28 @@
         </div>
     </div>
     <!-- 19979113182 -->
-<script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script>
 window.onload = function() {
-    // const oLoad = document.querySelector('.load');
-    // oLoad.style.display = 'block';
-    // setTimeout(function() {
-    //     oLoad.style.display = 'none';
-    // }, 2000)
+    const oLoad = document.querySelector('.load');
+    setTimeout(function() {
+        oLoad.style.display = 'none';
+        const inner = document.querySelector('.layer1 .inner');
+        inner.classList.add('animate');
+    }, 2000)
+
+    var hammerTest = new Hammer(document.querySelector('.container'));
+    hammerTest.on('pan panmove swipe swipeup press pressup', function(ev) {
+        console.log(ev);
+        if (ev.type == 'pan') {
+            if (ev.additionalEvent === 'panup') {
+                screen.classList.add('screen_x90')
+            } else if (ev.additionalEvent === 'pandown') {
+                screen.classList.remove('screen_x90')
+            }
+        }
+    });
+
     const screen = document.querySelector('.screen');
     const btn1 = document.querySelector('.btn1');
     const btn2 = document.querySelector('.btn2');
