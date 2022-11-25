@@ -17,6 +17,9 @@ Page({
         this.setData({
           hero: res.data
         })
+        wx.setNavigationBarTitle({
+            title: res.data.heroName
+        })
       }
     })
   },
