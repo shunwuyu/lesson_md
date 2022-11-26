@@ -1,0 +1,14 @@
+<view class="container">
+  <block wx:for="{{cinemas}}" wx:key="index">
+    <view class="flex wp-cell">
+      <view class="flex_main wp-cell__bd">
+        <view><text class="title">{{item.title}}</text></view>
+        <view><text class="sub_title">{{item.subTitle}}</text></view>
+        <view><text class="tag">{{item.tag}}</text></view>
+      </view>
+      <view class="wp-cell__ft">
+        <view><text class="price">{{item.price}}</text></view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,39 @@
+.wp-cell {
+  padding: 20rpx;
+  background-color: #fff;
+  color: #787878;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.wp-cell__bd {
+  flex: 1;
+  margin-left: 20rpx;
+  padding-top: 10rpx;
+  overflow: hidden;
+}
+.wp-cell__bd .title {
+  font-size: 16pt;
+  color: #333;
+}
+.wp-cell__bd .sub_title {
+  font-size: 14pt;
+  color: #666;
+  margin: 4rpx 0px;
+}
+.wp-cell__bd .tag {
+  margin-top: 60rpx;
+  border: 1px solid #29cc6d;
+  border-radius: 4rpx;
+  color: #29cc6d;
+  display: inline-block;
+  padding: 4rpx 8rpx;
+  font-size: 12pt;
+  line-height: 32rpx;
+  text-align: center;
+}
+
+.wp-cell__ft .price {
+  font-size: 24rpx;
+  color: #cf616a;
+}

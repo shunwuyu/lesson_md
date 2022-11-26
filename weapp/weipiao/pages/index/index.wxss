@@ -1,0 +1,92 @@
+.wp_banners {
+  width: 100vw;
+  height: 40.53333vw;
+}
+
+scroll-view {
+  flex: 1;
+  height: 100vh;
+}
+
+.wp_banners__img {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.wp_label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20rpx 20rpx 20rpx 24rpx;
+  font-size: 15pt;
+  color: #656565;
+}
+
+.line_flag {
+  width: 6rpx;
+  height: 36rpx;
+  display: inline-block;
+  background-color: #09bb07;
+}
+
+.wp_label text {
+  margin-left: 20rpx;
+  line-height: 36rpx;
+}
+
+
+.wp_cell {
+  padding: 20rpx;
+  background-color: #fff;
+  color: #787878;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.wp_cell__hd image {
+  display: block;
+  width: 130rpx;
+  height: 190rpx;
+}
+.wp_cell__bd {
+  margin-left: 20rpx;
+  padding-top: 10rpx;
+  overflow: hidden;
+}
+
+.wp_cell__bd .title {
+  font-size: 16pt;
+  color: #333;
+}
+.wp_cell__bd .sub_title {
+  font-size: 14pt;
+  color: #666;
+  margin: 4rpx 0px;
+}
+
+.wp_cell__bd .actor {
+  font-size: 14pt;
+  color: #666;
+  margin: 4pt 0px;
+}
+
+.wp_cell__ft .score {
+  font-size: 12pt;
+  color: #cf616a;
+}
+
+.wp_cell__ft .action {
+  margin-top: 60rpx;
+  border: 1px solid #29cc6d;
+  border-radius: 4rpx;
+  color: #29cc6d;
+  display: inline-block;
+  padding: 4rpx 8rpx;
+  font-size: 12pt;
+  line-height: 16pt;
+  text-align: center;
+}
+
+

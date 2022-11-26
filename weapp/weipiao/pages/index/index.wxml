@@ -1,0 +1,34 @@
+<view class="container">
+  <view>
+    <swiper class="wp_banners" indicator-dots="{{true}}" vertical="{{false}}"
+            autoplay="{{true}}" interval="{{3000}}" duration="{{1200}}" bindchange="swiperchange">
+        <block wx:for="{{banners}}" wx:key="id">
+            <swiper-item >
+                <image src="{{item.img}}" class="wp_banners__img"/>
+            </swiper-item>
+        </block>
+    </swiper>
+  </view>
+  <view class="wp_label">
+    <view class="line_flag"></view>
+    <text>正在上映</text>
+  </view>
+  <scroll-view  scroll-y="{{true}}" bindscrolltolower="lower" lower-threshold="50">
+    <block wx:for="{{movies}}" wx:key="id">
+      <view class="flex wp_cell">
+        <view class="wp_cell__hd">
+          <image src="{{item.image}}"/>
+        </view>
+        <view class="flex_main wp_cell__bd">
+          <view><text class="title">{{item.title}}</text></view>
+          <view><text class="sub_title">{{item.subTitle}}</text></view>
+          <view><text class="actor">{{item.actor}}</text></view>
+        </view>
+        <view class="wp_cell__ft">
+          <view><text class="score">{{item.score}}</text></view>
+          <view><text class="action">{{item.action}}</text></view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
