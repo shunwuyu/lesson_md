@@ -35,6 +35,11 @@
       "text": "我的"
     }]
   },
+  "permission":{
+    "scope.userLocation": {
+      "desc": "获取你当前位置信息用于小程序位置接口的效果展示"
+    }
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
