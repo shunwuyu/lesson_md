@@ -1,0 +1,42 @@
+<view class="page">
+  <swiper class="hb_banners" indicator-dots="true">
+    <block wx:for="{{banners}}" wx:key="id">
+      <swiper-item>
+        <navigator>
+          <image src="{{item.pic}}" mode="aspectFill"></image>
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="page__bd">
+    <view class="hb_userinfo">
+      <view class="hb_userinfo__avatar">
+        <image src="https://p3-passport.byteimg.com/img/user-avatar/11174122cb6102aca29ac7599f4e08b4~100x100.awebp"></image>
+      </view>
+      <view class="hb_userinfo__name">Hey,喻顺武</view>
+      <view class="hb_userinfo__item">
+        <view class="hb_userinfo__title">积分</view>
+        <view class="hb_userinfo__val">408</view>
+      </view>
+      <view class="hb_userinfo__item">
+        <view class="hb_userinfo__title">优惠券</view>
+        <view class="hb_userinfo__val">1</view>
+      </view>
+      <view class="hb_userinfo__item hb_userinfo__ewm">
+        <image src="/images/ewm.png"></image>
+      </view>
+    </view>
+    <view class="hb_way">
+      <view class="hb_way__item">
+        <image src="/images/ts.png" mode="aspectFill"></image>
+        <view class="hb_way__title">堂食</view>
+        <view class="hb_way__subtitle">到餐自取</view>
+      </view>
+      <view class="hb_way__item">
+        <image src="/images/wd.png" mode="aspectFill"></image>
+        <view class="hb_way__title">兜走</view>
+        <view class="hb_way__subtitle">打包自提</view>
+      </view>
+    </view>
+  </view>
+</view>
