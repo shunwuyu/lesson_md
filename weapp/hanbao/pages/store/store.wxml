@@ -1,0 +1,62 @@
+<view class="page store">
+  <view class="page__bd">
+    <view class="hb_account">
+      <view>账户余额（元）</view>
+      <view class="hb_account__num hb_bigtext">10<text class="hb_smalltext">.70</text></view>
+      <view>储值明细</view>
+    </view>
+    <view class="inner">
+      <view class="hb_store">
+        <view class="hb_store__card {{type == 1 && 'hb_store__card-active'}}" bindtap="selectCard" data-type="1">
+          <view class="hb_store__num">100</view>
+          <view class="hb_store__desc">送27元单人套餐</view>
+        </view>
+        <view class="hb_store__card {{type == 2 && 'hb_store__card-active'}}" bindtap="selectCard"  data-type="2">
+          <view class="hb_store__num">200</view>
+          <view class="hb_store__desc">送57元双人套餐</view>
+        </view>
+      </view>
+      <view class="hb_store">
+        <view class="hb_store__card  {{type == 3 && 'hb_store__card-active'}}" bindtap="selectCard"  data-type="3">
+          <view class="hb_store__num">300</view>
+          <view class="hb_store__desc">送86元家人套餐</view>
+        </view>
+        <view class="hb_store__card {{type == 4 && 'hb_store__card-active'}}" bindtap="selectCard"  data-type="4">
+          <view class="hb_store__num">500元</view>
+          <view class="hb_store__desc">送86元家人套餐2份</view>
+        </view>
+      </view>
+      <view class="desc">
+        <view class="title">
+          <text>奖励说明</text>
+        </view>
+        <view class="text">
+          <text>充值500元送价值86元家庭套餐2份</text>
+        </view>
+        <view class="title">
+          <text>储值使用规则</text>
+        </view>
+        <view class="text">
+          <view>
+            <text>
+              1.充值100元送价值27元单人套餐1份 （香辣鸡腿堡中国汉堡+香辣鸡翅+冰柠可乐）
+            </text>
+          </view>
+          <view>
+            <text>
+              2.充值100元送价值27元单人套餐1份 （香辣鸡腿堡中国汉堡+香辣鸡翅+冰柠可乐）
+            </text>
+          </view>
+          <view>
+            <text>
+              3.充值100元送价值27元单人套餐1份 （香辣鸡腿堡中国汉堡+香辣鸡翅+冰柠可乐）
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="page__ft">
+    <view class="hb_btn hb_btn-primary">立即充值</view>
+  </view>
+</view>

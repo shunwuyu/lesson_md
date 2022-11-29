@@ -19,6 +19,14 @@ Page({
       }
     ]
   },
+  gotoStore(event) {
+    // console.log(event);
+    let url = event.currentTarget.dataset.url;
+    // console.log('store');
+    wx.navigateTo({
+      url
+    })
+  },
   // 事件处理函数
   bindViewTap() {
     wx.navigateTo({

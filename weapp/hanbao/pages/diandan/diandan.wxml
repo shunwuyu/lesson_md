@@ -1,0 +1,7 @@
+<view class="page diandan">
+  <view class="page__hd">
+  </view>
+  <view class="page__bd">
+    <button class="hb_btn hb_btn-primary">立即充值</button>
+  </view>
+</view>

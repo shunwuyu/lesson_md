@@ -2,6 +2,9 @@
   position: relative;
   height: 100vh;
 }
+.page__bd {
+  padding:0 32rpx;
+}
 .hb_banners {
   height: 86.75556vw;
 }
@@ -108,4 +111,30 @@
 }
 .hb_way__item .hb_way__subtitle {
   color: #e9e9e9;
+}
+.hb_actions {
+  display: flex;
+  margin-top: 44rpx;
+}
+.hb_actions__item {
+  flex: 1;
+  height: 262rpx;
+  background-color: green;
+  margin-right: 14rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  font-size: 13pt;
+  flex-direction: column;
+}
+.hb_actions__title {
+  margin-bottom: 18rpx;
+}
+.hb_actions__item image {
+  width: 110rpx;
+  height: 110rpx;
+}
+.hb_actions__item:last-child {
+  margin-right: 0;
 }

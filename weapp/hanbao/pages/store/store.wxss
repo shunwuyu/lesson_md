@@ -1,0 +1,114 @@
+/* pages/store/store.wxss */
+.store {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.store .page__bd {
+  flex: 1;
+  overflow-x: scroll;
+}
+.hb_account {
+  height: 320rpx;
+  background-color: #c2392c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50rpx;
+  color: #dba9a7;
+  font-size: 14pt;
+}
+.inner{
+  margin: 0 50rpx;
+  padding-top: 48rpx;
+}
+.hb_store {
+  display: flex;
+}
+.hb_store + .hb_store {
+  margin-top: 40rpx;
+  margin-bottom: 55rpx;
+}
+.hb_store__card {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  background-color: #f8f8f8;
+  margin-right: 18rpx;
+  display: flex;
+  height: 200rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 2px solid #f8f8f8;
+  border-radius: 20rpx;
+}
+
+.hb_store__card:last-child {
+  margin-right: 0rpx;
+}
+
+.hb_store__num {
+  font-size: 21pt;
+  line-height: 2.5;
+  width: 250rpx;
+  border-bottom: 4rpx solid black;
+}
+.hb_store__desc {
+  font-size: 12pt;
+  color: #717171;
+  line-height: 60rpx;
+}
+.hb_account__num {
+  color:white;
+  margin: 36rpx 0;
+}
+.hb_store__card-active {
+  border: 2px solid #c2392c;
+  color: #c2392c;
+}
+.hb_store__card-active .hb_store__num {
+  border-color: #c2392c
+}
+.hb_store__card-active .hb_store__desc {
+  color: #c2392c;
+}
+.hb_store__card-active:before {
+  content: "超值";
+  position:absolute;
+  top: 0;
+  left: 0;
+  background-color: #c2392c;
+  color: white;
+  font-size: 10pt;
+  padding: 10rpx;
+  border-radius: 16rpx;
+  border-bottom-left-radius: 0rpx;
+  border-top-right-radius: 0rpx;
+}
+.store .page__ft {
+  height: 186rpx;
+  background-color: #fff;
+  text-align: center;
+  padding-top: 15rpx;
+}
+.hb_btn {
+  display: block;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 14pt;
+  text-align: center;
+  border-radius: 88rpx;
+  color: white;
+  width: 654rpx;
+  margin: 0 auto;
+} 
+
+.hb_btn-primary {
+  background-color: #c2392c;
+}
+
+.hb_btn-primary:active {
+  background-color: green;
+}

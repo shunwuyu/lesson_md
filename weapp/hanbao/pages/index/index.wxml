@@ -1,5 +1,5 @@
 <view class="page">
-  <swiper class="hb_banners" indicator-dots="true">
+  <swiper class="hb_banners" indicator-dots="true" >
     <block wx:for="{{banners}}" wx:key="id">
       <swiper-item>
         <navigator>
@@ -36,6 +36,26 @@
         <image src="/images/wd.png" mode="aspectFill"></image>
         <view class="hb_way__title">兜走</view>
         <view class="hb_way__subtitle">打包自提</view>
+      </view>
+    </view>
+    <view class="hb_actions">
+      <view class="hb_actions__item" bindtap="gotoStore" data-url="/pages/store/store">
+        <view>
+          <text class="hb_actions__title">储值通道</text>
+        </view>
+        <image  src="/images/stored.png" mode="aspectFill"/>
+      </view>
+      <view class="hb_actions__item">
+        <view>
+          <text class="hb_actions__title">积分抽奖</text>
+        </view>
+          <image src="/images/lottery.png" mode="aspectFill"/>
+      </view>
+      <view class="hb_actions__item">
+        <view class="hb_actions__title">
+          <text >万元壕礼</text>
+        </view>
+        <image src="/images/gift.png" mode="aspectFill"/>
       </view>
     </view>
   </view>

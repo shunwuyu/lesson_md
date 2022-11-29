@@ -1,14 +1,48 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/diandan/diandan",
+    "pages/order/order",
+    "pages/my/my",
+    "pages/store/store"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#ecc6c0",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/icons/home.png",
+        "selectedIconPath": "/images/icons/home_active.png"
+      },
+      {
+        "pagePath": "pages/diandan/diandan",
+        "text": "点单",
+        "iconPath": "/images/icons/diandan.png",
+        "selectedIconPath": "/images/icons/diandan_active.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "/images/icons/order.png",
+        "selectedIconPath": "/images/icons/order_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/icons/my.png",
+        "selectedIconPath": "/images/icons/my_active.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -1,16 +1,35 @@
+
 page {
   height: 100vh;
   background-color: #f6f6f6;
 }
+.page {
+  height: 100vh;
+}
 image {
   max-width: 100%;
-}
-.page__bd {
-  padding:0 32rpx;
 }
 .flex {
   display: flex;
 }
 .flex-main {
   flex: 1;
+}
+
+.hb_bigtext {
+  font-size: 20pt;
+}
+.hb_smalltext {
+  font-size: 12pt;
+}
+.desc {
+}
+.desc .title {
+  font-weight: 700;
+  margin: 25rpx 0;
+}
+.desc .text view {
+  font-size: 12pt;
+  color:#bdbdbd;
+  height: 80rpx;
 }
