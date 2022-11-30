@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="page__hd">
+    <!--tab -->
+    <view class="tab border-1px">
+      <view class="tab-item">
+        <view class="{{status==0 ? 'active':''}}" bindtap="tabChange" data-type="0">商品</view>
+      </view> 
+      <view class="tab-item">
+        <view class="{{status==1 ? 'active':''}}" bindtap="tabChange" data-type="1">评论</view>
+      </view> 
+      <view class="tab-item">
+        <view class="{{status==2 ? 'active':''}}" bindtap="tabChange" data-type="2">商家</view>
+      </view>
+    </view>
+    <!--tab -->
+  </view>
+  <view class="page__bd">
+    <swiper current="{{status}}" bindchange="swiperChange">
+      <swiper-item>
+        <view class="goods">
+          <view class="menu-wrapper">
+            <scroll-view scroll-y="true" >
+              <view wx:for="{{goods}}" wx:key="name" class="menu-item {{currentMenu==index?'current':''}}" bindtap="selectMenu" data-item-index="{{index}}">
+                <view class="text">
+                  {{item.name}}
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+          <view class="foods-wrapper">
+            <scroll-view scroll-y="true" bindscroll="onFoodScroll" scroll-with-animation="{{true}}" scroll-into-view="{{toView}}">
+              <view wx:for="{{goods}}" wx:key="name" class="food-list food-list-hook">
+                <view id="order{{index}}" class="title">{{item.name}}</view>
+                <view wx:for="{{item.foods}}" wx:key="name" class="food-item" wx:for-item="food" data-food="{{food}}">
+                  <view class="icon">
+                    <image src="{{food.icon}}" style="width: 114rpx;height: 114rpx"></image>
+                  </view>
+                  <view class="content">
+                    <view class="name">{{food.name}}</view>
+                    <view class="desc">{{food.description}}</view>
+                    <view class="extra">
+                      <text class="count">月售{{food.sellCount}}</text>
+                      <text class="count">好评{{food.rating}}</text>
+                    </view>
+                    <view class="price">
+                      <view class="now">￥{{food.price}}</view>
+                      <view class="old" wx:if="{{food.oldPrice}}">￥{{food.oldPrice}}</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>2</swiper-item>
+      <swiper-item>3</swiper-item>
+    
+    
+    
+    
+    </swiper>
+  </view>
+</view>

@@ -1,0 +1,126 @@
+/* pages/goods/goods.wxss */
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page__hd {
+  /* height: 30vh; */
+}
+.page__bd {
+  flex: 1;
+}
+.tab {
+  display: flex;
+  height: 88rpx;
+  line-height: 88rpx;
+  /* border: 1px solid rgba(7,17,27,0.1); */
+  position: relative;
+}
+.tab .tab-item {
+  flex: 1;
+  text-align: center;
+}
+.tab .tab-item .active {
+  color: #f01414;
+}
+.page__bd swiper, .page__bd swiper-item,swiper-item .goods, .page__bd scroll-view {
+  height: 100%;
+}
+.goods {
+  display: flex;
+
+}
+.goods .menu-wrapper {
+  /* flex: 0 0 160px; */
+  width: 160rpx;
+  background: #f3f5f7;
+}
+
+.goods .menu-wrapper .menu-item {
+  text-align: center;
+  height: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  /* background-color: yellow; */
+  padding: 0 10rpx;
+  position: relative;
+}
+.goods .menu-wrapper .menu-item:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10rpx;
+  right: 10rpx;
+  background-color: rgba(0,0,0,0.1);
+  height: 1px;
+}
+.menu-wrapper .menu-item.current {
+  color:#f01414;
+}
+.goods .menu-wrapper .menu-item .text {
+  /* background-color: green; */
+}
+
+.goods .foods-wrapper {
+  flex: 1;
+}
+.goods .foods-wrapper scroll-view {
+  
+}
+.goods .foods-wrapper .food-list .title {
+  padding-left: 28rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  border-left: 4rpx solid #d9dde1;
+  font-size: 12pt;
+  color: rgb(147, 153, 159);
+  background: #f3f5f7;
+}
+
+.goods .foods-wrapper .food-list .food-item {
+  display: flex;
+  margin: 36rpx;
+  padding-bottom: 36rpx;
+  position: relative;
+  border-bottom:1px solid rgba(7,17,27,0.1);
+}
+.goods .foods-wrapper .food-list .food-item:last-child {
+  border: none;
+  margin-bottom: 0px;
+}
+.goods .foods-wrapper .food-list .food-item .icon {
+  flex: 0 0 114rpx;
+  margin-right: 20rpx;
+}
+
+.goods .foods-wrapper .food-list .food-item .content {
+  flex: 1;
+}
+
+.goods .foods-wrapper .food-list .food-item .content .name {
+  margin: 4rpx 0 16rpx 0;
+  font-size: 14pt;
+  line-height: 28rpx;
+  height: 28rpx;
+  color: rgb(7, 17, 27);
+}
+
+.goods .foods-wrapper .food-list .food-item .content .desc, .extra {
+  font-size: 10pt;
+  line-height: 20rpx;
+  color: rgb(147, 153, 159);
+}
+
+.goods .foods-wrapper .food-list .food-item .content .desc {
+  margin-bottom: 16rpx;
+  line-height: 24rpx;
+}
+.goods .foods-wrapper .food-list .food-item .content .extra .count {
+  margin-right: 24rpx;
+}
+.goods .foods-wrapper .food-list .food-item .content .price {
+  font-weight: 700px;
+  line-height: 48rpx;
+}
