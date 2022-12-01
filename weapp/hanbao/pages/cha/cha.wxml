@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="bw_mapControler">
+      <view class="bw_mapControler__hd">
+        <view class="bw_mapController__title">
+          南昌县斗门地铁站（G316北）<i class="more"></i>
+        </view>
+        <block wx:if="{{showMap}}">
+          <view class="bw_mapControler__btn" bindtap="hideMap">查看地图</view>
+        </block>
+      </view>
+      <view class="bm_mapController__bd {{showMap?'bm_mapController__bd-hide':''}}">
+        <map 
+          show-location="{{true}}" 
+          latitude="{{latitude}}"
+          longitude="{{longitude}}"
+        >
+        </map>
+        <block wx:if="{{!showMap}}">
+          <view 
+            class="bm_mapController__switch" 
+            bindtap="hideMap"
+          >收起地图<i class="more"></i></view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
