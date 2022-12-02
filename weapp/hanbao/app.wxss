@@ -1,4 +1,4 @@
-
+@import "/miniprogram_npm/@vant/weapp/common/index.wxss";
 page {
   height: 100vh;
   background-color: #f6f6f6;

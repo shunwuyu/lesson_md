@@ -1,14 +1,18 @@
 {
   "pages": [
-    "pages/cha/cha",
+    "pages/home/home",
     "pages/goods/goods",
+    "pages/diandan/diandan",
+    "pages/douyin/douyin",
+    "pages/video/video",
+    "pages/cha/cha",
     "pages/didi/didi",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/diandan/diandan",
     "pages/order/order",
     "pages/my/my",
-    "pages/store/store"
+    "pages/store/store",
+    "pages/search/index"
   ],
   "tabBar": {
     "color": "#000000",
@@ -47,6 +51,9 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
+  "usingComponents": {
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-count-down": "@vant/weapp/count-down/index"
+  },
   "sitemapLocation": "sitemap.json"
 }

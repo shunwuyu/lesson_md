@@ -1,0 +1,44 @@
+<van-sticky>
+  <view class="search-container">
+    <view class="search" style="height:{{navHeight}}px;padding-top:{{navTop}}px">
+      <view class="search-title" 
+        style="height:{{navHeight-navTop-5}}px;line-height:{{navHeight-navTop-5}}px;width:{{132/52*(navHeight-navTop-5)}}px;">
+        商城
+      </view>
+      <input placeholder-class="search-placeholder"
+        style="width:{{menuButtonObject.left-18-((132/52)*(navHeight-navTop-5))}}px" type="text" placeholder="输入关键词搜索" disabled
+        bindtap="goSearch"></input>
+    </view>
+  </view>
+</van-sticky>
+<navigator wx:if="{{shopInfo}}" url="/pages/shop/select">
+  <view class="shops-container">
+    <view class="l">
+      <image src="/images/order-details/icon-address.png"></image>
+      <text>{{shopInfo.name}}</text>
+    </view>
+    <view class="r">
+      <text>切换门店</text>
+      <image src="/images/icon/next.png"></image>
+    </view>
+  </view>
+</navigator>
+<view class="swiper-container">
+  <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image mode="aspectFill" bindtap="tapBanner" data-url="{{item.linkUrl}}" src="{{item.picUrl}}" />
+    </swiper-item>
+  </swiper>
+  <view  class="goodsDynamic">
+    <swiper class="swiper2" autoplay circular vertical>
+      <navigator wx:for="{{goodsDynamic}}" wx:key="index">
+        <swiper-item>
+          <view class="goodsDynamic-item">
+            <image mode="aspectFill" src="{{item.avatarUrl}}"></image>
+            <text>{{item.nick}} 购买了 {{item.goodsName}}</text>
+          </view>
+        </swiper-item>
+      </navigator>
+    </swiper>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="page" bindtap="changePlayStatus">
+  <view class="animation-wrapper">
+    <block wx:for="{{videos}}" wx:key="{{item.poster}}">
+      <view class="animation-image-wrapper">
+        <image class="animation-image" src="{{item.poster}}" />
+      </view>
+    </block>
+  </view>
+</view>

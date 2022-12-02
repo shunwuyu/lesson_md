@@ -1,0 +1,120 @@
+/* pages/home/home.wxss */
+.search-container {
+  background-color: white;
+}
+.search {
+  position: relative;
+  width: 100vw;
+  height: 50rpx;
+  display: flex;
+  box-sizing: border-box;
+  padding-left: 26rpx;
+  background-color: white;
+}
+.search input {
+  display: block;
+  box-sizing: border-box;
+  background: #F7F8FA;
+  height: 62rpx;
+  border-radius: 20rpx;
+  padding-left: 20rpx;
+  line-height: 62rpx;
+  font-size: 12px;
+}
+.search-title {
+  left: 0;
+  font-weight: bold;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search-placeholder {
+  font-size: 14px;
+  color: #A9A6A6;
+  line-height: 62rpx;
+}
+.shops-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16rpx;
+}
+.shops-container .l {
+  display: flex;
+  align-items: center;
+}
+.shops-container .l text {
+  color: #666;
+  margin-left: 16rpx;
+}
+.shops-container .l image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.shops-container .r {
+  display: flex;
+  align-items: center;
+}
+.shops-container .r text {
+  color: #666;
+}
+
+.shops-container .r image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.swiper-container {
+  width: 750rpx;
+  height: 375rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.swiper-container .swiper1 {
+  width: 750rpx;
+  height: 375rpx;
+}
+
+.swiper-container .swiper1 image {
+  width: 750rpx;
+  height: 375rpx;
+  /* margin: 8rpx 15rpx; */
+  /* border-radius: 16rpx; */
+}
+.goodsDynamic {
+  position: absolute;
+  bottom: 46rpx;
+  left: 24rpx;
+  width: 668rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.goodsDynamic .swiper2 {
+  width: 100%;
+  height: 64rpx;
+}
+
+.goodsDynamic-item {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 32rpx;
+  padding: 8rpx 16rpx;
+}
+
+.goodsDynamic-item image {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.goodsDynamic-item text {
+  margin-left: 8rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
