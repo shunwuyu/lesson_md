@@ -8,7 +8,6 @@
     "pages/cha/cha",
     "pages/didi/didi",
     "pages/index/index",
-    "pages/logs/logs",
     "pages/order/order",
     "pages/my/my",
     "pages/store/store",
@@ -53,7 +52,11 @@
   },
   "usingComponents": {
     "van-sticky": "@vant/weapp/sticky/index",
-    "van-count-down": "@vant/weapp/count-down/index"
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-divider": "@vant/weapp/divider/index"
   },
   "sitemapLocation": "sitemap.json"
 }

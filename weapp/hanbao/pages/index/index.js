@@ -17,7 +17,8 @@ Page({
         id: 3,
         pic: 'https://m.360buyimg.com/mobilecms/s843x843_jfs/t1/137222/12/24601/95100/62d4b4d2E7f093638/9dcef4f18a221085.jpg!q70.dpg.webp'
       }
-    ]
+    ],
+    noticeList: {"dataList":[{"dateAdd":"2017-09-16 17:20:43","dateUpdate":"2019-03-18 11:05:17","id":161,"isRemind":false,"isShow":true,"remindUid":0,"title":"商城新开张，优惠多多，戳 戳 戳 我看详情。","userId":951}],"totalPage":1,"totalRow":1}
   },
   gotoStore(event) {
     // console.log(event);

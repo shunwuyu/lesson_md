@@ -42,3 +42,39 @@
     </swiper>
   </view>
 </view>
+<view class="category-container">
+  <view class="category-box">
+    <view class="category-list" wx:for="{{categories}}" wx:key="id">
+      <view class="category-column" bindtap="tabClick"
+        data-id="{{item.id}}">
+        <image mode="aspectFill" class="category-imgbox" src="{{item.icon}}"></image>
+        <view class="category-title">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="notice-box" wx:if="{{noticeList}}">
+  <swiper class="notice_swiper" vertical autoplay circular interval="8000">
+    <swiper-item wx:for="{{noticeList.dataList}}" wx:key="id">
+      <van-notice-bar wx:if="{{noticeList}}" mode="link" text="{{ item.title }}" background="#FFFFFF"
+        data-id="{{ item.id }}" speed="30" bind:click="goNotice">
+        <image slot="left-icon" class="notice-icon" src="../../images/home/notice.png"></image>
+      </van-notice-bar>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="container">
+  <image  class="live-banner" src="https://dcdn.it120.cc/2021/03/09/57f564f0-edb3-4534-958e-f1a6f7d7e99e.jpg" mode="widthFix" bindtap="clickAdPositionIndexLive"></image>
+  <van-divider custom-class="table-text" contentPosition="center">
+      <image class="table-icon-miaosha" src="../../images/home/miaosha.png"></image> 限时秒杀
+  </van-divider>
+</view>
+<view class='coupons-float' bindtap="goCoupons">
+  <image src="/images/gift.png"></image>
+</view>
+<van-overlay show="{{ adPositionIndexPop }}">
+  <view class="adPositionIndexPop">
+    <image src="https://7.s2m.cc/2022/01/01/419a797b-bcd7-4d31-976f-7b97231223b0.jpeg" mode="widthFix" bindtap="clickAdPositionIndexPop"></image>
+    <van-icon custom-class="close" name="close" size="64rpx" color="#fff" bind:click="closeAdPositionIndexPop" />
+  </view>
+</van-overlay>
