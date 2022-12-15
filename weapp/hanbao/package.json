@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "@vant/weapp": "^1.10.8",
-    "apifm-wxapi": "^3.60.0"
+    "apifm-wxapi": "^3.61.0"
   }
 }

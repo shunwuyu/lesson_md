@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const maxBy = (list, keyBy) => list.reduce((x, y) => keyBy(x) > keyBy(y) ? x : y)
+
+    function getFrequentTag () {
+    const tags = [...document.querySelectorAll('*')].map(x => x.tagName).reduce((o, tag) => { 
+        o[tag] = o[tag] ? o[tag] + 1 : 1;
+        return o
+    }, {})
+    return maxBy(Object.entries(tags), tag => tag[1])
+    }
+    </script>
+</body>
+</html>

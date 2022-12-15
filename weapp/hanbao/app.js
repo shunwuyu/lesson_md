@@ -1,6 +1,8 @@
 // app.js
+const WXAPI = require('apifm-wxapi');
 App({
-  onLaunch() {
+  onLaunch: async () =>{
+    WXAPI.init('tz', 951);
     wx.getSystemInfo({
       success: res => {
         let menuButtonObject = wx.getMenuButtonBoundingClientRect();
@@ -17,6 +19,10 @@ App({
         console.log(err);
       }
     })
+    const res = await WXAPI.goodsv2({
+      miaosha: true
+    })
+    console.log(res, '??????//////')
   },
   globalData: {
     userInfo: null

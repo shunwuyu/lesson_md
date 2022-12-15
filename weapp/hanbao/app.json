@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/category/category",
     "pages/home/home",
+    "pages/wangyi/wangyi",
     "pages/goods/goods",
     "pages/diandan/diandan",
     "pages/douyin/douyin",
@@ -56,7 +58,11 @@
     "van-notice-bar": "@vant/weapp/notice-bar/index",
     "van-overlay": "@vant/weapp/overlay/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-divider": "@vant/weapp/divider/index"
+    "van-divider": "@vant/weapp/divider/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-card": "@vant/weapp/card/index"
   },
   "sitemapLocation": "sitemap.json"
 }

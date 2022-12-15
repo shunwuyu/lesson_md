@@ -1,0 +1,22 @@
+/* pages/wangyi/wangyi.wxss */
+.pageScrollView {
+  background-color: green;
+}
+.logo, .topSearch {
+  z-index: 9999;
+  position: fixed;
+  left: 0;
+  width: 200rpx;
+  height: 80rpx;
+  background-color: pink;
+}
+.topSearch {
+  background: #000;
+}
+.row {
+  height: 100vh;
+  background: green;
+}
+.row:nth-child(2n+1) {
+  background-color: yellow;
+}

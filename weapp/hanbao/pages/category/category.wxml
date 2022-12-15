@@ -1,0 +1,26 @@
+<van-search value="{{ name }}" placeholder="请输入搜索关键词" shape="round" bind:search="bindconfirm" use-right-icon-slot>
+  <van-icon slot="right-icon" name="scan" bind:click="searchscan" />
+</van-search>
+<view class="main">
+  <scroll-view class="category-container" scroll-y="true" scroll-with-animation="true" scroll-into-view="{{ intoview }}">
+    <van-sidebar custom-class="sidebar-l" active-key="{{ activeCategory }}">
+      <van-sidebar-item wx:if="{{item.level == 1}}" id="category{{item.id}}" wx:for="{{firstCategories}}" wx:key="id" data-idx="{{index}}" bindtap="onCategoryClick" title="{{ item.name }}" />
+    </van-sidebar>
+  </scroll-view>
+  <scroll-view class="goods-container" scroll-y="true" scroll-top="{{scrolltop}}" bindscrolltolower="goodsGoBottom">
+    <van-card
+      wx:for="{{currentGoods}}" wx:key="id"
+      price="{{item.minPrice}}"
+      desc="{{item.numberSells ? '已售' + item.numberSells : ''}}"
+      tag="{{item.gotScore ? item.gotScore + '积分' : ''}}"
+      title="{{item.name}}"
+      thumb="{{item.pic}}"
+      thumb-link="{{ goodsDetailPage.url(item) }}"
+    >
+      <view class="goods-btn" slot="footer">
+        <van-icon wx:if="{{ item.propertyIds || item.hasAddition }}" name="add" color="#e64340" size="48rpx" data-id="{{item.id}}" bind:click="addShopCar" />
+        <van-icon wx:else name="shopping-cart-o" color="#e64340" size="48rpx" data-id="{{item.id}}" bind:click="addShopCar" />
+      </view>
+    </van-card>
+  </scroll-view>
+</view>

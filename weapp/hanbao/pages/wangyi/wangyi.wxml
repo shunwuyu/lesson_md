@@ -1,0 +1,66 @@
+<view class="logo" style="top:24px" hidden="{{hideLogo}}"></view>
+<view class="topSearch" style="top:24px" hidden="{{!hideLogo}}"></view>
+<scroll-view
+scroll-y="true"
+bindscroll="onScroll"
+class="pageScrollView"     style="height:568px;padding-top:{{navTop + 40}}px"
+  
+>
+  <view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view><view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+  <view class="row"></view>
+</view>
+</scroll-view>
