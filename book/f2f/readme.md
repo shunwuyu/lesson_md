@@ -44,4 +44,9 @@
     HTMLElement 对象
         img.html
     Cookie 对象
-    
+    cookie.html
+
+- node 有什么特别的对象？
+    1.js process 对象
+
+
