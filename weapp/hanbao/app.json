@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/video/video",
     "pages/home/home",
     "pages/goods/goods",
     "pages/diandan/diandan",
     "pages/douyin/douyin",
-    "pages/video/video",
     "pages/cha/cha",
     "pages/didi/didi",
     "pages/index/index",
