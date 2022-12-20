@@ -1,14 +1,18 @@
 {
   "pages": [
+<<<<<<< HEAD
     "pages/video/video",
+=======
+    "pages/category/category",
+>>>>>>> 72b6af1d86d94d9a68b324cded16e1fb40618b79
     "pages/home/home",
+    "pages/wangyi/wangyi",
     "pages/goods/goods",
     "pages/diandan/diandan",
     "pages/douyin/douyin",
     "pages/cha/cha",
     "pages/didi/didi",
     "pages/index/index",
-    "pages/logs/logs",
     "pages/order/order",
     "pages/my/my",
     "pages/store/store",
@@ -53,7 +57,15 @@
   },
   "usingComponents": {
     "van-sticky": "@vant/weapp/sticky/index",
-    "van-count-down": "@vant/weapp/count-down/index"
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-card": "@vant/weapp/card/index"
   },
   "sitemapLocation": "sitemap.json"
 }

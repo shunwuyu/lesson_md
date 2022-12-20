@@ -1,0 +1,117 @@
+<view class="page">
+  <van-sticky> 
+    <view class="dewu-hd">
+      <view class="dewu-hd-search" bindtap="gotoSearch">
+        <van-search placeholder="搜索单号" disabled />
+      </view>
+      <view class="dewu-kinds" bindtap="kinds">
+        <image src="https://cdn.poizon.com/node-common/R3JvdXAlMjA2QDN4MTU5MjIyMjY4OTE5Mw==.png"></image>
+      </view>
+    </view>
+  </van-sticky>
+  <van-tabs animated active="{{ active }}" color="white" swipeable sticky offset-top="{{ 54 }}"
+    title-inactive-color="#cccccc" title-active-color="#000000" class="dewu-tabs">
+    <van-tab title="推荐">
+      <view class="dewu-tip" bindtap="produce">
+        <view class="dewu-tip-img-hd">
+          <image style="width:100%;height:250rpx;" src="https://cdn.poizon.com/node-common/609282226e6ae1e2f8aa40752eaa2d4b.png"></image>
+        </view>
+        <van-grid class="van-grid-hd" border="{{ false }}" direction="horizontal" row-num="3" column-num="3">
+          <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/Q29tYmluZWRTaGFwZUAzeDE1OTM3NTUwOTI5NDU=.png"></image>
+            <text>正品保障</text>
+          </van-grid-item>
+          <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/R3JvdXBAM3gxNTkzNzU1MDY0MTUx.png"></image>
+            <text>逐件查验</text>
+          </van-grid-item>
+          <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/UmVjdGFuZ2xlQDN4MTU5Mzc1NTAxMzkzMg==.png"></image>
+            <text>多重鉴别</text>
+          </van-grid-item>
+          <!-- <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/Q29tYmluZWRTaGFwZUAzeDE1OTM3NTUwOTI5NDU=.png"></image>
+            <text>正品保障</text>
+          </van-grid-item>
+          <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/R3JvdXBAM3gxNTkzNzU1MDY0MTUx.png"></image>
+            <text>逐件查验</text>
+          </van-grid-item>
+          <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/UmVjdGFuZ2xlQDN4MTU5Mzc1NTAxMzkzMg==.png"></image>
+            <text>多重鉴别</text>
+          </van-grid-item>
+          <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/Q29tYmluZWRTaGFwZUAzeDE1OTM3NTUwOTI5NDU=.png"></image>
+            <text>正品保障</text>
+          </van-grid-item>
+          <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/R3JvdXBAM3gxNTkzNzU1MDY0MTUx.png"></image>
+            <text>逐件查验</text>
+          </van-grid-item>
+          <van-grid-item use-slot>
+            <image style="width:30rpx;height:30rpx;" src="https://cdn.poizon.com/node-common/UmVjdGFuZ2xlQDN4MTU5Mzc1NTAxMzkzMg==.png"></image>
+            <text>多重鉴别</text>
+          </van-grid-item> -->
+        </van-grid>
+      </view>
+      <view class="van-items">
+        <van-grid class="van-grid-bd" column-num="2">
+        <!-- grid布局自定义van-grid-item样式 -->
+          <van-grid-item use-slot wx:for="{{produces}}" data-item="{{item}}" wx:key="index" data-id="{{item._id}}" bindtap="gotoDetail">
+            <view class="item-img"><image style="width:300rpx;height:192rpx;" src="{{item.pic}}"></image>
+            </view>
+            <view class="item-text">
+              <span class="text1">{{item.title}}</span>
+              <span class="text2">￥{{item.price}}</span>
+              <span class="text3">{{item.buyer}}人付款</span>
+            </view>
+          </van-grid-item>
+        </van-grid>
+      </view>
+    </van-tab>
+    <van-tab title="鞋类">
+      
+    </van-tab>
+    <van-tab title="潮服">
+      <view class="van-items">
+        <van-grid class="van-grid-bd" column-num="2">
+          <van-grid-item use-slot wx:for="{{goods}}" data-item="{{item}}" wx:key="index" data-id="{{item._id}}" bindtap="gotoDetail">
+            <view class="item-img"><image style="width:300rpx;height:192rpx;" src="{{item.pic}}"></image>
+            </view>
+            <view class="item-text">
+              <span class="text1">{{item.title}}</span>
+              <span class="text2">￥{{item.price}}</span>
+              <span class="text3">{{item.buyer}}人付款</span>
+            </view>
+          </van-grid-item>
+        </van-grid>
+      </view>
+    </van-tab>
+    <van-tab title="手表">
+    </van-tab>
+    <van-tab title="美妆">
+    </van-tab>
+    <van-tab title="配饰">
+    </van-tab>
+    <van-tab title="潮玩">
+    </van-tab>
+    <van-tab title="运动">
+    </van-tab>
+    <van-tab title="数码">
+    </van-tab>
+    <van-tab title="箱包">
+    </van-tab>
+    <van-tab title="女装">
+    </van-tab>
+    <van-tab title="汽车">
+    </van-tab>
+    <van-tab title="家具">
+    </van-tab>
+    <van-tab title="家电">
+    </van-tab>
+    <van-tab title="艺术">
+    </van-tab>
+  </van-tabs>
+
+</view>

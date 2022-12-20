@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="javascript:toA();">A页面</a>
+    <a href="javascript:toB();">B页面</a>
+    <div id="app"></div>
+    <script>
+    function render() {
+    app.innerHTML = window.location.pathname
+  }
+  function toA() {
+    history.pushState({}, null, '/a')
+    render()
+  }
+  function toB() {
+    history.pushState({}, null, '/b')
+    render()
+  }
+  window.addEventListener('popstate', render)
+    </script>
+</body>
+</html>

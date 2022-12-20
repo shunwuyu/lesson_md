@@ -1,0 +1,348 @@
+.detail_hd {
+  position: relative;
+  background-color: #fff;
+  text-align: center;
+  margin-bottom: 4rpx;
+}
+.swiper__hd {
+  height: 960rpx;
+}
+.swiper_hd view {
+  height: 680rpx;
+}
+.swiper_hd image {
+  padding: 0 35rpx;
+}
+.dots1 {
+  position: absolute;
+  bottom: 300rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.dots1 view {
+  width: 8rpx;
+  height: 8rpx;
+  margin: 0 10rpx;
+  border-radius: 4rpx;
+  background-color: #ccc;
+}
+.dots1 .active {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background-color: black;
+}
+.detail_hd-title {
+  position: absolute;
+  bottom: 120rpx;
+  width: 640rpx;
+  margin: 0 55rpx;
+}
+.detail_hd-price {
+  position: absolute;
+  bottom: 0;
+  height: 100rpx;
+  width: 150rpx;
+  font-weight: bold;
+  margin-left: 300rpx;
+}
+.van-cell__value {
+  color: black !important;
+}
+.detail_size-hd {
+  position: relative;
+  width: 500rpx;
+  height: 200rpx;
+}
+.detail_size-hd-img {
+  position: absolute;
+  margin: 19rpx;
+  border: 1rpx solid #e2d8d8;
+  width: 160rpx;
+  height: 160rpx;
+}
+.detail_size-hd-price {
+  position: absolute;
+  width: 200rpx;
+  height: 100rpx;
+  top: 0;
+  right: 100rpx;
+  line-height: 100rpx;
+  font-weight: bold;
+}
+.detail_size-hd-size {
+  position: absolute;
+  right: 0;
+  bottom: 20rpx;
+  width: 300rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  display: flex;
+}
+.detail_size-hd-size image {
+  margin: 15rpx;
+}
+.detail_size-hd-size text {
+  color: #707070;
+  line-height: 80rpx;
+  flex: 1;
+}
+.detail_size-bd {
+  padding-top: 20rpx;
+  background-color: #F6F6F6;
+  height: 650rpx;
+  width: 100%;
+}
+.van-grid-item__content .size {
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  bottom: 30rpx;
+  line-height: 50rpx;
+  display: flex;
+  flex-direction: column;
+}
+.size #p3 {
+  text-align: center;
+  width: 100%;
+  height: 50rpx;
+  font-weight: bold;
+}
+.size #p4 {
+  width: 100%;
+  flex: 1;
+  color: #707070;
+  font-size: 28rpx;
+}
+.van-cell {
+  height: 104rpx;
+}
+.cell-index--van-cell {
+  padding: 0 !important;
+}
+.size-l {
+  position: absolute;
+  left: 50rpx;
+  height: 100%;
+  line-height: 104rpx;
+  color: #515151;
+}
+.size-r {
+  position: absolute;
+  right: 70rpx;
+  height: 100%;
+  line-height: 104rpx;
+  color: #424242;
+}
+.ricon {
+  position: absolute;
+  right: 40rpx;
+  top: 39rpx;
+}
+.tip-l {
+  position: absolute;
+  left: 50rpx;
+  height: 100%;
+  line-height: 104rpx;
+  font-weight: bold;
+}
+.tip-r {
+  position: absolute;
+  right: 70rpx;
+  height: 100%;
+  line-height: 104rpx;
+  font-size: 20rpx;
+  color: #8a8a8a;
+}
+.detail_bd {
+  position: relative;
+  background-color: #fff;
+  text-align: center;
+  margin-bottom: 16rpx;
+}
+.swiper__bd {
+  height: 320rpx;
+}
+.swiper_bd .wuyu {
+  height: 320rpx;
+  width: 100%;
+  display: flex;
+}
+.dots2 {
+  position: absolute;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.dots2 view {
+  width: 8rpx;
+  height: 8rpx;
+  margin: 0 10rpx;
+  border-radius: 4rpx;
+  background-color: #ccc;
+}
+.dots2 .active {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background-color: black;
+}
+.pro {
+  position: relative;
+  height: 280rpx;
+}
+.pro image {
+  padding: 50rpx 50rpx 0 50rpx;
+}
+.detail_bd-title {
+  position: absolute;
+  top: 170rpx;
+  height: 80rpx;
+  line-height: 40rpx;
+  width: 190rpx;
+  margin: 0 30rpx;
+}
+.detail_bd-title text{
+  font-size: 20rpx;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.detail_bd-price {
+  position: absolute;
+  bottom: 0rpx;
+  font-size: 20rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  margin: 0 98rpx;
+  font-weight: bold;
+}
+.Corade {
+  width: 100%;
+  height: 120rpx;
+  position: relative;
+  background-color: #fff;
+}
+.Corade .title {
+  position: absolute;
+  left: 50rpx;
+  top: 30rpx;
+  line-height: 30rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.Corade .about {
+  position: absolute;
+  left: 50rpx;
+  bottom: 30rpx;
+  line-height: 30rpx;
+  font-size: 20rpx;
+  color: #ccc;
+}
+.Corade .ricon {
+  position: absolute;
+  right: 40rpx;
+  top: 47rpx;
+}
+.head {
+  background-color: #fff;
+  height: 100rpx;
+  width: 100%;
+  position: relative;
+  border-bottom: 1rpx solid rgb(238, 238, 238);
+}
+.detail_produce-hd {
+  position: absolute;
+  width: 200rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100rpx;
+}
+.detail_close {
+  position: absolute;
+  right: 40rpx;
+  margin-top: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.van-grid-bd .van-grid-item {
+  height: 500rpx;
+}
+.van-grid-hd .van-grid-item__content::after {
+  content: none !important;
+}
+.van-items {
+  margin-top: 30rpx;
+}
+.van-ellipsis,
+.van-grid-item__content text {
+  font-weight: 550;
+}
+.van-grid-item__content text {
+  margin-left: 10rpx;
+}
+.item-img {
+  position: absolute;
+  width:300rpx;
+  height:192rpx;
+  top: 90rpx;
+}
+.item-text {
+  position: absolute;
+  bottom: 50rpx;
+  width: 100%;
+  height: 125rpx;
+  word-break: break-all;
+}
+.text1 {
+  position: absolute;
+  padding: 0 37rpx;
+  text-align: left;
+  width: 300rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  line-height: 35rpx;
+  top: 0;
+}
+.text2 {
+  position: absolute;
+  bottom: 0;
+  padding-left: 30rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+  width: 100rpx;
+  height: 30rpx;
+  left: 0;
+  text-align: center;
+  line-height: 28rpx;
+}
+.text3 {
+  position: absolute;
+  bottom: 6rpx;
+  font-size: 20rpx;
+  color: #ccc;
+  width: 150rpx;
+  right: 0;
+  height: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+}
+.van-grid-item .van-grid-item__content::after {
+  border: 6rpx solid #fff;
+}
+.size-active .van-grid-item .van-grid-item__content::after {
+  border: 6rpx solid #000;
+}
+.detail_size-fd {
+  position: relative;
+}

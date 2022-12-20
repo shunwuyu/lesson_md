@@ -1,0 +1,55 @@
+<view class="page">
+  <view class="detail_hd">
+    <swiper class="swiper__hd" bindchange="monitorCurrent" circular="true" current="{{current}}">
+      <block wx:for="{{headimg}}" wx:key="index">
+        <swiper-item class="swiper_hd">
+          <view>
+            <image style="width:680rpx;height:680rpx;" src="{{item.pic}}" mode="aspectFit"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots1">
+      <block wx:for="{{headimg}}" wx:for-index="index" wx:key="*this">
+        <view class="{{current==index?'active':''}}"></view>
+      </block>
+    </view>
+    <van-cell class="size" title="选择尺码" value="请选择尺码" bind:click="showPopup1" is-link>
+    </van-cell>
+    <van-popup show="{{ show1 }}" closeable position="bottom" custom-style="height: 75%" bind:close="onClose1">
+    <view class="detail_size-hd">
+      <view class="detail_size-hd-img">
+        <image bindtap="previewImage" style="width:160rpx;height:160rpx;" mode="aspectFit"
+          src="{{img.pic}}">
+        </image>
+      </view>
+      <view class="detail_size-hd-price" wx:for="{{size}}" wx:key="index" data-index="{{index}}">
+        <text style="font-size:25rpx;">￥</text>
+        <text wx:if="{{activeSizeIndex==-1}}">--</text>
+        <text wx:if="{{activeSizeIndex==index}}">{{item.price}}</text>
+      </view>
+      <view class="detail_size-hd-size" wx:for="{{size}}" wx:key="index" data-index="{{index}}">
+        <image src="https://cdn.poizon.com/node-common/JUU1JUJFJTk3JUU3JTg5JUE5bG9nb0AzeDE1NzYxMzIyMTAyOTM=.png"
+          style="width:50rpx;height:50rpx;"></image>
+        <text wx:if="{{activeSizeIndex==-1}}">请选择商品</text>
+        <text wx:if="{{activeSizeIndex==index}}">已选 {{item.size}}</text>
+      </view>
+    </view>
+    <view class="detail_size-bd">
+      <van-grid square gutter="10">
+        <van-grid-item class="{{activeSizeIndex==index?'size-active':''}}" use-slot wx:for="{{size}}" wx:key="index"
+          data-flag="{{flag}}" data-index="{{index}}" bindtap="pickSize">
+          <view class="size">
+            <text id="p3">{{item.size}}</text>
+            <text id="p4">￥{{item.price}}</text>
+          </view>
+        </van-grid-item>
+      </van-grid>
+    </view>
+    <view class="detail_size-fd" wx:for="{{size}}" wx:key="index" data-flag="{{flag}}" data-index="{{index}}">
+      <button wx:if="{{activeSizeIndex==index}}" bindtap="gotoPay"  data-id="{{img.id}}"
+        style="width:700rpx;background-color:#00cbcc;color:#fff;font-size:30rpx;font-weight:550;border-radius:0;">￥{{item.price}}|约六天到</button>
+    </view>
+  </van-popup>
+  </view>
+</view>

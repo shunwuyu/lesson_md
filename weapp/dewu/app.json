@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/detail/detail",
+    "pages/buy/buy",
     "pages/cart/cart",
     "pages/user/user",
     "pages/index/index",
-    "pages/logs/logs"    
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,7 +28,14 @@
     "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
     "van-goods-action": "/miniprogram_npm/@vant/weapp/goods-action/index",
     "van-goods-action-icon": "/miniprogram_npm/@vant/weapp/goods-action-icon/index",
-    "van-goods-action-button": "/miniprogram_npm/@vant/weapp/goods-action-button/index"
+    "van-goods-action-button": "/miniprogram_npm/@vant/weapp/goods-action-button/index",
+    "van-search": "/miniprogram_npm/@vant/weapp/search/index",
+    "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
+    "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
+    "van-grid": "/miniprogram_npm/@vant/weapp/grid/index",
+    "van-grid-item": "/miniprogram_npm/@vant/weapp/grid-item/index",
+    "van-sticky": "/miniprogram_npm/@vant/weapp/sticky/index",
+    "van-popup": "/miniprogram_npm/@vant/weapp/popup/index"
   },
   "sitemapLocation": "sitemap.json"
 }

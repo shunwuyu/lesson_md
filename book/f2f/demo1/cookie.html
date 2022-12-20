@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //  var dataCookie='110';
+    // document.cookie = 'token' + "=" +dataCookie; 
+    // document.cookie = 'age' + "=18" ; 
+    var cookieData=getCookie('token');
+    function getCookie(name) { //获取指定名称的cookie值
+        const cookieArray = document.cookie.split("; ");
+  let cookieName;
+  let cookieValue;
+  // 遍历得到的数组
+  for (const item of cookieArray) {
+    // 遍历以后的值，再转成数组，用等号分开
+    // 用结构赋值的方式，从数组里面后去我们想要的,把结构赋值后的放到一个数组里面
+    [cookieName, cookieValue] = item.split("=");
+    // 定义函数的时候，参数是name，也就是说我们要获取的是name
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  // for循环结束，如果里面没找到cookie,返回false
+  return
+    }
+
+    </script>
+</body>
+</html>

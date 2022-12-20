@@ -118,3 +118,107 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.category-container {
+  padding: 0 0 10px 0;
+  margin-top: 16rpx;
+  position: relative;
+  background-color: white;
+}
+
+.category-box {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0px 0px 18px 0px rgba(5, 5, 5, 0.15);
+  width: 700rpx;
+  margin-left: 25rpx;
+  border-radius: 10px;
+  padding: 20rpx 0;
+  position: inherit;
+}
+
+.category-list {
+  width: 140rpx;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.category-column {
+  width: 100%;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+
+.category-imgbox {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.category-title {
+  font-size: 24rpx;
+  text-align: center;
+}
+.notice-icon {
+  width: 130rpx;
+  height: 33rpx;
+  margin-right: 10px;
+}
+.notice-box {
+  width: 100vw;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #efeff4;
+}
+.notice_swiper {
+  height: 88rpx;
+  width: 100%;
+}
+.notice_itemr {
+  padding-left: 16rpx;
+  font-size: 24rpx;
+  overflow: hidden;
+  color: #e64340;
+}
+.adPositionIndexPop {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.adPositionIndexPop image {
+  width: 420rpx;
+}
+.adPositionIndexPop .close {
+  margin-top: 32rpx;
+}
+
+.coupons-float {
+  position: fixed;
+  right: 15rpx;
+  bottom: 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  border: 1rpx solid #ddd;
+}
+
+.coupons-float image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+}
+.table-text {
+  color: black !important;
+  font-size: 16px !important;
+  padding: 0 28rpx;
+}
+.table-icon-miaosha {
+  width: 34rpx;
+  height: 42rpx;
+  margin-right: 18rpx;
+}

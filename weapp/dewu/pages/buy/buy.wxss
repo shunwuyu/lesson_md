@@ -1,0 +1,88 @@
+.dewu-hd {
+  display: flex;
+}
+.dewu-hd-search {
+  flex: 1;
+}
+.dewu-kinds {
+  background-color: #fff;
+  width: 100rpx;
+  height: 108rpx;
+}
+.dewu-kinds image {
+  height: 68rpx;
+  padding: 20rpx 24rpx;
+  width: 52rpx;
+}
+.dewu-tip-img-hd {
+  height: 250rpx;
+}
+.van-grid-hd .van-grid-item {
+  height: 80rpx;
+  letter-spacing: 4rpx;
+  font-size: 26rpx;
+  font: bold;
+  color: #333;
+}
+.van-grid-bd .van-grid-item {
+  height: 500rpx;
+}
+.van-grid-hd .van-grid-item__content::after {
+  content: none !important;
+}
+.van-items {
+  margin-top: 30rpx;
+}
+.van-ellipsis,
+.van-grid-item__content text {
+  font-weight: 550;
+}
+.van-grid-item__content text {
+  margin-left: 10rpx;
+}
+.item-img {
+  position: absolute;
+  width:300rpx;
+  height:192rpx;
+  top: 90rpx;
+}
+.item-text {
+  position: absolute;
+  bottom: 50rpx;
+  width: 100%;
+  height: 125rpx;
+  word-break: break-all;
+}
+.text1 {
+  position: absolute;
+  padding: 0 37rpx;
+  text-align: left;
+  width: 300rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  line-height: 35rpx;
+  top: 0;
+}
+.text2 {
+  position: absolute;
+  bottom: 0;
+  padding-left: 30rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+  width: 100rpx;
+  height: 30rpx;
+  left: 0;
+  text-align: center;
+  line-height: 28rpx;
+}
+.text3 {
+  position: absolute;
+  bottom: 6rpx;
+  font-size: 20rpx;
+  color: #ccc;
+  width: 150rpx;
+  right: 0;
+  height: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+}
