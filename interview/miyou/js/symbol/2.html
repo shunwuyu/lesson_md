@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// const name = Symbol('name');
+
+// const obj = {
+//     [name]: "涛涛",
+//     age: 16,
+//     name: "hehe"
+// }
+
+// console.log(obj);
+const speak = Symbol();
+class Person {
+    [speak]() {
+        console.log('speak')
+    }
+}
+
+const tao = new Person();
+console.log(tao);
+
+</script>
+</body>
+</html>

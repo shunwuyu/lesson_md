@@ -1,3 +1,6 @@
+- html5/drag_drop
+- /interview/miyou/js/symbol
+- /interview/miyou/css/layout
 - /interview/miyou/js/
 - book/f2f
 - book/xy/algorithm/chapter7 两数相加
