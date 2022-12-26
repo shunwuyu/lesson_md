@@ -48,5 +48,6 @@
 
 - node 有什么特别的对象？
     1.js process 对象
-
+    Node.js 不是一种新语言而是一个平台，为 JavaScript 提供了浏览器之外的运行时环境
+    
 

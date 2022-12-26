@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     #container {
+      width: 300px;
+      height: 300px;
+      border: 3px dotted red;
+    }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+<input type="file" id="files" multiple>
+<div id="list"></div>
+<div id="images"></div>
+<script>
+if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
+  throw new Error("当前浏览器对FileAPI的支持不完善");
+}
+
+// function handleFileSelect(event) {
+//   const { files } = event.target;
+//   if (!files.length) {
+//     console.log("没有选择文件");
+//     return;
+//   }
+
+//   const innerHTML = [];
+//   const reImage = /image.*/;
+
+//   for (let file of files) {
+//     if (!reImage.test(file.type)) {
+//       continue;
+//     }
+//     innerHTML.push(
+//       `
+//       <li>
+//         <strong>${file.name}</strong>
+//         (${file.type || "n/a"}) -
+//         ${file.size} bytes
+//       </li>
+//       `
+//     );
+
+//   }
+
+//   document.querySelector("#list").innerHTML = `<ul>${innerHTML.join("")}</ul>`;
+// //   console.log("选中的文件信息是：", files);
+// }
+
+// function handleFileSelect(event) {
+//     let { files } = event.target;
+//     if (!files.length) {
+//         return;
+//     }
+//     let vm = document.createDocumentFragment(),
+//     re = /image.*/,
+//     loaded = 0, // 完成加载的图片数量
+//     total = 0; // 总共图片数量
+
+//     for (let file of files) {
+//         re.test(file.type) && total++;
+//     }
+
+//     for (let file of files) {
+//         if (!re.test(file.type)) {
+//         continue;
+//     }
+
+//     const handleLoadStart = (ev, file) =>
+//     console.log(`>>> Start load ${file.name}`);
+
+//     const handleOnload = (ev, file) => {
+//     console.log(`<<< End load ${file.name}`);
+
+//     const img = document.createElement("img");
+//     img.height = 250;
+//     img.width = 250;
+//     img.src = ev.target.result;
+//     vm.appendChild(img);
+
+//     // 完成加载后，将其放入dom元素中
+//     if (++loaded === total) {
+//       document.querySelector("#images").appendChild(vm);
+//     }
+//   };
+
+//     const reader = new FileReader();
+//     reader.onloadstart = ev => handleLoadStart(ev, file);
+//     reader.onload = ev => handleOnload(ev, file);
+//     // 读取文件对象
+//     reader.readAsDataURL(file);
+    
+//   }
+
+
+// }
+
+// function handleFileSelect(event) {
+//   let { files } = event.target;
+//   if (!files.length) {
+//     return;
+//   }
+
+//   const handleLoadStart = (ev, file) =>
+//     console.log(`>>> Start load ${file.name}`);
+//   const handleProgress = (ev, file) => {
+//     if (!ev.lengthComputable) {
+//       return;
+//     }
+//     // 计算进度，并且以百分比形式展示
+//     const percent = Math.round((ev.loaded / ev.total) * 100);
+//     console.log(`<<< Loding ${file.name}, progress is ${percent}%`);
+//   };
+
+//   for (let file of files) {
+//     const reader = new FileReader();
+//     reader.onloadstart = ev => handleLoadStart(ev, file);
+//     reader.onprogress = ev => handleProgress(ev, file);
+//     reader.readAsArrayBuffer(file);
+//   }
+// }
+
+// function handleFileSelect(event) {
+//   let { files } = event.target;
+//   if (!files.length) {
+//     return;
+//   }
+//   // 为了方便说明，这里仅仅读取第一个文件
+//   const file = files[0];
+//   // 读取前5个字节的内容
+//   const blob = file.slice(0, 5);
+//   console.log(blob);
+//   const reader = new FileReader();
+//   // 控制台输出结果应该是：hello
+//   reader.onload = ev => console.log(ev.target.result);
+//   reader.readAsText(blob);
+// }
+
+
+function handleDropover(event) {
+  event.stopPropagation();
+  event.preventDefault();
+}
+
+function handleDrop(event) {
+  event.stopPropagation();
+  event.preventDefault();
+  /***** 访问拖拽文件 *****/
+  const files = event.dataTransfer.files;
+  console.log(files);
+  /**********/
+}
+
+
+const target = document.querySelector("#container");
+target.addEventListener("dragover", handleDropover);
+target.addEventListener("drop", handleDrop);
+
+
+// document
+//   .querySelector("#files")
+//   .addEventListener("change", handleFileSelect, false);
+
+</script>
+</body>
+</html>
