@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// const object1 = {};
+
+// Object.defineProperty(object1, 'property1', {
+//   value: 42,
+//   writable: false
+// });
+
+// object1.property1 = 77;
+// // throws an error in strict mode
+
+// console.log(object1.property1);
+
+var o = {}; 
+var bValue = 38;
+Object.defineProperty(o, "b", {
+  // 使用了方法名称缩写（ES2015 特性）
+  // 下面两个缩写等价于：
+  // get : function() { return bValue; },
+  // set : function(newValue) { bValue = newValue; },
+  get() {console.log('获取了数据');  return bValue; },
+  set(newValue) { bValue = newValue; console.log('设置了数据');},
+  enumerable : true,
+  configurable : true
+});
+
+o.b; // 38
+o.b = 22;
+</script>
+</body>
+</html>
