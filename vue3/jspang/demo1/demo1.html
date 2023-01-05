@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 挂载点 -->
+<div id="app"></div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+Vue.createApp({ 
+    data() {
+        return {
+            counter: 1
+        }
+    },
+    mounted() {
+        // 从面向DOM编程，改为面向数据编程
+        console.log('页面加载完成后-自动执行')
+        setInterval(() => {
+        this.counter += 1   //这个this.counter指向的就是data中的counter
+        // this.$data.counter +=1   //效果相同
+        }, 1000)
+    },
+    //  data  双大括号
+    template: '<div>{{counter}}</div>'    
+})
+// 挂载
+.mount('#app')
+</script>
+</body>
+</html>

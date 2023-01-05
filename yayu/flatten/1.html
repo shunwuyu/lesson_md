@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script>
+// var arr = [1, [2, 3], 4]; 
+// console.log(_.flatten(arr));
+var arr2 = [1, [2, 3, [5, 6]], 4]; 
+// console.log(_.flatten(arr2));
+console.log(_.flattenDeep(arr2));
+</script>
+</body>
+</html>

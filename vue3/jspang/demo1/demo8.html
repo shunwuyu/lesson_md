@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo7</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: 'jspang.com'
+            }
+        },
+        methods: {
+            handleItemClick() {
+                this.message = this.message == 'jspang.com' ? "技术胖" : "jspang.com"
+                alert('jspang.com')
+            }
+        },
+        beforeCreate() {
+            console.log('beforeCreate')
+        },
+        created() {
+            console.log('created')
+        },
+        beforeMount() {
+            console.log('beforeMount')
+        },
+        mounted() {
+            console.log('mounted')
+        },
+        beforeUpdate() {
+            console.log('beforeUpdate')
+            console.log(document.getElementById('app').innerHTML)
+        },
+        updated() {
+            console.log('updated')
+            console.log(document.getElementById('app').innerHTML)
+        },
+        beforeUnmount() {
+            console.log('beforeUnmount')
+            console.log(document.getElementById('app').innerHTML)
+        },
+        unmounted() {
+            console.log('unmounted')
+            console.log(document.getElementById('app').innerHTML)
+        },
+        template: "<h2 v-on:click='handleItemClick'>{{message}}</h2>"
+    })
+    const vm = app.mount("#app")
+
+</script>
+
+</html>

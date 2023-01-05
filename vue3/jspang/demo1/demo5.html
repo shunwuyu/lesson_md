@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>象牙山洗脚城</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+    Vue.createApp({
+        data() {
+            return {
+                inputValue: '',
+                list: ['1-大脚','2-刘英','3-晓红']
+            }
+        },
+        methods: {
+            handleAddItem() {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            }
+        },
+        template: `
+        <div>
+            <input v-model="inputValue" />
+        <button v-on:click="handleAddItem">增加佳丽</button>
+        <ul>
+            <li v-for="item of list">{{item}}</li>
+        </ul>
+        </div>
+        `
+    }).mount("#app")
+    </script>
+</body>
+</html>

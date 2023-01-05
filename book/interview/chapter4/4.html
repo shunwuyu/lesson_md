@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 对象类型在赋值的过程中其实是复制了地址
+// 从而会导致改变了一方时其它也都被改变的情况
+// 不希望出现这样的问题
+// let a = {
+//     age: 1
+// }
+// let b = Object.assign({}, a);
+// a.age = 2
+// console.log(b.age);
+// let a = {
+//     age: 1
+// }
+// let b = {
+//     ...a
+// }
+// a.age = 2
+// console.log(b.age)
+let a = {
+  age: 1,
+  jobs: {
+    first: 'FE'
+  }
+}
+// let b = { ...a }
+// a.jobs.first = 'native'
+// console.log()
+// console.log(b.jobs.first)
+let b = JSON.parse(JSON.stringify(a))
+a.jobs.first = 'native'
+console.log(b.jobs.first)
+</script>
+</body>
+</html>

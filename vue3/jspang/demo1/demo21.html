@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo14</title>
+    <script src="https://unpkg.com/vue@next" ></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app=Vue.createApp({ 
+        data() {
+            return {
+                message:0,
+                message1: 'JSPang.com'
+            }
+        },
+        // template:`
+        // {{message}}<input v-model.lazy="message" />
+        // `
+        // template:`
+        // <div>
+        // {{typeof message}}<input v-model.number="message" />
+        // </div>
+        // `
+        template:`
+        {{message1}}<input v-model.trim="message1" />
+        `
+    }) 
+    
+    const vm=app.mount("#app")
+
+</script>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 挂载点 -->
+<div id="app"></div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+Vue.createApp({  //创建一个Vue实例，简单理解就说，我要使用Vue了单例
+    // wxml  // template是模板的意思，就是在JS里写html代码
+    template: '<div>Hello World</div>'    
+})
+// 挂载
+.mount('#app')
+</script>
+</body>
+</html>

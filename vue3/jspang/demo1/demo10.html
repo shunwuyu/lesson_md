@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo7</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+    // model 数据,自己定义的
+    // view模板也是自己定义的
+    // vm 是Vue自动给我们关联的
+     const app = Vue.createApp({
+        data() {
+            return {
+                message: 'jspang.com'   //1.在这里定义了数据，也就是`model`数据
+            }
+        },
+        template: "<h2>{{message}}</h2>" //2.在这里定义了模板，也就是`view`，
+        //定义后的自动关联，就叫做`vm`，viewModel数据视图连接层。
+    })
+    const vm = app.mount("#app") // 根组件
+    // vm.$data.message= '技术胖'
+    </script>
+</body>
+</html>
