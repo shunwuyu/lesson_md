@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.2/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+    const app = Vue.createApp({
+        template: `
+        <h2>欢迎光临红浪漫-请选择您的技师</h2>
+        <ji-shi > 谢大脚 </ji-shi>
+        <ji-shi > <div style="color:red;font-size:50px;">谢大脚</div> </ji-shi>
+        <ji-shi > <div style="color:green;font-size:50px;">刘英</div> </ji-shi>
+        `
+    })
+    app.component('JiShi', {
+        template: `
+        <div>
+            <span>经过你的慎重考虑.最终选择了。</span>
+            <span>
+                <slot> </slot>
+
+            </span>
+        </div>
+    `
+    })
+    const vm = app.mount("#app")
+    </script>
+</body>
+</html>

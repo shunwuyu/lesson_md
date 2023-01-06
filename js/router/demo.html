@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="nav">
+        <a href="/page1">page1</a>
+        <a href="/page2">page2</a>
+        <a href="/page3">page3</a>
+        <a href="/page4">page4</a>
+        <a href="/page5">page5</a>
+        <button id="btn">page2</button>
+    </div>
+    <div id="container">
+
+    </div>
+    <script>
+    class HistoryRouter{
+    constructor(){
+        //用于存储不同path值对应的回调函数
+        this.routers = {};
+        this.listenPopState();
+        this.listenLink();
+    }
+    //监听popstate
+    listenPopState(){
+        window.addEventListener('popstate',(e)=>{
+            let state = e.state || {},
+                path = state.path || '';
+            this.dealPathHandler(path)
+        },false)
+    }
+    //全局监听A链接
+    listenLink(){
+        window.addEventListener('click',(e)=>{
+            let dom = e.target;
+            if(dom.tagName.toUpperCase() === 'A' && dom.getAttribute('href')){
+                e.preventDefault()
+                this.assign(dom.getAttribute('href'));
+            }
+        },false)
+    }
+    //用于首次进入页面时调用
+    load(){
+        let path = location.pathname;
+        this.dealPathHandler(path)
+    }
+    //用于注册每个视图
+    register(path,callback = function(){}){
+        this.routers[path] = callback;
+    }
+    //用于注册首页
+    registerIndex(callback = function(){}){
+        this.routers['/'] = callback;
+    }
+    //用于处理视图未找到的情况
+    registerNotFound(callback = function(){}){
+        this.routers['404'] = callback;
+    }
+    //用于处理异常情况
+    registerError(callback = function(){}){
+        this.routers['error'] = callback;
+    }
+    //跳转到path
+    assign(path){
+        history.pushState({path},null,path);
+        this.dealPathHandler(path)
+    }
+    //替换为path
+    replace(path){
+        history.replaceState({path},null,path);
+        this.dealPathHandler(path)
+    }
+    //通用处理 path 调用回调函数
+    dealPathHandler(path){
+        let handler;
+        //没有对应path
+        if(!this.routers.hasOwnProperty(path)){
+            handler = this.routers['404'] || function(){};
+        }
+        //有对应path
+        else{
+            handler = this.routers[path];
+        }
+        try{
+            handler.call(this)
+        }catch(e){
+            console.error(e);
+            (this.routers['error'] || function(){}).call(this,e);
+        }
+    }
+}
+
+作者：云中桥
+链接：https://juejin.cn/post/6844903890278694919
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+    let router = new HistoryRouter();
+let container = document.getElementById('container');
+
+//注册首页回调函数
+router.registerIndex(() => container.innerHTML = '我是首页');
+
+//注册其他视图回到函数
+router.register('/page1', () => container.innerHTML = '我是page1');
+router.register('/page2', () => container.innerHTML = '我是page2');
+router.register('/page3', () => container.innerHTML = '我是page3');
+router.register('/page4', () => {
+    throw new Error('抛出一个异常')
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="nav">
+        <a href="/page1">page1</a>
+        <a href="/page2">page2</a>
+        <a href="/page3">page3</a>
+        <a href="/page4">page4</a>
+        <a href="/page5">page5</a>
+        <button id="btn">page2</button>
+    </div>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+const links = document.querySelectorAll('a');
+for (let link of links) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const href = event.target.href;
+        // console.log(href);
+        history.pushState({}, null, href);
+    }, false)
+}
+</script>
+</html>

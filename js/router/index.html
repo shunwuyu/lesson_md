@@ -1,0 +1,55 @@
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <div id="nav">
+            <a href="#/page1">page1</a>
+            <a href="#/page2">page2</a>
+            <a href="#/page3">page3</a>
+        </div>
+        <div id="container"></div>
+    </body>
+    <script>
+    class HashRouter{
+        constructor(){
+            //用于存储不同hash值对应的回调函数
+            this.routers = {};
+            window.addEventListener('hashchange',this.load.bind(this),false)
+        }
+        //用于注册首页
+        registerIndex(callback = function(){}){
+            this.routers['index'] = callback;
+        }
+        //用于注册每个视图
+        register(hash,callback = function(){}){
+            this.routers[hash] = callback;
+        }
+
+        load(){
+        let hash = location.hash.slice(1),
+            handler;
+        //没有hash 默认为首页
+        if(!hash){
+            handler = this.routers.index;
+        }else{
+            handler = this.routers[hash];
+        }
+        //执行注册的回调函数
+        handler.call(this);
+        }
+
+    }
+    let router = new HashRouter();
+    let container = document.getElementById('container');
+    //注册首页回调函数
+    router.registerIndex(()=> container.innerHTML = '我是首页');
+
+    //注册其他视图回到函数
+    router.register('/page1',()=> container.innerHTML = '我是page1');
+    router.register('/page2',()=> container.innerHTML = '我是page2');
+    router.register('/page3',()=> container.innerHTML = '我是page3');
+    
+    router.load();
+    </script>
+</html>
