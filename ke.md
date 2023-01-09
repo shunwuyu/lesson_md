@@ -1,14 +1,18 @@
+- yayu/es6
 - jspang/component
-- async await yayu/async_await_demo
 - proxy https://juejin.cn/post/7069397770766909476#heading-7
-- hash  https://juejin.cn/post/6844903890278694919
-- dasheng/todos
 - yayu/curring
 - vue3/jspang
-- https://github.com/wesbos/es6.io/blob/master/10%20-%20Promises/multiple-promises.html promise.all
+
+
+- hash  https://juejin.cn/post/6844903890278694919
 - book/interview/  闭包 拷贝  原型链
 - https://juejin.cn/post/6844903894867247118   FileAPI 文件操作实战
 
+
+- dasheng/todos
+- https://github.com/wesbos/es6.io/blob/master/10%20-%20Promises/multiple-promises.html promise.all
+- async await yayu/async_await_demo
 - book/lm/mvvm   defineProperty
 - yayu/flatten
 - https://juejin.cn/post/6844903983429976078#heading-7 类型转换
