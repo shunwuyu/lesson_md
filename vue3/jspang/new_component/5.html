@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo05</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.2/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                counter: 0
+            }
+        },
+        template: `
+            <h2>JSPang.com</h2>
+            <counter :counter="counter"/>
+        `
+    })
+
+    app.component('Counter', {
+    props: ['counter'],
+    template: `
+        {{counter}}<button @click="counter+=1">增加数量</button>
+    `
+    })
+
+    const vm = app.mount("#app")
+</script>
+
+</html>

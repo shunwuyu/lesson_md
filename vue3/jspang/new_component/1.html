@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        // 建立一个Vue的实例  根组件
+        // const app=Vue.createApp({ })
+        // const app=Vue.createApp({ 
+        //     template:`
+        //         <h2>JSPang.com</h2>
+        //         <div>技术胖的博客</div>
+        //     `
+        // })
+        const app=Vue.createApp({
+            template:`
+                <website />
+                <describe />
+                <count/>
+                <count/>
+                <count/>
+            `
+        })
+        app.component('website',{
+            template:` <h2>JSPang.com</h2>`
+        })
+        app.component('describe',{
+            data(){
+                return{
+                    count:0
+                }
+            },
+
+            template:`<div>{{count}}<button @click="count++">增加1</button></div>`
+        })
+        app.component('count',{
+            data(){
+                return{
+                    count:0
+                }
+            },
+
+            template:`<div>{{count}}<button @click="count++">增加1</button></div>`
+        })
+        const vm=app.mount("#app")
+    </script>
+</body>
+</html>

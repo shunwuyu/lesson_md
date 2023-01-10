@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo04</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.2/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                name: "JSPang123",
+                pay: () => {
+                    alert('给你500元')
+                }
+            }
+        },
+
+        template: `
+            <h2>JSPang.com</h2>
+            <Son :name="name" />
+        `
+    })
+
+   app.component('Son',{
+            props:{
+                name: {
+                    type: String,
+                    default: 'JSPang.com',
+                    validator: function (value) {
+                        console.log(value.search("JSPang"))
+                        return value.search("JSPang") != -1
+                    },
+                    required: true
+                }
+                
+            },
+            template:`<div>{{  name}} div </div>`
+        })
+
+    const vm = app.mount("#app")
+</script>
+
+</html>

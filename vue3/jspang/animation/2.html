@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSPang</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.2/vue.global.js"></script>
+    <style>
+    .transition {
+        transition: 3s background-color ease;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .yellow {
+        background-color: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                css: {
+                    transition: true,
+                    red: true,
+                    yellow: false
+                }
+            }
+        },
+        methods: {
+            hanldClick() {
+                this.css.red = !this.css.red
+                this.css.yellow = !this.css.yellow
+            }
+        },
+        template: `
+        <div  :class="css" >技术胖讲程序</div>
+        <button @click="hanldClick">切换颜色</button>
+        `
+    })
+    const vm = app.mount("#app")
+</script>

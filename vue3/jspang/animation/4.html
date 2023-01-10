@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo05</title>
+    <style>
+        @keyframes comein{
+            0%{
+                transform :translateX(-120px)
+            }
+            100%{
+                transform :translateX(0px)
+            }
+        }
+        @keyframes comeout{
+            0%{
+                transform :translateX(0px)
+            }
+            100%{
+                transform :translateX(-120px)
+            }
+        }
+        .v-enter-active{
+            animation: comein 1s;
+        }
+        .v-leave-active{
+            animation: comeout 1s;
+        }
+        .jspang-enter-active{
+    animation: comein 1s;
+}
+.jspang-leave-active{
+    animation: comeout 1s;
+}
+
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.2/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return {
+                isShow:false
+            }
+        },
+        methods:{
+            hanldClick(){
+                this.isShow = ! this.isShow
+            }
+        },
+        template: `  
+        <transition name="jspang">
+            <div v-if="isShow">技术胖讲程序</div>
+        </transition>
+        <button @click="hanldClick">切换动画</button>
+
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+</html>
