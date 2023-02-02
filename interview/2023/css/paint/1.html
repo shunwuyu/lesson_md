@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* 宽高均为 0，border 有宽度的效果是啥样的
+        
+
+    */
+    /* .triangle {
+        width: 0;
+        height: 0;
+        border-top: 100px solid #f00;
+        border-right: 100px solid #0f0;
+        border-bottom: 100px solid #00f;
+        border-left: 100px solid #ff0;
+    } */
+    /* 给任意三边的颜色设置为 transparent 即可分别实现任一方向的三角形 */
+    /* .triangle {
+        width: 0;
+        height: 0;
+        border: 100px solid transparent;
+        border-bottom: 200px solid #0ff;
+    } */
+    /* 通过设置某条边的宽度比其它边窄，来调整三角形的宽度。 */
+    .triangle {
+        width: 0;
+        height: 0;
+        border: 100px solid transparent;
+        border-bottom: 200px solid #0ff;
+    }
+
+    /* 梯形也是基于 border 来绘制的，只不过绘制梯形时，宽高和border尺寸相同。 */
+
+    .trapezoid {
+        width: 50px;
+        height: 50px;
+        background: #ff0;
+        border: 50px solid transparent;
+        border-bottom-color: black;
+        border-top: 50px solid #f00;
+        border-bottom: 50px solid #00f;
+        border-left: 50px solid #0f0;
+        border-right: 50px solid #0ff;
+    
+    }
+    /* 左上角是圆角，其余三个角都是直角：左上角的值为宽和高一样的值，其他三个角的值不变
+    border-radius四个值的顺序是：左上角，右上角，右下角，左下角 顺时针 */
+    .sector1 {
+        border-radius:100px 0 0;
+        width: 100px;
+        height: 100px;
+        background: #00f;
+    }
+    /* 和三角形的实现有些类似 */
+    .sector2 {
+        border: 100px solid transparent;
+        width: 0;
+        border-radius: 100px;
+        border-top-color: #f00;
+    }
+    .arrow{
+        width: 0;
+        height: 0;
+        border: 50px solid;
+        border-color: transparent #0f0 transparent transparent;
+        position: relative;
+    }
+    .arrow::after{
+        content: '';
+        position: absolute;
+        right: -55px;
+        top: -50px;
+        border: 50px solid;
+        border-color: transparent #fff transparent transparent;
+    }
+    .oval {
+        width: 100px;
+        height: 50px;
+        background: #ff0;
+        border-radius: 50px / 25px;
+    }
+    </style>
+</head>
+<body>
+    <div class="triangle"></div>
+    <div class="trapezoid"></div>
+    <div class="sector1"></div>
+    <div class="sector2"></div>
+    <div class="arrow"></div>
+    <div class="oval"></div>
+</body>
+</html>

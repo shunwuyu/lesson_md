@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// Object.is(a, b)，判断a是否等于b
+const a = { name: '林三心' }
+const b = a
+const c = { name: '林三心' }
+// console.log(Object.is(a, b))
+// console.log(Object.is(a, c));
+Object.prototype.sx_is = function (x, y) {
+    if (x === y) {
+         // 防止 -0 和 +0
+        return x !== 0 || 1 / x === 1 / y
+    }
+    // 防止NaN
+    return x !== x && y !== y
+}
+</script>
+</body>
+</html>

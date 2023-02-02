@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const players = [
+    { name: '科比', num: 24 },
+    { name: '詹姆斯', num: 23 },
+    { name: '保罗', num: 3 },
+    { name: '威少', num: 0 },
+    { name: '杜兰特', num: 35 }
+]
+
+// forEach item：遍历项
+// index：遍历项的索引
+// arr：数组本身
+
+Array.prototype.sx_forEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+        callback(this[i], i, this)
+    }
+}
+
+players.sx_forEach((item, index, arr) => {
+    console.log(item, index)
+})
+</script>
+</body>
+</html>
