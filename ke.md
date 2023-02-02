@@ -1,3 +1,6 @@
+- css variables 
+- file 
+- hacker-news
 - movie-search-vue 
 - vue-router https://time.geekbang.org/column/article/431359
 - vuex https://time.geekbang.org/column/article/439588
