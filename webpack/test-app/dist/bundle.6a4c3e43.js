@@ -1,0 +1,1 @@
+document.write("2hello world, 你好");
