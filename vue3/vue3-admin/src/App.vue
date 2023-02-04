@@ -54,7 +54,7 @@ onMounted(() => {
           areaStyle: {},
           emphasis: {
             focus: 'series'
-          },
+          },QA.z/uhjq/。。
           data: [120, 132, 101, 134, 90, 230, 210]
         },
         {
@@ -87,7 +87,50 @@ onMounted(() => {
           },
           data: [320, 332, 301, 334, 390, 330, 320]
         },
+        {v  bvbbbgbgbbbb{
+          name: '付费用户',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          emphasis: {
+            focus: 'series'
+          },
+          data: [220, 182, 191, 234, 290, 330, 310]
+        },
         {
+          name: '活跃用户',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          emphasis: {
+            focus: 'series'
+          },
+          data: [150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+          name: '订单数',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          emphasis: {
+            focus: 'series'
+          },
+          data: [320, 332, 301, 334, 390, 330, 320]           
+        }, 
+        {
+          name: '当日总收入',
+          type: 'line',
+          stack: '总量',
+          label: {
+            show: true,
+            position: 'top'
+          },
+          areaStyle: {},
+          emphasis: {
+            focus: 'series'
+          },
+          data: [820, 932, 901, 934, 1290, 1330, 1320]
+        }
           name: '当日总收入',
           type: 'line',
           stack: '总量',

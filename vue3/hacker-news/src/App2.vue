@@ -22,7 +22,7 @@ export default {
     'nav-bar':NavBar,
     'post': Post
   },
-  mounted() {
+  mounted() { 
     API.getTopStories().then((response) => {
       response.data.forEach((id, i) => {
         if (i > 30) {
