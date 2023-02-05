@@ -1,6 +1,6 @@
 <template>
 <div>
-    <header class="home-header wrap">
+    <header class="home-header wrap" :class="{'active' : state.headerScroll}">
         <router-link tag="i" to="./category"><i class="nbicon nbmenu2"></i></router-link>
         <div class="header-search">
             <span class="app-name">新蜂商城</span>
@@ -12,7 +12,10 @@
 </div>
 </template>
 <script setup>
-
+import { reactive } from 'vue'
+const state = reactive({
+    headerScroll: false
+})
 </script>
 <style lang="stylus">
 @import '../common/style/mixin';
@@ -30,9 +33,17 @@
     z-index 10000
     .nbmenu2
         color $primary
+    &.active
+        background $primary
+        .nbmenu2
+            color #fff
+        .login
+            color #fff
     .header-search
         display: flex;
         width: 74%;
+        box-sizing: content-box;
+        height: .53333rem;
         line-height: .53333rem;
         margin: .26667rem 0;
         padding: .13333rem 0;
