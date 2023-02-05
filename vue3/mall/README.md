@@ -1,0 +1,2 @@
+- alias  @
+- main.css  css variable 

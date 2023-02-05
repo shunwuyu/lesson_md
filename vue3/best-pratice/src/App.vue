@@ -62,4 +62,8 @@ const rules = reactive({
     }
 })
 
+function submitForm() {
+    
+}
+
 </script>
