@@ -1,13 +1,13 @@
 <template>
 <div>
     <header class="home-header wrap" :class="{'active' : state.headerScroll}">
-        <router-link tag="i" to="./category"><i class="nbicon nbmenu2"></i></router-link>
+        <router-link tag="i" to="/category"><i class="nbicon nbmenu2"></i></router-link>
         <div class="header-search">
             <span class="app-name">新蜂商城</span>
             <i class="nbicon nbSearch"></i>
-            <router-link tag="span" class="search-title" to="./product-list?from=home">山河无恙，人间皆安</router-link>
+            <router-link tag="span" class="search-title" to="/product-list?from=home">山河无恙，人间皆安</router-link>
         </div>
-        <router-link class="login" tag="span" to="./login">登录</router-link>
+        <router-link class="login" tag="span" to="/login">登录</router-link>
     </header>
 </div>
 </template>
