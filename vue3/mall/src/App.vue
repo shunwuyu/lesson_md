@@ -1,20 +1,18 @@
-<script setup>
-</script>
-
 <template>
-  <router-view/>
-</template>
+<div class="wrapper" >
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+</div>
+</template>
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+    document.body.addEventListener('scroll', () => {
+        console.log('////')
+    })
+})
+</script>
+<style lang="stylus">
+.wrapper
+    height 10000px
 </style>
