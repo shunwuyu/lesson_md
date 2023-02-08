@@ -21,8 +21,8 @@
         <header class="good-header">新品上线</header>
         <van-skeleton title :row="3" :loading="state.loading">
             <div class="good-box">
-                <div class="good-item" v-for="item in state.newGoodses" :key="item.goodsId">
-                    <img :src="$filters.prefix(item.goodsCoverImg)" alt="">
+                <div class="good-item" v-for="item in state.newGoodses" :key="item.goodsId" @click="goToDetail(item)">
+                    <img v-lazy="$filters.prefix(item.goodsCoverImg)"  alt="">
                     <div class="good-desc">
                     <div class="title">{{ item.goodsName }}</div>
                     <div class="price">¥ {{ item.sellingPrice }}</div>
@@ -36,7 +36,7 @@
       <van-skeleton title :row="3" :loading="state.loading">
         <div class="good-box">
           <div class="good-item" v-for="item in state.recommends" :key="item.goodsId" @click="goToDetail(item)">
-            <img :src="$filters.prefix(item.goodsCoverImg)" alt="">
+            <img v-lazy="$filters.prefix(item.goodsCoverImg)" alt="">
             <div class="good-desc">
               <div class="title">{{ item.goodsName }}</div>
               <div class="price">¥ {{ item.sellingPrice }}</div>
@@ -53,6 +53,9 @@ import navBar from '@/components/NavBar.vue'
 import swiper from '@/components/Swiper.vue'
 import { getHome } from '@/service/home'
 import { showLoadingToast, closeToast, showToast } from 'vant'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const state = reactive({
     headerScroll: false,

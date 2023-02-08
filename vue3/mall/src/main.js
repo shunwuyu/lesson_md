@@ -18,7 +18,11 @@ import {
     Icon,
     Swipe,
     SwipeItem,
-    Skeleton
+    Skeleton,
+    Lazyload,
+    ActionBar,
+    ActionBarIcon,
+    ActionBarButton
 } from 'vant'
 
 const app = createApp(App)
@@ -27,7 +31,12 @@ app
     .use(Swipe)
     .use(SwipeItem)
     .use(Skeleton)
+    .use(Lazyload)
+    .use(ActionBar)
+    .use(ActionBarIcon)
+    .use(ActionBarButton)
     .use(router)
+
 
 app.config.globalProperties.$filters = {
     prefix(url) {
