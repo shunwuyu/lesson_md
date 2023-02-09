@@ -20,6 +20,10 @@ const router = createRouter({
       {
         path: '/home',
         name: 'home',
+        meta: {
+          index: 1,
+          keepAlive: true
+        },
         component: Home
       },
       {
@@ -41,6 +45,9 @@ const router = createRouter({
         path: '/product/:id',
         name: 'product',
         component: () => import('@/views/ProductDetail.vue'),
+        meta: {
+          index: 3
+        }
       },
     ]
 })
