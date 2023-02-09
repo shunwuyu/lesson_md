@@ -138,7 +138,7 @@ onMounted(async () => {
                 img
                     width 100%
                 
-.van-action-bar-button--warning {
+.van-action-bar-button--warning { 
     background: linear-gradient(to right,#6bd8d8, @primary)
 }
 .van-action-bar-button--danger {
