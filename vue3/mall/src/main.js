@@ -22,7 +22,10 @@ import {
     Lazyload,
     ActionBar,
     ActionBarIcon,
-    ActionBarButton
+    ActionBarButton,
+    Tabs,
+    Tab,
+    PullRefresh
 } from 'vant'
 
 const app = createApp(App)
@@ -35,6 +38,9 @@ app
     .use(ActionBar)
     .use(ActionBarIcon)
     .use(ActionBarButton)
+    .use(Tabs)
+    .use(Tab)
+    .use(PullRefresh)
     .use(router)
 
 
