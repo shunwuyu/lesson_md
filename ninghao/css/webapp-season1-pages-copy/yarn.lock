@@ -3748,8 +3748,8 @@ is-upper-case@^1.1.0:
     upper-case "^1.1.0"
 
 is-url@^1.2.0:
-  version "1.2.2"
-  resolved "http://registry.npm.taobao.org/is-url/download/is-url-1.2.2.tgz#498905a593bf47cc2d9e7f738372bbf7696c7f26"
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/is-url/-/is-url-1.2.4.tgz#04a4df46d28c4cff3d73d01ff06abeb318a1aa52"
 
 is-utf8@^0.2.0:
   version "0.2.1"
@@ -6023,9 +6023,9 @@ seek-bzip@^1.0.3:
   dependencies:
     commander "~2.8.1"
 
-semantic-ui@^2.2.10:
+semantic-ui@2.2.10:
   version "2.2.10"
-  resolved "http://registry.npm.taobao.org/semantic-ui/download/semantic-ui-2.2.10.tgz#3849094b0f9d1518a2976304b7afc749f43c1d40"
+  resolved "https://registry.yarnpkg.com/semantic-ui/-/semantic-ui-2.2.10.tgz#3849094b0f9d1518a2976304b7afc749f43c1d40"
   dependencies:
     better-console "*"
     del "^2.2.2"
@@ -6057,6 +6057,7 @@ semantic-ui@^2.2.10:
     gulp-watch "^4.3.11"
     jquery "^3.1.1"
     map-stream "^0.1.0"
+    merge-stream "^1.0.0"
     mkdirp "^0.5.1"
     require-dot-file "^0.4.0"
     run-sequence "^1.2.2"
