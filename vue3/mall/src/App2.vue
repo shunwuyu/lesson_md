@@ -20,7 +20,16 @@ router.beforeEach((to, from) => {
 </script>
 
 <template>
-    <router-view class="router-view" v-slot="{ Component }">
+    
+    <!-- <router-view v-if="route.meta.keepAlive" v-slot="{ Component }">
+      <keep-alive>
+        <transition :name="state.transitionName">
+          <component :is="Component" />
+        </transition>
+      </keep-alive>
+    </router-view>
+     -->
+    <router-view  v-slot="{ Component }">
       <transition :name="state.transitionName">
         <component :is="Component" />
       </transition>
@@ -29,15 +38,15 @@ router.beforeEach((to, from) => {
 
 <style lang="stylus" scoped>
 
-.router-view
-    width 100%
-    height auto
-    position fixed
-    top 0
-    bottom 0
-    left 0
-    margin 0 auto
-    -webkit-overflow-scrolling touch
+// .router-view
+//     width 100%
+//     height auto
+//     position fixed
+//     top 0
+//     bottom 0
+//     left 0
+//     margin 0 auto
+//     -webkit-overflow-scrolling touch
 .slide-right-enter-active,
 .slide-right-leave-active,
 .slide-left-enter-active,

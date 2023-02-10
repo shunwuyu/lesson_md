@@ -13,6 +13,7 @@ import router from './router'
 import './assets/main.css'
 import 'lib-flexible/flexible'
 import 'vant/lib/index.css'
+import { createPinia } from 'pinia'
 
 import {
     Icon,
@@ -25,11 +26,16 @@ import {
     ActionBarButton,
     Tabs,
     Tab,
-    PullRefresh
+    PullRefresh,
+    Form,
+    Field,
+    Button
 } from 'vant'
 
 const app = createApp(App)
 app
+    .use(createPinia())
+    .use(router)
     .use(Icon)
     .use(Swipe)
     .use(SwipeItem)
@@ -41,7 +47,10 @@ app
     .use(Tabs)
     .use(Tab)
     .use(PullRefresh)
-    .use(router)
+    .use(Form)
+    .use(Field)
+    .use(Button)
+    
 
 
 app.config.globalProperties.$filters = {

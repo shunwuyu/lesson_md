@@ -31,7 +31,7 @@
         </div>
         <van-action-bar>
             <van-action-bar-icon icon="chat-o" text="客服" />
-            <van-action-bar-icon icon="cart-o" :badge="3" @click="goTo()" text="购物车" />
+            <van-action-bar-icon icon="cart-o" :badge="cart.count" @click="goTo()" text="购物车" />
             <van-action-bar-button type="warning" @click="handleAddCart" text="加入购物车" />
             <van-action-bar-button type="danger" @click="goToCart" text="立即购买" />
         </van-action-bar>
@@ -43,6 +43,9 @@ import { reactive, onMounted, nextTick } from 'vue'
 import { getDetail } from '@/service/goods'
 import { useRouter, useRoute } from 'vue-router'
 import { prefix } from '@/common/js/utils'
+import { useCartStore } from '@/store/cart'
+
+const cart = useCartStore()
 
 const router = useRouter()
 const route = useRoute()
@@ -69,8 +72,8 @@ onMounted(async () => {
     const { id } = route.params
     const { data } = await getDetail(id)
     
-    data.goodsCarouselList = data.data.goodsCarouselList.map(i => prefix(i))
-    state.detail = data.data
+    data.goodsCarouselList = data.goodsCarouselList.map(i => prefix(i))
+    state.detail = data
     // console.log(state.detail, '//////')
 })
 </script>

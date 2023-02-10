@@ -78,7 +78,7 @@ onMounted(async () => {
         forbidClick: true
     });
     const { data } = await getCategory()
-    state.categoryData = data.data
+    state.categoryData = data
     state.loading = false
     closeToast()
 })

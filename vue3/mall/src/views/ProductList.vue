@@ -28,6 +28,8 @@
 <script setup>
 import { reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { search } from '@/service/goods'
+
 const route = useRoute()
 const router = useRouter()
 
@@ -47,7 +49,7 @@ const goBack = () => {
 }
 
 const getSearch = () => {
-    console.log('get search')
+    console.log('get search-----')
     onRefresh()
 }
 
@@ -77,7 +79,16 @@ const changeTab = ({ name }) => {
 }
 
 const init = async () => {
-    
+    const { categoryId } = route.query
+    console.log(categoryId, '////')
+    if (!categoryId && !state.keyword) {
+      state.finished = true
+      state.loading = false;
+      return
+    }
+    console.log({ pageNumber: state.page, goodsCategoryId: categoryId, keyword: state.keyword, orderBy: state.orderBy })
+
+    const { data, data: { list } } = await search({ pageNumber: state.page, goodsCategoryId: categoryId, keyword: state.keyword, orderBy: state.orderBy })
 }
 
 </script>

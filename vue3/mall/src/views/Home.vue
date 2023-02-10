@@ -114,10 +114,10 @@ onMounted(async () => {
     });
     const { data } = await getHome()
     // console.log(data)
-    state.swiperList = data.data.carousels
+    state.swiperList = data.carousels
     // console.log(data, '///')
-    state.newGoodses = data.data.newGoodses
-    state.recommends = data.data.recommendGoodses
+    state.newGoodses = data.newGoodses
+    state.recommends = data.recommendGoodses
     state.loading = false
     closeToast()
 })

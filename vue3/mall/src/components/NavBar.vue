@@ -10,7 +10,7 @@
         <span>分类</span>
       </router-link>
       <router-link  class="nav-list-item" to="cart">
-        <i class="nbicon nbgouwuche"></i>
+        <i><van-icon  name="shopping-cart-o" :badge="!cart.count ? '' : cart.count" /></i>
         <span>购物车</span>
       </router-link>
       <router-link  class="nav-list-item" to="user">
@@ -24,12 +24,15 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useCartStore } from '@/store/cart'
 // import { useCartStore } from '@/stores/cart'
 const route = useRoute()
+const cart = useCartStore()
 
 onMounted(() => {
 
   const path = route.path
+
  
 })
 </script>
