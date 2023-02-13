@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 假设有一个 Promise 为 get 和一个待请求数组为 list，
+// 使用它们进行请求数据。
+// 但是为了避免 IO 过大，需要限定三个并发数量
+function get (i) {
+  console.log('In ', i)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(i * 1000) 
+      console.log('Out', i, 'Out')
+    }, i * 1000)
+  })
+}
+
+const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+let count = 0
+function run () {
+  if (count < 3 && list.length) {
+    count+=1
+    get(list.shift()).then(() => {
+      count-=1 
+      run()
+    })
+  }
+}
+
+run()
+run()
+run()
+</script>
+</body>
+</html>

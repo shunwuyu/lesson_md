@@ -12,6 +12,16 @@ const router = createRouter({
             name: 'introduce',
             component: () => import('@/views/Introduce.vue')
         },
+        {
+            path: '/login',
+            name: 'login',
+            component: () => import('@/views/Login.vue')
+        },
+        {
+            path: '/swiper',
+            name: 'swiper',
+            component: () => import(/* webpackChunkName: "swiper" */ '../views/Swiper.vue')
+        },
     ]
 })
 

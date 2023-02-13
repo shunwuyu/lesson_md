@@ -7,6 +7,14 @@ export function localGet (key) {
     }
 }
 
+export function localSet (key, value) {
+    window.localStorage.setItem(key, JSON.stringify(value))
+}
+  
+export function localRemove(key) {
+    window.localStorage.removeItem(key)
+}
+
 
 export const pathMap = {
     login: '登录',

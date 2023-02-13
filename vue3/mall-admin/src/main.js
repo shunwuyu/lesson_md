@@ -7,7 +7,18 @@ import {
     ElMain,
     ElMenu,
     ElSubMenu,
-    ElIcon
+    ElIcon,
+    ElForm,
+    ElFormItem,
+    ElInput,
+    ElCheckbox,
+    ElPopover,
+    ElTag,
+    ElCard,
+    ElPopconfirm,
+    ElTableColumn,
+    ElTable,
+    ElPagination
 } from 'element-plus'
 import 'element-plus/dist/index.css'
 import router from '@/router'
@@ -29,4 +40,15 @@ app
     .use(ElMenu)
     .use(ElSubMenu)
     .use(ElIcon)
+    .use(ElForm)
+    .use(ElFormItem)
+    .use(ElCheckbox)
+    .use(ElInput)
+    .use(ElPopover)
+    .use(ElTag)
+    .use(ElCard)
+    .use(ElPopconfirm)
+    .use(ElTableColumn)
+    .use(ElTable)
+    .use(ElPagination)
     .mount('#app')

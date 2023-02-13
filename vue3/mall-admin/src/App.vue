@@ -58,9 +58,11 @@
         </el-menu>
       </el-aside>
       <el-container class="content">
+        <Header />
         <div class="main">
           <router-view />
         </div>
+        <Footer />
       </el-container>
     </el-container>
     <el-container v-else class="container">
@@ -72,10 +74,15 @@
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { localGet, pathMap  } from '@/utils'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 
 const router = useRouter()
 
 router.beforeEach((to, from, next) => {
+  state.showMenu = !noMenu.includes(to.path)
+  state.currentPath = to.path
+  document.title = pathMap[to.name]
   if (to.path == '/login') {
     // 如果路径是 /login 则正常执行
     next()
@@ -88,10 +95,8 @@ router.beforeEach((to, from, next) => {
       // 否则继续执行
       next()
     }
-    console.log(noMenu.includes(to.path), '////')
-    state.showMenu = !noMenu.includes(to.path)
-    state.currentPath = to.path
-    document.title = pathMap[to.name]
+    
+    
   }
 })
 
