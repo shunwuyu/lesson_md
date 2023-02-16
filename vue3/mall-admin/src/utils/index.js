@@ -34,3 +34,5 @@ export const pathMap = {
     order_detail: '订单详情',
     account: '修改账户'
 }
+
+export const uploadImgServer = 'http://backend-api-02.newbee.ltd/manage-api/v1/upload/files'

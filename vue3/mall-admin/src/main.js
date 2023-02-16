@@ -18,7 +18,9 @@ import {
     ElPopconfirm,
     ElTableColumn,
     ElTable,
-    ElPagination
+    ElPagination,
+    ElDialog,
+    ElUpload
 } from 'element-plus'
 import 'element-plus/dist/index.css'
 import router from '@/router'
@@ -51,4 +53,6 @@ app
     .use(ElTableColumn)
     .use(ElTable)
     .use(ElPagination)
+    .use(ElDialog)
+    .use(ElUpload)
     .mount('#app')
