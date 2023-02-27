@@ -1,36 +1,35 @@
 var fs = require('fs');
-var express = require('express');
-// 文件上传功能包
-var multer = require('multer')
-var path = require('path')
+const path = require('path');
+var Koa = require('koa');
+const route = require('koa-route');
+const koaBody = require('koa-body');
+const app = new Koa();
+const os = require('os');
 
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-      // 接收到文件后输出的保存路径（若不存在则需要创建）
-      cb(null, 'upload/');    
-  },
-  filename: function (req, file, cb) {
-      cb(null, Date.now() + "-" + file.originalname);  
-  }
-});
+app.use(koaBody({ multipart: true }));
 
-var app = express();
-var upload = multer({
-  storage: storage
-});
-
-// 单图上传
-//multer有single()中的名称必须是表单上传字段的name名称。
-app.post('/upload', upload.single('pic'), function(req, res, next) {
-    res.send({
-        ret_code: '0'
-    });
-});
-
-app.get('/', function(req, res, next) {
-    var form = fs.createReadStream(path.join(__dirname, '/index.html'));
-    form.pipe(res);
-    // res.send(form);
-});
-
-app.listen(3002);
+const main = ctx => {
+    ctx.type = 'html';
+    const pathUrl = path.join(__dirname, 'index.html');
+    ctx.body = fs.createReadStream(pathUrl);
+}
+const upload = async ctx => {
+    // const file = ctx.request.files.file;
+    const tmpdir = os.tmpdir();
+    const filePaths = [];
+    const files = ctx.request.body.files || {};
+    console.log(ctx.request.body, '///');
+    for (let key in files) {
+      const file = files[key];
+      const filePath = path.join(tmpdir, file.name);
+      const reader = fs.createReadStream(file.path);
+      const writer = fs.createWriteStream(filePath);
+      reader.pipe(writer);
+      filePaths.push(filePath);
+    }
+  
+    ctx.body = filePaths;
+}
+app.use(route.get('/', main))
+app.use(route.post('/upload', upload))
+app.listen(3003);
