@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "element-ui": "^2.10.0",
     "js-cookie": "^2.2.0",
     "node-sass": "^4.12.0",
