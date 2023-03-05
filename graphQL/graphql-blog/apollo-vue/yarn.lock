@@ -905,7 +905,7 @@
 
 "@types/zen-observable@^0.8.0":
   version "0.8.0"
-  resolved "http://r.cnpmjs.org/@types/zen-observable/download/@types/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
+  resolved "https://r.cnpmjs.org/@types/zen-observable/download/@types/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
   integrity sha1-i2OrfxqlMhJIqtWsiQpIVlbc6k0=
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0":
@@ -1272,7 +1272,7 @@
 
 "@wry/context@^0.4.0":
   version "0.4.4"
-  resolved "http://r.cnpmjs.org/@wry/context/download/@wry/context-0.4.4.tgz#e50f5fa1d6cfaabf2977d1fda5ae91717f8815f8"
+  resolved "https://r.cnpmjs.org/@wry/context/download/@wry/context-0.4.4.tgz#e50f5fa1d6cfaabf2977d1fda5ae91717f8815f8"
   integrity sha1-5Q9fodbPqr8pd9H9pa6RcX+IFfg=
   dependencies:
     "@types/node" ">=6"
@@ -1280,7 +1280,7 @@
 
 "@wry/equality@^0.1.2":
   version "0.1.11"
-  resolved "http://r.cnpmjs.org/@wry/equality/download/@wry/equality-0.1.11.tgz#35cb156e4a96695aa81a9ecc4d03787bc17f1790"
+  resolved "https://r.cnpmjs.org/@wry/equality/download/@wry/equality-0.1.11.tgz#35cb156e4a96695aa81a9ecc4d03787bc17f1790"
   integrity sha1-NcsVbkqWaVqoGp7MTQN4e8F/F5A=
   dependencies:
     tslib "^1.9.3"
@@ -1429,7 +1429,7 @@ anymatch@~3.1.1:
 
 apollo-boost@^0.4.9:
   version "0.4.9"
-  resolved "http://r.cnpmjs.org/apollo-boost/download/apollo-boost-0.4.9.tgz#ab3ba539c2ca944e6fd156583a1b1954b17a6791"
+  resolved "https://r.cnpmjs.org/apollo-boost/download/apollo-boost-0.4.9.tgz#ab3ba539c2ca944e6fd156583a1b1954b17a6791"
   integrity sha1-qzulOcLKlE5v0VZYOhsZVLF6Z5E=
   dependencies:
     apollo-cache "^1.3.5"
@@ -1444,7 +1444,7 @@ apollo-boost@^0.4.9:
 
 apollo-cache-inmemory@^1.6.6:
   version "1.6.6"
-  resolved "http://r.cnpmjs.org/apollo-cache-inmemory/download/apollo-cache-inmemory-1.6.6.tgz#56d1f2a463a6b9db32e9fa990af16d2a008206fd"
+  resolved "https://r.cnpmjs.org/apollo-cache-inmemory/download/apollo-cache-inmemory-1.6.6.tgz#56d1f2a463a6b9db32e9fa990af16d2a008206fd"
   integrity sha1-VtHypGOmudsy6fqZCvFtKgCCBv0=
   dependencies:
     apollo-cache "^1.3.5"
@@ -1455,7 +1455,7 @@ apollo-cache-inmemory@^1.6.6:
 
 apollo-cache@1.3.5, apollo-cache@^1.3.5:
   version "1.3.5"
-  resolved "http://r.cnpmjs.org/apollo-cache/download/apollo-cache-1.3.5.tgz#9dbebfc8dbe8fe7f97ba568a224bca2c5d81f461"
+  resolved "https://r.cnpmjs.org/apollo-cache/download/apollo-cache-1.3.5.tgz#9dbebfc8dbe8fe7f97ba568a224bca2c5d81f461"
   integrity sha1-nb6/yNvo/n+XulaKIkvKLF2B9GE=
   dependencies:
     apollo-utilities "^1.3.4"
@@ -1463,7 +1463,7 @@ apollo-cache@1.3.5, apollo-cache@^1.3.5:
 
 apollo-client@^2.6.10:
   version "2.6.10"
-  resolved "http://r.cnpmjs.org/apollo-client/download/apollo-client-2.6.10.tgz#86637047b51d940c8eaa771a4ce1b02df16bea6a"
+  resolved "https://r.cnpmjs.org/apollo-client/download/apollo-client-2.6.10.tgz#86637047b51d940c8eaa771a4ce1b02df16bea6a"
   integrity sha1-hmNwR7UdlAyOqncaTOGwLfFr6mo=
   dependencies:
     "@types/zen-observable" "^0.8.0"
@@ -1477,7 +1477,7 @@ apollo-client@^2.6.10:
 
 apollo-link-error@^1.0.3:
   version "1.1.13"
-  resolved "http://r.cnpmjs.org/apollo-link-error/download/apollo-link-error-1.1.13.tgz#c1a1bb876ffe380802c8df0506a32c33aad284cd"
+  resolved "https://r.cnpmjs.org/apollo-link-error/download/apollo-link-error-1.1.13.tgz#c1a1bb876ffe380802c8df0506a32c33aad284cd"
   integrity sha1-waG7h2/+OAgCyN8FBqMsM6rShM0=
   dependencies:
     apollo-link "^1.2.14"
@@ -1486,7 +1486,7 @@ apollo-link-error@^1.0.3:
 
 apollo-link-http-common@^0.2.16:
   version "0.2.16"
-  resolved "http://r.cnpmjs.org/apollo-link-http-common/download/apollo-link-http-common-0.2.16.tgz#756749dafc732792c8ca0923f9a40564b7c59ecc"
+  resolved "https://r.cnpmjs.org/apollo-link-http-common/download/apollo-link-http-common-0.2.16.tgz#756749dafc732792c8ca0923f9a40564b7c59ecc"
   integrity sha1-dWdJ2vxzJ5LIygkj+aQFZLfFnsw=
   dependencies:
     apollo-link "^1.2.14"
@@ -1495,7 +1495,7 @@ apollo-link-http-common@^0.2.16:
 
 apollo-link-http@^1.3.1:
   version "1.5.17"
-  resolved "http://r.cnpmjs.org/apollo-link-http/download/apollo-link-http-1.5.17.tgz#499e9f1711bf694497f02c51af12d82de5d8d8ba"
+  resolved "https://r.cnpmjs.org/apollo-link-http/download/apollo-link-http-1.5.17.tgz#499e9f1711bf694497f02c51af12d82de5d8d8ba"
   integrity sha1-SZ6fFxG/aUSX8CxRrxLYLeXY2Lo=
   dependencies:
     apollo-link "^1.2.14"
@@ -1504,7 +1504,7 @@ apollo-link-http@^1.3.1:
 
 apollo-link@^1.0.0, apollo-link@^1.0.6, apollo-link@^1.2.14:
   version "1.2.14"
-  resolved "http://r.cnpmjs.org/apollo-link/download/apollo-link-1.2.14.tgz#3feda4b47f9ebba7f4160bef8b977ba725b684d9"
+  resolved "https://r.cnpmjs.org/apollo-link/download/apollo-link-1.2.14.tgz#3feda4b47f9ebba7f4160bef8b977ba725b684d9"
   integrity sha1-P+2ktH+eu6f0Fgvvi5d7pyW2hNk=
   dependencies:
     apollo-utilities "^1.3.0"
@@ -1514,7 +1514,7 @@ apollo-link@^1.0.0, apollo-link@^1.0.6, apollo-link@^1.2.14:
 
 apollo-utilities@1.3.4, apollo-utilities@^1.3.0, apollo-utilities@^1.3.4:
   version "1.3.4"
-  resolved "http://r.cnpmjs.org/apollo-utilities/download/apollo-utilities-1.3.4.tgz#6129e438e8be201b6c55b0f13ce49d2c7175c9cf"
+  resolved "https://r.cnpmjs.org/apollo-utilities/download/apollo-utilities-1.3.4.tgz#6129e438e8be201b6c55b0f13ce49d2c7175c9cf"
   integrity sha1-YSnkOOi+IBtsVbDxPOSdLHF1yc8=
   dependencies:
     "@wry/equality" "^0.1.2"
@@ -2765,9 +2765,9 @@ decamelize@^1.2.0:
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npm.taobao.org/decode-uri-component/download/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 deep-equal@^1.0.1:
   version "1.1.1"
@@ -3689,12 +3689,12 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
 
 graphql-tag@^2.4.2:
   version "2.10.3"
-  resolved "http://r.cnpmjs.org/graphql-tag/download/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
+  resolved "https://r.cnpmjs.org/graphql-tag/download/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
   integrity sha1-6hurpeuPxjOeTEzwSdq+UisO3wM=
 
 graphql@^15.0.0:
   version "15.0.0"
-  resolved "http://r.cnpmjs.org/graphql/download/graphql-15.0.0.tgz#042a5eb5e2506a2e2111ce41eb446a8e570b8be9"
+  resolved "https://r.cnpmjs.org/graphql/download/graphql-15.0.0.tgz#042a5eb5e2506a2e2111ce41eb446a8e570b8be9"
   integrity sha1-BCpeteJQai4hEc5B60RqjlcLi+k=
 
 gzip-size@^5.0.0:
@@ -5317,7 +5317,7 @@ opn@^5.5.0:
 
 optimism@^0.10.0:
   version "0.10.3"
-  resolved "http://r.cnpmjs.org/optimism/download/optimism-0.10.3.tgz#163268fdc741dea2fb50f300bedda80356445fd7"
+  resolved "https://r.cnpmjs.org/optimism/download/optimism-0.10.3.tgz#163268fdc741dea2fb50f300bedda80356445fd7"
   integrity sha1-FjJo/cdB3qL7UPMAvt2oA1ZEX9c=
   dependencies:
     "@wry/context" "^0.4.0"
@@ -7069,7 +7069,7 @@ svgo@^1.0.0:
 
 symbol-observable@^1.0.2:
   version "1.2.0"
-  resolved "http://r.cnpmjs.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  resolved "https://r.cnpmjs.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
 
 tapable@^1.0.0, tapable@^1.1.3:
@@ -7141,7 +7141,7 @@ thread-loader@^2.1.3:
 
 throttle-debounce@^2.1.0:
   version "2.1.0"
-  resolved "http://r.cnpmjs.org/throttle-debounce/download/throttle-debounce-2.1.0.tgz#257e648f0a56bd9e54fe0f132c4ab8611df4e1d5"
+  resolved "https://r.cnpmjs.org/throttle-debounce/download/throttle-debounce-2.1.0.tgz#257e648f0a56bd9e54fe0f132c4ab8611df4e1d5"
   integrity sha1-JX5kjwpWvZ5U/g8TLEq4YR304dU=
 
 through2@^2.0.0:
@@ -7236,7 +7236,7 @@ tryer@^1.0.1:
 
 ts-invariant@^0.4.0:
   version "0.4.4"
-  resolved "http://r.cnpmjs.org/ts-invariant/download/ts-invariant-0.4.4.tgz#97a523518688f93aafad01b0e80eb803eb2abd86"
+  resolved "https://r.cnpmjs.org/ts-invariant/download/ts-invariant-0.4.4.tgz#97a523518688f93aafad01b0e80eb803eb2abd86"
   integrity sha1-l6UjUYaI+TqvrQGw6A64A+sqvYY=
   dependencies:
     tslib "^1.9.3"
@@ -7512,7 +7512,7 @@ vm-browserify@^1.0.1:
 
 vue-apollo@^3.0.3:
   version "3.0.3"
-  resolved "http://r.cnpmjs.org/vue-apollo/download/vue-apollo-3.0.3.tgz#7f29558df76eec0f03251847eef153816a261827"
+  resolved "https://r.cnpmjs.org/vue-apollo/download/vue-apollo-3.0.3.tgz#7f29558df76eec0f03251847eef153816a261827"
   integrity sha1-fylVjfdu7A8DJRhH7vFTgWomGCc=
   dependencies:
     chalk "^2.4.2"
@@ -7537,7 +7537,7 @@ vue-loader@^15.9.1:
 
 vue-router@^3.1.6:
   version "3.1.6"
-  resolved "http://r.cnpmjs.org/vue-router/download/vue-router-3.1.6.tgz#45f5a3a3843e31702c061dd829393554e4328f89"
+  resolved "https://r.cnpmjs.org/vue-router/download/vue-router-3.1.6.tgz#45f5a3a3843e31702c061dd829393554e4328f89"
   integrity sha1-RfWjo4Q+MXAsBh3YKTk1VOQyj4k=
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
@@ -7880,7 +7880,7 @@ yargs@^15.0.0:
 
 zen-observable-ts@^0.8.21:
   version "0.8.21"
-  resolved "http://r.cnpmjs.org/zen-observable-ts/download/zen-observable-ts-0.8.21.tgz#85d0031fbbde1eba3cd07d3ba90da241215f421d"
+  resolved "https://r.cnpmjs.org/zen-observable-ts/download/zen-observable-ts-0.8.21.tgz#85d0031fbbde1eba3cd07d3ba90da241215f421d"
   integrity sha1-hdADH7veHro80H07qQ2iQSFfQh0=
   dependencies:
     tslib "^1.9.3"
@@ -7888,5 +7888,5 @@ zen-observable-ts@^0.8.21:
 
 zen-observable@^0.8.0:
   version "0.8.15"
-  resolved "http://r.cnpmjs.org/zen-observable/download/zen-observable-0.8.15.tgz#96415c512d8e3ffd920afd3889604e30b9eaac15"
+  resolved "https://r.cnpmjs.org/zen-observable/download/zen-observable-0.8.15.tgz#96415c512d8e3ffd920afd3889604e30b9eaac15"
   integrity sha1-lkFcUS2OP/2SCv04iWBOMLnqrBU=
