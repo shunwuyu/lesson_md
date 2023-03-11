@@ -7,3 +7,10 @@ declare interface PlayListItem {
     copywriter?: string;
     [propName: string]: any;
 }
+
+declare interface OwnerSendItem {
+    id: number;
+    name: string;
+    picUrl: string;
+    [propName: string]: any;
+}
