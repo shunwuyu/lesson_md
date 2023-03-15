@@ -9,6 +9,7 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "stylus": "^0.59.0",
+    "vant": "^4.1.0",
     "vue": "^3.2.16"
   },
   "devDependencies": {
