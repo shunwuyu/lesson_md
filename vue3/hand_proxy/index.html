@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- <script src="node_modules/@vue/reactivity/dist/reactivity.global.js"></script> -->
+    <script src="dist/Vue.js"></script>
+    <script>
+    // vue2 Object.defineProperty  缺点
+    // state: {a: {arr:[1,2,3], b:{c: {d: 1}}}} 
+    // 一上来 全部遍历一遍 代理， 很浪费性能 
+    // vue3 proxy 只代理一层  new Proxy(state, handler)
+    // 用到的时候才代理， 懒加载  不支持ie  caniuse 经常用， ie全不支持
+
+    let { reactive, effect } = VueReactivity
+    let state = reactive({
+        name: '大黄蜂',
+        age: 5
+    })
+    console.log(state) // Proxy 做的
+    effect(() => { // 自动渲染  关联到一起
+        app.innerHTML = state.name;
+        // effect(() => {
+        //     app.innerHTML = state.age
+        // })
+    })
+
+    setTimeout(() => {
+        state.name = '擎天柱'
+    }, 1000)
+
+    </script>
+</body>
+</html>
