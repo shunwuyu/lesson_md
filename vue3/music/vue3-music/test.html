@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    -webkit-line-clamp property
+  </title>
+  <style>
+  
+    /* Clipped text for
+      comparison */
+    .content-1 {
+      width: 300px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+  
+    .content-2 {
+      width: 300px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: none;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: green;">
+    GeeksforGeeks
+  </h1>
+  <b>
+    -webkit-line-clamp: 2
+  </b>
+  <p class="content-1">
+    GeeksforGeeks is a computer
+    science portal with a huge
+    variety of well written and
+    explained computer science
+    and programming articles,
+    quizzes and interview questions.
+  </p>
+  <b>-webkit-line-clamp: none</b>
+  <p class="content-2">
+    GeeksforGeeks is a computer
+    science portal with a huge
+    variety of well written and
+    explained computer science
+    and programming articles,
+    quizzes and interview questions.
+  </p>
+</body>
+</html>

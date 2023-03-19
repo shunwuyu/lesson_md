@@ -1,0 +1,13 @@
+{
+  "name": "write-ref",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "[source](https://github.com/shengxinjing/weiyouyi/blob/main/src/reactivity/__test__/ref.spec.js)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

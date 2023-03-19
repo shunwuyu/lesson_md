@@ -1,0 +1,7 @@
+multipleNoWrap($line)
+    display: -webkit-box;
+    width: 100%;
+    overflow: hidden;
+    word-break: break-all; //让浏览器实现在任意位置的换行 *break-all为允许在单词内换行*
+    -webkit-box-orient: vertical; //设置伸缩盒对象的子元素的排列方式 垂直方式
+    -webkit-line-clamp: $line; 
