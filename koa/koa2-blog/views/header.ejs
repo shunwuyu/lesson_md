@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>koa2-blog</title>
+	<!-- <link rel="icon" href="http://www.wclimb.site/images/avatar.png"> -->
+	<link rel="stylesheet" href="/index.css">	
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+
+</head>
+<body>
+	<header>
+		<div class="user_name">
+			欢迎注册登录^_^
+		</div>
+		<div class="message">登录成功</div>
+		<div class="user_right">
+            <div class="none_user has_user">
+                <a target="__blank" href="https://github.com/wclimb/Koa2-blog">GitHub</a>
+                <% if(type == 'all'){ %>
+                    <a class="active" href="/posts">全部文章</a>
+                <% }else{ %>
+                    <a href="/posts">全部文章</a>
+                <% }%>
+                <% if(type == 'signup'){ %>
+                    <a class="active" href="/signup">注册</a>
+                <% }else{ %>
+                    <a href="/signup">注册</a>
+                <% }%>
+                <% if(type == 'signin'){ %>
+                    <a class="active" href="/signin">登录</a>
+                <% }else{ %>
+                    <a href="/signin">登录</a>
+                <% }%>
+            </div>
+		</div>
+	</header>
