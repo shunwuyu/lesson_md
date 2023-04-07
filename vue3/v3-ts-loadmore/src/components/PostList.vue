@@ -19,11 +19,9 @@
 
 <script setup lang="ts">
 import { PostProps } from '../types'
-
 interface Props {
     list: PostProps[]
 }
-
 const props = withDefaults(defineProps<Props>(), {
     list: () => []
 })
@@ -31,7 +29,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .card-body img {
-  width: 50px;
-  height: 50px;
+    width: 50px;
+    height: 50px;
 }
 </style>

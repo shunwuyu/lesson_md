@@ -1,32 +1,42 @@
+import { ColumnProps, UserProps } from '../types'
+export const arrToObj = <T extends {_id?: string}>(arr: Array<T>) => {
+    return arr.reduce((prev, current) => {
+      if (current._id) {
+        prev[current._id] = current
+      }
+      return prev
+    }, {} as { [key: string]: T })
+}
+
+export const objToArr = <T>(obj: {[key: string]: T}) => {
+    return Object.keys(obj).map(key => obj[key])
+}
+
+// 枚举类型
 export enum StorageType {
   Local = 'Local',
   Session = 'Session'
 }
-
+// 同时支持localStorage sessionStorage
 export class StorageHandler {
-  // 存储 Storage
-  setItem (type: StorageType, key: string, value: string) {
+  setItem(type: StorageType, key: string, value: string) {
     if (type === StorageType.Local) {
       localStorage.setItem(key, value)
     } else {
       sessionStorage.setItem(key, value)
     }
   }
-
-  // 获取 Storage
-  getItem (type: StorageType, key: string) {
+  getItem(type: StorageType, key: string) {
     if (type === StorageType.Local) {
       if (localStorage.getItem(key)) {
         return localStorage.getItem(key)
       }
     } else {
       if (sessionStorage.getItem(key)) {
-        return sessionStorage.getItem(key)
+        return localStorage.getItem(key)
       }
     }
   }
-
-  // 移除Storage
   remove (type: StorageType, key: string) {
     if (type === StorageType.Local) {
       if (localStorage.getItem(key)) localStorage.removeItem(key)
@@ -45,22 +55,15 @@ export class StorageHandler {
   }
 }
 
-// 这里使用 localStorage
-export const storageType = StorageType.Local
+export const storageType = StorageType.Local 
 
-export const arrToObj = <T extends {_id?: string}>(arr: Array<T>) => {
-    return arr.reduce((prev, current) => {
-      if (current._id) {
-        prev[current._id] = current
-      }
-      return prev
-    }, {} as { [key: string]: T })
+export function addColumnAvatar(data:ColumnProps | UserProps, width:number, height:number) {
+  // if (data.avatar) {
+
+  // } else {
+  //   const parseCol = data as ColumnProps
+  //   data.avatar = {
+     
+  //   }
+  // }
 }
-
-export const objToArr = <T>(obj: {[key: string]: T}) => {
-    return Object.keys(obj).map(key => obj[key])
-}
-
-
-
-
