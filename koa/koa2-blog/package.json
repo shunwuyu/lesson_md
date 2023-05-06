@@ -1,0 +1,29 @@
+{
+  "name": "koa2-blog",
+  "version": "1.0.0",
+  "description": "[source](https://github.com/wunci/Koa2-blog/blob/master/lib/mysql.js)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "env2": "^2.2.2",
+    "koa": "^2.14.1",
+    "koa-bodyparser": "^4.4.0",
+    "koa-router": "^12.0.0",
+    "koa-static-cache": "^5.1.4",
+    "koa-views": "^8.0.0",
+    "md5": "^2.3.0",
+    "moment": "^2.29.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.2.0",
+    "sequelize": "^6.29.3"
+  }
+}
