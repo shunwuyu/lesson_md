@@ -133,3 +133,112 @@ server {
         - 缺点
             计算成本高： ETag 的生成需要计算哈希值，计算成本通常比 Last-Modified 更高。
             网络传输成本高： ETag 的标识符通常比 Last-Modified 的时间戳更长，因此传输花费更大。
+
+- js 模块化 commonjs esmodule 区别
+    CommonJS 和 ESModules 是 JavaScript 中不同的模块化规范
+    CommonJS 是一种模块化规范，旨在解决浏览器端 JavaScript 不支持模块化开发的问题。它主要用于服务器端的 Node.js 环境，但在许多构建工具中也被广泛使用  require  module.exports 
+    ESModules 是 ECMAScript 的模块化规范，从 ECMAScript 6 开始被引入到 JavaScript 中，旨在解决前端 JavaScript 的模块化问题，并且可以在浏览器原生支持
+    import export
+
+    ESModules 是更加现代，更具可靠性和可维护性的模块化规范，但 CommonJS 适用于许多场景下，且在一些构建工具及 Node.js 环境中仍然被广泛使用。
+    - https://juejin.cn/post/7188173347199385656
+
+    1. commonjs是动态导入, 可以在代码的任何地方引入
+    ```
+    const tag = true
+    if (tag) {
+        const mData = require('a.js')
+        console.log(mData)
+    }
+    ```
+    2. esModule模块是静态导入（在编译阶段进行导入）
+    不能动态加载语句，所以import不能写在块级作用域和判断条件内
+    ESM的import命令具有提升效果，会提升到整个模块的头部
+    ```js
+console.log(mData) // 这里依然可以输出值
+import mData from 'a.js'
+// 以上代码不会报错，因为import命令是编译阶段执行的，在代码运行之前
+const tag = true
+if (tag) {
+  // 此处引入会报错
+  // import mData from 'a.js'
+  console.log(mData)
+}
+    3. 语法不同
+    module.exports + require
+    export default + import 
+    4. commonjs导出的是一个module.exports, 导入其实就是给变量赋值
+
+
+- 输入URL到页面呈现
+    分别从网络，解析，渲染来说
+    - 网络
+        1. DNS 解析
+            浏览器首先会将输入的 URL 解析成 IP 地址，这个过程就是 DNS 解析。浏览器会先在自己的缓存中查找对应的 IP 地址，如果没有找到则会向本地 DNS 服务器发起请求，如果本地 DNS 服务器也无法解析，则向域名的顶级 DNS 服务器发起请求，直到找到对应的 IP 地址。
+            分布式数据库
+        2. TCP 连接：浏览器通过找到的 IP 地址和端口号与目标服务器建立 TCP 连接，在这个过程中还包括了三次握手的过程，即 SYN、SYN/ACK、ACK。
+        3. 发送 HTTP 请求：TCP 连接建立之后，浏览器会向服务器发送 HTTP 请求，请求中包含了一些请求头和请求体。
+        4. 服务器处理请求并返回资源：服务器接收到 HTTP 请求之后，会根据请求的资源路径和请求方法，处理并返回相应的资源。这个过程中还可能会涉及到动态请求和数据库的访问等操作。
+            url 解析  路径  匹配路由， 参数， 查询
+
+    - 渲染
+        1. HTML 解析：浏览器首先会进行 HTML 解析，将 HTML 文件解析成 DOM (文档对象模型) 树，将网页内容转化成 JavaScript 对象，在这个过程中也会进行标签的解析和处理。同时，CSS 和 JavaScript 等其他资源的加载也会在这个阶段开始。
+        2. CSS 解析：浏览器进行 CSS 解析，会根据 CSS 规则将样式信息与 DOM 树绑定起来，产生带有样式信息的渲染树 (Rendering Tree)。
+        3. 布局和绘制：浏览器进行页面布局 (Layout) 计算，计算出每个元素在屏幕上的确切位置与大小，最终将渲染树与布局信息进行合并得到一棵新的树，称为绘制树 (Painting Tree)。最后，浏览器利用绘制树将页面绘制到屏幕上，形成最终的用户界面。
+         HTML 解析、CSS 解析、布局和绘制
+    
+    - 强调优化策略
+        减少 HTTP 请求  图片懒加载
+        压缩资源文件   webp
+        使用 CDN    js css    减少服务器压力
+        强调用户体验   骨架屏
+        利用浏览器缓存   强  协商
+
+- 实现一个 compose 函数
+    ```
+    function fn1(x) {
+  return x + 1;
+}
+function fn2(x) {
+  return x + 2;
+}
+function fn3(x) {
+  return x + 3;
+}
+function fn4(x) {
+  return x + 4;
+}
+const a = compose(fn1, fn2, fn3, fn4);
+console.log(a(1)); // 1+4+3+2+1=11
+
+    ```
+
+    function compose(...fn) {
+  if (!fn.length) return (v) => v;
+  if (fn.length === 1) return fn[0];
+  return fn.reduce(
+    (pre, cur) =>
+      (...args) =>
+        pre(cur(...args))
+  );
+}
+
+
+- 发布订阅模式
+    实现一个发布订阅模式拥有 on emit once off 方法
+
+- get post 区别
+    GET和POST是HTTP协议中的两种请求方法，用于向服务器提交数据和获取数据。主要区别在于
+    1. 数据传输方式：GET请求通过URL传递参数，而POST请求通过HTTP消息体传递参数。
+    2.     安全性：GET请求的参数在URL中直接可见，容易被拦截或窃听，因此不适合传递敏感信息；而POST请求的参数在HTTP消息体中，不会出现在URL中，相对安全。
+    3. 缓存机制：GET请求可以被浏览器缓存，POST请求不能被缓存。这意味着，GET请求适合处理无副作用的请求（即不会更改服务器状态的请求），例如获取静态文件，而POST请求适合处理具有副作用的请求（即会更改服务器状态的请求），例如提交表单或进行支付。
+
+    需要  安全性
+
+- vite webpack 区别
+    - 构建速度：Vite 比 Webpack 更快。Vite 利用浏览器原生 ES 模块加载能力，将代码拆分为更小的块，并启动一个 HTTP 服务来提供模块预构建，并将依赖关系推迟到请求时解析。这样可以提高构建速度。而 Webpack 对整个应用进行打包，并在文件改变时重新构建，构建时间较长
+    - 开发体验：Vite 为开发提供了更好的体验。通过开启一个 HTTP 服务，它可以在浏览器中实时更新代码，不需要每次修改代码后重新构建整个应用程序。此外，Vite 还支持 HMR（热模块替换），允许在应用程序运行时替换模块，从而加速开发速度。而 Webpack 需要重新构建整个应用程序才能查看更改结果。
+    - 配置：Vite 的配置相对简单。Vite 采用约定优于配置的原则，通过一小部分配置就可以完成绝大部分工作。而 Webpack 配置非常复杂，需要对各种 loader 和 plugin 进行配置
+
+
+
