@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vite Demo</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <button id="load">加载动态模块</button>
+    <script type="module">
+      const button = document.getElementById('load')
+      button.addEventListener('click', () => {
+        import('./dynamic.js')
+          .then(({ default: dynamicModule }) => {
+            console.log(dynamicModule())
+          })
+      })
+    </script>
+  </body>
+</html>
