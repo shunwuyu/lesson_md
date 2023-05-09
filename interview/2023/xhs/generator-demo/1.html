@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function ajax(url) {
+    fetch(url).then(data => data.json()).then(data => dataGen.next(data))
+}
+function* steps() {
+    console.log('fetching shunwuyu');
+    const shunwuyu = yield ajax('https://api.github.com/users/shunwuyu');
+    console.log('shunwuyu', shunwuyu);
+}
+const dataGen = steps();
+console.log(dataGen.next()); //{value: undefined, done: false}
+
+</script>
+</body>
+</html>
