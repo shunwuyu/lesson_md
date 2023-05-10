@@ -38,3 +38,48 @@
     1. plugin 
         css  分离   压缩
         js  tree-shaking
+    2. loader 
+        url-loader  图片base64 
+        clean-webpack-plugin  
+        html-webpack-plugin
+    3. 手写loader
+
+Webpack 是一个现代 JavaScript 应用程序的静态模块打包工具，它可以处理 JavaScript、CSS、静态资源等多种类型的文件，将它们打包成一个或多个包(bundle)。在项目开发中，我们可以通过 Webpack 对模块进行管理(es6)、优化(tree shaking)和分离(css js分离)，实现更好的代码组织、模块化开发、提升代码执行效率和减小打包文件大小（tree shaking）等多个方面的优化目标。
+
+- vue3  响应式为什么比vue2 快
+    - const shallowProxy = new Proxy(target, {
+  get(target, key) {
+    // 获取对象值的操作
+    // ...
+  },
+  set(target, key, value) {
+    // 设置对象值的操作
+    // ...
+  }
+}, 'shallow');
+    - 在Vue3中，使用Proxy对象实现了懒递归的响应式。懒递归是一种优化技术，它在数据被访问时才会进行依赖收集，而不是在数据被创建时就进行依赖收集。这种方式可以减少不必要的依赖收集和更新，从而提高性能。
+
+    懒递归的实现方式是利用了JavaScript中的“惰性计算”特性，即只有在需要的时候才进行计算。在Vue3中，Proxy对象会在响应式数据被访问时生成一个“getter”，该“getter”会进行依赖项的收集，并返回响应式数据对应的值。当响应式数据被更新时，在“setter”函数中会触发相应的依赖项更新。这种方式避免了在响应式数据被创建时就进行依赖项的收集和更新，从而减少了不必要的性能损失。
+
+    const reactive = (target) => {
+  return new Proxy(target, {
+    get(target, key) {
+      // 依赖项收集
+      track(target, key);
+
+      // 返回响应式数据对应的值
+      return Reflect.get(target, key);
+    },
+    set(target, key, value) {
+      // 更新响应式数据对应的值
+      const result = Reflect.set(target, key, value);
+
+      // 触发依赖项更新
+      trigger(target, key);
+
+      return result;
+    }
+  });
+};
+惰性函数
+https://github.com/mqyqingfeng/Blog/issues/44  
