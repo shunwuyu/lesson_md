@@ -1,3 +1,5 @@
+- https://github.com/aiai0603/seven-bit-ui/blob/master/packages/components/src/sbModal/sbModal.vue   
+- chrome 插件
 - 通信方式
 - webpack 持续升华
 [essay](https://github.com/wmui/essay)

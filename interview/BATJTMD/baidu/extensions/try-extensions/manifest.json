@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "Hello World Chrome Extension",
+    "version": "1.0",
+    "description": "A simple Chrome Extension that says hello world.",
+    "content_scripts": [
+      {
+        "matches": [
+          "http://*/*",
+          "https://*/*"
+        ],
+        "js": ["content-script.js"]
+      }
+    ]
+  }

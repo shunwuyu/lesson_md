@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>双飞翼布局</title>
+  <style>
+    .wrapper {
+      display: flex;
+      width: 100%;
+      min-height: 500px;
+    }
+
+    .main, .left, .right {
+        height: 200px;
+    }
+
+    .main {
+      flex: 1;
+      margin: 0 200px;
+      background-color: #ccc;
+    }
+
+    .left,
+    .right {
+      width: 200px;
+      position: relative;
+    }
+
+    .left {
+      margin-left: -100%;
+      right: 200px;
+      background-color: #f1f1f1;
+    }
+
+    .right {
+      margin-right: -200px;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="main">主要内容区域</div>
+    <div class="left">左边栏</div>
+    <div class="right">右边栏</div>
+  </div>
+</body>
+</html>

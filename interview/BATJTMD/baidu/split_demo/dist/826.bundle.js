@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksplit_demo=self.webpackChunksplit_demo||[]).push([[826],{902:(e,s,l)=>{l.r(s),l.d(s,{default:()=>o});const o=()=>{console.log("index")}}}]);
