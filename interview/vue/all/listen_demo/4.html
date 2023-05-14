@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const obj = {
+  name: 'Alice',
+  age: 18,
+  address: {
+    city: 'Beijing',
+    district: 'Haidian'
+  }
+}
+
+const handler = {
+  get(target, property) {
+    const value = target[property]
+    if (typeof value === 'object' && value !== null) {
+      return new Proxy(value, handler) // 递归调用 Proxy 实例
+    }
+    console.log(`get property '${property}': ${value}`)
+    return value
+  },
+  set(target, property, value) {
+    console.log(`set property '${property}' to ${value}`)
+    target[property] = value
+    return true
+  }
+}
+
+const proxy = new Proxy(obj, handler)
+proxy.name // 输出“get property 'name': Alice”
+proxy.address.city // 输出“get property 'city': Beijing”
+proxy.address.district = 'Chaoyang' // 输出“set property 'district' to Chaoyang”
+console.log(proxy.address) // 递归
+</script>   
+</body>
+</html>

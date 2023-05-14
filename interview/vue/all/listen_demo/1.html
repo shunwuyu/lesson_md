@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function observe(obj) {
+  if (!obj || typeof obj !== 'object') {
+    return
+  }
+
+  Object.keys(obj).forEach(key => {
+    let internalValue = obj[key]
+
+    Object.defineProperty(obj, key, {
+      get() {
+        console.log(`读取属性 ${key}: ${internalValue}`)
+        return internalValue
+      },
+      set(newValue) {
+        console.log(`设置属性 ${key}: ${newValue}`)
+        internalValue = newValue
+        observe(newValue) // 递归监听新值对象属性
+      }
+    })
+
+    observe(internalValue) // 递归监听属性值对象的属性
+  })
+}
+
+const obj = {
+  foo: {
+    bar: 'hello'
+  },
+  baz: [1, 2, 3]
+}
+
+observe(obj)
+
+obj.foo.bar = 'world' // 设置属性 foo.bar: world
+obj.baz.push(4) 
+obj.name = 'ddd';
+</script>
+</body>
+</html>

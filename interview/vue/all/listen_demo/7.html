@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const interceptors = {
+  get(key) {
+    console.log(key);
+  },
+  set(key, value) {
+    console.log(key, value);
+  },
+};
+// 创建代理
+const map = new Proxy(new Map(), {
+  get(target, key, receiver) {
+    // 如果调用的key存在于我们自定义的拦截器里，就用我们的拦截器
+    target = interceptors.hasOwnProperty(key) ? interceptors : target;
+    return Reflect.get(target, key, receiver);
+  },
+});
+
+map.set("key", "value"); // 输出 key value
+map.get("key"); // 输出 key
+</script>  
+</body>
+</html>

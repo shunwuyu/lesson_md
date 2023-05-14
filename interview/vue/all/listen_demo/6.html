@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 创建被代理对象
+const myObj = { name: 'Alice', age: 18, gender: 'female'};
+
+// 创建 Proxy 对象，实现对 delete 和 hasOwnProperty 方法的拦截
+const myProxy = new Proxy(myObj, {
+  deleteProperty(target, key) {
+    console.log(`正在删除 ${key}`);
+    return Reflect.deleteProperty(target, key);
+  },
+  has(target, key) {
+    console.log(`正在判断 ${key} 是否存在`);
+    return Reflect.has(target, key);
+  }
+})
+
+// 删除某个属性，触发 deleteProperty 拦截行为
+delete myProxy.age; // 输出：正在删除 age
+
+// 判断某个属性是否存在，触发 has() 拦截行为
+console.log('name' in myProxy); // 输出：正在判断 name 是否存在，true
+console.log('age' in myProxy);
+</script>  
+</body>
+</html>

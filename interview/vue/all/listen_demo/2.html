@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// push时，新增了索引并改变了长度，但新的索引未被observe
+// 修改新的索引对应的值
+// 弹出新的索引对应的值
+// 弹出索引被observe的值时，触发了get
+// 此时再去给原索引赋值时，发现并没有触发被observe的set，由此可见数组索引被删除后就不会被observe到了，那对象的属性是否也是一样的呢？如下图可见也是一样的
+// 修改索引为1的值，触发了set
+// unshift时，会将索引为0和1的值遍历出来存放，然后重新赋值
+function defineReactive(data, key, val) {
+  Object.defineProperty(data, key, {
+    enumerable: true,
+    configurable: true,
+     get: function defineGet() {
+      console.log(`get key: ${key} val: ${val}`)
+      return val
+    },
+     set: function defineSet(newVal) {
+      console.log(`set key: ${key} val: ${newVal}`)
+      // 还记得我们上面讨论的闭包么
+      // 此处将新的值赋给val，保存在内存中，从而达到赋值的效果
+      val = newVal
+    }
+  })
+}
+function observe(data) {
+  Object.keys(data).forEach(function(key) {
+    defineReactive(data, key, data[key])
+  })
+}
+
+let test = [1, 2, 3]
+// 初始化
+observe(test)
+
+// test.push(4) // 没有observe
+// test[3] = 5; // 点击原来的就打印
+// test.pop()
+// test.pop() // 原来的就触发了
+// test[2] = 1  
+// test[1] = 2
+// test.unshift(6)
+</script>
+</body>
+</html>
