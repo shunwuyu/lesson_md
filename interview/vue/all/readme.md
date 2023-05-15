@@ -189,3 +189,88 @@ https://juejin.cn/post/7204844328111374391
         requestIdleCallback 
 
     
+- Vue项目中如何解决跨域
+    跨域本质是浏览器基于同源策略的一种安全手段
+    同源策略（Sameoriginpolicy），是一种约定，它是浏览器最核心也最基本的安全功能
+
+    - 浏览器的限制
+        抓包工具抓取接口数据，是可以看到接口已经把数据返回回来
+
+        Webpack Proxy 配置可以通过将请求转发到其他服务器来解决跨域问题
+        ```
+        module.exports = {
+            devServer: {
+                // 代理所有以/api开头的请求到http://localhost:3000服务上
+                proxy: {
+                "/api": {
+                    target: "http://localhost:3000",
+                    changeOrigin: true,
+                    secure: false
+                }
+                }
+            }
+        };
+        ```
+        Webpack DevServer 充当了一个代理服务器的角色，将请求转发到后端服务，从而避免了浏览器跨域访问的限制。
+
+- Class 与 Style 如何动态绑定
+    - 对象语法
+    <div v-bind:class="{ active: isActive, 'text-danger': hasError }"></div>
+
+    data: {
+        isActive: true,
+        hasError: false
+    }
+    - 数组语法
+    <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+
+data: {
+  activeClass: 'active',
+  errorClass: 'text-danger'
+}
+
+    style 也是一样
+
+- history有哪些方法吗
+    history 这个对象在html5的时候新加入两个api history.pushState() 和 history.repalceState() 这两个API可以在不进行刷新的情况下，操作浏览器的历史纪录。唯一不同的是，前者是新增一个历史记录，后者是直接替换当前的历史记录。
+    在博客网站中点击文章列表中的某篇文章进入文章详情页时，可以使用pushState方法将当前的URL添加到浏览器历史记录中  
+    当用户在视频网站中浏览某个视频时，可以使用pushState方法来将当前视频的URL添加到浏览器历史记录中，这样用户可以通过浏览器的前进后退按钮返回到之前浏览过的视频。但是，在用户切换视频时，网站一般不会使用pushState，因为这样会导致历史记录中充斥着大量的视频URL，不仅会占用大量的内存资源，也会影响用户阅读体验。
+
+- 组件通信方式
+    - vue基本功
+    - vue基础api运用熟练度
+    - 知识广度  provide/inject/$attrs
+
+    - 知道的所有方式
+        8 种
+    - 按组件关系阐述使用场景
+
+        - ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf775050e1f948bfa52f3c79b3a3e538~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+    - props / $emit
+        父组件通过props的方式向子组件传递数据，而通过$emit 子组件可以向父组件通信。
+    - $children/$parent
+        Vue 3 已经不再支持 $parent 和 $children 属性了
+    - provide/ inject
+
+    - ref / refs
+        vue 2
+        vue3  ref + defineExpose 
+    - eventBus  vue 3.0 不再支持  provide/inject 
+        - mitt 例子  component_comnunicate
+    - vuex/pinia
+    - localStorage / sessionStorage
+    - $attrs与   
+        $attrs 是 Vue 3 中新增的属性，用于获取当前组件传递过来的所有非 prop 属性
+        ```
+        setup(props, { attrs }) {
+    // 使用 ref 获取响应式的 $attrs 对象
+    const $attrs = ref(attrs)
+
+    // 在模板中使用 $attrs 对象，并动态绑定 style 和 class 属性
+    const content = computed(() => $attrs.value.content)
+        ```
+    常见使用场景可以分为三类:
+        父子组件通信: props; $parent / $children; provide / inject ; ref ; $attrs
+        兄弟组件通信: eventBus ; vuex
+        跨级通信: eventBus；Vuex；provide / inject 、$attrs 
+
