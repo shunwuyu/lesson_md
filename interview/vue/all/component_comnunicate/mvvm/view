@@ -1,0 +1,4 @@
+<div id="app">
+    <p>{{message}}</p>
+    <button v-on:click="showMessage()">Click me</button>
+</div>

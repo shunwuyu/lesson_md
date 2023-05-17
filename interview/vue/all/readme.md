@@ -274,3 +274,253 @@ data: {
         兄弟组件通信: eventBus ; vuex
         跨级通信: eventBus；Vuex；provide / inject 、$attrs 
 
+- MVVM
+    1. 一种软件架构设计模式， 是一种简化用户界面的事件驱动编程方式
+    2. 起源于 MVC 
+        促进了前后端分离（前端有自己的Model了）， 提高了前端开发效率
+    3. 核心是 ViewModel 层，它就像是一个中转站
+        让数据变得更容易管理和使用，该层向上与视图层进行双向数据绑定，向下与 Model 层通过接口请求进行数据交互
+        ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/8/19/16ca75871ec53fba~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
+
+    - view层
+        视图层，也就是用户界面
+    - Model 层
+        数据模型，泛指后端进行的各种业务逻辑处理和数据操控，对于前端来说就是后端提供的 api 接口。
+    - ViewModel 层
+        前端开发人员组织生成和维护的视图数据层
+        从后端获取的 Model 数据进行转换处理，做二次封装，以生成符合 View 层使用预期的视图数据模型
+        完全解耦了 View 层和 Model 层，这个解耦是至关重要的，它是前后端分离方案实施的重要一环。
+
+    vuex/pinia 更好的管理VM  层
+    - mvvm demo
+
+-  Vue 项目优化点？
+    1. 代码层面的优化
+        - v-if 和 v-show 区分使用场景
+            Vue中的v-if和v-show都用于操控HTML元素的显示和隐藏，但它们的应用场景有所不同
+            v-if的特点是在条件不满足的情况下完全不渲染元素，因此在条件变化频繁且条件下的元素较多时，其首次渲染和切换相比较v-show性能较低
+            - 当需要在不同的条件下展示不同的元素时，使用v-if，因为它允许我们完全从DOM树中删除元素。
+            - 使用v-if来懒惰地渲染条件块
+            v-show的特点是在条件不满足的情况下只是将display样式设置为none，而元素仍然存在于DOM树中，因此在需要频繁切换某个元素的可见性时，使用v-show的性能会高于v-if
+            - 当需要在不同的条件下展示相同元素时，将同组元素切换显示/隐藏行为容易
+            不同元素 ， 同一元素   懒加载   频繁切换
+
+        - computed 和 watch 区分使用场景
+            computed_watch_demo
+            相同点 二者都是通过监听属性的变化来触发特定的响应函数，以完成特定的业务逻辑。
+            区别
+                1. computed 是计算属性，通常用于根据已有的响应式数据计算出一个新的值。计算属性是惰性求值的，即只有当其依赖的响应式数据发生变化时，才会重新计算。而 watch 是监听属性，用于监听一个特定的属性的变化，当该属性变化时，watch 提供了一个回调函数来完成特定的操作。
+                2. computed 一般用于返回一个计算结果，这个结果会被用于模板中的绑定。而 watch 只能依赖一个特定的属性，并在该属性变化时触发回调。
+                3. computed 底层使用了 Object.defineProperty 实现数据劫持（vue3 proxy），所以在支持 ES5 以及以上版本的环境下运行。而 watch 利用了 Vue.js 内部的观察者机制实现，可以在更低版本的浏览器和环境下运行。
+            - 场景
+                - computed 计算购物车中的商品总价
+                - watch   search keywords 
+
+                我们通过监听 keyword 的变化，实时地获取用户输入的搜索关键字，并触发异步请求数据的操作。当异步请求返回数据后，我们通过改变 resultList 的值，实时地更新 DOM 元素。
+
+                我们使用 computed 无法实现，因为 computed 是“懒计算”的，只有“计算属性”的依赖数据发生变化时，computed 才会重新计算。而在这个场景中，我们需要实时地异步请求数据，并更新 DOM 元素，因此使用 watch 更加适合。
+
+        - v-for 遍历必须为 item 添加 key，且避免同时使用 v-if
+            - Vue 中要求使用 key 给 v-for 的每个元素绑定一个唯一的键值，目的是为了让 Vue 更高效地使用 diff 算法，减少不必要的元素重新排序和重新渲染。
+            - 把 index 作为 key 的缺点是，当数据发生增删操作时，改变其中一个元素的位置时，就会重新渲染整个列表，这是Vue希望避免的。因为 index 是每次更新时都会重新生成的，而 diff算法是根据 key 的比较来判断元素是否变化的。
+            - 如果使用唯一的值作为 key，则不仅可以让 Vue 合理地更新列表，还可以提高渲染效率
+            还要避免同时使用v-if
+            如果 v-for 嵌套 v-if，会导致每次重新渲染时，整个列表都要重新计算 v-if，浪费性能。
+            需要注意的是，如果 key 值没有变化，Vue 会复用这个元素，即使它在前一次渲染中被插入另一个位置或被移除了。所以，如果我们使用 v-if 来改变列表的结构，但同时又把 key 值设置成固定的 index，就会导致 Vue 在复用元素时无法正确地判断元素是否变化，从而导致渲染问题和性能问题。
+        - 长列表性能优化
+            虚拟列表是一种优化长列表性能的方法,它通过只渲染用户当前可见的数据来减少 DOM 操作，可以带来以下几个好处：
+            1. 明显优化了页面渲染性能，降低页面卡顿的可能，使用户体验更好
+            ```
+            const container = ref(null)
+            const list = ref([])
+
+            const ITEM_HEIGHT = 50
+            const VISIBLE_COUNT = 10
+
+            const viewHeight = computed(() => {
+            if (container.value) {
+                return container.value.clientHeight
+            } else {
+                return 0
+            }
+            })
+
+            const visibleData = computed(() => {
+            const start = Math.floor(scrollTop.value / ITEM_HEIGHT)
+            const end = start + VISIBLE_COUNT
+            return list.value.slice(start, end)
+            })
+            ```
+             ref 获取列表容器的 DOM 节点 container，通过 ref 获取原始数据 list。并定义 ITEM_HEIGHT 表示列表项的高度，VISIBLE_COUNT 表示可见列表项的数量，这两个值可以根据具体情况而定。
+             通过 computed 计算容器的可见高度 viewHeight，并利用 scrollTop 计算可见的数据窗口，用 slice 函数从数据源中取出相应的数据。这样，只需要渲染视窗内的数据，就可以大大提高渲染效率。
+            2. 减少 DOM 操作，进一步提高性能。由于只渲染用户可视的数据，即使列表数据很多，也不会产生大量无意义的 DOM 操作，减少内存消耗，避免卡顿等问题。
+            <template>
+            <div ref="container" class="list">
+                <div :style="{ height: totalHeight + 'px' }">
+                <div v-for="(item, index) in visibleData" :key="item.id"
+                    :style="{ transform: 'translateY(' + (index * ITEM_HEIGHT) + 'px)' }">
+                    {{ item.text }}
+                </div>
+                </div>
+            </div>
+            </template>
+            
+            虚拟列表在性能优化方面具有明显的优势，可以降低页面卡顿的可能性，并显著提高网页甚至是移动应用的渲染效率。
+
+            渲染虚拟列表对应的代码实现包含两个模块，一模块是监控滚动条变化并计算可视视窗内的列表项（如上文中所示）；另一模块是利用得到的可视数据渲染视窗内的数据，达到“虚拟”的效果。
+            ![](https://pic4.zhimg.com/v2-7c21394d91b861eb5894f7b2e455096f_r.jpg)
+
+        IntersectionObserver
+
+    - 事件的销毁
+        onUnmounted   移除事件  interval 
+    - 图片资源懒加载
+        以下是使用 vue3 实现图片懒加载的代码，需要安装 vue3-lazyload 包。
+        ```
+        <template>
+  <div>
+    <!-- 使用 v-lazy 指令绑定图片的路径 -->
+    <img v-lazy="imgUrl" alt="图片">
+  </div>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+import { lazyload } from 'vue3-lazyload';
+
+export default defineComponent({
+  directives: { 
+    lazy: lazyload, // 将 v-lazy 指令绑定 vue3-lazyload 插件导出的指令
+  },
+  data() {
+    return {
+      imgUrl: 'https://xxx.com/xxx.jpg',
+    };
+  },
+});
+</script>
+        ```
+        - 自定义指令
+        - 使用 Intersection Observer API 监视需要懒加载的图片是否在可视区域内，如果在可视区域内就将图片的路径赋值给 src 属性，从而实现图片的懒加载。
+        ```
+        <template>
+  <div v-highlight>This element will be highlighted when clicked.</div>
+</template>
+
+<script>
+import { defineDirective } from 'vue';
+
+export default {
+  setup() {
+    // 创建 v-highlight 自定义指令
+    const highlightDirective = defineDirective((el) => {
+      // 给元素绑定点击事件监听函数
+      const handleClick = () => {
+        // 点击后给元素添加高亮背景色
+        el.style.backgroundColor = 'yellow';
+      };
+      el.addEventListener('click', handleClick);
+
+      // 在指令钩子结束时移除事件监听函数
+      return {
+        beforeUnmount() {
+          el.removeEventListener('click', handleClick);
+        },
+      };
+    });
+
+    // 将 v-highlight 绑定到自定义指令上
+    return {
+      directives: {
+        highlight: highlightDirective,
+      },
+    };
+  },
+};
+</script>
+        ```
+        
+    - 路由懒加载
+    - 第三方插件的按需引入
+    - 服务端渲染 SSR or 预渲染
+        SEO  
+        Vue 预渲染是一种技术，它能够将 Vue 单页面应用（SPA）预先生成静态页面，提升首屏加载速度和搜索引擎的有效索引。
+
+- Webpack 层面的优化
+    - Webpack 对图片进行压缩
+    ```
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              fallback: 'file-loader',
+              name: '[name].[ext]',
+              outputPath: 'images/'
+            },
+    ```
+    - 减少 ES6 转为 ES5 的冗余代码
+        - 避免使用过多的语法糖
+            ```
+            const name = "Tom";
+            console.log(`Hello, ${name}!`);
+            ```
+            ```
+            const name = "Tom";
+            console.log("Hello, " + name + "!");
+            ```
+
+    - 提取公共代码
+        ```
+        const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: {
+    main: './src/index.js',
+    other: './src/other.js'
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js'
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack Demo',
+      template: './src/index.html'
+    })
+  ]
+};
+        ```
+        使用了 Webpack 的 SplitChunks 插件，并将所有在 node_modules 目录下的代码都打包到 vendors.bundle.js 文件中。通过这个配置，我们可以有效地提取公共代码，以优化打包文件的大小。
+
+    - 提取组件的 CSS
+    - 优化 SourceMap
+        - sourcemap 是一种映射关系，它将打包后的代码映射回原始源代码，用于方便调试。
+    - Vue 项目的编译优化
+        - 开启 production 模式
+        - App Bundle 被仔细拆分
+            SplitChunksPlugin 和 BundleAnalyzerPlugin
+        - Tree Shaking
+        - 使用 CDN 引入静态资源
+            可以减轻服务器的压力，提高页面的加载速度
+
+    - 基础的 Web 技术的优化
+        - 开启 gzip 压缩
+        - 浏览器缓存
+        - CDN 的使用
+        - 使用 Chrome Performance 查找性能瓶颈

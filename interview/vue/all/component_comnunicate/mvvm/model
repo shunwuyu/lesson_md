@@ -1,0 +1,8 @@
+{
+    "url": "/your/server/data/api",
+    "res": {
+        "success": true,
+        "name": "IoveC",
+        "domain": "www.cnblogs.com"
+    }
+}

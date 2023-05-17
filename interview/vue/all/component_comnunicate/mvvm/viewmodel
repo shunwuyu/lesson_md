@@ -1,0 +1,22 @@
+var app = new Vue({
+    el: '#app',
+    data: {  // 用于描述视图状态   
+        message: 'Hello Vue!', 
+    },
+    methods: {  // 用于描述视图行为  
+        showMessage(){
+            let vm = this;
+            alert(vm.message);
+        }
+    },
+    created(){
+        let vm = this;
+        // Ajax 获取 Model 层的数据
+        ajax({
+            url: '/your/server/data/api',
+            success(res){
+                vm.message = res;
+            }
+        });
+    }
+})

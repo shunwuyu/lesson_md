@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IntersectionObserver Demo</title>
+    <style>
+        #container {
+            height: 300px;
+            overflow-y: scroll;
+        }
+        
+        .item {
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="list">
+            <div class="item">Item #0</div>
+            <div class="item">Item #1</div>
+            <div class="item">Item #2</div>
+            <div class="item">Item #3</div>
+            <div class="item">Item #4</div>
+            <div class="item">Item #5</div>
+            <div class="item">Item #6</div>
+            <div class="item">Item #7</div>
+            <div class="item">Item #8</div>
+            <div class="item">Item #9</div>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector('#container')
+        const list = document.querySelector('#list')
+        
+        let items = Array.from(list.children)
+        let itemHeight = items[0].offsetHeight
+        let visibleCount = Math.ceil(container.offsetHeight / itemHeight)
+        
+        function render() {
+            let scrollHeight = container.scrollTop
+            let start = Math.floor(scrollHeight / itemHeight)
+            let end = start + visibleCount
+            
+            items.forEach((item, index) => {
+                if (index >= start && index < end) {
+                    item.style.opacity = 1
+                } else {
+                    item.style.opacity = 0
+                }
+            })
+        }
+        
+        let observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                let index = items.indexOf(entry.target)
+                if (entry.isIntersecting) {
+                    items[index].style.opacity = 1
+                } else {
+                    items[index].style.opacity = 0
+                }
+            })
+        })
+        
+        items.forEach(item => observer.observe(item))
+        container.addEventListener('scroll', render)
+        render()
+    </script>
+</body>
+</html>
