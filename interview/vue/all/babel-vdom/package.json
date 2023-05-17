@@ -1,0 +1,19 @@
+{
+  "name": "babel-vdom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel input.vue -o compiled.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@vue/babel-plugin-jsx": "^1.1.1",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/compiler-sfc": "^3.3.2"
+  }
+}
