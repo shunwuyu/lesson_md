@@ -1,0 +1,17 @@
+{
+  "name": "gzip-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.14.2",
+    "koa-compress": "^5.1.1",
+    "koa-express": "^1.1.0"
+  }
+}
