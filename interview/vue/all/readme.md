@@ -682,3 +682,26 @@ module.exports = {
     - Composition API对 tree-shaking 友好，代码也更容易压缩
     - Composition API中见不到this的使用，减少了this指向不明的情况
     - 如果是小型组件，可以继续使用Options API，也是十分友好的
+
+-   vue3 和 vue 2 区别
+    1. 响应式系统 Object.defineProperty()   Proxy
+    2. 组合式 API  不提供                  更好的代码组织和复用
+    3. Teleport 组件  NO                   新增组件   To  body
+    4. Fragment 标签  No                   支持
+    5. 静态属性 Hoist No                   支持对静态属性进行 Hoist 优化
+    6. 编译器         采用独立的编译器      集成在运行时中，减小包体积
+    7. 打包体积       相对较大              相对较小
+    8. 性能          相对较差               相对较好
+    9. 兼容性        IE9 及以上             IE11 及以上
+
+    - 性能
+        - 响应式
+        对于绝大多数的情况来说，Proxy 的性能确实相对较低，因为Proxy对对象的所有操作都要进行拦截和处理，所以在读取和修改对象属性的时候会产生一些额外的开销。而Object.defineProperty() 可以直接修改对象属性的 getter 和 setter，因此在数据量较小的不过在 Vue 的场景中，响应式对象通常需要进行频繁的读取和修改操作，这就会产生大量的 setter 和 getter 方法（函数， proxy 是handler），从而导致 Object.defineProperty() 的性能成为瓶颈。而Proxy 对象在拦截 setter/getter 时只会在需要拦截的时候才会被调用，因此在 Vue 的场景中，采用 Proxy 访问响应式对象可以更加高效，并且能够避免 Object.defineProperty() 导致的性能瓶颈情况下，它的性能更好。
+        - 编译器的改进
+            Vue 3.x 的编译器使用了更为优化的算法和更高效的 AST 处理方式，可以生成更加紧凑高效的代码， 可以减少包体积
+        - Tree shaking：
+            Vue 3.x 的代码采用了更加模块化的设计，并且采用了 ES Module 的标准，可以让现代打包工具更容易进行 Tree shaking，减少了包体积
+            函数式写法， 有利于tree-shaking 
+        
+
+

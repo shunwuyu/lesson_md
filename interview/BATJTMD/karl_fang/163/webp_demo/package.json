@@ -1,0 +1,16 @@
+{
+  "name": "webp_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "false": "^0.0.4",
+    "sharp": "^0.32.1"
+  }
+}
