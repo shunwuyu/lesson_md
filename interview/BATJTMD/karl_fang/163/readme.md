@@ -302,3 +302,147 @@ module.exports = {
     - 如果没有冲突，则可以直接执行 git rebase --continue 命令完成变基操作。
     - 完成变基后，可以切换到 master 分支：git switch master
     - 合并 feature 分支：git merge feature。
+
+- vue3 通用组件的封装应该做哪些
+    设计
+        确定组件的功能和用途。组件应该具有明确的职责，并且能够解决一类问题
+        表单组件、列表组件、弹窗组件等。   
+    需求分析
+        - props、events、slots
+    开发
+        - 对于 props 传入的数据类型进行校验，防止类型错误导致的组件行为异常或崩溃
+        - 组件应该具备可扩展性和自定义性，并且要有良好的样式隔离
+        - 支持交互行为 以提高用户体验
+        - 在组件中，需要考虑到国际化的需求，
+
+- 怎么管理这些组件的
+    通用组件应该放在components单独的文件夹中，以便于管理和复用。这些通用组件可以包括按钮、输入框、下拉菜单等常见的 UI 组件，也可以包括更高级别的功能组件，如表单验证、模态框等 
+    有时候还会加 common
+
+- 如何发布组件到 npm
+    https://juejin.cn/post/6844903953180835847
+
+- 跨域
+    跨域是指在浏览器中，当前网页所在的域与所请求资源的域不一致（端口 域名（子域名）  协议）
+    出于安全考虑，浏览器默认禁止通过脚本（如 JavaScript）访问其他域下的资源，这种限制称为“同源策略”
+
+- 解决跨域的方法有哪些
+    jsonp 动态插入 script
+    CORS  跨域资源共享
+    代理 将跨域请求转发到自己的服务器上，再由服务器向目标服务器发起请求，拿到数据后再返回给前端页面。这种方式需要自己搭建代理服务器。
+    WebSocket 
+    postMessage
+
+- 图片可以跨域吗    link 呢？
+    利用img.src 发送请求， 但是发送http请求不是img.src 的真正意义 JSONP 一样
+    img link  script 都可以跨域
+    video、audio、iframe
+    script 里面是脚本禁止跨域
+        XMLHttpRequest 
+
+- 正向代理 反向代理
+    正向代理：客户端通过正向代理服务器访问目标服务器，正向代理服务器代表客户端发起请求并返回响应结果。正向代理隐藏了客户端身份，可以帮助用户翻墙、提高访问速度等。
+    翻墙
+    CDN
+
+    反向代理：客户端通过反向代理服务器访问目标服务器，反向代理服务器代表目标服务器处理请求并将响应结果返回给客户端。反向代理隐藏了服务器身份，可以实现负载均衡、缓存、安全过滤等功能。
+    负载均衡
+
+
+- 如果用户访问当前页面比较慢或者白屏了，怎么分析，都有哪些可能
+    如果用户访问当前页面比较慢或白屏了，有多种可能的原因，以下是一些常见的情况：
+
+    网络连接问题：用户的网络连接可能不稳定或者速度较慢，这会导致页面加载时间变长或者无法加载完整页面。可以通过检查其他网站是否同样受到影响来确定这是否是个人网络问题。
+    服务器问题：如果服务器出现故障或者承载过多的流量，那么页面可能会很慢或者无法加载。可以尝试访问其他具有相似资源需求的网站，比较它们的响应时间来判断是否是服务器问题。
+    前端代码问题：前端代码中可能存在错误或者大量复杂的代码，这也会导致页面加载缓慢。可以通过浏览器控制台检查页面是否存在 JavaScript 错误或者其他问题。
+    数据库查询问题：如果页面需要从数据库中获取数据，则查询速度可能会影响页面加载时间。可以检查数据库性能并优化查询以提高页面加载时间。
+    缓存问题：如果页面需要从缓存中获取数据，但缓存未命中或已过期，则可能会导致页面加载缓慢。可以尝试清除浏览器缓存并重新加载页面。
+
+- 当使用代理服务器时，IP解析可能会出现问题，具体情况取决于是使用了正向代理还是反向代理以及代理服务器的配置方式。下面是一些常见的IP解析问题：
+
+正向代理：当使用正向代理服务器时，目标服务器看到的请求来自于代理服务器的IP地址，而不是客户端的实际IP地址。这就意味着，在某些情况下，例如身份验证、访问控制等，目标服务器不能正确地识别客户端的身份。此外，在某些CDN缓存服务中，代理服务器也可以被视为客户端，从而导致CDN缓存失效。
+
+反向代理：当使用反向代理服务器时，客户端看到的响应来自于代理服务器的IP地址，而不是目标服务器的实际IP地址。这可能导致客户端无法直接与目标服务器通信，而需要通过反向代理服务器进行通信。此外，在某些情况下，例如SSL/TLS协议中，目标服务器无法正确检测客户端的IP地址，因为SSL/TLS连接始终建立在反向代理服务器和目标服务器之间。
+
+总之，使用代理服务器时，IP解析可能会出现问题，特别是在涉及安全性、身份验证、访问控制、CDN缓存等方面。因此，在使用代理服务器时，需要仔细考虑代理服务器的类型和配置方式，以确保目标服务器能够正确地识别客户端身份，并且客户端能够直接与目标服务器通信。
+
+- 事件代理  事件委托区别
+    事件代理和事件委托这两个没有区别！！仅仅只是叫法不同而已。
+    避免大量事件注册
+    对性能更友好。
+    事件代理是利用事件冒泡将事件从目标元素传递到父元素，而事件委托则是在父元素上统一绑定事件处理程序来处理多个子元素的事件。
+
+    <table id="my-table">
+  <tr>
+    <td>Row 1, Column 1</td>
+    <td>Row 1, Column 2</td>
+    <td><button class="delete-btn">Delete</button></td>
+  </tr>
+  <tr>
+    <td>Row 2, Column 1</td>
+    <td>Row 2, Column 2</td>
+    <td><button class="delete-btn">Delete</button></td>
+  </tr>
+  <tr>
+    <td>Row 3, Column 1</td>
+    <td>Row 3, Column 2</td>
+    <td><button class="delete-btn">Delete</button></td>
+  </tr>
+</table>
+
+var myTable = document.getElementById('my-table');
+myTable.addEventListener('click', function(event) {
+  if (event.target.classList.contains('delete-btn')) {
+    var row = event.target.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+  }
+});
+
+
+- 实现防抖函数
+    - 节流 和防抖的区别
+        防抖是在一段时间内只执行最后一次操作，节流是每隔一段时间执行一次操作。
+        Debounce  防抖
+        Throttle  节流  
+
+        function debounce(func, wait) {
+  let timeout;
+
+  return function executedFunction() {
+    const context = this;
+    const args = arguments;
+
+    const later = function() {
+      timeout = null;
+      func.apply(context, args);
+    };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+防抖函数的高级版本是支持立即执行和延迟执行的。在立即执行模式下，函数会在事件触发后立即执行一次；在延迟执行模式下，函数会等待一定时间后再执行。
+
+以下是一个基于 JavaScript 的带有立即执行和延迟执行功能的防抖函数的代码实现：
+
+
+function debounce(func, wait, immediate) {
+  let timeout;
+
+  return function executedFunction() {
+    const context = this;
+    const args = arguments;
+
+    const later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    const callNow = immediate && !timeout;
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+
+    if (callNow) func.apply(context, args);
+  };
+}
