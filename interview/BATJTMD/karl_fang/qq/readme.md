@@ -143,7 +143,17 @@
         首先，z-index属性值并不是在任何元素上都有效果。它仅在定位元素（定义了position属性，且属性值为非static值的元素）上有效果。
         判断元素在Z轴上的堆叠顺序，不仅仅是直接比较两个元素的z-index值的大小，这个堆叠顺序实际由元素的层叠上下文、层叠等级共同决定。
 
+- https://github.com/shengxinjing/upload/blob/master/src/main.js
 
+- CSS 当中以 @ 开头的属性有哪些
+   @import：引入其他 CSS 文件。
+    @media：根据不同屏幕尺寸应用不同的样式。
+    @font-face：定义自己的字体库。
+    @keyframes：定义 CSS 动画的关键帧。
 
-
-       
+    @import 要注意什么？
+    当浏览器解析到 @import 语句时，它会立即暂停当前文件的加载，并开始加载被引用的外部 CSS 文件。这个过程是串行的，也就是说，每个外部文件必须在前一个外部文件加载完成后才能开始加载。
+- 假如让你设计一个适配 PC、手机和平板的项目，你有哪些布局方案
+    - 首先是vh、vw
+    - 淘宝lib-flexible
+    - script 阻塞  动态rem 
