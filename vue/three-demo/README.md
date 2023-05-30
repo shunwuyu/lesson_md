@@ -3,3 +3,4 @@
 因为Lodash-es采用了ES模块标准，所以它可以更好地与现代的构建工具（如Webpack、Rollup等）配合使用，并且可以更容易地进行Tree Shaking优化。另外，由于ES模块已经成为了JavaScript的标准特性，因此Lodash-es也可以直接在浏览器端使用。
 
 需要注意的是，虽然Lodash-es和Lodash在功能上是相同的，但它们的API并非完全兼容。在使用Lodash时需要注意不同版本之间的差异。
+

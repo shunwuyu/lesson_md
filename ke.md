@@ -1,3 +1,4 @@
+- vue\file-upload\upload-demo
 - vue\three-demo
 - GO/crud
 - interview\BATJTMD\karl_fang\pdd
