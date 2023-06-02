@@ -1,5 +1,4 @@
 const baseUrl = 'http://localhost:3000'
-
 export function request({
     url,
     method = "post",
@@ -33,10 +32,7 @@ export function request({
                 }
               }
         };
-        // 存储 在vue中的this.requestList中 方便暂停 ?.信誉发
-        // if(requestList.)
         requestList && requestList.push(xhr)
-        //  && requestList.push('shengxinjing')
     });
 }
 export async function post(url,data){
