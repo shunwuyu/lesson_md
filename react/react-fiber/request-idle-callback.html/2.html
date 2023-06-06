@@ -39,9 +39,11 @@
     }
     // 创建关系链
     function link(parent, children) {
+      // console.log(parent, children, '//////')
       if (children === null) children = [];
 
       // child 指向第一个子元素
+      console.log(children, '???')
       parent.child = children.reduceRight((previous, current) => {
         const node = new Node(current);
         node.return = parent;

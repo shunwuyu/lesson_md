@@ -10,9 +10,9 @@
 
 <body>
   <script>
-    var tasksNum = 10
+    var tasksNum = 10000000
     let i = 0;
-
+    
     requestIdleCallback(unImportWork)
     /*
       deadline 有两个参数
@@ -28,6 +28,7 @@
       }
 
       if (tasksNum > 0) { // 在未来的帧中继续执行
+        // console.log('++++++++++++');
         requestIdleCallback(unImportWork)
       }
     }

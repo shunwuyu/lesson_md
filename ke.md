@@ -1,3 +1,4 @@
+- vue/long/long
 - vue\file-upload\upload-demo
 - vue\three-demo
 - GO/crud

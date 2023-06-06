@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">button</button><br>
+    <ul id="container"></ul>
+<script>
+document.getElementById('button').addEventListener('click',function(){
+    // 记录任务开始时间
+    let now = Date.now();
+    // 插入一万条数据
+    const total = 10000;
+    // 获取容器
+    let ul = document.getElementById('container');
+    // 将数据插入容器中
+    for (let i = 0; i < total; i++) {
+        let li = document.createElement('li');
+        // 按位取反运算符   取反会将小数部分折断
+        li.innerText = ~~(Math.random() * total)
+        ul.appendChild(li);
+    }
+    console.log('JS运行时间：',Date.now() - now);
+    setTimeout(()=>{
+      console.log('总运行时间：',Date.now() - now);
+    },0)
+
+    // print JS运行时间： 38
+    // print 总运行时间： 957 
+})
+
+</script>
+</body>
+</html>
