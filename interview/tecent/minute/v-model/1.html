@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>双向绑定示例</title>
+</head>
+<body>
+  <label>姓名：</label><input id="name-input" type="text"><br>
+  <label>年龄：</label><input id="age-input" type="text"><br>
+  <p>您输入的姓名是：<span id="name-output"></span></p>
+  <p>您输入的年龄是：<span id="age-output"></span></p>
+
+  <script>
+    // 获取DOM元素
+    const nameInput = document.querySelector('#name-input');
+    const ageInput = document.querySelector('#age-input');
+    const nameOutput = document.querySelector('#name-output');
+    const ageOutput = document.querySelector('#age-output');
+
+    // 定义数据对象
+    const data = {
+      name: '',
+      age: ''
+    };
+
+    // 创建代理
+    const proxy = new Proxy(data, {
+      set(target, key, value) {
+        target[key] = value;
+        if (key === 'name') {
+          nameOutput.innerText = value;
+          nameInput.value = value;
+        } else if (key === 'age') {
+          ageOutput.innerText = value;
+          ageInput.value = value;
+        }
+        return true;
+      }
+    });
+
+    // 绑定数据
+    nameInput.addEventListener('input', function() {
+      proxy.name = nameInput.value;
+    });
+    ageInput.addEventListener('input', function() {
+      proxy.age = ageInput.value;
+    });
+
+  </script>
+</body>
+</html>
