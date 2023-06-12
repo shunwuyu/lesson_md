@@ -1,0 +1,17 @@
+{
+  "name": "ninghao-langchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@huggingface/inference": "^1.8.0",
+    "dotenv": "^16.1.4",
+    "langchain": "^0.0.92"
+  }
+}

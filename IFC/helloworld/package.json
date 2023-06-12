@@ -1,0 +1,23 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "[source](https://github.com/IFCjs/hello-world/tree/main/examples/web-ifc-three/helloworld)",
+  "main": "index.js",
+  "scripts": {
+    "watch": "rollup --watch --config rollup.config.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.2",
+    "rollup": "^2"
+  },
+  "dependencies": {
+    "three": "^0.135.0",
+    "web-ifc-three": "0.0.117",
+    "three-mesh-bvh": "^0.5.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
