@@ -1,0 +1,27 @@
+{
+  "name": "three-dp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/lodash-es": "^4.17.7",
+    "@types/node": "^20.3.0",
+    "@types/three": "^0.152.1",
+    "echarts": "^5.4.2",
+    "lodash-es": "^4.17.21",
+    "mitt": "^3.0.0",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "three": "^0.152.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vue-tsc": "^1.4.2"
+  }
+}

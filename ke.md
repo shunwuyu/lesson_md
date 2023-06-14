@@ -1,3 +1,4 @@
+- vue/three-dp
 - IFC\helloworld
 - interview\tecent\minute
 - vue/long/long
