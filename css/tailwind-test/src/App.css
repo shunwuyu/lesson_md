@@ -1,0 +1,10 @@
+@tailwind base; /* 基础样式 */
+@tailwind components; /* 组件样式 */
+@tailwind utilities; /* 工具样式 */
+
+@layer components {
+  .btn-primary {
+    @apply w-24 text-center h-12 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none
+  }
+}
+
