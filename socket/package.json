@@ -17,7 +17,7 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "ejs": "^2.5.6",
+    "ejs": "^3.1.7",
     "express": "^5.0.0-alpha.5",
     "socket.io": "^2.2.0"
   }
