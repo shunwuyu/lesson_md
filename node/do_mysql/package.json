@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "mysql2": "^1.6.5",
-    "sequelize": "^5.8.10",
+    "sequelize": "^6.29.0",
     "sequelize-cli": "^5.5.0"
   }
 }
