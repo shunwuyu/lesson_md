@@ -10,7 +10,7 @@
   "author": "yushunwu <shunwu2001@163.com> (https://shunwuyu.github.io)",
   "license": "MIT",
   "dependencies": {
-    "cnpm": "^6.0.0",
+    "cnpm": "^9.0.1",
     "webpack": "^4.32.2"
   }
 }
